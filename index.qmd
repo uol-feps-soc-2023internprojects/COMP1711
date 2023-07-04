@@ -1,0 +1,8 @@
+---
+title: "Procedural Programming"
+toc: true
+number-sections: false
+highlight-style: pygments
+---
+
+This site is a center of information for the module: COMP 1711 Procedural Programming

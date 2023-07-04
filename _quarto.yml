@@ -1,0 +1,19 @@
+project:
+  type: website
+
+website:
+  sidebar:
+    title: "COMP1711 - Procedural Programming" 
+    style: docked
+    contents: 
+      - section: Notes
+        contents: Notes/*
+      - section: Exercises
+        contents: Exercises/*
+
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
