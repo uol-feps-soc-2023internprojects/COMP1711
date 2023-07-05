@@ -1,3 +1,32 @@
-# 1:  Linux Comand line skills
+---
+code-block-bg: true
+---
 
-important 
+# 1:  Linux Command line skills
+
+## The prompt
+As a user the first time you open a terminal you will likely be greeted by a prompt. On codespaces this prompt will often take the form `@{user} -> workspace/{repository} $` whereas on a standard linux machine the prompt often takes the form `{user}@{hostname} $`. Because of these differences most sources of information will simply show the prompt as the single `$` that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command.
+
+## Your first command
+Select your terminal and type the command `pwd` after the prompt. (pwd is an acronym for print working directory)
+``` bash
+$ pwd
+```
+This command will print the full path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed.  
+Now try this command. (ls is a shortening of the word list)
+``` bash
+$ ls
+```
+This will output a list of the contents of the current directory. In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information.
+``` bash
+$ ls -F
+```
+This command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. The `-F` part of this command is known as an option.
+
+## Options  
+Options are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option `-a` will additionally reveal all the 'hidden' items in the directory (all the items with names starting with a .) and using the `-l` command will output a table with lots of additional information about the directory entries including size and last edit time.
+
+steps:  
+pwd - show directory  
+ls [path]  
+cd [path]  
