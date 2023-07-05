@@ -5,6 +5,82 @@ title: "1: Intro to the terminal, git and codespaces."
 # The terminal
 The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.
 
+# Opening a Codespace
+Follow these steps to create a blank template for a codespace to follow this tutorial:
+
+1. On github.com, after logging in, left-click the user icon in the top right corner of the window to open a list of options. From this list select 'your codespaces'  
+
+![](/img/github-right-sidebar.png)
+
+2. From the quick start templates select to use the blank template. This will open a codespace in a new browser tab.
+
+![](/img/github-codespace-template.png)
+
+3. This environment will look very familiar to those who have used vs code before and is comprised of 3 main elements. The editor window, the file explorer and the terminal window: labeled in the image below.
+
+![](/img/codespace.png)
+
+# Using the Terminal
+## The prompt
+As a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form `@{user} -> workspace/{repository} $` whereas on a standard linux machine the prompt often takes the form `{user}@{hostname} $`. Because of these differences most sources of information will simply show the prompt as the single `$` that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command.
+
+## Your first command
+Select your terminal and type the command `pwd` after the prompt. (pwd is an acronym for print working directory). Your output should be similar to what is seen below:
+``` bash
+$ pwd
+/workspaces/codespaces-blank
+```
+This command will print the absolute path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed. The slash at the start of the path represents the root of the filesystem and the subsequent terms represent a series of hierarchical directories.
+
+## Seeing your files
+Now try the `ls` command. (ls is a shortening of the word list)
+This will output a list of the contents of the current directory, though in your case this directory is empty. To change that run the following commands exactly:
+``` bash
+git clone https://github.com/callaghanmt/shell-training.git .
+```
+:::{.callout-note}
+This step uses the version control tool git, more will be explained about this later.
+:::
+Now if we rerun `ls` we should get a different outcome
+``` bash
+$ ls
+IOM-animals  data  some-maths.txt  wildcards
+```
+
+In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information. 
+``` bash
+$ ls -F
+IOM-animals/  data/  some-maths.txt  wildcards/
+```
+This command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. In the above example we can see 3 directories and a file.  
+
+The `-F` part of this command is known as an option.
+
+## Options  
+Options are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option `-a` will additionally reveal all the 'hidden' items in the directory (all the items with names starting with a `.`). There are two special items that will be revealed when using this option those are `.` and `..`: `.` is used as a reference to the current directory and `..` is used as a reference to the parent directory.
+
+Using the `-l` command will output a table with lots of additional information about the directory entries including size and last edit time. You should try this out.
+
+:::{.callout-tip}
+You can combine multiple different options together to apply all their effects
+:::
+
+## Navigation
+Most terminals will open to the home directory of the account or machine that is being run, though this is often not the directory whe one would want to run commands. Therefore, there must be a way to navigate through the file system, in most machines that is using the `cd` command. This command takes a path as an value after the command (called an argument in this case). These can either be an absolute path or a relative path.
+
+:::{.callout-important}
+**Absolute** path start with a `/` and reference the same file or location regardless of the current working directory.  
+**Relative** paths do **not** start with a `/` and reference file or location from the current working directory.
+:::
+``` bash
+$ cd IOM-animals
+$ ls -F
+amphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt
+```
+The command can also be run without any arguments, this will navigate back to the home directory of the account .
+
+
+# Work in progress
 ## Essential Commands:
 * ls - short for list (-a)
 * pwd - 'print working directory'
