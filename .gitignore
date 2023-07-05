@@ -1,3 +1,5 @@
 /.quarto/
 /_site/
 /test_files/
+/docs/
+/.vscode/
