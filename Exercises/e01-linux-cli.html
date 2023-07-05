@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>e01-linux-cli</title>
+<title>1: Linux Command line skills</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -176,28 +176,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#linux-command-line-skills" id="toc-linux-command-line-skills" class="nav-link active" data-scroll-target="#linux-command-line-skills">1: Linux Command line skills</a>
-  <ul class="collapse">
-  <li><a href="#the-prompt" id="toc-the-prompt" class="nav-link" data-scroll-target="#the-prompt">The prompt</a></li>
+  <li><a href="#the-prompt" id="toc-the-prompt" class="nav-link active" data-scroll-target="#the-prompt">The prompt</a></li>
   <li><a href="#your-first-command" id="toc-your-first-command" class="nav-link" data-scroll-target="#your-first-command">Your first command</a></li>
   <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">1: Linux Command line skills</h1>
+</div>
 
 
-<section id="linux-command-line-skills" class="level1">
-<h1>1: Linux Command line skills</h1>
-<section id="the-prompt" class="level2">
-<h2 class="anchored" data-anchor-id="the-prompt">The prompt</h2>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="the-prompt" class="level1">
+<h1>The prompt</h1>
 <p>As a user the first time you open a terminal you will likely be greeted by a prompt. On codespaces this prompt will often take the form <code>@{user} -&gt; workspace/{repository} $</code> whereas on a standard linux machine the prompt often takes the form <code>{user}@{hostname} $</code>. Because of these differences most sources of information will simply show the prompt as the single <code>$</code> that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command.</p>
 </section>
-<section id="your-first-command" class="level2">
-<h2 class="anchored" data-anchor-id="your-first-command">Your first command</h2>
+<section id="your-first-command" class="level1">
+<h1>Your first command</h1>
 <p>Select your terminal and type the command <code>pwd</code> after the prompt. (pwd is an acronym for print working directory)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> pwd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This command will print the full path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed.<br>
@@ -207,8 +217,8 @@ Now try this command. (ls is a shortening of the word list)</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-F</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. The <code>-F</code> part of this command is known as an option.</p>
 </section>
-<section id="options" class="level2">
-<h2 class="anchored" data-anchor-id="options">Options</h2>
+<section id="options" class="level1">
+<h1>Options</h1>
 <p>Options are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option <code>-a</code> will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a .) and using the <code>-l</code> command will output a table with lots of additional information about the directory entries including size and last edit time.</p>
 <p>steps:<br>
 pwd - show directory<br>
@@ -216,7 +226,6 @@ ls [path]<br>
 cd [path]</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

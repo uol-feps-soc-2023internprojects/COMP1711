@@ -1,5 +1,26 @@
 [
   {
+    "objectID": "Notes/n01-intro.html",
+    "href": "Notes/n01-intro.html",
+    "title": "1: Intro to the terminal, git and codespaces.",
+    "section": "",
+    "text": "The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.\n\n\n\nls - short for list (-a)\npwd - ‘print working directory’\ncd - change directory\nrm - short for remove\nmkdir - short for make directory\ntouch -\ncat\necho -\nless\nmv + use for renaming\ncp\nman\ntree\nchmod\nclear\n\n\n\n\n\nredirection: &lt;&gt;\nwildcards: ? *\npipe: |\ncase sensitive"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#essential-commands",
+    "href": "Notes/n01-intro.html#essential-commands",
+    "title": "1: Intro to the terminal, git and codespaces.",
+    "section": "",
+    "text": "ls - short for list (-a)\npwd - ‘print working directory’\ncd - change directory\nrm - short for remove\nmkdir - short for make directory\ntouch -\ncat\necho -\nless\nmv + use for renaming\ncp\nman\ntree\nchmod\nclear"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#section",
+    "href": "Notes/n01-intro.html#section",
+    "title": "1: Intro to the terminal, git and codespaces.",
+    "section": "",
+    "text": "redirection: &lt;&gt;\nwildcards: ? *\npipe: |\ncase sensitive"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Procedural Programming",
@@ -11,48 +32,6 @@
     "href": "Exercises/e01-linux-cli.html",
     "title": "1: Linux Command line skills",
     "section": "",
-    "text": "As a user the first time you open a terminal you will likely be greeted by a prompt. On codespaces this prompt will often take the form @{user} -&gt; workspace/{repository} $ whereas on a standard linux machine the prompt often takes the form {user}@{hostname} $. Because of these differences most sources of information will simply show the prompt as the single $ that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command.\n\n\n\nSelect your terminal and type the command pwd after the prompt. (pwd is an acronym for print working directory)\n$ pwd\nThis command will print the full path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed.\nNow try this command. (ls is a shortening of the word list)\n$ ls\nThis will output a list of the contents of the current directory. In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information.\n$ ls -F\nThis command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. The -F part of this command is known as an option.\n\n\n\nOptions are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option -a will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a .) and using the -l command will output a table with lots of additional information about the directory entries including size and last edit time.\nsteps:\npwd - show directory\nls [path]\ncd [path]"
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#the-prompt",
-    "href": "Exercises/e01-linux-cli.html#the-prompt",
-    "title": "1: Linux Command line skills",
-    "section": "",
-    "text": "As a user the first time you open a terminal you will likely be greeted by a prompt. On codespaces this prompt will often take the form @{user} -&gt; workspace/{repository} $ whereas on a standard linux machine the prompt often takes the form {user}@{hostname} $. Because of these differences most sources of information will simply show the prompt as the single $ that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command."
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#your-first-command",
-    "href": "Exercises/e01-linux-cli.html#your-first-command",
-    "title": "1: Linux Command line skills",
-    "section": "",
-    "text": "Select your terminal and type the command pwd after the prompt. (pwd is an acronym for print working directory)\n$ pwd\nThis command will print the full path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed.\nNow try this command. (ls is a shortening of the word list)\n$ ls\nThis will output a list of the contents of the current directory. In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information.\n$ ls -F\nThis command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. The -F part of this command is known as an option."
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#options",
-    "href": "Exercises/e01-linux-cli.html#options",
-    "title": "1: Linux Command line skills",
-    "section": "",
-    "text": "Options are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option -a will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a .) and using the -l command will output a table with lots of additional information about the directory entries including size and last edit time.\nsteps:\npwd - show directory\nls [path]\ncd [path]"
-  },
-  {
-    "objectID": "Notes/n01-intro.html",
-    "href": "Notes/n01-intro.html",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "",
-    "text": "The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.\n\n\n\nls - short for list (-a)\npwd - ‘print working directory’\ncd - change directory\nrm - short for remove\nmkdir - short for make directory\ntouch -\ncat\necho -\nless\nmv + use for renaming\ncp\nman\ntree\nchmod\nclear\n\n\n\n\n\nredirection: &lt;&gt;\nwildcards: ? *\npipe: |\ncase sensitive\n\n\n\n\n\n\n\n\n\n\n\nGithub codespaces is a development environment that is hosted in the cloud by github. It is built on &gt;"
-  },
-  {
-    "objectID": "Notes/n01-intro.html#the-terminal",
-    "href": "Notes/n01-intro.html#the-terminal",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "",
-    "text": "The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.\n\n\n\nls - short for list (-a)\npwd - ‘print working directory’\ncd - change directory\nrm - short for remove\nmkdir - short for make directory\ntouch -\ncat\necho -\nless\nmv + use for renaming\ncp\nman\ntree\nchmod\nclear\n\n\n\n\n\nredirection: &lt;&gt;\nwildcards: ? *\npipe: |\ncase sensitive"
-  },
-  {
-    "objectID": "Notes/n01-intro.html#what-is-github-codespaces",
-    "href": "Notes/n01-intro.html#what-is-github-codespaces",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "",
-    "text": "Github codespaces is a development environment that is hosted in the cloud by github. It is built on &gt;"
+    "text": "The prompt\nAs a user the first time you open a terminal you will likely be greeted by a prompt. On codespaces this prompt will often take the form @{user} -&gt; workspace/{repository} $ whereas on a standard linux machine the prompt often takes the form {user}@{hostname} $. Because of these differences most sources of information will simply show the prompt as the single $ that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command.\n\n\nYour first command\nSelect your terminal and type the command pwd after the prompt. (pwd is an acronym for print working directory)\n$ pwd\nThis command will print the full path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed.\nNow try this command. (ls is a shortening of the word list)\n$ ls\nThis will output a list of the contents of the current directory. In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information.\n$ ls -F\nThis command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. The -F part of this command is known as an option.\n\n\nOptions\nOptions are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option -a will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a .) and using the -l command will output a table with lots of additional information about the directory entries including size and last edit time.\nsteps:\npwd - show directory\nls [path]\ncd [path]"
   }
 ]
