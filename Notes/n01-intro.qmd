@@ -1,9 +1,11 @@
-# 1: Intro to the terminal, git and codespaces.
+---
+title: "1: Intro to the terminal, git and codespaces."
+---
 
-## The terminal
+# The terminal
 The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.
 
-### Essential Commands:
+## Essential Commands:
 * ls - short for list (-a)
 * pwd - 'print working directory'
 * cd - change directory
@@ -20,15 +22,15 @@ The terminal is a window on a machine that allows for the input and output of te
 * chmod 
 * clear
 
-### ??
+## ??
 * redirection: <>
 * wildcards: ? *
 * pipe: |
 * case sensitive
 
-## Scripts
+# Scripts
 
-## Version Control
+# Version Control
 
-## What is github Codespaces?
+# What is github Codespaces?
 Github codespaces is a development environment that is hosted in the cloud by github. It is built on >
