@@ -100,10 +100,25 @@ $ ls -F
 ```
 We can then use the `touch` command to create a new file at the location specified by the argument. This example also shows the use of ls with an argument for directory.
 ``` bash
-$ touch test-dir/temp.text
+$ touch test-dir/temp.txt
 $ ls test-dir
 temp.txt
 ```
+
+## Putting information in the files
+Given that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.
+``` bash
+echo "This text is in a file" > test-dir/temp.txt
+``` 
+Lets break down what this is doing.
+* `echo` is a command to output its argument. In this case that argument is the string "This text is in a file"
+* `>` is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt.
+
+This can be tested either using the editor user interface or by using the command `cat` with the file in question as the argument. This command will output the contents of the file to the  command line.
+
+::: {.callout-tip}
+For longer files where an unstructured output would be difficult to read in the command line you can also use the command `less`
+:::
 
 
 # Work in progress
