@@ -8,15 +8,19 @@ The terminal is a window on a machine that allows for the input and output of te
 # Opening a Codespace
 Follow these steps to create a blank template for a codespace to follow this tutorial:
 
-1. On github.com, after logging in, left-click the user icon in the top right corner of the window to open a list of options. From this list select 'your codespaces'  
+1. Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/shell-training
 
-![](/img/github-right-sidebar.png)
+2. From the use this template dropdown select the option to create a new repository.
 
-2. From the quick start templates select to use the blank template. This will open a codespace in a new browser tab.
+![](/img/repo-from-template.png)
 
-![](/img/github-codespace-template.png)
+3. On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name. You may add a description if you like. Once configured, confirm with the "create repository from template" button at the bottom of the page. This will redirect you to the repo homepage.
 
-3. This environment will look very familiar to those who have used vs code before and is comprised of 3 main elements. The editor window, the file explorer and the terminal window: labeled in the image below.
+4. On the repo homepage click on green button marked as code and select the tab in the popup reading Codespaces. Within this tab click on "Create codespace on main" this will open a new tab with your codespace.
+
+![](/img/github_code.png)
+
+5. This environment will look very familiar to those who have used vs code before and is comprised of 3 main elements. The editor window, the file explorer and the terminal window: labeled in the image below.
 
 ![](/img/codespace.png)
 
