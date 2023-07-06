@@ -11,6 +11,8 @@ website:
         contents: Notes/*
       - section: Exercises
         contents: Exercises/*
+  # body-header: |
+  #  {{< video https://www.youtube.com/watch?v=fXCUaRE-5Rc >}}
 
 
 format:

@@ -68,16 +68,38 @@ You can combine multiple different options together to apply all their effects
 ## Navigation
 Most terminals will open to the home directory of the account or machine that is being run, though this is often not the directory whe one would want to run commands. Therefore, there must be a way to navigate through the file system, in most machines that is using the `cd` command. This command takes a path as an value after the command (called an argument in this case). These can either be an absolute path or a relative path.
 
+cd is a particularly important case for the use of the parent directory `..` as you often want to navigate back through parent directories.
+
 :::{.callout-important}
 **Absolute** path start with a `/` and reference the same file or location regardless of the current working directory.  
 **Relative** paths do **not** start with a `/` and reference file or location from the current working directory.
 :::
 ``` bash
+$ pwd
+/workspaces/repository-name
 $ cd IOM-animals
+$ pwd
+/workspaces/repository-name/IOM-animals
 $ ls -F
 amphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt
+$ cd .. 
+$ pwd
+/workspaces/repository-name
 ```
-The command can also be run without any arguments, this will navigate back to the home directory of the account .
+The command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is often denoted by a `~`.
+
+## New directories and files
+The `mkdir` command can be used to create new directories with an argument as the directory name. We can use `ls` to see the new directory.
+``` bash
+$ mkdir test-dir
+$ ls -F
+```
+We can then use the `touch` command to create a new file at the location specified by the argument. This example also shows the use of ls with an argument for directory.
+``` bash
+$ touch test-dir/temp.text
+$ ls test-dir
+temp.txt
+```
 
 
 # Work in progress
