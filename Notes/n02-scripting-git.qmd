@@ -6,16 +6,24 @@ Instructions in this file are to be run in the same codespace as from the into t
 # Bash scripts
 Bash scripts are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
 
-First make a a new directory called `scripts` and navigate to it. And make a file called `time.sh`. In the file put this command:
+First make a a new directory called `scripts` and navigate to it. And make a file called `time.sh`. In the file put these lines:
 ``` bash
+#!/bin/bash
 echo $(date)
 ```
-`$(date)` is a value maintained by the system and accessible from the command line.
-In order to run the is script we run the command `./time.sh` however at the moment that will give us this output:
+* `#!/bin/bash` tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.
+* `echo` is a command for outputting to the command line.
+* `$(date)` is a value maintained by the system and accessible from the command line.
+
+When we wish to execute a program in our current directory we call it as a command by appending `./` to the name. This tells the operating system to look in the current directory for the program to run.
+
+Therefore In order to run the is script we run the command `./time.sh` however at the moment that will give us this output:
 ``` bash
 $ ./time.sh
 bash: ./time.sh: Permission denied
 ```
+
+# Why doesn't the script run?
 This is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the `-l` option for `ls`.
 ```bash
 $ ls -l

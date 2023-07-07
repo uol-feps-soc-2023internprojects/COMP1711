@@ -1,9 +1,6 @@
-* tree
-* chmod 
-
+## Notes 1 missing parts
 * wildcards: ? *
 * pipe: | !!
-* case sensitive
 
 # Scripts
 

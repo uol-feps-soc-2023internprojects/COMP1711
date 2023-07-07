@@ -127,7 +127,7 @@ While most of the time you will be able to use an IDE like codespaces or vscode,
 
 * to open a file with `nano` run the command with the file to edit as the argument
 * You can use the arrow keys to navigate the file and type to edit. Add something to your file.
-* Finally use `ctlr+X` to exit, type 'Y' to agree to save and enter to confirm the file name. Use `cat` or `less` to view your updated files.
+* Finally use `ctrl+X` to exit, type 'Y' to agree to save and enter to confirm the file name. Use `cat` or `less` to view your updated files.
 
 ## Moving and editing files
 The `mv` and `cp` commands are for moving files and copying files respectively and have similar usage as seen below.
