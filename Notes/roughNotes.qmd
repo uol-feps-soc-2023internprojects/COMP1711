@@ -1,0 +1,10 @@
+* tree
+* chmod 
+
+* wildcards: ? *
+* pipe: | !!
+* case sensitive
+
+# Scripts
+
+# Version Control
