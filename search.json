@@ -1,66 +1,24 @@
 [
   {
-    "objectID": "Exercises/e01-linux-cli.html",
-    "href": "Exercises/e01-linux-cli.html",
-    "title": "1: Linux Command line skills",
+    "objectID": "Notes/roughNotes.html",
+    "href": "Notes/roughNotes.html",
+    "title": "Scripts",
     "section": "",
-    "text": "steps:\npwd - show directory\nls [path]\ncd [path]"
+    "text": "wildcards: ? *\npipe: | !!"
   },
   {
-    "objectID": "Notes/n01-intro.html",
-    "href": "Notes/n01-intro.html",
-    "title": "1: Intro to the terminal, git and codespaces.",
+    "objectID": "Notes/roughNotes.html#notes-1-missing-parts",
+    "href": "Notes/roughNotes.html#notes-1-missing-parts",
+    "title": "Scripts",
     "section": "",
-    "text": "The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish."
+    "text": "wildcards: ? *\npipe: | !!"
   },
   {
-    "objectID": "Notes/n01-intro.html#the-prompt",
-    "href": "Notes/n01-intro.html#the-prompt",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "The prompt",
-    "text": "The prompt\nAs a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form @{user} -&gt; workspace/{repository} $ whereas on a standard linux machine the prompt often takes the form {user}@{hostname} $. Because of these differences most sources of information will simply show the prompt as the single $ that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command."
-  },
-  {
-    "objectID": "Notes/n01-intro.html#your-first-command",
-    "href": "Notes/n01-intro.html#your-first-command",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "Your first command",
-    "text": "Your first command\nSelect your terminal and type the command pwd after the prompt. (pwd is an acronym for print working directory). Your output should be similar to what is seen below:\n$ pwd\n/workspaces/codespaces-blank\nThis command will print the absolute path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed. The slash at the start of the path represents the root of the filesystem and the subsequent terms represent a series of hierarchical directories."
-  },
-  {
-    "objectID": "Notes/n01-intro.html#seeing-your-files",
-    "href": "Notes/n01-intro.html#seeing-your-files",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "Seeing your files",
-    "text": "Seeing your files\nNow try the ls command. (ls is a shortening of the word list) This will output a list of the contents of the current directory, though in your case this directory is empty. To change that run the following commands exactly:\ngit clone https://github.com/callaghanmt/shell-training.git .\n\n\n\n\n\n\nNote\n\n\n\nThis step uses the version control tool git, more will be explained about this later.\n\n\nNow if we rerun ls we should get a different outcome\n$ ls\nIOM-animals  data  some-maths.txt  wildcards\nIn most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information.\n$ ls -F\nIOM-animals/  data/  some-maths.txt  wildcards/\nThis command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. In the above example we can see 3 directories and a file.\nThe -F part of this command is known as an option."
-  },
-  {
-    "objectID": "Notes/n01-intro.html#options",
-    "href": "Notes/n01-intro.html#options",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "Options",
-    "text": "Options\nOptions are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option -a will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a .). There are two special items that will be revealed when using this option those are . and ..: . is used as a reference to the current directory and .. is used as a reference to the parent directory.\nUsing the -l command will output a table with lots of additional information about the directory entries including size and last edit time. You should try this out.\n\n\n\n\n\n\nTip\n\n\n\nYou can combine multiple different options together to apply all their effects"
-  },
-  {
-    "objectID": "Notes/n01-intro.html#navigation",
-    "href": "Notes/n01-intro.html#navigation",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "Navigation",
-    "text": "Navigation\nMost terminals will open to the home directory of the account or machine that is being run, though this is often not the directory whe one would want to run commands. Therefore, there must be a way to navigate through the file system, in most machines that is using the cd command. This command takes a path as an value after the command (called an argument in this case). These can either be an absolute path or a relative path.\n\n\n\n\n\n\nImportant\n\n\n\nAbsolute path start with a / and reference the same file or location regardless of the current working directory.\nRelative paths do not start with a / and reference file or location from the current working directory.\n\n\n$ cd IOM-animals\n$ ls -F\namphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt\nThe command can also be run without any arguments, this will navigate back to the home directory of the account ."
-  },
-  {
-    "objectID": "Notes/n01-intro.html#essential-commands",
-    "href": "Notes/n01-intro.html#essential-commands",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "Essential Commands:",
-    "text": "Essential Commands:\n\nls - short for list (-a)\npwd - ‘print working directory’\ncd - change directory\nrm - short for remove\nmkdir - short for make directory\ntouch -\ncat\necho -\nless\nmv + use for renaming\ncp\nman\ntree\nchmod\nclear"
-  },
-  {
-    "objectID": "Notes/n01-intro.html#section",
-    "href": "Notes/n01-intro.html#section",
-    "title": "1: Intro to the terminal, git and codespaces.",
-    "section": "??",
-    "text": "??\n\nredirection: &lt;&gt;\nwildcards: ? *\npipe: |\ncase sensitive"
+    "objectID": "Notes/n02-scripting-git.html",
+    "href": "Notes/n02-scripting-git.html",
+    "title": "2: Bash scripting and git",
+    "section": "",
+    "text": "Instructions in this file are to be run in the same codespace as from the into to the terminal.\n\nBash scripts\nBash scripts are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.\nFirst make a a new directory called scripts and navigate to it. And make a file called time.sh. In the file put these lines:\n#!/bin/bash\necho $(date)\n\n#!/bin/bash tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.\necho is a command for outputting to the command line.\n$(date) is a value maintained by the system and accessible from the command line.\n\nWhen we wish to execute a program in our current directory we call it as a command by appending ./ to the name. This tells the operating system to look in the current directory for the program to run.\nTherefore In order to run the is script we run the command ./time.sh however at the moment that will give us this output:\n$ ./time.sh\nbash: ./time.sh: Permission denied\n\n\nWhy doesn’t the script run?\nThis is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the -l option for ls.\n$ ls -l\n-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh\nThe part of this output that is relevant to this case is the string -rw-rw-rw-\n\nThe first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as time.sh is simply a file this is left empty.\nThe rest of the string represents the permissions for the file. This is split into 3 different catagories for 3 different groups.\n\nThe three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a -\nThis is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users\n\n\nSo in this case the file can be read and written by all users, but not executed, how can we change this?\n\n\nAltering file permissions.\nThe chmod command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command\nchmod +x time.sh\nOnce this is done, you can rerun the script and see the output."
   },
   {
     "objectID": "index.html",
@@ -68,5 +26,124 @@
     "title": "Procedural Programming",
     "section": "",
     "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html",
+    "href": "Exercises/e01-linux-cli.html",
+    "title": "1: Linux Command line skills",
+    "section": "",
+    "text": "Create the following directory tree in the shell training repo:\n\nwork\nwork/input_data/\nwork/results/\nwork/program/\n\nCreate the file input.txt with a text editor and put some text in it.\nMove the file to work/input_data and rename it in the same command to control01.txt\nCreate this directory tree in one line only: work/experiment/results/report\nDelete the work directory and all of its contents with one single command."
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#extension",
+    "href": "Exercises/e01-linux-cli.html#extension",
+    "title": "1: Linux Command line skills",
+    "section": "Extension",
+    "text": "Extension\nUse a similar command to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answers",
+    "href": "Exercises/e01-linux-cli.html#answers",
+    "title": "1: Linux Command line skills",
+    "section": "Answers",
+    "text": "Answers\ncat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt\ncat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answer",
+    "href": "Exercises/e01-linux-cli.html#answer",
+    "title": "1: Linux Command line skills",
+    "section": "Answer",
+    "text": "Answer\nwc -w data/* | sort -n"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answer-1",
+    "href": "Exercises/e01-linux-cli.html#answer-1",
+    "title": "1: Linux Command line skills",
+    "section": "Answer",
+    "text": "Answer\nsed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'"
+  },
+  {
+    "objectID": "Notes/n01-intro.html",
+    "href": "Notes/n01-intro.html",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "",
+    "text": "The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#the-prompt",
+    "href": "Notes/n01-intro.html#the-prompt",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "The prompt",
+    "text": "The prompt\nAs a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form @{user} -&gt; workspace/{repository} $ whereas on a standard linux machine the prompt often takes the form {user}@{hostname} $. Because of these differences most sources of information will simply show the prompt as the single $ that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#your-first-command",
+    "href": "Notes/n01-intro.html#your-first-command",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Your first command",
+    "text": "Your first command\nSelect your terminal and type the command pwd after the prompt. (pwd is an acronym for print working directory). Your output should be similar to what is seen below:\n$ pwd\n/workspaces/repository-name\nThis command will print the absolute path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed. The slash at the start of the path represents the root of the filesystem and the subsequent terms represent a series of hierarchical directories."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#seeing-your-files",
+    "href": "Notes/n01-intro.html#seeing-your-files",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Seeing your files",
+    "text": "Seeing your files\nNow try the ls command. (ls is a shortening of the word list) This will output a list of the contents of the current directory.\n$ ls\nIOM-animals  data  some-maths.txt  wildcards\nIn most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information.\n$ ls -F\nIOM-animals/  data/  some-maths.txt  wildcards/\nThis command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. In the above example we can see 3 directories and a file.\nThe -F part of this command is known as an option."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#options",
+    "href": "Notes/n01-intro.html#options",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Options",
+    "text": "Options\nOptions are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option -a will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a .). There are two special items that will be revealed when using this option those are . and ..: . is used as a reference to the current directory and .. is used as a reference to the parent directory.\nUsing the -l command will output a table with lots of additional information about the directory entries including size and last edit time. You should try this out.\n\n\n\n\n\n\nTip\n\n\n\nYou can combine multiple different options together to apply all their effects"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#navigation",
+    "href": "Notes/n01-intro.html#navigation",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Navigation",
+    "text": "Navigation\nMost terminals will open to the home directory of the account or machine that is being run, though this is often not the directory whe one would want to run commands. Therefore, there must be a way to navigate through the file system, in most machines that is using the cd command. This command takes a path as an value after the command (called an argument in this case). These can either be an absolute path or a relative path.\ncd is a particularly important case for the use of the parent directory .. as you often want to navigate back through parent directories.\n\n\n\n\n\n\nImportant\n\n\n\nAbsolute path start with a / and reference the same file or location regardless of the current working directory.\nRelative paths do not start with a / and reference file or location from the current working directory.\n\n\n$ pwd\n/workspaces/repository-name\n$ cd IOM-animals\n$ pwd\n/workspaces/repository-name/IOM-animals\n$ ls -F\namphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt\n$ cd .. \n$ pwd\n/workspaces/repository-name\nThe command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is often denoted by a ~."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#new-directories-and-files",
+    "href": "Notes/n01-intro.html#new-directories-and-files",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "New directories and files",
+    "text": "New directories and files\nThe mkdir command can be used to create new directories with an argument as the directory name. We can use ls to see the new directory.\n$ mkdir test-dir\n$ ls -F\nWe can then use the touch command to create a new file at the location specified by the argument. This example also shows the use of ls with an argument for directory.\n$ touch test-dir/temp.txt\n$ ls test-dir\ntemp.txt\n\n\n\n\n\n\nTip\n\n\n\nIf your terminal is feeling cluttered you can use the clear command to empty it."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#putting-information-in-the-files",
+    "href": "Notes/n01-intro.html#putting-information-in-the-files",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Putting information in the files",
+    "text": "Putting information in the files\nGiven that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.\necho \"This text is in a file\" &gt; test-dir/temp.txt\nLets break down what this is doing. * echo is a command to output its argument. In this case that argument is the string “This text is in a file” * &gt; is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt.\nThis can be tested either using the editor user interface or by using the command cat with the file in question as the argument. This command will output the contents of the file to the command line.\n\n\n\n\n\n\nTip\n\n\n\nFor longer files where an unstructured output would be difficult to read in the command line you can also use the command less"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#command-line-text-editors",
+    "href": "Notes/n01-intro.html#command-line-text-editors",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Command line text editors",
+    "text": "Command line text editors\nWhile most of the time you will be able to use an IDE like codespaces or vscode, it is still a useful to know how to edit files at the command line. vi is very famous but the simplest to use is probably nano.\n\nto open a file with nano run the command with the file to edit as the argument\nYou can use the arrow keys to navigate the file and type to edit. Add something to your file.\nFinally use ctrl+X to exit, type ‘Y’ to agree to save and enter to confirm the file name. Use cat or less to view your updated files."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#moving-and-editing-files",
+    "href": "Notes/n01-intro.html#moving-and-editing-files",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Moving and editing files",
+    "text": "Moving and editing files\nThe mv and cp commands are for moving files and copying files respectively and have similar usage as seen below.\nmv current-file-path new-file-path\ncp current-file new-file\nA useful extra application of mv is to rename files."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#deleting-files-and-directories",
+    "href": "Notes/n01-intro.html#deleting-files-and-directories",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Deleting files and directories",
+    "text": "Deleting files and directories\nThe rm command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The -r option can be used to delete a directory along with its files and all subdirectories."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#do-i-need-to-remember-all-of-this",
+    "href": "Notes/n01-intro.html#do-i-need-to-remember-all-of-this",
+    "title": "1: Intro to the terminal and codespaces.",
+    "section": "Do I need to remember all of this?",
+    "text": "Do I need to remember all of this?\nNo, the command man can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for ls you will be able to find details on the arguments and options discussed earlier."
   }
 ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1: Linux Command line skills</title>
+<title>2: Bash scripting and git</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -73,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Exercises/e01-linux-cli.html">Exercises</a></li><li class="breadcrumb-item"><a href="../Exercises/e01-linux-cli.html">1: Linux Command line skills</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n02-scripting-git.html">2: Bash scripting and git</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -115,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">2: Bash scripting and git</span></a>
   </div>
 </li>
@@ -138,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Exercises/e01-linux-cli.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Exercises/e01-linux-cli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Linux Command line skills</span></a>
   </div>
 </li>
@@ -154,20 +188,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exercise-1" id="toc-exercise-1" class="nav-link active" data-scroll-target="#exercise-1">Exercise 1</a></li>
-  <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a>
-  <ul class="collapse">
-  <li><a href="#extension" id="toc-extension" class="nav-link" data-scroll-target="#extension">Extension</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">Answers</a></li>
-  </ul></li>
-  <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a>
-  <ul class="collapse">
-  <li><a href="#answer" id="toc-answer" class="nav-link" data-scroll-target="#answer">Answer</a></li>
-  </ul></li>
-  <li><a href="#exercise-4" id="toc-exercise-4" class="nav-link" data-scroll-target="#exercise-4">Exercise 4</a>
-  <ul class="collapse">
-  <li><a href="#answer-1" id="toc-answer-1" class="nav-link" data-scroll-target="#answer-1">Answer</a></li>
-  </ul></li>
+  <li><a href="#bash-scripts" id="toc-bash-scripts" class="nav-link active" data-scroll-target="#bash-scripts">Bash scripts</a></li>
+  <li><a href="#why-doesnt-the-script-run" id="toc-why-doesnt-the-script-run" class="nav-link" data-scroll-target="#why-doesnt-the-script-run">Why doesn’t the script run?</a></li>
+  <li><a href="#altering-file-permissions." id="toc-altering-file-permissions." class="nav-link" data-scroll-target="#altering-file-permissions.">Altering file permissions.</a></li>
   </ul>
 </nav>
     </div>
@@ -176,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">1: Linux Command line skills</h1>
+<h1 class="title">2: Bash scripting and git</h1>
 </div>
 
 
@@ -191,58 +214,46 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="exercise-1" class="level1">
-<h1>Exercise 1</h1>
-<p>Create the following directory tree in the shell training repo:</p>
-<blockquote class="blockquote">
-<p><code>work</code><br>
-<code>work/input_data/</code><br>
-<code>work/results/</code><br>
-<code>work/program/</code></p>
-</blockquote>
-<p>Create the file <code>input.txt</code> with a text editor and put some text in it.</p>
-<p>Move the file to <code>work/input_data</code> and rename it in the same command to <code>control01.txt</code></p>
-<p>Create this directory tree in one line only: <code>work/experiment/results/report</code></p>
-<p>Delete the <code>work</code> directory and all of its contents with one single command.</p>
-</section>
-<section id="exercise-2" class="level1">
-<h1>Exercise 2</h1>
-<p>Let’s introduce two new commands:</p>
+<p>Instructions in this file are to be run in the same codespace as from the into to the terminal.</p>
+<section id="bash-scripts" class="level1">
+<h1>Bash scripts</h1>
+<p>Bash scripts are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.</p>
+<p>First make a a new directory called <code>scripts</code> and navigate to it. And make a file called <code>time.sh</code>. In the file put these lines:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>The <code>sort</code> command will sort lines alphabetically (or numerically…)</li>
-<li>the <code>cut</code> command to split lines of text based on a given character e.g.&nbsp;<code>cut -d ',' -f 2</code> will split lines around the comma and give you the second part</li>
+<li><code>#!/bin/bash</code> tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.</li>
+<li><code>echo</code> is a command for outputting to the command line.</li>
+<li><code>$(date)</code> is a value maintained by the system and accessible from the command line.</li>
 </ul>
-<p>Combine <code>cat</code>, <code>cut</code>, and <code>sort</code> to print out the Latin names from <code>birds.txt</code> in alphabetical order.</p>
-<p>Save the output to a new file.</p>
-<section id="extension" class="level2">
-<h2 class="anchored" data-anchor-id="extension">Extension</h2>
-<p>Use a similar command to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)</p>
+<p>When we wish to execute a program in our current directory we call it as a command by appending <code>./</code> to the name. This tells the operating system to look in the current directory for the program to run.</p>
+<p>Therefore In order to run the is script we run the command <code>./time.sh</code> however at the moment that will give us this output:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./time.sh</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bash:</span> ./time.sh: Permission denied</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="answers" class="level2">
-<h2 class="anchored" data-anchor-id="answers">Answers</h2>
-<p><code>cat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt</code></p>
-<p><code>cat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt</code></p>
+<section id="why-doesnt-the-script-run" class="level1">
+<h1>Why doesn’t the script run?</h1>
+<p>This is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the <code>-l</code> option for <code>ls</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-rw-rw-</span> 1 codespace codespace 13 Jul  7 09:28 time.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The part of this output that is relevant to this case is the string <code>-rw-rw-rw-</code></p>
+<ul>
+<li>The first character indicates any special permissions that the directory entry may have e.g.&nbsp;d for directory or l for symbolic link. In our case as <code>time.sh</code> is simply a file this is left empty.</li>
+<li>The rest of the string represents the permissions for the file. This is split into 3 different catagories for 3 different groups.
+<ul>
+<li>The three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a <code>-</code></li>
+<li>This is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users</li>
+</ul></li>
+</ul>
+<p>So in this case the file can be read and written by all users, but not executed, how can we change this?</p>
 </section>
-</section>
-<section id="exercise-3" class="level1">
-<h1>Exercise 3</h1>
-<p>shell-training/data/ contains 300 data files, each of which should contain 100 values. One of these files is missing some data though…</p>
-<p>Use a series of commands connected by pipes to identify the file with missing data (hint <code>wc -w</code> will tell you the number of values in a file, <code>sort -n</code> will sort numerically)</p>
-<section id="answer" class="level2">
-<h2 class="anchored" data-anchor-id="answer">Answer</h2>
-<p><code>wc -w data/* | sort -n</code></p>
-</section>
-</section>
-<section id="exercise-4" class="level1">
-<h1>Exercise 4</h1>
-<p>Use the <code>sed</code> command to delete the first character and last character in each line of a file (any file, you create it)Use the sed command to delete the first character and last character in each line of a file (any file, you create it).</p>
-<p>You must research the <code>sed</code> command for this exercise.</p>
-<section id="answer-1" class="level2">
-<h2 class="anchored" data-anchor-id="answer-1">Answer</h2>
-<p><code>sed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'</code></p>
+<section id="altering-file-permissions." class="level1">
+<h1>Altering file permissions.</h1>
+<p>The <code>chmod</code> command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x time.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once this is done, you can rerun the script and see the output.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
