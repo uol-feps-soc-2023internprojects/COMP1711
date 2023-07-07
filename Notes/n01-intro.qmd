@@ -1,19 +1,19 @@
 ---
-title: "1: Intro to the terminal, git and codespaces."
+title: "1: Intro to the terminal and codespaces."
 ---
 
 # The terminal
 The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.
 
 # Opening a Codespace
-Follow these steps to create a blank template for a codespace to follow this tutorial:
+Follow these steps to create a new repository from a template and open it in codespaces.
 
 1. Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/shell-training
 
 2. From the use this template dropdown select the option to create a new repository.
 
 ![](/img/repo-from-template.png)
-
+blank template for a codespace to follow this tutorial:
 3. On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name. You may add a description if you like. Once configured, confirm with the "create repository from template" button at the bottom of the page. This will redirect you to the repo homepage.
 
 4. On the repo homepage click on green button marked as code and select the tab in the popup reading Codespaces. Within this tab click on "Create codespace on main" this will open a new tab with your codespace.
@@ -24,6 +24,13 @@ Follow these steps to create a blank template for a codespace to follow this tut
 
 ![](/img/codespace.png)
 
+# What is github Codespaces?
+Github codespaces is a development environment for your repositories that is hosted in the cloud by github. It provides an interface very similar to the popular IDE vscode and is running in a linux environment.
+
+:::{.callout-note}
+More will be explained about git, github and version control in the future.
+:::
+
 # Using the Terminal
 ## The prompt
 As a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form `@{user} -> workspace/{repository} $` whereas on a standard linux machine the prompt often takes the form `{user}@{hostname} $`. Because of these differences most sources of information will simply show the prompt as the single `$` that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command.
@@ -32,25 +39,17 @@ As a user when you open a terminal you will be greeted by a prompt. On codespace
 Select your terminal and type the command `pwd` after the prompt. (pwd is an acronym for print working directory). Your output should be similar to what is seen below:
 ``` bash
 $ pwd
-/workspaces/codespaces-blank
+/workspaces/repository-name
 ```
 This command will print the absolute path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed. The slash at the start of the path represents the root of the filesystem and the subsequent terms represent a series of hierarchical directories.
 
 ## Seeing your files
 Now try the `ls` command. (ls is a shortening of the word list)
-This will output a list of the contents of the current directory, though in your case this directory is empty. To change that run the following commands exactly:
-``` bash
-git clone https://github.com/callaghanmt/shell-training.git .
-```
-:::{.callout-note}
-This step uses the version control tool git, more will be explained about this later.
-:::
-Now if we rerun `ls` we should get a different outcome
+This will output a list of the contents of the current directory.
 ``` bash
 $ ls
 IOM-animals  data  some-maths.txt  wildcards
 ```
-
 In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information. 
 ``` bash
 $ ls -F
@@ -104,6 +103,9 @@ $ touch test-dir/temp.txt
 $ ls test-dir
 temp.txt
 ```
+::: {.callout-tip}
+If your terminal is feeling cluttered you can use the `clear` command to empty it.
+:::
 
 ## Putting information in the files
 Given that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.
@@ -120,34 +122,24 @@ This can be tested either using the editor user interface or by using the comman
 For longer files where an unstructured output would be difficult to read in the command line you can also use the command `less`
 :::
 
+## Command line text editors
+While most of the time you will be able to use an IDE like codespaces or vscode, it is still a useful to know how to edit files at the command line. `vi` is very famous but the simplest to use is probably `nano`.
 
-# Work in progress
-## Essential Commands:
-* ls - short for list (-a)
-* pwd - 'print working directory'
-* cd - change directory
-* rm - short for remove 
-* mkdir - short for make directory
-* touch - 
-* cat
-* echo - 
-* less
-* mv + use for renaming 
-* cp
-* man
-* tree
-* chmod 
-* clear
+* to open a file with `nano` run the command with the file to edit as the argument
+* You can use the arrow keys to navigate the file and type to edit. Add something to your file.
+* Finally use `ctlr+X` to exit, type 'Y' to agree to save and enter to confirm the file name. Use `cat` or `less` to view your updated files.
 
-## ??
-* redirection: <>
-* wildcards: ? *
-* pipe: |
-* case sensitive
+## Moving and editing files
+The `mv` and `cp` commands are for moving files and copying files respectively and have similar usage as seen below.
+``` bash
+mv current-file-path new-file-path
+cp current-file new-file
+```
+A useful extra application of mv is to rename files.
 
-# Scripts
+## Deleting files and directories 
+The `rm` command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The `-r` option can be used to delete a directory along with its files and all subdirectories.
 
-# Version Control
+## Do I need to remember all of this?
+No, the command `man` can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for `ls` you will be able to find details on the arguments and options discussed earlier.
 
-# What is github Codespaces?
-Github codespaces is a development environment that is hosted in the cloud by github. It is built on >
