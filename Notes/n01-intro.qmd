@@ -113,8 +113,9 @@ Given that codespaces is a modern IDE this can be done very easily through the e
 echo "This text is in a file" > test-dir/temp.txt
 ``` 
 Lets break down what this is doing.
+
 * `echo` is a command to output its argument. In this case that argument is the string "This text is in a file"
-* `>` is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt.
+* `>` is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt. Alternatively the redirection `>>` can ve used to append to a file rather than rewriting it.
 
 This can be tested either using the editor user interface or by using the command `cat` with the file in question as the argument. This command will output the contents of the file to the  command line.
 

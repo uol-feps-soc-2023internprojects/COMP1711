@@ -4,7 +4,7 @@ title: "2: Bash scripting and git"
 Instructions in this file are to be run in the same codespace as from the into to the terminal.
 
 # Bash scripts
-Bash scripts are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
+Bash scripts, also known as shell scripts,  are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
 
 First make a a new directory called `scripts` and navigate to it. And make a file called `time.sh`. In the file put these lines:
 ``` bash
@@ -44,3 +44,39 @@ The `chmod` command is used to alter the permissions of files. In this case we w
 chmod +x time.sh
 ```
 Once this is done, you can rerun the script and see the output.
+
+# Reminder of key steps to make a shell script
+
+1. Make file with .sh extension
+2. Put `#!/bin/bash` at the start of the file. (this is sometimes called a shebang)
+3. Change the permissions so the file is executable.
+
+# A more complex example:
+`scripts/dataAnalysis.sh`
+``` bash
+cat data/values* > output.txt
+sed -i 's/\s/\n/g' output.txt 
+sed -i '/^$/d' output.txt 
+sort -no output.txt output.txt
+head -n1 output.txt
+tail -n1 output.txt
+rm output.txt
+```
+Run this script from the root of the git repo using `./scripts/dataAnalysis.sh`
+
+Lets break down what this is doing:
+
+* First line uses `cat` to output all files in directories starting data/values. It does this using the wildcard operator `*` to select all of these files. The output is then redirected to the file `output.txt` using `>`.
+* `output.txt` now contains all the values, but not in the format we want. Therefor we use the stream editor `sed` to first split the values onto different lines using the pattern `'s/\s/\n/g'`. Then we remove any blank lines using the pattern `/^$/d`. 
+* Next we sort the file. The options `-n` specifies to sort numerically and `-o` allows for the specifying of an output file.
+* `head -n1` and `tail -n1` will output the first and last values respectively 
+* Finally `rm` removes out temporary file.
+
+# Another way
+From the root of the git repo run the command 
+
+`cat data/values* | sed 's/\s/\n/g' | sed '/^$/d' | sort -n | (head -n1 && tail -n1)`
+
+This condenses the whole of the previous script into a single line using pipes `|`. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse. 
+
+This does have a significant performance benefit though that can be seen by using the `time` command to measure the performance of each script. Try this yourself.
