@@ -1,0 +1,11 @@
+---
+title: "3: C intro"
+---
+
+* outline what happens in a basic hello world file & compiler
+* external libraries
+* syntax of variable declaration and assignment
+* basic IO
+* program flow & syntax
+    * if/else
+    * looping

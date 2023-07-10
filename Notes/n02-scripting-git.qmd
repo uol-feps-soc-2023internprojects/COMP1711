@@ -80,3 +80,15 @@ From the root of the git repo run the command
 This condenses the whole of the previous script into a single line using pipes `|`. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse. 
 
 This does have a significant performance benefit though that can be seen by using the `time` command to measure the performance of each script. Try this yourself.
+
+* what is a repo
+* purpose
+* commands 
+    * clone 
+    * pull
+    * fetch
+    * branch
+    * checkout
+    * add
+    * commit
+    * push
