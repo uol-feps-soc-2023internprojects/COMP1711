@@ -2,6 +2,91 @@
 title: "3: C intro"
 ---
 
+# History
+Challenge of c comes from how simple it is.
+
+# Jargon
+
+* Syntax - Like the punctuation of a programming language, describes the required structure for the code to be acceptable,
+
+# "Hello, world!"
+Some may already be familiar  with programs similar to this as this hello world program is a de-facto standard for the first program you will see in any language.
+
+`hello-world.c`
+``` c
+#include <stdio.h>
+int main() {
+   // printf() displays the string inside quotation
+   printf("Hello, World!");
+   return 0;
+}
+```
+* `#include` is a preprocessor command that allows a c program to use functionality that is implemented in separate c files. More detail will be given on this later in the course
+
+* `int main()` is the entrypoint of a c program, every c program you write will include this i.e. the first line of code run is the first line on main.
+
+* the `//` marks the start of a comment, this part of the code is for notes from/to developers and does not affect the functionality of the program.
+
+* As the comment mentions, `printf()` is used to output stings to the command line.
+
+* The `return` statement sends a status value back to the command line, a 0 status suggest a successful execution.
+
+# How to run this
+Programs in c must be compiled and executed separately. These steps are almost always taking place when running code but are sometimes abstracted to a single run button in an IDE.
+
+## The C compiler
+The most common c compiler across unix machines is gcc. At its most simple for our use it can simply be run as:
+``` bash
+gcc hello-world.c
+```
+This will produce a output executable call a.out that can be run as:
+```bash
+$ ./a.out
+Hello, world!
+```
+This output file can be renamed using the `-o` option to specify an output file for the compiler e.g.`gcc hello-world.c -o hello-world`
+
+# Variables
+## Key parts
+A variable made up of 3 things
+
+1. An identifier used in the code to refer to a stored value
+2. The location in memory where this data is being stored
+3. The datatype which is used to specify the way this data should be stored and accessed.
+
+## Data types
+In c there are quite a few data types, all but one of them are different ways to store numbers, these fall broadly fall into two catagories decimal and integers most commonly represented by the data types `float` and `int` respectively. The other one is `char` use to store an individual character.
+
+## Using variables in c
+
+There are three key actions that can be taken with variables
+
+* Initialization - in c this defines the variables identifier and datatype and will trigger the system to assign a portion of memory to it. e.g.
+    * `int counter;`
+* Assignment - This alters the value of the variable stored in memory. e.g.
+    * `counter = 2;`
+    * these first two steps can be combined into a single line: `int counter = 2;`
+* Access - Use of the variable using the identifier in code, this can be in any statement where a value of that datatype is required e.g. creating a new variable: `int newCounter = counter + 2;`
+
+
+# Reading Input
+Lets customize the hello world program to say hello to you. We can use a variable and `scanf()` to do this.
+``` c
+#include <stdio.h>
+int main()
+{
+    char name [20];
+    printf("Please enter your name: ");
+    scanf("%s", name);
+    printf("Hello %s\n", name);
+    return 0;
+}
+```
+### Breakdown
+* The first new line initializes an array - this is a special case of a variable with a single identifier allowing for access to multiple values on a single datatype stored continuously. More info will be 
+
+
+
 * outline what happens in a basic hello world file & compiler
 * external libraries
 * syntax of variable declaration and assignment

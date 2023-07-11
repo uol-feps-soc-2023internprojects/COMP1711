@@ -141,6 +141,11 @@ A useful extra application of mv is to rename files.
 ## Deleting files and directories 
 The `rm` command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The `-r` option can be used to delete a directory along with its files and all subdirectories.
 
+::: {.callout-important}
+`rm` is permanent, there is no recycling bin!
+:::
 ## Do I need to remember all of this?
 No, the command `man` can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for `ls` you will be able to find details on the arguments and options discussed earlier.
+
+You can also google it.
 
