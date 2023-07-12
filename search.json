@@ -1,66 +1,66 @@
 [
   {
-    "objectID": "Notes/roughNotes.html",
-    "href": "Notes/roughNotes.html",
-    "title": "Scripts",
+    "objectID": "Notes/n04-c-inro.html",
+    "href": "Notes/n04-c-inro.html",
+    "title": "4: C intro",
     "section": "",
-    "text": "wildcards: ? *\npipe: | !!"
+    "text": "Originating as an improvement to the B programming language by Dennis Ritchie started in 1971, C is a low level procedural programming language. Through its early development C looked very different to the language that you will learn in this module.\nThe first standard of the language that is close to modern C wasn’t formalised until the late 1980s. This version was first recognised by American National Standards Institute (ANSI) in 1989 and later International Organization for Standardization (ISO) in 1990. This version is often referred to by acronyms of the organisations that recognised it or the year in which it was recognised (C89/C90)\nThere have been revisions to the language since but changes in these updates are minor. This is where the main challenge in C comes from; it’s simple without the programming shortcuts and quality of life improvements, leaving the programmer doing lots of the heavy lifting."
   },
   {
-    "objectID": "Notes/roughNotes.html#notes-1-missing-parts",
-    "href": "Notes/roughNotes.html#notes-1-missing-parts",
-    "title": "Scripts",
-    "section": "",
-    "text": "wildcards: ? *\npipe: | !!"
+    "objectID": "Notes/n04-c-inro.html#the-c-compiler",
+    "href": "Notes/n04-c-inro.html#the-c-compiler",
+    "title": "4: C intro",
+    "section": "The C compiler",
+    "text": "The C compiler\nThe most common c compiler across unix machines is gcc. At its most simple for our use it can simply be run as:\ngcc hello-world.c\nThis will produce a output executable call a.out that can be run as:\n$ ./a.out\nHello, world!\nThis output file can be renamed using the -o option to specify an output file for the compiler e.g.gcc hello-world.c -o hello-world"
   },
   {
-    "objectID": "Notes/n02-scripting-git.html",
-    "href": "Notes/n02-scripting-git.html",
-    "title": "2: Bash scripting and git",
-    "section": "",
-    "text": "Instructions in this file are to be run in the same codespace as from the into to the terminal.\n\nBash scripts\nBash scripts are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.\nFirst make a a new directory called scripts and navigate to it. And make a file called time.sh. In the file put these lines:\n#!/bin/bash\necho $(date)\n\n#!/bin/bash tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.\necho is a command for outputting to the command line.\n$(date) is a value maintained by the system and accessible from the command line.\n\nWhen we wish to execute a program in our current directory we call it as a command by appending ./ to the name. This tells the operating system to look in the current directory for the program to run.\nTherefore In order to run the is script we run the command ./time.sh however at the moment that will give us this output:\n$ ./time.sh\nbash: ./time.sh: Permission denied\n\n\nWhy doesn’t the script run?\nThis is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the -l option for ls.\n$ ls -l\n-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh\nThe part of this output that is relevant to this case is the string -rw-rw-rw-\n\nThe first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as time.sh is simply a file this is left empty.\nThe rest of the string represents the permissions for the file. This is split into 3 different catagories for 3 different groups.\n\nThe three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a -\nThis is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users\n\n\nSo in this case the file can be read and written by all users, but not executed, how can we change this?\n\n\nAltering file permissions.\nThe chmod command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command\nchmod +x time.sh\nOnce this is done, you can rerun the script and see the output."
+    "objectID": "Notes/n04-c-inro.html#key-parts",
+    "href": "Notes/n04-c-inro.html#key-parts",
+    "title": "4: C intro",
+    "section": "Key parts",
+    "text": "Key parts\nA variable made up of 3 things\n\nAn identifier used in the code to refer to a stored value\nThe location in memory where this data is being stored\nThe data type which is used to specify the way this data should be stored and accessed."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Procedural Programming",
-    "section": "",
-    "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
+    "objectID": "Notes/n04-c-inro.html#data-types",
+    "href": "Notes/n04-c-inro.html#data-types",
+    "title": "4: C intro",
+    "section": "Data types",
+    "text": "Data types\nIn c there are quite a few data types, all but one of them are different ways to store numbers, these fall broadly fall into two categories decimal and integers most commonly represented by the data types float and int respectively. The other one is char use to store an individual character."
   },
   {
-    "objectID": "Exercises/e01-linux-cli.html",
-    "href": "Exercises/e01-linux-cli.html",
-    "title": "1: Linux Command line skills",
-    "section": "",
-    "text": "Create the following directory tree in the shell training repo:\n\nwork\nwork/input_data/\nwork/results/\nwork/program/\n\nCreate the file input.txt with a text editor and put some text in it.\nMove the file to work/input_data and rename it in the same command to control01.txt\nCreate this directory tree in one line only: work/experiment/results/report\nDelete the work directory and all of its contents with one single command."
+    "objectID": "Notes/n04-c-inro.html#using-variables-in-c",
+    "href": "Notes/n04-c-inro.html#using-variables-in-c",
+    "title": "4: C intro",
+    "section": "Using variables in c",
+    "text": "Using variables in c\nThere are three key actions that can be taken with variables\n\nInitialization - in c this defines the variables identifier and data type and will trigger the system to assign a portion of memory to it. e.g.\n\nint counter;\n\nAssignment - This alters the value of the variable stored in memory. e.g.\n\ncounter = 2;\nThe value that is being assigned can be simply typed in code or the result of an arithmetic calculation\nThese first two steps can be combined into a single line: int counter = 2;\n\nAccess - Use of the variable using the identifier in code, this can be in any statement where a value of that data type is required e.g. creating a new variable: int newCounter = counter + 2;"
   },
   {
-    "objectID": "Exercises/e01-linux-cli.html#extension",
-    "href": "Exercises/e01-linux-cli.html#extension",
-    "title": "1: Linux Command line skills",
-    "section": "Extension",
-    "text": "Extension\nUse a similar command to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)"
+    "objectID": "Notes/n04-c-inro.html#sequential",
+    "href": "Notes/n04-c-inro.html#sequential",
+    "title": "4: C intro",
+    "section": "Sequential",
+    "text": "Sequential\nThis is the most simple way and the default, you simply proceed to the next line after each line, as such there are no special structures associated with it."
   },
   {
-    "objectID": "Exercises/e01-linux-cli.html#answers",
-    "href": "Exercises/e01-linux-cli.html#answers",
-    "title": "1: Linux Command line skills",
-    "section": "Answers",
-    "text": "Answers\ncat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt\ncat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt"
+    "objectID": "Notes/n04-c-inro.html#logical-expressions",
+    "href": "Notes/n04-c-inro.html#logical-expressions",
+    "title": "4: C intro",
+    "section": "Logical expressions",
+    "text": "Logical expressions\nMore complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination.\n\n\n\nComparison Operator\nName\n\n\n\n\n==\nEqual to\n\n\n!=\nNote equal to\n\n\n&gt;\nGreater than\n\n\n&lt;\nLess than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to\n\n\n\n\n\n\nLogical Operator\nName\n\n\n\n\n&&\nAND\n\n\n||\nOR\n\n\n!\nNOT\n\n\n\n\nExamples\ncounter &lt;= 12\nvalue &gt; threshold || override == 1\nEventually you will need to use more complex statements\nsource-&gt;metaData[WIDTH] + colStartIndex  &gt; destination-&gt;metaData[WIDTH] || source-&gt;metaData[HEIGHT] + rowStartIndex &gt; destination-&gt;metaData[HEIGHT]"
   },
   {
-    "objectID": "Exercises/e01-linux-cli.html#answer",
-    "href": "Exercises/e01-linux-cli.html#answer",
-    "title": "1: Linux Command line skills",
-    "section": "Answer",
-    "text": "Answer\nwc -w data/* | sort -n"
+    "objectID": "Notes/n04-c-inro.html#branching",
+    "href": "Notes/n04-c-inro.html#branching",
+    "title": "4: C intro",
+    "section": "Branching",
+    "text": "Branching\nIn branching control flow a selection is made between different segments of code based on a variable or logical expression. The most commonly used branching pattern is the if-else statement:\nif(/*Logical Expression*/)\n{\n    // code run if logical expression is true\n}\nelse\n{\n    // run code \n}\n\nAdditionally else if statements can be added to have additiona arguments to control when a block of code is run.\n\nCode within an else if block will only run if the conditions for the parent if statement and any previous else if statements are all not met.\n\nCode within an else block are only run if none of the conditions are met\nAn if statement does not require any subsequent else statements."
   },
   {
-    "objectID": "Exercises/e01-linux-cli.html#answer-1",
-    "href": "Exercises/e01-linux-cli.html#answer-1",
-    "title": "1: Linux Command line skills",
-    "section": "Answer",
-    "text": "Answer\nsed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'"
+    "objectID": "Notes/n04-c-inro.html#looping",
+    "href": "Notes/n04-c-inro.html#looping",
+    "title": "4: C intro",
+    "section": "Looping",
+    "text": "Looping\nIn looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a determined number of loops (for loop).\n\nWhile loop\nwhile(/*logical expression*/)\n{\n    // code to be run\n}\nThe logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.\n\n\nFor loop\nint i = 0;\nfor (i = 0; i &gt; /*number of times to loop*/; i++)\n{\n    // Code to be run\n}\n\nIn some newer c standards, the first line can be removed and incorporated into the for() i.e. int i = 0; i&gt; ...\nThe variable i is a placeholder and is often renamed to improve code readability."
   },
   {
     "objectID": "Notes/n01-intro.html",
@@ -116,7 +116,7 @@
     "href": "Notes/n01-intro.html#putting-information-in-the-files",
     "title": "1: Intro to the terminal and codespaces.",
     "section": "Putting information in the files",
-    "text": "Putting information in the files\nGiven that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.\necho \"This text is in a file\" &gt; test-dir/temp.txt\nLets break down what this is doing. * echo is a command to output its argument. In this case that argument is the string “This text is in a file” * &gt; is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt.\nThis can be tested either using the editor user interface or by using the command cat with the file in question as the argument. This command will output the contents of the file to the command line.\n\n\n\n\n\n\nTip\n\n\n\nFor longer files where an unstructured output would be difficult to read in the command line you can also use the command less"
+    "text": "Putting information in the files\nGiven that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.\necho \"This text is in a file\" &gt; test-dir/temp.txt\nLets break down what this is doing.\n\necho is a command to output its argument. In this case that argument is the string “This text is in a file”\n&gt; is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt. Alternatively the redirection &gt;&gt; can ve used to append to a file rather than rewriting it.\n\nThis can be tested either using the editor user interface or by using the command cat with the file in question as the argument. This command will output the contents of the file to the command line.\n\n\n\n\n\n\nTip\n\n\n\nFor longer files where an unstructured output would be difficult to read in the command line you can also use the command less"
   },
   {
     "objectID": "Notes/n01-intro.html#command-line-text-editors",
@@ -137,13 +137,83 @@
     "href": "Notes/n01-intro.html#deleting-files-and-directories",
     "title": "1: Intro to the terminal and codespaces.",
     "section": "Deleting files and directories",
-    "text": "Deleting files and directories\nThe rm command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The -r option can be used to delete a directory along with its files and all subdirectories."
+    "text": "Deleting files and directories\nThe rm command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The -r option can be used to delete a directory along with its files and all subdirectories.\n\n\n\n\n\n\nImportant\n\n\n\nrm is permanent, there is no recycling bin!"
   },
   {
     "objectID": "Notes/n01-intro.html#do-i-need-to-remember-all-of-this",
     "href": "Notes/n01-intro.html#do-i-need-to-remember-all-of-this",
     "title": "1: Intro to the terminal and codespaces.",
     "section": "Do I need to remember all of this?",
-    "text": "Do I need to remember all of this?\nNo, the command man can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for ls you will be able to find details on the arguments and options discussed earlier."
+    "text": "Do I need to remember all of this?\nNo, the command man can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for ls you will be able to find details on the arguments and options discussed earlier.\nYou can also google it."
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html",
+    "href": "Exercises/e01-linux-cli.html",
+    "title": "1: Linux Command line skills",
+    "section": "",
+    "text": "Create the following directory tree in the shell training repo:\n\n\nwork\nwork/input_data/\nwork/results/\nwork/program/\n\n\nCreate the file input.txt with a text editor and put some text in it.\nMove the file to work/input_data and rename it in the same command to control01.txt\nCreate this directory tree in one line only: work/experiment/results/report\nDelete the work directory and all of its contents with one single command.\n\n\n\n\n\n\n\nTip\n\n\n\nUse the man command to check the options that you can use to do these last two tasks."
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#extension",
+    "href": "Exercises/e01-linux-cli.html#extension",
+    "title": "1: Linux Command line skills",
+    "section": "Extension",
+    "text": "Extension\n\nEdit the script to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)\nNow try and make it in a single line."
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answers---out-of-date",
+    "href": "Exercises/e01-linux-cli.html#answers---out-of-date",
+    "title": "1: Linux Command line skills",
+    "section": "Answers - out of date",
+    "text": "Answers - out of date\ncat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt\ncat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answer",
+    "href": "Exercises/e01-linux-cli.html#answer",
+    "title": "1: Linux Command line skills",
+    "section": "Answer",
+    "text": "Answer\nwc -w data/* | sort -n"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answer-1",
+    "href": "Exercises/e01-linux-cli.html#answer-1",
+    "title": "1: Linux Command line skills",
+    "section": "Answer",
+    "text": "Answer\nsed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Procedural Programming",
+    "section": "",
+    "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
+  },
+  {
+    "objectID": "Notes/n02-scripting-git.html",
+    "href": "Notes/n02-scripting-git.html",
+    "title": "2: Bash scripting and git",
+    "section": "",
+    "text": "Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes\n\nBash scripts\nBash scripts, also known as shell scripts, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.\nFirst make a a new directory called scripts and navigate to it. And make a file called time.sh. In the file put these lines:\n#!/bin/bash\necho $(date)\n\n#!/bin/bash tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.\necho is a command for outputting to the command line.\n$(date) is a value maintained by the system and accessible from the command line.\n\nWhen we wish to execute a program in our current directory we call it as a command by appending ./ to the name. This tells the operating system to look in the current directory for the program to run.\nTherefore In order to run the is script we run the command ./time.sh however at the moment that will give us this output:\n$ ./time.sh\nbash: ./time.sh: Permission denied\n\n\nWhy doesn’t the script run?\nThis is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the -l option for ls.\n$ ls -l\n-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh\nThe part of this output that is relevant to this case is the string -rw-rw-rw-\n\nThe first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as time.sh is simply a file this is left empty.\nThe rest of the string represents the permissions for the file. This is split into 3 different catagories for 3 different groups.\n\nThe three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a -\nThis is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users\n\n\nSo in this case the file can be read and written by all users, but not executed, how can we change this?\n\n\nAltering file permissions.\nThe chmod command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command\nchmod +x time.sh\nOnce this is done, you can rerun the script and see the output.\n\n\nReminder of key steps to make a shell script\n\nMake file with .sh extension\nPut #!/bin/bash at the start of the file. (this is sometimes called a shebang)\nChange the permissions so the file is executable.\n\n\n\nA more complex example:\nscripts/dataAnalysis.sh\ncat data/values* &gt; output.txt\nsed -i 's/\\s/\\n/g' output.txt \nsed -i '/^$/d' output.txt \nsort -no output.txt output.txt\nhead -n1 output.txt\ntail -n1 output.txt\nrm output.txt\nRun this script from the root of the git repo using ./scripts/dataAnalysis.sh\nLets break down what this is doing:\n\nFirst line uses cat to output all files in directories starting data/values. It does this using the wildcard operator * to select all of these files. The output is then redirected to the file output.txt using &gt;.\noutput.txt now contains all the values, but not in the format we want. Therefor we use the stream editor sed to first split the values onto different lines using the pattern 's/\\s/\\n/g'. Then we remove any blank lines using the pattern /^$/d.\nNext we sort the file. The options -n specifies to sort numerically and -o allows for the specifying of an output file.\nhead -n1 and tail -n1 will output the first and last values respectively\nFinally rm removes out temporary file.\n\n\n\nAnother way\nFrom the root of the git repo run the command\ncat data/values* | sed 's/\\s/\\n/g' | sed '/^$/d' | sort -n | (head -n1 && tail -n1)\nThis condenses the whole of the previous script into a single line using pipes |. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.\nThis does have a significant performance benefit though that can be seen by using the time command to measure the performance of each script. Try this yourself.\n\n\n\n\n\n\nImportant\n\n\n\nRemember to save your changes to your Codespace."
+  },
+  {
+    "objectID": "Notes/roughNotes.html",
+    "href": "Notes/roughNotes.html",
+    "title": "Scripts",
+    "section": "",
+    "text": "wildcards: ? *\npipe: | !!"
+  },
+  {
+    "objectID": "Notes/roughNotes.html#notes-1-missing-parts",
+    "href": "Notes/roughNotes.html#notes-1-missing-parts",
+    "title": "Scripts",
+    "section": "",
+    "text": "wildcards: ? *\npipe: | !!"
+  },
+  {
+    "objectID": "Notes/n03-git-hub.html",
+    "href": "Notes/n03-git-hub.html",
+    "title": "3: Using git and Github",
+    "section": "",
+    "text": "what is a repo\npurpose\ncommands\n\nclone\npull\nfetch\nbranch\ncheckout\nadd\ncommit\npush"
   }
 ]

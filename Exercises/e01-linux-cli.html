@@ -121,6 +121,18 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Notes/n03-git-hub.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: Using git and Github</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n04-c-inro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: C intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Notes/roughNotes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notes 1 missing parts</span></a>
   </div>
@@ -144,6 +156,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Resources/c-cheat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C cheat sheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -158,7 +187,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#exercise-2" id="toc-exercise-2" class="nav-link" data-scroll-target="#exercise-2">Exercise 2</a>
   <ul class="collapse">
   <li><a href="#extension" id="toc-extension" class="nav-link" data-scroll-target="#extension">Extension</a></li>
-  <li><a href="#answers" id="toc-answers" class="nav-link" data-scroll-target="#answers">Answers</a></li>
+  <li><a href="#answers---out-of-date" id="toc-answers---out-of-date" class="nav-link" data-scroll-target="#answers---out-of-date">Answers - out of date</a></li>
   </ul></li>
   <li><a href="#exercise-3" id="toc-exercise-3" class="nav-link" data-scroll-target="#exercise-3">Exercise 3</a>
   <ul class="collapse">
@@ -193,17 +222,34 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="exercise-1" class="level1">
 <h1>Exercise 1</h1>
-<p>Create the following directory tree in the shell training repo:</p>
+<ol type="1">
+<li>Create the following directory tree in the shell training repo:</li>
+</ol>
 <blockquote class="blockquote">
 <p><code>work</code><br>
 <code>work/input_data/</code><br>
 <code>work/results/</code><br>
 <code>work/program/</code></p>
 </blockquote>
-<p>Create the file <code>input.txt</code> with a text editor and put some text in it.</p>
-<p>Move the file to <code>work/input_data</code> and rename it in the same command to <code>control01.txt</code></p>
-<p>Create this directory tree in one line only: <code>work/experiment/results/report</code></p>
-<p>Delete the <code>work</code> directory and all of its contents with one single command.</p>
+<ol start="2" type="1">
+<li><p>Create the file <code>input.txt</code> with a text editor and put some text in it.</p></li>
+<li><p>Move the file to <code>work/input_data</code> and rename it in the same command to <code>control01.txt</code></p></li>
+<li><p>Create this directory tree in one line only: <code>work/experiment/results/report</code></p></li>
+<li><p>Delete the <code>work</code> directory and all of its contents with one single command.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the man command to check the options that you can use to do these last two tasks.</p>
+</div>
+</div>
 </section>
 <section id="exercise-2" class="level1">
 <h1>Exercise 2</h1>
@@ -212,14 +258,17 @@ ul.task-list li input[type="checkbox"] {
 <li>The <code>sort</code> command will sort lines alphabetically (or numerically…)</li>
 <li>the <code>cut</code> command to split lines of text based on a given character e.g.&nbsp;<code>cut -d ',' -f 2</code> will split lines around the comma and give you the second part</li>
 </ul>
-<p>Combine <code>cat</code>, <code>cut</code>, and <code>sort</code> to print out the Latin names from <code>birds.txt</code> in alphabetical order.</p>
+<p>Combine <code>cat</code>, <code>cut</code>, and <code>sort</code> in a bash script to print out the Latin names from <code>birds.txt</code> in alphabetical order.</p>
 <p>Save the output to a new file.</p>
 <section id="extension" class="level2">
 <h2 class="anchored" data-anchor-id="extension">Extension</h2>
-<p>Use a similar command to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)</p>
+<ul>
+<li>Edit the script to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)</li>
+<li>Now try and make it in a single line.</li>
+</ul>
 </section>
-<section id="answers" class="level2">
-<h2 class="anchored" data-anchor-id="answers">Answers</h2>
+<section id="answers---out-of-date" class="level2">
+<h2 class="anchored" data-anchor-id="answers---out-of-date">Answers - out of date</h2>
 <p><code>cat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt</code></p>
 <p><code>cat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt</code></p>
 </section>

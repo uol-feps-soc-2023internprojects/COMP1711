@@ -155,6 +155,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Notes/n03-git-hub.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: Using git and Github</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n04-c-inro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: C intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Notes/roughNotes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notes 1 missing parts</span></a>
   </div>
@@ -178,6 +190,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Resources</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Resources/c-cheat.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">C cheat sheet</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -191,6 +220,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#bash-scripts" id="toc-bash-scripts" class="nav-link active" data-scroll-target="#bash-scripts">Bash scripts</a></li>
   <li><a href="#why-doesnt-the-script-run" id="toc-why-doesnt-the-script-run" class="nav-link" data-scroll-target="#why-doesnt-the-script-run">Why doesn’t the script run?</a></li>
   <li><a href="#altering-file-permissions." id="toc-altering-file-permissions." class="nav-link" data-scroll-target="#altering-file-permissions.">Altering file permissions.</a></li>
+  <li><a href="#reminder-of-key-steps-to-make-a-shell-script" id="toc-reminder-of-key-steps-to-make-a-shell-script" class="nav-link" data-scroll-target="#reminder-of-key-steps-to-make-a-shell-script">Reminder of key steps to make a shell script</a></li>
+  <li><a href="#a-more-complex-example" id="toc-a-more-complex-example" class="nav-link" data-scroll-target="#a-more-complex-example">A more complex example:</a></li>
+  <li><a href="#another-way" id="toc-another-way" class="nav-link" data-scroll-target="#another-way">Another way</a></li>
   </ul>
 </nav>
     </div>
@@ -214,10 +246,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Instructions in this file are to be run in the same codespace as from the into to the terminal.</p>
+<p>Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes</p>
 <section id="bash-scripts" class="level1">
 <h1>Bash scripts</h1>
-<p>Bash scripts are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.</p>
+<p>Bash scripts, also known as shell scripts, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.</p>
 <p>First make a a new directory called <code>scripts</code> and navigate to it. And make a file called <code>time.sh</code>. In the file put these lines:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -252,6 +284,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <code>chmod</code> command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x time.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Once this is done, you can rerun the script and see the output.</p>
+</section>
+<section id="reminder-of-key-steps-to-make-a-shell-script" class="level1">
+<h1>Reminder of key steps to make a shell script</h1>
+<ol type="1">
+<li>Make file with .sh extension</li>
+<li>Put <code>#!/bin/bash</code> at the start of the file. (this is sometimes called a shebang)</li>
+<li>Change the permissions so the file is executable.</li>
+</ol>
+</section>
+<section id="a-more-complex-example" class="level1">
+<h1>A more complex example:</h1>
+<p><code>scripts/dataAnalysis.sh</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data/values<span class="pp">*</span> <span class="op">&gt;</span> output.txt</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/\s/\n/g'</span> output.txt </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'/^$/d'</span> output.txt </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span> <span class="at">-no</span> output.txt output.txt</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n1</span> output.txt</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n1</span> output.txt</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Run this script from the root of the git repo using <code>./scripts/dataAnalysis.sh</code></p>
+<p>Lets break down what this is doing:</p>
+<ul>
+<li>First line uses <code>cat</code> to output all files in directories starting data/values. It does this using the wildcard operator <code>*</code> to select all of these files. The output is then redirected to the file <code>output.txt</code> using <code>&gt;</code>.</li>
+<li><code>output.txt</code> now contains all the values, but not in the format we want. Therefor we use the stream editor <code>sed</code> to first split the values onto different lines using the pattern <code>'s/\s/\n/g'</code>. Then we remove any blank lines using the pattern <code>/^$/d</code>.</li>
+<li>Next we sort the file. The options <code>-n</code> specifies to sort numerically and <code>-o</code> allows for the specifying of an output file.</li>
+<li><code>head -n1</code> and <code>tail -n1</code> will output the first and last values respectively</li>
+<li>Finally <code>rm</code> removes out temporary file.</li>
+</ul>
+</section>
+<section id="another-way" class="level1">
+<h1>Another way</h1>
+<p>From the root of the git repo run the command</p>
+<p><code>cat data/values* | sed 's/\s/\n/g' | sed '/^$/d' | sort -n | (head -n1 &amp;&amp; tail -n1)</code></p>
+<p>This condenses the whole of the previous script into a single line using pipes <code>|</code>. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.</p>
+<p>This does have a significant performance benefit though that can be seen by using the <code>time</code> command to measure the performance of each script. Try this yourself.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember to save your changes to your Codespace.</p>
+</div>
+</div>
 
 
 </section>
