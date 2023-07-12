@@ -1,7 +1,7 @@
 ---
 title: "2: Bash scripting and git"
 ---
-Instructions in this file are to be run in the same codespace as from the into to the terminal.
+Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes
 
 # Bash scripts
 Bash scripts, also known as shell scripts,  are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
@@ -81,14 +81,6 @@ This condenses the whole of the previous script into a single line using pipes `
 
 This does have a significant performance benefit though that can be seen by using the `time` command to measure the performance of each script. Try this yourself.
 
-* what is a repo
-* purpose
-* commands 
-    * clone 
-    * pull
-    * fetch
-    * branch
-    * checkout
-    * add
-    * commit
-    * push
+:::{.callout-important}
+Remember to save your changes to your Codespace.
+:::
