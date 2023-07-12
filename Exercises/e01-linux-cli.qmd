@@ -3,20 +3,24 @@ title: "1: Linux Command line skills"
 ---
 
 # Exercise 1
-Create the following directory tree in the shell training repo: 
+1. Create the following directory tree in the shell training repo: 
 
 > `work`  
 `work/input_data/`  
 `work/results/`  
 `work/program/`  
 
-Create the file `input.txt` with a text editor and put some text in it.
+2. Create the file `input.txt` with a text editor and put some text in it.
 
-Move the file to `work/input_data` and rename it in the same command to `control01.txt`
+3. Move the file to `work/input_data` and rename it in the same command to `control01.txt`
 
-Create this directory tree in one line only: `work/experiment/results/report` 
+4. Create this directory tree in one line only: `work/experiment/results/report` 
 
-Delete the `work` directory and all of its contents with one single command.
+5. Delete the `work` directory and all of its contents with one single command.
+
+::: {.callout-tip}
+Use the man command to check the options that you can use to do these last two tasks.
+:::
 
 # Exercise 2
 Let’s introduce two new commands:
@@ -24,14 +28,16 @@ Let’s introduce two new commands:
 * The `sort` command will sort lines alphabetically (or numerically...)
 * the `cut` command to split lines of text based on a given character e.g. `cut -d ',' -f 2` will split lines around the comma and give you the second part
 
-Combine `cat`, `cut`, and `sort` to print out the Latin names from `birds.txt` in alphabetical order.
+Combine `cat`, `cut`, and `sort` in a bash script to print out the Latin names from `birds.txt` in alphabetical order.
 
 Save the output to a new file.
 
 ## Extension
-Use a similar command to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this) 
 
-## Answers
+* Edit the script to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)
+* Now try and make it in a single line. 
+
+## Answers - out of date
 `cat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort > orderedBirds.txt`
 
 `cat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort > orderedAnimals.txt`

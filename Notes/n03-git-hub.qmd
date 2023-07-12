@@ -1,0 +1,15 @@
+---
+title: "3: Using git and Github"
+---
+
+* what is a repo
+* purpose
+* commands 
+    * clone 
+    * pull
+    * fetch
+    * branch
+    * checkout
+    * add
+    * commit
+    * push
