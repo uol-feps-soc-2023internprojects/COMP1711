@@ -114,12 +114,70 @@ Control flow is the process by which the program selects what line should be run
 This is the most simple way and the default, you simply proceed to the next line after each line, as such there are no special structures associated with it.
 
 ## Logical expressions
-More complex control flow will always require evaluating conditions to make a decision, 
+More complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination.
+
+| Comparison Operator | Name |
+|---|---|
+| `==` | Equal to |
+| `!=` | Note equal to |
+| `>` | Greater than |
+| `<` | Less than |
+| `<=` | Less than or equal to |
+| `>=` | Greater than or equal to |
+
+| Logical Operator | Name |
+|---|---|
+| `&&` | AND |
+| `||` | OR |
+| `!` | NOT|
+
+### Examples
+`counter <= 12`  
+`value > threshold || override == 1`  
+Eventually you will need to use more complex statements
+``` c
+source->metaData[WIDTH] + colStartIndex  > destination->metaData[WIDTH] || source->metaData[HEIGHT] + rowStartIndex > destination->metaData[HEIGHT]
+```
 
 ## Branching 
-
+In branching control flow a selection is made between different segments of code based on a variable or logical expression. The most commonly used branching pattern is the if-else statement:
+```c
+if(/*Logical Expression*/)
+{
+    // code run if logical expression is true
+}
+else
+{
+    // run code 
+}
+```
+- Additionally `else if` statements can be added to have additiona arguments to control when a block of code is run. 
+    - Code within an `else if` block will only run if the conditions for the parent if statement and any previous else if statements are all not met.
+- Code within an `else` block are only run if none of the conditions are met
+- An `if` statement does not require any subsequent `else` statements.
 
 ## Looping
+In looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a determined number of loops (for loop).
+
+### While loop
+``` c
+while(/*logical expression*/)
+{
+    // code to be run
+}
+```
+The logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.
+
+### For loop
+``` c
+int i = 0;
+for (i = 0; i > /*number of times to loop*/; i++)
+{
+    // Code to be run
+}
+```
+- In some newer c standards, the first line can be removed and incorporated into the `for()` i.e. `int i = 0; i> ...`
+- The variable `i` is a placeholder and is often renamed to improve code readability.
 
 # Notes
 * outline what happens in a basic hello world file & compiler
