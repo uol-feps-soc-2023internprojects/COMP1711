@@ -37,7 +37,7 @@ As a user when you open a terminal you will be greeted by a prompt. On codespace
 
 ## Your first command
 Select your terminal and type the command `pwd` after the prompt. (pwd is an acronym for print working directory). Your output should be similar to what is seen below:
-``` bash
+``` default
 $ pwd
 /workspaces/repository-name
 ```
@@ -46,12 +46,12 @@ This command will print the absolute path of the current working directory, that
 ## Seeing your files
 Now try the `ls` command. (ls is a shortening of the word list)
 This will output a list of the contents of the current directory.
-``` bash
+``` default
 $ ls
 IOM-animals  data  some-maths.txt  wildcards
 ```
 In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information. 
-``` bash
+``` default
 $ ls -F
 IOM-animals/  data/  some-maths.txt  wildcards/
 ```
@@ -77,7 +77,7 @@ cd is a particularly important case for the use of the parent directory `..` as 
 **Absolute** path start with a `/` and reference the same file or location regardless of the current working directory.  
 **Relative** paths do **not** start with a `/` and reference file or location from the current working directory.
 :::
-``` bash
+``` default
 $ pwd
 /workspaces/repository-name
 $ cd IOM-animals
@@ -93,12 +93,12 @@ The command can also be run without any arguments, this will navigate back to th
 
 ## New directories and files
 The `mkdir` command can be used to create new directories with an argument as the directory name. We can use `ls` to see the new directory.
-``` bash
+``` default
 $ mkdir test-dir
 $ ls -F
 ```
 We can then use the `touch` command to create a new file at the location specified by the argument. This example also shows the use of ls with an argument for directory.
-``` bash
+``` default
 $ touch test-dir/temp.txt
 $ ls test-dir
 temp.txt

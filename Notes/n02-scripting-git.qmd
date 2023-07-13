@@ -1,5 +1,5 @@
 ---
-title: "2: Bash scripting and git"
+title: "2: Bash scripting"
 ---
 Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes
 
@@ -18,14 +18,14 @@ echo $(date)
 When we wish to execute a program in our current directory we call it as a command by appending `./` to the name. This tells the operating system to look in the current directory for the program to run.
 
 Therefore In order to run the is script we run the command `./time.sh` however at the moment that will give us this output:
-``` bash
+``` default
 $ ./time.sh
 bash: ./time.sh: Permission denied
 ```
 
 # Why doesn't the script run?
 This is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the `-l` option for `ls`.
-```bash
+```default
 $ ls -l
 -rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh
 ```
@@ -52,7 +52,7 @@ Once this is done, you can rerun the script and see the output.
 3. Change the permissions so the file is executable.
 
 # A more complex example:
-`scripts/dataAnalysis.sh`
+`scripts/dataAnalysis1.sh`
 ``` bash
 cat data/values* > output.txt
 sed -i 's/\s/\n/g' output.txt 
@@ -62,12 +62,12 @@ head -n1 output.txt
 tail -n1 output.txt
 rm output.txt
 ```
-Run this script from the root of the git repo using `./scripts/dataAnalysis.sh`
+Run this script from the root of the git repo using `./scripts/dataAnalysis1.sh`
 
 Lets break down what this is doing:
 
 * First line uses `cat` to output all files in directories starting data/values. It does this using the wildcard operator `*` to select all of these files. The output is then redirected to the file `output.txt` using `>`.
-* `output.txt` now contains all the values, but not in the format we want. Therefor we use the stream editor `sed` to first split the values onto different lines using the pattern `'s/\s/\n/g'`. Then we remove any blank lines using the pattern `/^$/d`. 
+* `output.txt` now contains all the values, but not in the format we want. Therefore we use the stream editor `sed` to first split the values onto different lines using the pattern `'s/\s/\n/g'`. Then we remove any blank lines using the pattern `/^$/d`. 
 * Next we sort the file. The options `-n` specifies to sort numerically and `-o` allows for the specifying of an output file.
 * `head -n1` and `tail -n1` will output the first and last values respectively 
 * Finally `rm` removes out temporary file.
@@ -78,6 +78,8 @@ From the root of the git repo run the command
 `cat data/values* | sed 's/\s/\n/g' | sed '/^$/d' | sort -n | (head -n1 && tail -n1)`
 
 This condenses the whole of the previous script into a single line using pipes `|`. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse. 
+
+Save this new script as `scripts/dataAnalysis2.sh`
 
 This does have a significant performance benefit though that can be seen by using the `time` command to measure the performance of each script. Try this yourself.
 

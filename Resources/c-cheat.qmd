@@ -1,7 +1,0 @@
----
-title: "C cheat sheet"
----
-
-<!---
-https://www.tablesgenerator.com/text_tables
---->
