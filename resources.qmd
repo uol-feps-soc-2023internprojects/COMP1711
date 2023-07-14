@@ -1,0 +1,10 @@
+---
+title:  Resources
+---
+
+# Bash
+
+# C
+
+# Git
+[Git Cheat Sheet](file:///home/wrk/Downloads/SWTM-2088_Atlassian-Git-Cheatsheet-1.pdf)

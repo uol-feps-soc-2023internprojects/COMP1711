@@ -2,14 +2,116 @@
 title: "3: Using git and Github"
 ---
 
-* what is a repo
-* purpose
-* commands 
-    * clone 
-    * pull
-    * fetch
-    * branch
-    * checkout
-    * add
-    * commit
-    * push
+# What is git?
+If you google git you will find out that git is a 'Distributed Version Control System', but what does this actually mean?
+
+- **Version Control System** 
+    - class of software dedicated to managing changes made to files
+    - typically changes are bundled into groups rather than every keystroke being logged in the system. 
+    - In git these change bundles are called commits
+    - Each commit contains the differences between the current commit and the previous commit as well as unique identifiers for the current commit, the previous commit and the current state of the directory.
+- **Distributed** - This means that when using git, every place where the code is stored, the full history of commits is also accessible, this was not the case in alternatives that git was competing with before it became a de-facto industry standard. 
+
+:::{.callout-note}
+Git commits use the `diff` command line program to show the differences between commits. You can also use this to compare differences between files in your directories
+:::
+
+# Repository
+All these commits and files are stored together in a repository; this is just a directory with all the extra information other than your files is stored in the hidden `.git/` subdirectory.
+
+Every change you make to the files in the repository goes through 3 stages, we will follow this process using the changes made to the repository made in the scripting notes
+
+## 1. Untracked changes
+Once you save changes on your device your changes or new files will be classed as 'Untracked' this can be seen using the `git status` command. This command shows the current status of all changes that have not been committed.
+
+```  default
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        scripts/
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+In this case, given the scripts directory is new, git knows that all files within it must be untracked
+
+Taking advice from the terminal, we can now use the `git add` command.
+
+## 2. Staged changes
+`git add ` takes a file or directory as an argument to 'add' to the current list of files staged for a commit. If you are at the root of the repository, `git add .` will stage all untracked changes. once this is run we can rerun `git status` to see the changes:
+``` default
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   scripts/dataAnalysis1.sh
+        new file:   scripts/dataAnalysis2.sh
+        new file:   scripts/time.sh
+```
+This will always give a full listing of the changes that will be made when committing.
+
+## 3. Tracked changes
+Once committed these changes will simply be a part of the repo.
+
+In order to commit the changes we use the `git commit` command. By default this opens a command line text editor to write the commit message, to avoid this most will run it using the `-m` command to add a message e.g.
+``` default
+$ git commit -m "example commit"
+[main 3468b3a] example changes for notes
+ 3 files changed, 9 insertions(+)
+ create mode 100755 scripts/dataAnalysis1.sh
+ create mode 100755 scripts/dataAnalysis2.sh
+ create mode 100755 scripts/time.sh
+```
+
+# What are branches?
+You may have noticed branches mentioned when using `git status` that you are on the main branch.
+
+A git branch is a pointer to a specific commit, when you are on a branch as you continue to commit and add to this branch this pointer will be updated to point to the most recent branch. 
+
+The default branch is called 'main' 
+
+You can see all the current branches in you repo using the command `git branch`, add a new branch using `git branch <new-branch-name>` and swap branches using `git checkout <branch-name`.
+
+:::{.callout-note}
+How branches are used changes significantly between between developer/teams. The main types are feature branching, task branching and release branching. Each has their benefits and drawbacks.
+:::
+
+Due to their nature, as branches each get more commits their content tends to diverge, eventually this has to be resolved using merges. This can become messy and won't be covered here.
+
+#  What is origin?
+Origin is shorthand for the remote storage location of the repository. In our case this is on Github. if we run `git status` we should see that "Your branch is ahead of 'origin/main' by 1 commit."
+
+We can see the address of the remote of our repo using the command `git remote show origin`
+``` default
+* remote origin
+  Fetch URL: https://github.com/user/repo-name
+  Push  URL: https://github.com/user/repo-name
+  HEAD branch: main
+  Remote branch:
+    main tracked
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (fast-forwardable)
+```
+Following the URL will open your github project page, this is setup by Codespaces automatically in this scenario. In this case Github is simply a remote location to store a copy of the repository. 
+
+To update this remote we use the command `git push`. (This branch is setup to to be linked to the remote main, if that were not the case we would have to specify where to push to)
+
+Once this is done, the `git status` to read "Your branch is up to date with 'origin/main'."
+
+:::{.callout-note}
+It is important to push regularly to ensure that your changes are saved locally and remotely.
+:::
+
+# What if repo changes?
+If the repo changes while actively working on it or between sessions there are a few important commands to know.
+
+- `git fetch` will download all the updates to the repository metadata.
+- `git pull` will update your current branch to the state of its remote origin
+
+# Git on personal machines
+If developing on a local machine rather than opening a codespaces you will need to clone the repository using `git clone <url>`. This module will continue to assume you are using Codespaces
