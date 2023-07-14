@@ -156,6 +156,33 @@ else
 - Code within an `else` block are only run if none of the conditions are met
 - An `if` statement does not require any subsequent `else` statements.
 
+### Example
+Test this out for yourself!
+``` c
+#include <stdio.h>
+int main()
+{
+    int num = 0;
+    printf("Please enter a number: ");
+    scanf("%d", &num);
+    if (num > 10)
+    {
+        printf("Your number is greater than ten.\n");
+    }
+    else if (num < 0)
+    {
+        printf ("Your number is less than 0\n");
+    }
+    else
+    {
+        printf ("Your number is between 0 and 10 (inclusive)\n");
+    }
+    return 0;
+}
+```
+- Note that the `%d` format specifier is used to read an integer
+- The `&` symbol is required in front of not array variables when using `s.canf`.
+
 ## Looping
 In looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a determined number of loops (for loop).
 

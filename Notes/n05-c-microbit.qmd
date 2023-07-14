@@ -1,0 +1,39 @@
+---
+title: "5: C for the Microbit"
+---
+
+# Setting up a repository to write C for the microbit v2
+
+## Environment setup
+- In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.  
+![](/img/github_code.png)  
+
+- From this dropdown select the option that reads configure dev container  
+![](/img/config-dec-cont.png)
+
+- This will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to `ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7` once this is done the file should look as such:
+![](/img/devcontainer-json-example.png)
+
+- Finally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository.
+
+## Opening the codespace
+If you now navigate back to the codespace menu from the last step you can "create codespace on main" this will launch a new browser tab. It may take a little bit of time to build.
+
+## Project bootstrap
+In the terminal within codespaces run   
+``` bash
+curl https://raw.githubusercontent.com/lancaster-university/codal-bootstrap/main/build.py > build.py
+```
+This will download the python script that is used to bootstrap and/or build the project.
+
+The first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.
+``` default
+python build.py codal-microbit-v2
+python build.py
+```
+Once compiled the repository will have many more files. Most importantly the **MICROBIT.hex** which is the program which can be loaded to the Microbit.
+
+## Flashing the Microbit
+Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be coppied over to the device.
+
+the default project should create a program that scrolls the text "Hello, Bootstraper" over the leds.
