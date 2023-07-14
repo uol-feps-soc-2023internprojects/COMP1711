@@ -1,7 +1,46 @@
-## Notes 1 missing parts
-* wildcards: ? *
-* pipe: | !!
+---
+title: TODO
+---
 
-# Scripts
+# C exersizes
 
-# Version Control
+- alter the patterns.c
+
+#  C notes 2
+- functions
+    - contextualise using control flow
+- parameter passing
+
+# C notes 3
+- arrays
+    - Dimensions
+    - looping over
+    - mention pointers
+- strings
+    - special case of character array
+    - `\0`
+
+# C notes 4
+- pointers 
+- memory allocation
+    - malloc
+    - free
+    - calloc??
+
+# C notes 5
+- Strucutres
+- file IO
+
+# C notes 6
+- linked lists
+
+# C notes 7
+- stacks and queues
+
+# C notes 8
+- trees
+
+# C notes 9
+- search & sort 
+
+# Review

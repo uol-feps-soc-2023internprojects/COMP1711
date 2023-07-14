@@ -114,22 +114,7 @@ Control flow is the process by which the program selects what line should be run
 This is the most simple way and the default, you simply proceed to the next line after each line, as such there are no special structures associated with it.
 
 ## Logical expressions
-More complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination.
-
-| Comparison Operator | Name |
-|---|---|
-| `==` | Equal to |
-| `!=` | Note equal to |
-| `>` | Greater than |
-| `<` | Less than |
-| `<=` | Less than or equal to |
-| `>=` | Greater than or equal to |
-
-| Logical Operator | Name |
-|---|---|
-| `&&` | AND |
-| `||` | OR |
-| `!` | NOT|
+More complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination. N.B. these can also implement arithmetic operators in combination with this.
 
 ### Examples
 `counter <= 12`  
@@ -158,6 +143,8 @@ else
 
 ### Example
 Test this out for yourself!
+
+`numbers.c`
 ``` c
 #include <stdio.h>
 int main()
@@ -181,7 +168,7 @@ int main()
 }
 ```
 - Note that the `%d` format specifier is used to read an integer
-- The `&` symbol is required in front of not array variables when using `s.canf`.
+- The `&` symbol is required in front of not array variables when using `scanf()`.
 
 ## Looping
 In looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a determined number of loops (for loop).
@@ -193,7 +180,36 @@ while(/*logical expression*/)
     // code to be run
 }
 ```
-The logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.
+The logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times. 
+
+#### Example
+`average.c`
+``` c
+#include <stdio.h>
+int main()
+{
+    int counter = 0;
+    float input = 0, total = 0; 
+    printf("This is a program to calculate the average of positive values.\n"
+            "Once you have entered all your values enter a negative number to calculate the average.\n");
+    while (input != -1)
+    {
+        printf("Enter value:");
+        scanf("%f", &input);
+        if (input < 0)
+        {
+            continue;
+        }
+        counter += 1;
+        total += input;
+    }
+    printf("Average is %f\n", total/(float)counter);
+}
+```
+- Multiple variables of the same kind can be initialised in a single line when separated with commas.
+- `%f` format specifier for floats
+- The `continue` keyword causes the current iteration of the loop to end and the next one to start.
+- Any control structure can be nested within another control structure.
 
 ### For loop
 ``` c
@@ -206,6 +222,28 @@ for (i = 0; i < /*number of times to loop*/; i++)
 - In some newer c standards, the first line can be removed and incorporated into the `for()` i.e. `int i = 0; i> ...`
 - The variable `i` is a placeholder and is often renamed to improve code readability.
 
+#### Example
+`pattern.c`
+``` c
+#include <stdio.h>
+int main()
+{
+    for(int i = 1; i < 8; i++)
+    {
+        for(int j = 0; j < i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+```
+- Nested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.
+- This example also changes some extra values in the loop control, try changing these values yourself to see the effect on the pattern.
+
+# Scope (What is {})
+Scope is the area of a code file where a variable can be referenced; variables can be accessed in any child scope of the scope in which they are defined. In C `{}` always defines a scope whatever keyword it is related to. You can also define a scope without a keyword.
+
 # Notes
 * outline what happens in a basic hello world file & compiler
 * external libraries
@@ -214,3 +252,34 @@ for (i = 0; i < /*number of times to loop*/; i++)
 * program flow & syntax
     * if/else
     * looping
+
+- scope!
+- arithmetic
+
+# Operator appendix
+
+## Arithmetic
+| Operator | Name |
+|---|---|
+| `+` | Addition |
+| `-` | Subtraction |
+| `*` | Multiplication |
+| `/` | Division |
+| `%` | Modulo (remainder after division) |
+
+## Comparison
+| Operator | Name |
+|---|---|
+| `==` | Equal to |
+| `!=` | Note equal to |
+| `>` | Greater than |
+| `<` | Less than |
+| `<=` | Less than or equal to |
+| `>=` | Greater than or equal to |
+
+## Logical
+| Operator | Name |
+|---|---|
+| `&&` | AND |
+| `||` | OR |
+| `!` | NOT|
