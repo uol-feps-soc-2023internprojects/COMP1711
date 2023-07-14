@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>roughnotes</title>
+<title>TODO</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/roughNotes.html">Notes 1 missing parts</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/roughNotes.html">TODO</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2: Bash scripting and git</span></a>
+ <span class="menu-text">2: Bash scripting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -133,8 +133,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: C for the Microbit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Notes/roughNotes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Notes 1 missing parts</span></a>
+ <span class="menu-text">TODO</span></a>
   </div>
 </li>
       </ul>
@@ -156,23 +162,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Resources</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Resources/c-cheat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C cheat sheet</span></a>
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
   </div>
 </li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -183,29 +178,116 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#notes-1-missing-parts" id="toc-notes-1-missing-parts" class="nav-link active" data-scroll-target="#notes-1-missing-parts">Notes 1 missing parts</a></li>
-  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts">Scripts</a></li>
-  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control">Version Control</a></li>
+  <li><a href="#c-exersizes" id="toc-c-exersizes" class="nav-link active" data-scroll-target="#c-exersizes">C exersizes</a></li>
+  <li><a href="#c-notes-2" id="toc-c-notes-2" class="nav-link" data-scroll-target="#c-notes-2">C notes 2</a></li>
+  <li><a href="#c-notes-3" id="toc-c-notes-3" class="nav-link" data-scroll-target="#c-notes-3">C notes 3</a></li>
+  <li><a href="#c-notes-4" id="toc-c-notes-4" class="nav-link" data-scroll-target="#c-notes-4">C notes 4</a></li>
+  <li><a href="#c-notes-5" id="toc-c-notes-5" class="nav-link" data-scroll-target="#c-notes-5">C notes 5</a></li>
+  <li><a href="#c-notes-6" id="toc-c-notes-6" class="nav-link" data-scroll-target="#c-notes-6">C notes 6</a></li>
+  <li><a href="#c-notes-7" id="toc-c-notes-7" class="nav-link" data-scroll-target="#c-notes-7">C notes 7</a></li>
+  <li><a href="#c-notes-8" id="toc-c-notes-8" class="nav-link" data-scroll-target="#c-notes-8">C notes 8</a></li>
+  <li><a href="#c-notes-9" id="toc-c-notes-9" class="nav-link" data-scroll-target="#c-notes-9">C notes 9</a></li>
+  <li><a href="#review" id="toc-review" class="nav-link" data-scroll-target="#review">Review</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TODO</h1>
+</div>
 
 
-<section id="notes-1-missing-parts" class="level2">
-<h2 class="anchored" data-anchor-id="notes-1-missing-parts">Notes 1 missing parts</h2>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="c-exersizes" class="level1">
+<h1>C exersizes</h1>
 <ul>
-<li>wildcards: ? *</li>
-<li>pipe: | !!</li>
+<li>alter the patterns.c</li>
 </ul>
 </section>
-<section id="scripts" class="level1">
-<h1>Scripts</h1>
+<section id="c-notes-2" class="level1">
+<h1>C notes 2</h1>
+<ul>
+<li>functions
+<ul>
+<li>contextualise using control flow</li>
+</ul></li>
+<li>parameter passing</li>
+</ul>
 </section>
-<section id="version-control" class="level1">
-<h1>Version Control</h1>
+<section id="c-notes-3" class="level1">
+<h1>C notes 3</h1>
+<ul>
+<li>arrays
+<ul>
+<li>Dimensions</li>
+<li>looping over</li>
+<li>mention pointers</li>
+</ul></li>
+<li>strings
+<ul>
+<li>special case of character array</li>
+<li><code>\0</code></li>
+</ul></li>
+</ul>
+</section>
+<section id="c-notes-4" class="level1">
+<h1>C notes 4</h1>
+<ul>
+<li>pointers</li>
+<li>memory allocation
+<ul>
+<li>malloc</li>
+<li>free</li>
+<li>calloc??</li>
+</ul></li>
+</ul>
+</section>
+<section id="c-notes-5" class="level1">
+<h1>C notes 5</h1>
+<ul>
+<li>Strucutres</li>
+<li>file IO</li>
+</ul>
+</section>
+<section id="c-notes-6" class="level1">
+<h1>C notes 6</h1>
+<ul>
+<li>linked lists</li>
+</ul>
+</section>
+<section id="c-notes-7" class="level1">
+<h1>C notes 7</h1>
+<ul>
+<li>stacks and queues</li>
+</ul>
+</section>
+<section id="c-notes-8" class="level1">
+<h1>C notes 8</h1>
+<ul>
+<li>trees</li>
+</ul>
+</section>
+<section id="c-notes-9" class="level1">
+<h1>C notes 9</h1>
+<ul>
+<li>search &amp; sort</li>
+</ul>
+</section>
+<section id="review" class="level1">
+<h1>Review</h1>
 
 
 </section>

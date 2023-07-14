@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2: Bash scripting and git</title>
+<title>2: Bash scripting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n02-scripting-git.html">2: Bash scripting and git</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n02-scripting-git.html">2: Bash scripting</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -150,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2: Bash scripting and git</span></a>
+ <span class="menu-text">2: Bash scripting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -167,8 +167,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: C for the Microbit</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Notes/roughNotes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notes 1 missing parts</span></a>
+ <span class="menu-text">TODO</span></a>
   </div>
 </li>
       </ul>
@@ -190,23 +196,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Resources</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Resources/c-cheat.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">C cheat sheet</span></a>
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resources</span></a>
   </div>
 </li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -231,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2: Bash scripting and git</h1>
+<h1 class="title">2: Bash scripting</h1>
 </div>
 
 
@@ -260,14 +255,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>When we wish to execute a program in our current directory we call it as a command by appending <code>./</code> to the name. This tells the operating system to look in the current directory for the program to run.</p>
 <p>Therefore In order to run the is script we run the command <code>./time.sh</code> however at the moment that will give us this output:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ./time.sh</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">bash:</span> ./time.sh: Permission denied</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$ ./time.sh</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bash: ./time.sh: Permission denied</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="why-doesnt-the-script-run" class="level1">
 <h1>Why doesn’t the script run?</h1>
 <p>This is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the <code>-l</code> option for <code>ls</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> ls <span class="at">-l</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">-rw-rw-rw-</span> 1 codespace codespace 13 Jul  7 09:28 time.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>$ ls -l</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The part of this output that is relevant to this case is the string <code>-rw-rw-rw-</code></p>
 <ul>
 <li>The first character indicates any special permissions that the directory entry may have e.g.&nbsp;d for directory or l for symbolic link. In our case as <code>time.sh</code> is simply a file this is left empty.</li>
@@ -295,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="a-more-complex-example" class="level1">
 <h1>A more complex example:</h1>
-<p><code>scripts/dataAnalysis.sh</code></p>
+<p><code>scripts/dataAnalysis1.sh</code></p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> data/values<span class="pp">*</span> <span class="op">&gt;</span> output.txt</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'s/\s/\n/g'</span> output.txt </span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">'/^$/d'</span> output.txt </span>
@@ -303,11 +298,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n1</span> output.txt</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n1</span> output.txt</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Run this script from the root of the git repo using <code>./scripts/dataAnalysis.sh</code></p>
+<p>Run this script from the root of the git repo using <code>./scripts/dataAnalysis1.sh</code></p>
 <p>Lets break down what this is doing:</p>
 <ul>
 <li>First line uses <code>cat</code> to output all files in directories starting data/values. It does this using the wildcard operator <code>*</code> to select all of these files. The output is then redirected to the file <code>output.txt</code> using <code>&gt;</code>.</li>
-<li><code>output.txt</code> now contains all the values, but not in the format we want. Therefor we use the stream editor <code>sed</code> to first split the values onto different lines using the pattern <code>'s/\s/\n/g'</code>. Then we remove any blank lines using the pattern <code>/^$/d</code>.</li>
+<li><code>output.txt</code> now contains all the values, but not in the format we want. Therefore we use the stream editor <code>sed</code> to first split the values onto different lines using the pattern <code>'s/\s/\n/g'</code>. Then we remove any blank lines using the pattern <code>/^$/d</code>.</li>
 <li>Next we sort the file. The options <code>-n</code> specifies to sort numerically and <code>-o</code> allows for the specifying of an output file.</li>
 <li><code>head -n1</code> and <code>tail -n1</code> will output the first and last values respectively</li>
 <li>Finally <code>rm</code> removes out temporary file.</li>
@@ -318,6 +313,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>From the root of the git repo run the command</p>
 <p><code>cat data/values* | sed 's/\s/\n/g' | sed '/^$/d' | sort -n | (head -n1 &amp;&amp; tail -n1)</code></p>
 <p>This condenses the whole of the previous script into a single line using pipes <code>|</code>. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.</p>
+<p>Save this new script as <code>scripts/dataAnalysis2.sh</code></p>
 <p>This does have a significant performance benefit though that can be seen by using the <code>time</code> command to measure the performance of each script. Try this yourself.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">

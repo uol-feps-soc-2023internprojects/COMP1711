@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Bash\n\n\nC\n\n\nGit\nGit Cheat Sheet"
+  },
+  {
     "objectID": "Notes/n04-c-inro.html",
     "href": "Notes/n04-c-inro.html",
     "title": "4: C intro",
@@ -46,21 +53,98 @@
     "href": "Notes/n04-c-inro.html#logical-expressions",
     "title": "4: C intro",
     "section": "Logical expressions",
-    "text": "Logical expressions\nMore complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination.\n\n\n\nComparison Operator\nName\n\n\n\n\n==\nEqual to\n\n\n!=\nNote equal to\n\n\n&gt;\nGreater than\n\n\n&lt;\nLess than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to\n\n\n\n\n\n\nLogical Operator\nName\n\n\n\n\n&&\nAND\n\n\n||\nOR\n\n\n!\nNOT\n\n\n\n\nExamples\ncounter &lt;= 12\nvalue &gt; threshold || override == 1\nEventually you will need to use more complex statements\nsource-&gt;metaData[WIDTH] + colStartIndex  &gt; destination-&gt;metaData[WIDTH] || source-&gt;metaData[HEIGHT] + rowStartIndex &gt; destination-&gt;metaData[HEIGHT]"
+    "text": "Logical expressions\nMore complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination. N.B. these can also implement arithmetic operators in combination with this.\n\nExamples\ncounter &lt;= 12\nvalue &gt; threshold || override == 1\nEventually you will need to use more complex statements\nsource-&gt;metaData[WIDTH] + colStartIndex  &gt; destination-&gt;metaData[WIDTH] || source-&gt;metaData[HEIGHT] + rowStartIndex &gt; destination-&gt;metaData[HEIGHT]"
   },
   {
     "objectID": "Notes/n04-c-inro.html#branching",
     "href": "Notes/n04-c-inro.html#branching",
     "title": "4: C intro",
     "section": "Branching",
-    "text": "Branching\nIn branching control flow a selection is made between different segments of code based on a variable or logical expression. The most commonly used branching pattern is the if-else statement:\nif(/*Logical Expression*/)\n{\n    // code run if logical expression is true\n}\nelse\n{\n    // run code \n}\n\nAdditionally else if statements can be added to have additiona arguments to control when a block of code is run.\n\nCode within an else if block will only run if the conditions for the parent if statement and any previous else if statements are all not met.\n\nCode within an else block are only run if none of the conditions are met\nAn if statement does not require any subsequent else statements."
+    "text": "Branching\nIn branching control flow a selection is made between different segments of code based on a variable or logical expression. The most commonly used branching pattern is the if-else statement:\nif(/*Logical Expression*/)\n{\n    // code run if logical expression is true\n}\nelse\n{\n    // run code \n}\n\nAdditionally else if statements can be added to have additiona arguments to control when a block of code is run.\n\nCode within an else if block will only run if the conditions for the parent if statement and any previous else if statements are all not met.\n\nCode within an else block are only run if none of the conditions are met\nAn if statement does not require any subsequent else statements.\n\n\nExample\nTest this out for yourself!\nnumbers.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int num = 0;\n    printf(\"Please enter a number: \");\n    scanf(\"%d\", &num);\n    if (num &gt; 10)\n    {\n        printf(\"Your number is greater than ten.\\n\");\n    }\n    else if (num &lt; 0)\n    {\n        printf (\"Your number is less than 0\\n\");\n    }\n    else\n    {\n        printf (\"Your number is between 0 and 10 (inclusive)\\n\");\n    }\n    return 0;\n}\n\nNote that the %d format specifier is used to read an integer\nThe & symbol is required in front of not array variables when using scanf()."
   },
   {
     "objectID": "Notes/n04-c-inro.html#looping",
     "href": "Notes/n04-c-inro.html#looping",
     "title": "4: C intro",
     "section": "Looping",
-    "text": "Looping\nIn looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a determined number of loops (for loop).\n\nWhile loop\nwhile(/*logical expression*/)\n{\n    // code to be run\n}\nThe logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.\n\n\nFor loop\nint i = 0;\nfor (i = 0; i &gt; /*number of times to loop*/; i++)\n{\n    // Code to be run\n}\n\nIn some newer c standards, the first line can be removed and incorporated into the for() i.e. int i = 0; i&gt; ...\nThe variable i is a placeholder and is often renamed to improve code readability."
+    "text": "Looping\nIn looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a determined number of loops (for loop).\n\nWhile loop\nwhile(/*logical expression*/)\n{\n    // code to be run\n}\nThe logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.\n\nExample\naverage.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int counter = 0;\n    float input = 0, total = 0; \n    printf(\"This is a program to calculate the average of positive values.\\n\"\n            \"Once you have entered all your values enter a negative number to calculate the average.\\n\");\n    while (input != -1)\n    {\n        printf(\"Enter value:\");\n        scanf(\"%f\", &input);\n        if (input &lt; 0)\n        {\n            continue;\n        }\n        counter += 1;\n        total += input;\n    }\n    printf(\"Average is %f\\n\", total/(float)counter);\n}\n\nMultiple variables of the same kind can be initialised in a single line when separated with commas.\n%f format specifier for floats\nThe continue keyword causes the current iteration of the loop to end and the next one to start.\nAny control structure can be nested within another control structure.\n\n\n\n\nFor loop\nint i = 0;\nfor (i = 0; i &lt; /*number of times to loop*/; i++)\n{\n    // Code to be run\n}\n\nIn some newer c standards, the first line can be removed and incorporated into the for() i.e. int i = 0; i&gt; ...\nThe variable i is a placeholder and is often renamed to improve code readability.\n\n\nExample\npattern.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\nNested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.\nThis example also changes some extra values in the loop control, try changing these values yourself to see the effect on the pattern."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#arithmetic",
+    "href": "Notes/n04-c-inro.html#arithmetic",
+    "title": "4: C intro",
+    "section": "Arithmetic",
+    "text": "Arithmetic\n\n\n\nOperator\nName\n\n\n\n\n+\nAddition\n\n\n-\nSubtraction\n\n\n*\nMultiplication\n\n\n/\nDivision\n\n\n%\nModulo (remainder after division)"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#comparison",
+    "href": "Notes/n04-c-inro.html#comparison",
+    "title": "4: C intro",
+    "section": "Comparison",
+    "text": "Comparison\n\n\n\nOperator\nName\n\n\n\n\n==\nEqual to\n\n\n!=\nNote equal to\n\n\n&gt;\nGreater than\n\n\n&lt;\nLess than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#logical",
+    "href": "Notes/n04-c-inro.html#logical",
+    "title": "4: C intro",
+    "section": "Logical",
+    "text": "Logical\n\n\n\nOperator\nName\n\n\n\n\n&&\nAND\n\n\n||\nOR\n\n\n!\nNOT"
+  },
+  {
+    "objectID": "Notes/roughNotes.html",
+    "href": "Notes/roughNotes.html",
+    "title": "TODO",
+    "section": "",
+    "text": "C exersizes\n\nalter the patterns.c\n\n\n\nC notes 2\n\nfunctions\n\ncontextualise using control flow\n\nparameter passing\n\n\n\nC notes 3\n\narrays\n\nDimensions\nlooping over\nmention pointers\n\nstrings\n\nspecial case of character array\n\\0\n\n\n\n\nC notes 4\n\npointers\nmemory allocation\n\nmalloc\nfree\ncalloc??\n\n\n\n\nC notes 5\n\nStrucutres\nfile IO\n\n\n\nC notes 6\n\nlinked lists\n\n\n\nC notes 7\n\nstacks and queues\n\n\n\nC notes 8\n\ntrees\n\n\n\nC notes 9\n\nsearch & sort\n\n\n\nReview"
+  },
+  {
+    "objectID": "Notes/n02-scripting-git.html",
+    "href": "Notes/n02-scripting-git.html",
+    "title": "2: Bash scripting",
+    "section": "",
+    "text": "Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes\n\nBash scripts\nBash scripts, also known as shell scripts, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.\nFirst make a a new directory called scripts and navigate to it. And make a file called time.sh. In the file put these lines:\n#!/bin/bash\necho $(date)\n\n#!/bin/bash tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.\necho is a command for outputting to the command line.\n$(date) is a value maintained by the system and accessible from the command line.\n\nWhen we wish to execute a program in our current directory we call it as a command by appending ./ to the name. This tells the operating system to look in the current directory for the program to run.\nTherefore In order to run the is script we run the command ./time.sh however at the moment that will give us this output:\n$ ./time.sh\nbash: ./time.sh: Permission denied\n\n\nWhy doesn’t the script run?\nThis is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the -l option for ls.\n$ ls -l\n-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh\nThe part of this output that is relevant to this case is the string -rw-rw-rw-\n\nThe first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as time.sh is simply a file this is left empty.\nThe rest of the string represents the permissions for the file. This is split into 3 different catagories for 3 different groups.\n\nThe three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a -\nThis is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users\n\n\nSo in this case the file can be read and written by all users, but not executed, how can we change this?\n\n\nAltering file permissions.\nThe chmod command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command\nchmod +x time.sh\nOnce this is done, you can rerun the script and see the output.\n\n\nReminder of key steps to make a shell script\n\nMake file with .sh extension\nPut #!/bin/bash at the start of the file. (this is sometimes called a shebang)\nChange the permissions so the file is executable.\n\n\n\nA more complex example:\nscripts/dataAnalysis1.sh\ncat data/values* &gt; output.txt\nsed -i 's/\\s/\\n/g' output.txt \nsed -i '/^$/d' output.txt \nsort -no output.txt output.txt\nhead -n1 output.txt\ntail -n1 output.txt\nrm output.txt\nRun this script from the root of the git repo using ./scripts/dataAnalysis1.sh\nLets break down what this is doing:\n\nFirst line uses cat to output all files in directories starting data/values. It does this using the wildcard operator * to select all of these files. The output is then redirected to the file output.txt using &gt;.\noutput.txt now contains all the values, but not in the format we want. Therefore we use the stream editor sed to first split the values onto different lines using the pattern 's/\\s/\\n/g'. Then we remove any blank lines using the pattern /^$/d.\nNext we sort the file. The options -n specifies to sort numerically and -o allows for the specifying of an output file.\nhead -n1 and tail -n1 will output the first and last values respectively\nFinally rm removes out temporary file.\n\n\n\nAnother way\nFrom the root of the git repo run the command\ncat data/values* | sed 's/\\s/\\n/g' | sed '/^$/d' | sort -n | (head -n1 && tail -n1)\nThis condenses the whole of the previous script into a single line using pipes |. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.\nSave this new script as scripts/dataAnalysis2.sh\nThis does have a significant performance benefit though that can be seen by using the time command to measure the performance of each script. Try this yourself.\n\n\n\n\n\n\nImportant\n\n\n\nRemember to save your changes to your Codespace."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Procedural Programming",
+    "section": "",
+    "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html",
+    "href": "Exercises/e01-linux-cli.html",
+    "title": "1: Linux Command line skills",
+    "section": "",
+    "text": "Create the following directory tree in the shell training repo:\n\n\nwork\nwork/input_data/\nwork/results/\nwork/program/\n\n\nCreate the file input.txt with a text editor and put some text in it.\nMove the file to work/input_data and rename it in the same command to control01.txt\nCreate this directory tree in one line only: work/experiment/results/report\nDelete the work directory and all of its contents with one single command.\n\n\n\n\n\n\n\nTip\n\n\n\nUse the man command to check the options that you can use to do these last two tasks."
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#extension",
+    "href": "Exercises/e01-linux-cli.html#extension",
+    "title": "1: Linux Command line skills",
+    "section": "Extension",
+    "text": "Extension\n\nEdit the script to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)\nNow try and make it in a single line."
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answers---out-of-date",
+    "href": "Exercises/e01-linux-cli.html#answers---out-of-date",
+    "title": "1: Linux Command line skills",
+    "section": "Answers - out of date",
+    "text": "Answers - out of date\ncat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt\ncat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answer",
+    "href": "Exercises/e01-linux-cli.html#answer",
+    "title": "1: Linux Command line skills",
+    "section": "Answer",
+    "text": "Answer\nwc -w data/* | sort -n"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answer-1",
+    "href": "Exercises/e01-linux-cli.html#answer-1",
+    "title": "1: Linux Command line skills",
+    "section": "Answer",
+    "text": "Answer\nsed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'"
   },
   {
     "objectID": "Notes/n01-intro.html",
@@ -147,73 +231,66 @@
     "text": "Do I need to remember all of this?\nNo, the command man can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for ls you will be able to find details on the arguments and options discussed earlier.\nYou can also google it."
   },
   {
-    "objectID": "Exercises/e01-linux-cli.html",
-    "href": "Exercises/e01-linux-cli.html",
-    "title": "1: Linux Command line skills",
+    "objectID": "Notes/n05-c-microbit.html",
+    "href": "Notes/n05-c-microbit.html",
+    "title": "5: C for the Microbit",
     "section": "",
-    "text": "Create the following directory tree in the shell training repo:\n\n\nwork\nwork/input_data/\nwork/results/\nwork/program/\n\n\nCreate the file input.txt with a text editor and put some text in it.\nMove the file to work/input_data and rename it in the same command to control01.txt\nCreate this directory tree in one line only: work/experiment/results/report\nDelete the work directory and all of its contents with one single command.\n\n\n\n\n\n\n\nTip\n\n\n\nUse the man command to check the options that you can use to do these last two tasks."
+    "text": "In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.\n\nFrom this dropdown select the option that reads configure dev container\n\nThis will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7 once this is done the file should look as such: \nFinally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository.\n\n\n\n\nIf you now navigate back to the codespace menu from the last step you can “create codespace on main” this will launch a new browser tab. It may take a little bit of time to build.\n\n\n\nIn the terminal within codespaces run\ncurl https://raw.githubusercontent.com/lancaster-university/codal-bootstrap/main/build.py &gt; build.py\nThis will download the python script that is used to bootstrap and/or build the project.\nThe first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.\npython build.py codal-microbit-v2\npython build.py\nOnce compiled the repository will have many more files. Most importantly the MICROBIT.hex which is the program which can be loaded to the Microbit.\n\n\n\nOnce the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be coppied over to the device.\nthe default project should create a program that scrolls the text “Hello, Bootstrap!” over the leds."
   },
   {
-    "objectID": "Exercises/e01-linux-cli.html#extension",
-    "href": "Exercises/e01-linux-cli.html#extension",
-    "title": "1: Linux Command line skills",
-    "section": "Extension",
-    "text": "Extension\n\nEdit the script to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)\nNow try and make it in a single line."
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#answers---out-of-date",
-    "href": "Exercises/e01-linux-cli.html#answers---out-of-date",
-    "title": "1: Linux Command line skills",
-    "section": "Answers - out of date",
-    "text": "Answers - out of date\ncat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt\ncat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt"
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#answer",
-    "href": "Exercises/e01-linux-cli.html#answer",
-    "title": "1: Linux Command line skills",
-    "section": "Answer",
-    "text": "Answer\nwc -w data/* | sort -n"
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#answer-1",
-    "href": "Exercises/e01-linux-cli.html#answer-1",
-    "title": "1: Linux Command line skills",
-    "section": "Answer",
-    "text": "Answer\nsed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Procedural Programming",
+    "objectID": "Notes/n05-c-microbit.html#environment-setup",
+    "href": "Notes/n05-c-microbit.html#environment-setup",
+    "title": "5: C for the Microbit",
     "section": "",
-    "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
+    "text": "In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.\n\nFrom this dropdown select the option that reads configure dev container\n\nThis will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7 once this is done the file should look as such: \nFinally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository."
   },
   {
-    "objectID": "Notes/n02-scripting-git.html",
-    "href": "Notes/n02-scripting-git.html",
-    "title": "2: Bash scripting and git",
+    "objectID": "Notes/n05-c-microbit.html#opening-the-codespace",
+    "href": "Notes/n05-c-microbit.html#opening-the-codespace",
+    "title": "5: C for the Microbit",
     "section": "",
-    "text": "Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes\n\nBash scripts\nBash scripts, also known as shell scripts, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.\nFirst make a a new directory called scripts and navigate to it. And make a file called time.sh. In the file put these lines:\n#!/bin/bash\necho $(date)\n\n#!/bin/bash tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.\necho is a command for outputting to the command line.\n$(date) is a value maintained by the system and accessible from the command line.\n\nWhen we wish to execute a program in our current directory we call it as a command by appending ./ to the name. This tells the operating system to look in the current directory for the program to run.\nTherefore In order to run the is script we run the command ./time.sh however at the moment that will give us this output:\n$ ./time.sh\nbash: ./time.sh: Permission denied\n\n\nWhy doesn’t the script run?\nThis is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the -l option for ls.\n$ ls -l\n-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh\nThe part of this output that is relevant to this case is the string -rw-rw-rw-\n\nThe first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as time.sh is simply a file this is left empty.\nThe rest of the string represents the permissions for the file. This is split into 3 different catagories for 3 different groups.\n\nThe three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a -\nThis is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users\n\n\nSo in this case the file can be read and written by all users, but not executed, how can we change this?\n\n\nAltering file permissions.\nThe chmod command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command\nchmod +x time.sh\nOnce this is done, you can rerun the script and see the output.\n\n\nReminder of key steps to make a shell script\n\nMake file with .sh extension\nPut #!/bin/bash at the start of the file. (this is sometimes called a shebang)\nChange the permissions so the file is executable.\n\n\n\nA more complex example:\nscripts/dataAnalysis.sh\ncat data/values* &gt; output.txt\nsed -i 's/\\s/\\n/g' output.txt \nsed -i '/^$/d' output.txt \nsort -no output.txt output.txt\nhead -n1 output.txt\ntail -n1 output.txt\nrm output.txt\nRun this script from the root of the git repo using ./scripts/dataAnalysis.sh\nLets break down what this is doing:\n\nFirst line uses cat to output all files in directories starting data/values. It does this using the wildcard operator * to select all of these files. The output is then redirected to the file output.txt using &gt;.\noutput.txt now contains all the values, but not in the format we want. Therefor we use the stream editor sed to first split the values onto different lines using the pattern 's/\\s/\\n/g'. Then we remove any blank lines using the pattern /^$/d.\nNext we sort the file. The options -n specifies to sort numerically and -o allows for the specifying of an output file.\nhead -n1 and tail -n1 will output the first and last values respectively\nFinally rm removes out temporary file.\n\n\n\nAnother way\nFrom the root of the git repo run the command\ncat data/values* | sed 's/\\s/\\n/g' | sed '/^$/d' | sort -n | (head -n1 && tail -n1)\nThis condenses the whole of the previous script into a single line using pipes |. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.\nThis does have a significant performance benefit though that can be seen by using the time command to measure the performance of each script. Try this yourself.\n\n\n\n\n\n\nImportant\n\n\n\nRemember to save your changes to your Codespace."
+    "text": "If you now navigate back to the codespace menu from the last step you can “create codespace on main” this will launch a new browser tab. It may take a little bit of time to build."
   },
   {
-    "objectID": "Notes/roughNotes.html",
-    "href": "Notes/roughNotes.html",
-    "title": "Scripts",
+    "objectID": "Notes/n05-c-microbit.html#project-bootstrap",
+    "href": "Notes/n05-c-microbit.html#project-bootstrap",
+    "title": "5: C for the Microbit",
     "section": "",
-    "text": "wildcards: ? *\npipe: | !!"
+    "text": "In the terminal within codespaces run\ncurl https://raw.githubusercontent.com/lancaster-university/codal-bootstrap/main/build.py &gt; build.py\nThis will download the python script that is used to bootstrap and/or build the project.\nThe first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.\npython build.py codal-microbit-v2\npython build.py\nOnce compiled the repository will have many more files. Most importantly the MICROBIT.hex which is the program which can be loaded to the Microbit."
   },
   {
-    "objectID": "Notes/roughNotes.html#notes-1-missing-parts",
-    "href": "Notes/roughNotes.html#notes-1-missing-parts",
-    "title": "Scripts",
+    "objectID": "Notes/n05-c-microbit.html#flashing-the-microbit",
+    "href": "Notes/n05-c-microbit.html#flashing-the-microbit",
+    "title": "5: C for the Microbit",
     "section": "",
-    "text": "wildcards: ? *\npipe: | !!"
+    "text": "Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be coppied over to the device.\nthe default project should create a program that scrolls the text “Hello, Bootstrap!” over the leds."
   },
   {
     "objectID": "Notes/n03-git-hub.html",
     "href": "Notes/n03-git-hub.html",
     "title": "3: Using git and Github",
     "section": "",
-    "text": "what is a repo\npurpose\ncommands\n\nclone\npull\nfetch\nbranch\ncheckout\nadd\ncommit\npush"
+    "text": "If you google git you will find out that git is a ‘Distributed Version Control System’, but what does this actually mean?\n\nVersion Control System\n\nclass of software dedicated to managing changes made to files\ntypically changes are bundled into groups rather than every keystroke being logged in the system.\nIn git these change bundles are called commits\nEach commit contains the differences between the current commit and the previous commit as well as unique identifiers for the current commit, the previous commit and the current state of the directory.\n\nDistributed - This means that when using git, every place where the code is stored, the full history of commits is also accessible, this was not the case in alternatives that git was competing with before it became a de-facto industry standard.\n\n\n\n\n\n\n\nNote\n\n\n\nGit commits use the diff command line program to show the differences between commits. You can also use this to compare differences between files in your directories"
+  },
+  {
+    "objectID": "Notes/n03-git-hub.html#untracked-changes",
+    "href": "Notes/n03-git-hub.html#untracked-changes",
+    "title": "3: Using git and Github",
+    "section": "1. Untracked changes",
+    "text": "1. Untracked changes\nOnce you save changes on your device your changes or new files will be classed as ‘Untracked’ this can be seen using the git status command. This command shows the current status of all changes that have not been committed.\n$ git status\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nUntracked files:\n  (use \"git add &lt;file&gt;...\" to include in what will be committed)\n        scripts/\n\nnothing added to commit but untracked files present (use \"git add\" to track)\nIn this case, given the scripts directory is new, git knows that all files within it must be untracked\nTaking advice from the terminal, we can now use the git add command."
+  },
+  {
+    "objectID": "Notes/n03-git-hub.html#staged-changes",
+    "href": "Notes/n03-git-hub.html#staged-changes",
+    "title": "3: Using git and Github",
+    "section": "2. Staged changes",
+    "text": "2. Staged changes\ngit add takes a file or directory as an argument to ‘add’ to the current list of files staged for a commit. If you are at the root of the repository, git add . will stage all untracked changes. once this is run we can rerun git status to see the changes:\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nChanges to be committed:\n  (use \"git restore --staged &lt;file&gt;...\" to unstage)\n        new file:   scripts/dataAnalysis1.sh\n        new file:   scripts/dataAnalysis2.sh\n        new file:   scripts/time.sh\nThis will always give a full listing of the changes that will be made when committing."
+  },
+  {
+    "objectID": "Notes/n03-git-hub.html#tracked-changes",
+    "href": "Notes/n03-git-hub.html#tracked-changes",
+    "title": "3: Using git and Github",
+    "section": "3. Tracked changes",
+    "text": "3. Tracked changes\nOnce committed these changes will simply be a part of the repo.\nIn order to commit the changes we use the git commit command. By default this opens a command line text editor to write the commit message, to avoid this most will run it using the -m command to add a message e.g.\n$ git commit -m \"example commit\"\n[main 3468b3a] example changes for notes\n 3 files changed, 9 insertions(+)\n create mode 100755 scripts/dataAnalysis1.sh\n create mode 100755 scripts/dataAnalysis2.sh\n create mode 100755 scripts/time.sh"
   }
 ]
