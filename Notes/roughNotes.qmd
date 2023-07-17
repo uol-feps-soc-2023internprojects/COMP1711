@@ -2,6 +2,10 @@
 title: TODO
 ---
 
+# Need to add don't know where
+- `#define`  explanation - combo with advice to avoid 'magic numbers in code'
+
+
 # C exersizes
 
 - alter the patterns.c

@@ -8,7 +8,7 @@ The terminal is a window on a machine that allows for the input and output of te
 # Opening a Codespace
 Follow these steps to create a new repository from a template and open it in codespaces.
 
-1. Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/shell-training
+1. Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/1711-Introduction
 
 2. From the use this template dropdown select the option to create a new repository.
 

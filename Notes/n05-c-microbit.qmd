@@ -34,7 +34,7 @@ python build.py
 Once compiled the repository will have many more files. Most importantly the **MICROBIT.hex** which is the program which can be loaded to the Microbit.
 
 ## Flashing the Microbit
-Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be coppied over to the device.
+Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device.
 
 the default project should create a program that scrolls the text "Hello, Bootstrap!" over the leds.
 
@@ -61,5 +61,25 @@ int main() {
     return 0;
 }
 ```
+- This program uses the `while( true )` pattern to loop infinitely 
+
 
 ask martin for advice on how to explain away OOP
+
+# Output options
+The first of the output options is used in the example above. This option will move whatever input data it receives from right to left on the screen.
+`uBit.display.scroll(<text, character or image>)`
+
+This option will simply display the character or the image passed to it on the screen.
+`uBit.display.print(<character or image>)`
+
+Use this to change the value of specific pixels.
+`uBit.display.image.setPixelValue(<x axis position>, <y axis position>, <int brightness (0-255)>);`
+
+# Microbit images
+These are defined in a different way to the normal variables you have previously met in C. In this case  the identifier of the variable is 'cross' and the data in the brackets defines the data that will be stored.
+`MicroBitImage cross("0,255,0\n255,255,255\n0,255,0\n");`
+
+The format of the input data is a string containing integers (0-255), representing the light level for a pixel, separated by commas. The `\n` characters represent new lines in the image. 
+
+In practice these images will often be 5x5 as this is the size of the microbit screen.

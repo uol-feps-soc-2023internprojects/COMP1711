@@ -1,0 +1,154 @@
+---
+title: Basic C exercises
+---
+# Exercise 1 - Odd or Not
+Write a program that takes a integer input from the user and determines whether the value is odd or even. Hint: use the modulo operator.
+
+### Extension
+Rewrite the program so it takes two integers as inputs and determines whether one is a multiple of the other.
+
+
+
+# Exercise 2 - Patterns!
+Take this program, `pattern.c` from the notes.
+``` c
+#include <stdio.h>
+int main()
+{
+    for(int i = 1; i < 8; i++)
+    {
+        for(int j = 0; j < i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+```
+With this code the program will output:
+``` default
+*
+**
+***
+****
+*****
+******
+*******
+```
+
+Alter the program so that it outputs these different patterns:
+
+### 1
+``` default
+*****
+****
+***
+**
+*
+```
+#### Answer
+``` c
+#include <stdio.h>
+int main()
+{
+    for(int i = 6; i > 1; i--)
+    {
+        for(int j = 1; j < i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+```
+
+### 2
+``` default
+   *
+  ***
+ *****
+```
+#### Answer
+``` c
+#include <stdio.h>
+int main()
+{
+    for(int i = 1; i < 6; i+=2)
+    {
+        for(int j = 0; j < 7-i; j+=2)
+        {
+            printf(" ");
+        }
+        for(int j = 0; j < i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+```
+
+### 3
+Make this set of patterns that could create an animation:
+``` default
+*****
+*   *
+*   *
+*   *
+*****
+-----
+ * * 
+*****
+ * * 
+*****
+ * * 
+-----
+  *  
+  *  
+*****
+  *  
+  *  
+-----
+ * * 
+*****
+ * * 
+*****
+ * * 
+-----
+*****
+*   *
+*   *
+*   *
+*****
+-----
+```
+#### Answer
+``` c
+#include <stdio.h>
+#define GRID_SIZE 5
+#define MAX_INDEX GRID_SIZE-1
+
+int main()
+{
+    for(int k = 0; k < GRID_SIZE; k++)
+    {
+        for(int i = 0; i < GRID_SIZE; i++)
+        {
+            for(int j = 0; j < GRID_SIZE; j++)
+            {
+                if(i == 0 + k || i == MAX_INDEX-k || j == 0 + k | j  == MAX_INDEX - k)
+                {
+                    printf("*");
+                }
+                else
+                {
+                    printf(" ");
+                }
+            }
+            printf("\n");
+        }
+        printf("-----\n");
+    }
+    return 0;
+}
+```

@@ -1,6 +1,7 @@
 ---
 title: "4: C intro"
 ---
+Any files mentioned in these notes are available in the template repository that the bash notes showed you how to access. TODO: this needs rewording
 
 # History
 
@@ -28,7 +29,6 @@ Some may already be familiar  with programs similar to this as this hello world 
 #include <stdio.h>
 int main()
 {
-   // printf() displays the string inside quotation
    printf("Hello, World!");
    return 0;
 }
@@ -56,7 +56,7 @@ This will produce a output executable call a.out that can be run as:
 $ ./a.out
 Hello, world!
 ```
-This output file can be renamed using the `-o` option to specify an output file for the compiler e.g.`gcc hello-world.c -o hello-world`
+This output file can be renamed using the `-o` option to specify an output file for the compiler e.g. to create an executable with the same name: `gcc hello-world.c -o hello-world`
 
 # Variables
 ## Key parts
@@ -84,6 +84,8 @@ There are three key actions that can be taken with variables
 
 # Reading Input
 Lets customize the hello world program to say hello to you. We can use a variable and `scanf()` to do this.
+
+`hello-you.c`
 ``` c
 #include <stdio.h>
 int main()
@@ -136,7 +138,7 @@ else
     // run code 
 }
 ```
-- Additionally `else if` statements can be added to have additiona arguments to control when a block of code is run. 
+- Additionally `else if` statements can be added to have additional arguments to control when a block of code is run. 
     - Code within an `else if` block will only run if the conditions for the parent if statement and any previous else if statements are all not met.
 - Code within an `else` block are only run if none of the conditions are met
 - An `if` statement does not require any subsequent `else` statements.
@@ -212,17 +214,45 @@ int main()
 - Any control structure can be nested within another control structure.
 
 ### For loop
+`for-test.c`
 ``` c
-int i = 0;
-for (i = 0; i < /*number of times to loop*/; i++)
+#include <stdio.h>
+int main()
 {
-    // Code to be run
+    for (int i = 0; i < 5; i++) // Example loop to run 5 times.
+    {
+        // Code to be run
+        printf("(%d)\n", i);
+    }
 }
 ```
-- In some newer c standards, the first line can be removed and incorporated into the `for()` i.e. `int i = 0; i> ...`
-- The variable `i` is a placeholder and is often renamed to improve code readability.
+#### Breakdown
+The for loop control code has 3 key parts:
+
+1. Variable initialisation and assignment.
+    - In this example:`int i = 0;`
+    - It is typical in C (and may other programming languages) to start counting from 0, therefore it is often useful to start a loop control variable from 0.
+    - The identifier `i` is used as a de-facto standard but can be renamed to improve code readability.
+
+2. Condition.
+    - In this example: `i < 5`
+    - The code within the loop will run while this condition is true.
+    - As such be careful if a mistake is made in the condition it may prohibit the code within the loop from running.
+
+3. Updating the variable
+    - In this example: `i++
+    - `++` is called the increment operator and simply increases the value of a variable by one. It is simply a shortening of the code `x = x+1`.
+    - `--` (the decrement operator) is often used in place of `++` for decreasing loops.
+    - Can also use `i += <val>` or `i -= <val>` to change variable by more than one without referencing it twice.
+
+You should run `for-test.c` to check that this is all true. You can then change the parameters to see the values of i for which the loop will be run. Change the parameters so that it runs for different values:
+
+- Values from 7 to 14
+- Only even numbers to 12
+- Decreasing values from 4 to 0
 
 #### Example
+What do you think this block of code will do? Run it to find out!
 `pattern.c`
 ``` c
 #include <stdio.h>
@@ -239,7 +269,7 @@ int main()
 }
 ```
 - Nested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.
-- This example also changes some extra values in the loop control, try changing these values yourself to see the effect on the pattern.
+- In this case the inner loop is dependent on the outer loop as the condition for the inner loop is  based on the control value of the outer loop
 
 # Scope (What is {})
 Scope is the area of a code file where a variable can be referenced; variables can be accessed in any child scope of the scope in which they are defined. In C `{}` always defines a scope whatever keyword it is related to. You can also define a scope without a keyword.
