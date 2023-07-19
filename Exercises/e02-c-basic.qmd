@@ -1,5 +1,5 @@
 ---
-title: Basic C exercises
+title: "2: Basic C exercises"
 ---
 # Exercise 1 - Odd or Not
 Write a program that takes a integer input from the user and determines whether the value is odd or even. Hint: use the modulo operator.

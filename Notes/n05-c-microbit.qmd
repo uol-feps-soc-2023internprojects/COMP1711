@@ -39,7 +39,9 @@ Once the project has been bootstrapped and built, the MICROBIT.hex file can be d
 the default project should create a program that scrolls the text "Hello, Bootstrap!" over the leds.
 
 # How to edit the code
-The code that is compiled to the hex files is all within the source subdirectory. You will see that the file in there by default is `main.cpp`. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C. 
+The code that is compiled to the hex files is all within the `/source` subdirectory. You will see that the file in there by default is `main.cpp`. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C. 
+
+The build script will treat all cpp source files in this directory as part of the source code.
 
 `main.cpp`
 ``` cpp
@@ -82,4 +84,14 @@ These are defined in a different way to the normal variables you have previously
 
 The format of the input data is a string containing integers (0-255), representing the light level for a pixel, separated by commas. The `\n` characters represent new lines in the image. 
 
-In practice these images will often be 5x5 as this is the size of the microbit screen.
+In practice these images will often be 5x5 as this is the size of the Microbit screen.
+
+# Sleep
+The Microbit can also be given the command to not execute commands for a specified amount of time. This command is called `sleep` and can be called as:
+`uBit.sleep(<time in ms>)`
+
+# Buttons
+The codal abstraction layer allows for programs to sense if a the buttons on the device are being pressed. These code snippets can simply be used in control statements to branch or loop based on environment of the Microbit.
+`uBit.buttonA.isPressed()`
+`uBit.buttonB.isPressed()`
+`uBit.buttonAB.isPressed()`

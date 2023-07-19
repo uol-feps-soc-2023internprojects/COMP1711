@@ -2,7 +2,11 @@
 title: TODO
 ---
 
-# Need to add don't know where
+# Missiong parts
+- up arrow for terminal
+- ctrl+c to end
+- copy and paste command line
+- Microbit examples and exercies
 - `#define`  explanation - combo with advice to avoid 'magic numbers in code'
 
 
