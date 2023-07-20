@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n04-c-inro.html">4: C intro</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n04-c-inro.html">4: C intro</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -143,6 +143,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Notes/microbit-undocumented.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Microbit functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Notes/n01-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Intro to the terminal and codespaces.</span></a>
   </div>
@@ -173,6 +179,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Notes/n06-functions-arguments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: Functions and arguments in C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Notes/roughNotes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TODO</span></a>
   </div>
@@ -192,6 +204,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../Exercises/e01-linux-cli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Linux Command line skills</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Exercises/e02-c-basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Basic C exercises</span></a>
   </div>
 </li>
       </ul>
@@ -278,6 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<p>Any files mentioned in these notes are available in the template repository that the bash notes showed you how to access. TODO: this needs rewording</p>
 <section id="history" class="level1">
 <h1>History</h1>
 <p>Originating as an improvement to the B programming language by Dennis Ritchie started in 1971, C is a low level procedural programming language. Through its early development C looked very different to the language that you will learn in this module.</p>
@@ -305,10 +324,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   <span class="co">// printf() displays the string inside quotation</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   printf<span class="op">(</span><span class="st">"Hello, World!"</span><span class="op">);</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   printf<span class="op">(</span><span class="st">"Hello, World!"</span><span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><p><code>#include</code> is a preprocessor command that allows a c program to use functionality that is implemented in separate c files. More detail will be given on this later in the course</p></li>
 <li><p><code>int main()</code> is the entrypoint of a c program, every c program you write will include this i.e.&nbsp;the first line of code run is the first line within the <code>{}</code> of main.</p></li>
@@ -327,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This will produce a output executable call a.out that can be run as:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>$ ./a.out</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>Hello, world!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This output file can be renamed using the <code>-o</code> option to specify an output file for the compiler e.g.<code>gcc hello-world.c -o hello-world</code></p>
+<p>This output file can be renamed using the <code>-o</code> option to specify an output file for the compiler e.g.&nbsp;to create an executable with the same name: <code>gcc hello-world.c -o hello-world</code></p>
 </section>
 </section>
 <section id="variables" class="level1">
@@ -366,6 +384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="reading-input" class="level1">
 <h1>Reading Input</h1>
 <p>Lets customize the hello world program to say hello to you. We can use a variable and <code>scanf()</code> to do this.</p>
+<p><code>hello-you.c</code></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -427,7 +446,7 @@ Eventually you will need to use more complex statements</p>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// run code </span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
-<li>Additionally <code>else if</code> statements can be added to have additiona arguments to control when a block of code is run.
+<li>Additionally <code>else if</code> statements can be added to have additional arguments to control when a block of code is run.
 <ul>
 <li>Code within an <code>else if</code> block will only run if the conditions for the parent if statement and any previous else if statements are all not met.</li>
 </ul></li>
@@ -507,18 +526,50 @@ Eventually you will need to use more complex statements</p>
 </section>
 <section id="for-loop" class="level3">
 <h3 class="anchored" data-anchor-id="for-loop">For loop</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span>i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="co">/*number of times to loop*/</span><span class="op">;</span> i<span class="op">++)</span></span>
+<p><code>for-test.c</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Code to be run</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span> <span class="co">// Example loop to run 5 times.</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Code to be run</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        printf<span class="op">(</span><span class="st">"(</span><span class="sc">%d</span><span class="st">)</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> i<span class="op">);</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="breakdown-1" class="level4">
+<h4 class="anchored" data-anchor-id="breakdown-1">Breakdown</h4>
+<p>The for loop control code has 3 key parts:</p>
+<ol type="1">
+<li>Variable initialisation and assignment.
 <ul>
-<li>In some newer c standards, the first line can be removed and incorporated into the <code>for()</code> i.e.&nbsp;<code>int i = 0; i&gt; ...</code></li>
-<li>The variable <code>i</code> is a placeholder and is often renamed to improve code readability.</li>
+<li>In this example:<code>int i = 0;</code></li>
+<li>It is typical in C (and may other programming languages) to start counting from 0, therefore it is often useful to start a loop control variable from 0.</li>
+<li>The identifier <code>i</code> is used as a de-facto standard but can be renamed to improve code readability.</li>
+</ul></li>
+<li>Condition.
+<ul>
+<li>In this example: <code>i &lt; 5</code></li>
+<li>The code within the loop will run while this condition is true.</li>
+<li>As such be careful if a mistake is made in the condition it may prohibit the code within the loop from running.</li>
+</ul></li>
+<li>Updating the variable
+<ul>
+<li>In this example: `i++</li>
+<li><code>++</code> is called the increment operator and simply increases the value of a variable by one. It is simply a shortening of the code <code>x = x+1</code>.</li>
+<li><code>--</code> (the decrement operator) is often used in place of <code>++</code> for decreasing loops.</li>
+<li>Can also use <code>i += &lt;val&gt;</code> or <code>i -= &lt;val&gt;</code> to change variable by more than one without referencing it twice.</li>
+</ul></li>
+</ol>
+<p>You should run <code>for-test.c</code> to check that this is all true. You can then change the parameters to see the values of i for which the loop will be run. Change the parameters so that it runs for different values:</p>
+<ul>
+<li>Values from 7 to 14</li>
+<li>Only even numbers to 12</li>
+<li>Decreasing values from 4 to 0</li>
 </ul>
+</section>
 <section id="example-2" class="level4">
 <h4 class="anchored" data-anchor-id="example-2">Example</h4>
-<p><code>pattern.c</code></p>
+<p>What do you think this block of code will do? Run it to find out! <code>pattern.c</code></p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -533,7 +584,7 @@ Eventually you will need to use more complex statements</p>
 <span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li>Nested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.</li>
-<li>This example also changes some extra values in the loop control, try changing these values yourself to see the effect on the pattern.</li>
+<li>In this case the inner loop is dependent on the outer loop as the condition for the inner loop is based on the control value of the outer loop</li>
 </ul>
 </section>
 </section>

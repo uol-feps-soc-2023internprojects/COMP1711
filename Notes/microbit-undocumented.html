@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5: C for the Microbit</title>
+<title>Microbit functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -107,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n05-c-microbit.html">5: C for the Microbit</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Microbit functions</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -143,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/microbit-undocumented.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/microbit-undocumented.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Microbit functions</span></a>
   </div>
 </li>
@@ -173,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5: C for the Microbit</span></a>
   </div>
 </li>
@@ -230,18 +196,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setting-up-a-repository-to-write-c-for-the-microbit-v2" id="toc-setting-up-a-repository-to-write-c-for-the-microbit-v2" class="nav-link active" data-scroll-target="#setting-up-a-repository-to-write-c-for-the-microbit-v2">Setting up a repository to write C for the Microbit v2</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
-  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">Environment setup</a></li>
-  <li><a href="#opening-the-codespace" id="toc-opening-the-codespace" class="nav-link" data-scroll-target="#opening-the-codespace">Opening the codespace</a></li>
-  <li><a href="#project-bootstrap" id="toc-project-bootstrap" class="nav-link" data-scroll-target="#project-bootstrap">Project bootstrap</a></li>
-  <li><a href="#flashing-the-microbit" id="toc-flashing-the-microbit" class="nav-link" data-scroll-target="#flashing-the-microbit">Flashing the Microbit</a></li>
+  <li><a href="#input" id="toc-input" class="nav-link" data-scroll-target="#input">Input</a></li>
+  <li><a href="#output" id="toc-output" class="nav-link" data-scroll-target="#output">Output</a></li>
   </ul></li>
-  <li><a href="#how-to-edit-the-code" id="toc-how-to-edit-the-code" class="nav-link" data-scroll-target="#how-to-edit-the-code">How to edit the code</a></li>
-  <li><a href="#output-options" id="toc-output-options" class="nav-link" data-scroll-target="#output-options">Output options</a></li>
-  <li><a href="#microbit-images" id="toc-microbit-images" class="nav-link" data-scroll-target="#microbit-images">Microbit images</a></li>
-  <li><a href="#sleep" id="toc-sleep" class="nav-link" data-scroll-target="#sleep">Sleep</a></li>
-  <li><a href="#buttons" id="toc-buttons" class="nav-link" data-scroll-target="#buttons">Buttons</a></li>
+  <li><a href="#speaker" id="toc-speaker" class="nav-link" data-scroll-target="#speaker">Speaker</a></li>
   </ul>
 </nav>
     </div>
@@ -250,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">5: C for the Microbit</h1>
+<h1 class="title">Microbit functions</h1>
 </div>
 
 
@@ -265,85 +225,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="setting-up-a-repository-to-write-c-for-the-microbit-v2" class="level1">
-<h1>Setting up a repository to write C for the Microbit v2</h1>
-<section id="environment-setup" class="level2">
-<h2 class="anchored" data-anchor-id="environment-setup">Environment setup</h2>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<section id="input" class="level2">
+<h2 class="anchored" data-anchor-id="input">Input</h2>
 <ul>
-<li><p>In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.<br>
-<img src="../img/github_code.png" class="img-fluid"></p></li>
-<li><p>From this dropdown select the option that reads configure dev container<br>
-<img src="../img/config-dec-cont.png" class="img-fluid"></p></li>
-<li><p>This will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to <code>ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7</code> once this is done the file should look as such: <img src="../img/devcontainer-json-example.png" class="img-fluid"></p></li>
-<li><p>Finally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository.</p></li>
+<li>Buttons
+<ul>
+<li>A</li>
+<li>B</li>
+<li>AB</li>
+<li>touch? needs investigation</li>
+</ul></li>
+<li>Sensors
+<ul>
+<li>Microphone</li>
+<li>Accelerometer</li>
+<li>Compass</li>
+<li>Pins</li>
+<li>Antenna</li>
+<li>Leds (reverse current to sense light)</li>
+</ul></li>
 </ul>
 </section>
-<section id="opening-the-codespace" class="level2">
-<h2 class="anchored" data-anchor-id="opening-the-codespace">Opening the codespace</h2>
-<p>If you now navigate back to the codespace menu from the last step you can “create codespace on main” this will launch a new browser tab. It may take a little bit of time to build.</p>
-</section>
-<section id="project-bootstrap" class="level2">
-<h2 class="anchored" data-anchor-id="project-bootstrap">Project bootstrap</h2>
-<p>In the terminal within codespaces run</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://raw.githubusercontent.com/lancaster-university/codal-bootstrap/main/build.py <span class="op">&gt;</span> build.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will download the python script that is used to bootstrap and/or build the project.</p>
-<p>The first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python build.py codal-microbit-v2</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>python build.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once compiled the repository will have many more files. Most importantly the <strong>MICROBIT.hex</strong> which is the program which can be loaded to the Microbit.</p>
-</section>
-<section id="flashing-the-microbit" class="level2">
-<h2 class="anchored" data-anchor-id="flashing-the-microbit">Flashing the Microbit</h2>
-<p>Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device.</p>
-<p>the default project should create a program that scrolls the text “Hello, Bootstrap!” over the leds.</p>
-</section>
-</section>
-<section id="how-to-edit-the-code" class="level1">
-<h1>How to edit the code</h1>
-<p>The code that is compiled to the hex files is all within the <code>/source</code> subdirectory. You will see that the file in there by default is <code>main.cpp</code>. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C.</p>
-<p>The build script will treat all cpp source files in this directory as part of the source code.</p>
-<p><code>main.cpp</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"MicroBit.h"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// The Micro:bit control object</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>MicroBit uBit<span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Out main function, run at startup</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Loop forever</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span> <span class="kw">true</span> <span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Scroll some text on the display</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        uBit<span class="op">.</span>display<span class="op">.</span>scroll<span class="op">(</span> <span class="st">"Hello, Bootstrap!"</span> <span class="op">);</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Will never return, but here so the compiler is happy :)</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="output" class="level2">
+<h2 class="anchored" data-anchor-id="output">Output</h2>
 <ul>
-<li>This program uses the <code>while( true )</code> pattern to loop infinitely</li>
+<li>Leds</li>
+<li>Speaker</li>
+<li>Bluetooth?</li>
+<li>pins</li>
 </ul>
-<p>ask martin for advice on how to explain away OOP</p>
 </section>
-<section id="output-options" class="level1">
-<h1>Output options</h1>
-<p>The first of the output options is used in the example above. This option will move whatever input data it receives from right to left on the screen. <code>uBit.display.scroll(&lt;text, character or image&gt;)</code></p>
-<p>This option will simply display the character or the image passed to it on the screen. <code>uBit.display.print(&lt;character or image&gt;)</code></p>
-<p>Use this to change the value of specific pixels. <code>uBit.display.image.setPixelValue(&lt;x axis position&gt;, &lt;y axis position&gt;, &lt;int brightness (0-255)&gt;);</code></p>
 </section>
-<section id="microbit-images" class="level1">
-<h1>Microbit images</h1>
-<p>These are defined in a different way to the normal variables you have previously met in C. In this case the identifier of the variable is ‘cross’ and the data in the brackets defines the data that will be stored. <code>MicroBitImage cross("0,255,0\n255,255,255\n0,255,0\n");</code></p>
-<p>The format of the input data is a string containing integers (0-255), representing the light level for a pixel, separated by commas. The <code>\n</code> characters represent new lines in the image.</p>
-<p>In practice these images will often be 5x5 as this is the size of the Microbit screen.</p>
-</section>
-<section id="sleep" class="level1">
-<h1>Sleep</h1>
-<p>The Microbit can also be given the command to not execute commands for a specified amount of time. This command is called <code>sleep</code> and can be called as: <code>uBit.sleep(&lt;time in ms&gt;)</code></p>
-</section>
-<section id="buttons" class="level1">
-<h1>Buttons</h1>
-<p>The codal abstraction layer allows for programs to sense if a the buttons on the device are being pressed. These code snippets can simply be used in control statements to branch or loop based on environment of the Microbit. <code>uBit.buttonA.isPressed()</code> <code>uBit.buttonB.isPressed()</code> <code>uBit.buttonAB.isPressed()</code></p>
+<section id="speaker" class="level1">
+<h1>Speaker</h1>
+<p>void MicroBitAudio::setSpeakerEnabled(bool on)</p>
 
 
 </section>

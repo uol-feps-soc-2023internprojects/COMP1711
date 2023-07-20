@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n02-scripting-git.html">2: Bash scripting</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n02-scripting-git.html">2: Bash scripting</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -143,6 +143,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Notes/microbit-undocumented.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Microbit functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Notes/n01-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Intro to the terminal and codespaces.</span></a>
   </div>
@@ -173,6 +179,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Notes/n06-functions-arguments.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: Functions and arguments in C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../Notes/roughNotes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TODO</span></a>
   </div>
@@ -192,6 +204,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../Exercises/e01-linux-cli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Linux Command line skills</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Exercises/e02-c-basic.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: Basic C exercises</span></a>
   </div>
 </li>
       </ul>
@@ -266,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The part of this output that is relevant to this case is the string <code>-rw-rw-rw-</code></p>
 <ul>
 <li>The first character indicates any special permissions that the directory entry may have e.g.&nbsp;d for directory or l for symbolic link. In our case as <code>time.sh</code> is simply a file this is left empty.</li>
-<li>The rest of the string represents the permissions for the file. This is split into 3 different catagories for 3 different groups.
+<li>The rest of the string represents the permissions for the file. This is split into 3 different categories for 3 different groups.
 <ul>
 <li>The three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a <code>-</code></li>
 <li>This is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users</li>
