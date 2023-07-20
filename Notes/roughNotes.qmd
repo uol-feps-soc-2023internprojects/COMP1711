@@ -2,6 +2,14 @@
 title: TODO
 ---
 
+# Missiong parts
+- up arrow for terminal
+- ctrl+c to end
+- copy and paste command line
+- Microbit examples and exercises
+- `#define`  explanation - combo with advice to avoid 'magic numbers in code'
+
+
 # C exersizes
 
 - alter the patterns.c

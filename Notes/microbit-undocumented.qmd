@@ -1,0 +1,29 @@
+---
+title: "Microbit functions"
+---
+
+# Overview
+## Input
+- Buttons
+    - A
+    - B
+    - AB
+    - touch? needs investigation
+- Sensors
+    - Microphone
+    - Accelerometer
+    - Compass
+    - Pins
+    - Antenna
+    - Leds (reverse current to sense light)
+
+## Output
+- Leds
+- Speaker
+- Bluetooth?
+- pins
+
+
+# Speaker
+
+void MicroBitAudio::setSpeakerEnabled(bool on)

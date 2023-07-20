@@ -32,7 +32,7 @@ $ ls -l
 The part of this output that is relevant to this case is the string `-rw-rw-rw-`
 
 * The first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as `time.sh` is simply a file this is left empty.
-* The rest of the string represents the permissions for the file. This is split into 3 different catagories for 3 different groups.
+* The rest of the string represents the permissions for the file. This is split into 3 different categories for 3 different groups.
     * The three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a `-`
     * This is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users
 

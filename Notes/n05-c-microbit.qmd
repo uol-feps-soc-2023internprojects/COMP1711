@@ -34,12 +34,14 @@ python build.py
 Once compiled the repository will have many more files. Most importantly the **MICROBIT.hex** which is the program which can be loaded to the Microbit.
 
 ## Flashing the Microbit
-Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be coppied over to the device.
+Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device.
 
 the default project should create a program that scrolls the text "Hello, Bootstrap!" over the leds.
 
 # How to edit the code
-The code that is compiled to the hex files is all within the source subdirectory. You will see that the file in there by default is `main.cpp`. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C. 
+The code that is compiled to the hex files is all within the `/source` subdirectory. You will see that the file in there by default is `main.cpp`. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C. 
+
+The build script will treat all cpp source files in this directory as part of the source code.
 
 `main.cpp`
 ``` cpp
@@ -61,5 +63,35 @@ int main() {
     return 0;
 }
 ```
+- This program uses the `while( true )` pattern to loop infinitely 
+
 
 ask martin for advice on how to explain away OOP
+
+# Output options
+The first of the output options is used in the example above. This option will move whatever input data it receives from right to left on the screen.
+`uBit.display.scroll(<text, character or image>)`
+
+This option will simply display the character or the image passed to it on the screen.
+`uBit.display.print(<character or image>)`
+
+Use this to change the value of specific pixels.
+`uBit.display.image.setPixelValue(<x axis position>, <y axis position>, <int brightness (0-255)>);`
+
+# Microbit images
+These are defined in a different way to the normal variables you have previously met in C. In this case  the identifier of the variable is 'cross' and the data in the brackets defines the data that will be stored.
+`MicroBitImage cross("0,255,0\n255,255,255\n0,255,0\n");`
+
+The format of the input data is a string containing integers (0-255), representing the light level for a pixel, separated by commas. The `\n` characters represent new lines in the image. 
+
+In practice these images will often be 5x5 as this is the size of the Microbit screen.
+
+# Sleep
+The Microbit can also be given the command to not execute commands for a specified amount of time. This command is called `sleep` and can be called as:
+`uBit.sleep(<time in ms>)`
+
+# Buttons
+The codal abstraction layer allows for programs to sense if a the buttons on the device are being pressed. These code snippets can simply be used in control statements to branch or loop based on environment of the Microbit.
+`uBit.buttonA.isPressed()`
+`uBit.buttonB.isPressed()`
+`uBit.buttonAB.isPressed()`

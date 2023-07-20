@@ -1,0 +1,65 @@
+---
+title: "6: Functions and arguments in C"
+---
+
+# What is a function?
+In the same why that a variable is a piece of data that can be referenced with an identifier, a function is a section of code that can be referenced with an identifier.
+
+This block of code can receive data from the code calling it in the form of parameters but is otherwise isolated from the rest of the call. 
+
+It is expected by the compiler that there will be a `return` statement within this codeblock that will have a value of equal type to the specified type of the function. To write a function without a return value the `void` type is used.
+
+### Template of a C function
+``` C
+returnType identifier(parameterType parameterId, ...)
+{
+    //code to be run
+    return value;
+}
+
+```
+
+## Calling a function
+When calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.
+
+e.g. for this simple function:
+``` c
+int sum( int a, int b )
+{
+    int c = a + b;
+    return c;
+}
+```
+A valid function call would be: `sum(1,2)` Though this would likely be only part of a line of code: `int total = sum(1, 2);`
+
+## Functions that you have already used
+- `scanf`
+- `printf`
+- `main`
+-
+
+
+## Example
+
+
+# Program arguments
+In all the examples that we have used so far the main function , which acts as the entry point for execution has had no parameters. Does this mean that there is no way to pass values to our programs from the command line?
+
+No this isn't the case we use to special parameters for the main function defined as such:
+``` c
+int main(int argc, char * argv[])
+{
+    // Code
+    return 0;
+}
+```
+
+This will allow you to access the arguments used to run the executable from within the program. There are 2 key values involved in this:
+- argc
+    - This is an integer counter for the number of arguments.
+    - Arguments are counted as strings that are separated by spaces
+    - The name of the program is counted as the first argument so argc >=1
+
+# Libraries
+
+# Recursion

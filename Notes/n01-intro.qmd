@@ -8,7 +8,7 @@ The terminal is a window on a machine that allows for the input and output of te
 # Opening a Codespace
 Follow these steps to create a new repository from a template and open it in codespaces.
 
-1. Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/shell-training
+1. Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/1711-Introduction
 
 2. From the use this template dropdown select the option to create a new repository.
 
@@ -20,7 +20,7 @@ Follow these steps to create a new repository from a template and open it in cod
 
 ![](/img/github_code.png)
 
-5. This environment will look very familiar to those who have used vs code before and is comprised of 3 main elements. The editor window, the file explorer and the terminal window: labeled in the image below.
+5. This environment will look very familiar to those who have used vs code before and is comprised of 3 main elements. The editor window, the file explorer and the terminal window: labelled in the image below.
 
 ![](/img/codespace.png)
 
@@ -60,7 +60,7 @@ This command will append a trailing character to different types of directory en
 The `-F` part of this command is known as an option.
 
 ## Options  
-Options are used to modify the behavior of a command being run and can do many different things. Rerunning the ls command again with the option `-a` will additionally reveal all the 'hidden' items in the directory (all the items with names starting with a `.`). There are two special items that will be revealed when using this option those are `.` and `..`: `.` is used as a reference to the current directory and `..` is used as a reference to the parent directory.
+Options are used to modify the behaviour of a command being run and can do many different things. Rerunning the ls command again with the option `-a` will additionally reveal all the 'hidden' items in the directory (all the items with names starting with a `.`). There are two special items that will be revealed when using this option those are `.` and `..`: `.` is used as a reference to the current directory and `..` is used as a reference to the parent directory.
 
 Using the `-l` command will output a table with lots of additional information about the directory entries including size and last edit time. You should try this out.
 
