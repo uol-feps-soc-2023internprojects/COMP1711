@@ -1,0 +1,59 @@
+---
+title: "7: Arrays and Strings"
+---
+
+# Arrays
+Arrays are a series of values of a specific data type stored under a specific identifier. This section of the notes will cover arrays of fixed length, often called static arrays. These arrays can be initialised in 2 ways.
+
+``` c
+type arrayId[arraySize];
+type arrayId[] = {value1, value2,..., valueN};
+```
+
+To access the different values stored in the array indexes must be used within `[]`. Array indexes start from 0 
+
+i.e. first element will be at index 0 and the final element will be at sizeOfArray -1.
+```  c
+arrayId[index]
+```
+
+The length of an array can be found using the `sizeof()` function. 
+
+# Looping over arrays
+For loops in particular lend themselves to iterating over static arrays 
+
+## Examples
+
+# Strings
+Strings are a special case of a character array with a delimiting character (`\0`) marking the end of the string. This can be seen in the two equivalent lines of code:
+``` c
+char string1[] = {'H', 'e', 'l', 'l', 'o', '\0'};
+char string1[] = "Hello";
+```
+
+Benefits of using strings:
+
+- Unique format specifier for input and output.
+- Functions provided in the `string.h` library, notably:
+    - `strlen` to get the length of a string
+    - `strcat` to join strings together
+    - `strcpy` to copy string to another character array
+
+## Example - resreveR gnirtS
+
+# Multi-Dimension
+
+## Arrays of different Dimensions
+- 1 Dimension
+    - List of results for marks on different assessments within a module
+    - This is equivalent to a single row in a spreadsheet.
+- 2 Dimension
+    - List of results for marks on different assessments across all modules for a student. (assume all modules have the same number of assessments)
+    - This is equivalent to a single sheet of a spreadsheet.
+- 3 Dimensions
+    - List of results for marks on different assessments across all modules for all student. (assume all students do the same number of modules)
+    - This is equivalent to a spreadsheet with multiple pages.
+
+An n dimensional array will require n indexes to specify a single element in the array.
+
+Multi dimensional arrays are initialised in a slightly different way:

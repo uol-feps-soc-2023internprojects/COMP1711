@@ -42,7 +42,7 @@ A valid function call would be: `sum(1,2)` Though this would likely be only part
 ## Example
 
 
-# Program arguments
+# Program arguments - maybe rearrange so that this is explained after arrays (and maybe pointers)
 In all the examples that we have used so far the main function , which acts as the entry point for execution has had no parameters. Does this mean that there is no way to pass values to our programs from the command line?
 
 No this isn't the case we use to special parameters for the main function defined as such:
@@ -55,11 +55,26 @@ int main(int argc, char * argv[])
 ```
 
 This will allow you to access the arguments used to run the executable from within the program. There are 2 key values involved in this:
+
 - argc
     - This is an integer counter for the number of arguments.
     - Arguments are counted as strings that are separated by spaces
     - The name of the program is counted as the first argument so argc >=1
 
+- \* argv[]
+    - array of strings 
+    - first string is the name of the executable
+    - subsequent strings are the values of the command line arguments
+
+## Example
+
 # Libraries
+In previous examples you have been using functions that have been written in the same file as they are called in. 
+
+This is with the exception of `scanf` and `printf`. These are accessable due to the `#include` statement at the top of most or all of the C files you have seen.
+
+These statements reference files with the `.h` file extension that are referred to as 'header' files. These files are looked at in the early stages of compilation and provide a 'prototype' of the functions (or other) that will be defined in the corresponding `.c` file.
+
+In the case of `stdio.h` these functions and definitions are stored in shared libraries in the source code. But it is simple to include files of your own creation. 
 
 # Recursion
