@@ -16,6 +16,9 @@ If you google git you will find out that git is a 'Distributed Version Control S
 Git commits use the `diff` command line program to show the differences between commits. You can also use this to compare differences between files in your directories
 :::
 
+# Why do you need to know git?
+Git is an essential tool for any workplace where you will be programming and an industry standard tool. Past this it is extremely useful and, when used intelligently, can save you from a stupid mistake and expedite the process of developing software as a team.
+
 # Repository
 All these commits and files are stored together in a repository; this is just a directory with all the extra information other than your files is stored in the hidden `.git/` subdirectory.
 
@@ -40,7 +43,9 @@ In this case, given the scripts directory is new, git knows that all files withi
 Taking advice from the terminal, we can now use the `git add` command.
 
 ## 2. Staged changes
-`git add ` takes a file or directory as an argument to 'add' to the current list of files staged for a commit. If you are at the root of the repository, `git add .` will stage all untracked changes. once this is run we can rerun `git status` to see the changes:
+`git add ` takes a file or directory as an argument to 'add' to the current list of files staged for a commit. If you are at the root of the repository, `git add .` will stage all untracked changes. Though more generally `git add` takes a list of file paths to add as arguments.
+
+Once this is run we can rerun `git status` to see the changes:
 ``` default
 On branch main
 Your branch is up to date with 'origin/main'.
@@ -67,9 +72,9 @@ $ git commit -m "example commit"
 ```
 
 # What are branches?
-You may have noticed branches mentioned when using `git status` that you are on the main branch.
+You may have noticed branches mentioned when `git status` outputs that that you are on the main branch.
 
-A git branch is a pointer to a specific commit, when you are on a branch as you continue to commit and add to this branch this pointer will be updated to point to the most recent branch. 
+A git branch is a pointer to a specific commit, when you are on a branch as you continue to commit  to this branch this pointer will be updated to point to the most recent commit. 
 
 The default branch is called 'main' 
 
@@ -82,7 +87,7 @@ How branches are used changes significantly between between developer/teams. The
 Due to their nature, as branches each get more commits their content tends to diverge, eventually this has to be resolved using merges. This can become messy and won't be covered here.
 
 #  What is origin?
-Origin is shorthand for the remote storage location of the repository. In our case this is on Github. if we run `git status` we should see that "Your branch is ahead of 'origin/main' by 1 commit."
+Origin is shorthand for the remote storage location of the repository. In our case this is on Github. 
 
 We can see the address of the remote of our repo using the command `git remote show origin`
 ``` default
@@ -97,11 +102,13 @@ We can see the address of the remote of our repo using the command `git remote s
   Local ref configured for 'git push':
     main pushes to main (fast-forwardable)
 ```
-Following the URL will open your github project page, this is setup by Codespaces automatically in this scenario. In this case Github is simply a remote location to store a copy of the repository. 
+Following the URL will open your github project page, this is setup by Codespaces automatically in this scenario. In this case Github is simply a remote location to store a copy of the repository. You will see that the version of the code accessible online is not currently the version that you have been working on in your codespace.
 
-To update this remote we use the command `git push`. (This branch is setup to to be linked to the remote main, if that were not the case we would have to specify where to push to)
+You can confirm this by going back to the Codespace and running `git status`, this will show that you are "Your branch is ahead of 'origin/main' by 1 commit."
 
-Once this is done, the `git status` to read "Your branch is up to date with 'origin/main'."
+To sync this remote to our version we use the command `git push`. (This branch is setup to to be linked to the remote main, if that were not the case we would have to specify where to push to)
+
+Once this is done, the `git status` to read "Your branch is up to date with 'origin/main'." Additionally the online copy of the code should now match that in your Codespace.
 
 :::{.callout-note}
 It is important to push regularly to ensure that your changes are saved locally and remotely.

@@ -1,12 +1,19 @@
 ---
-title: "1: Intro to the terminal and codespaces."
+title: "1: Intro to Codespaces and the terminal."
 ---
+# Aims
+- Create a coding environment in Codespaces
+- Understand common terminal vocabulary 
+- Be familiar executing commands in the terminal
+- Understand a set of common and important commands
 
-# The terminal
-The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.
+# What is github Codespaces?
+Github codespaces is a development environment for your code that is hosted in the cloud by github. It provides an interface very similar to the popular IDE vscode and is running in a linux environment.
+
+The Codespace that you are about to create will be the key environment used to introduce you to the terminal, git, scripting and C programming.
 
 # Opening a Codespace
-Follow these steps to create a new repository from a template and open it in codespaces.
+Follow these steps to create a new repository from a template and open it in codespaces. A repository is an online storage point for your project.
 
 1. Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/1711-Introduction
 
@@ -14,7 +21,7 @@ Follow these steps to create a new repository from a template and open it in cod
 
 ![](/img/repo-from-template.png)
 
-3. On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as shell-training). You may add a description if you like. Once configured, confirm with the "create repository from template" button at the bottom of the page. This will redirect you to the repo homepage.
+3. On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as 1711-intro). You may add a description if you like. Once configured, confirm with the "create repository from template" button at the bottom of the page. This will redirect you to the repo homepage.
 
 4. On the repo homepage click on green button marked as code and select the tab in the popup reading Codespaces. Within this tab click on "Create codespace on main" this will open a new tab with your codespace.
 
@@ -24,16 +31,62 @@ Follow these steps to create a new repository from a template and open it in cod
 
 ![](/img/codespace.png)
 
-# What is github Codespaces?
-Github codespaces is a development environment for your repositories that is hosted in the cloud by github. It provides an interface very similar to the popular IDE vscode and is running in a linux environment.
 
 :::{.callout-note}
 More will be explained about git, github and version control in the future.
 :::
 
-# Using the Terminal
+# The terminal
+The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.
+
 ## The prompt
-As a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form `@{user} -> workspace/{repository} $` whereas on a standard linux machine the prompt often takes the form `{user}@{hostname} $`. Because of these differences most sources of information will simply show the prompt as the single `$` that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command.
+As a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form `@{user} -> workspace/{repository} $` whereas on a standard linux machine the prompt often takes the form `{user}@{hostname} $`. 
+
+Because of these differences most sources of information will simply show the prompt as the single `$` that normally ends a prompt, it is important to remember that this symbol is not part of the command.
+
+# A Note on file systems
+All the information on a computer is stored in a file system, organised into files and directories. All of you are familiar with this concept, however since this knowledge is fundamental to command line programming it is worth redefining the finer details.
+
+This information is also specific to linux file systems that many of you may be less familiar with.
+
+- **Files** are collections of related information, usually data or programs.
+    - In linux, files can be given extensions at the end of the name e.g. `.txt` though this acts a a signal to other users and programs rather than to the OS.
+- **Directories**, called folders in windows, are used to organise files. 
+    - Directories branch out from the root directory in a hierarchical structure.
+    - The root directory is denoted with a `/` 
+
+- The **working directory** is the current point in the file system that the user is at.
+    - Commands that the user runs will be executed at the working directory
+
+- **Paths** are used to refer to files within a system. There are two key types of path.
+    - Absolute paths describe the series of subdirectories moved through from the root to reach the file.
+    - Relative paths describe the way the directories are navigated to reach the file that is being referenced from the working directory.
+        - The relative path to the current directory is `.` and the relative path to the parent directory is `..`
+    - `/` mean 2 different things within paths, at the start of the path it refers to the root directory and implies that the path is absolute. Otherwise it is just a separator between identifiers.
+
+## Example of a file system:
+![[Source](https://www.techtarget.com/searchstorage/definition/file-system)](/img/file-tree.jpg){fig-alt="Visual representation of a file hierarchy"}
+
+In this case assume that the absolute path of the directory `Tom` is `/home/Tom` and that the current working directory is `Tools`. We can see a few different relative and absolute paths from here:
+
+- `Tools`
+    - Relative path: `.`
+    - Absolute path: `/home/Tom/Tools`
+- `Stats`
+    - Relative path: `Stats`
+    - Absolute path: `/home/Tom/Tools/Stats`
+- `Notes.txt`
+    - Relative path: `../Notes.txt`
+    - Absolute path: `/home/Notes.txt`
+
+What would the absolute and relative paths for `One.txt`?
+
+
+# Terminal commands
+Terminal commands are special command line programs that can be accessed from anywhere in the file system. The base set of commands provide the key functionality that the system needs.
+
+## Terminal in codespaces
+Most terminals will open to the home directory of the account that is being run,Codespaces is a special case where this is not true instead opening to the directory of your repository.
 
 ## Your first command
 Select your terminal and type the command `pwd` after the prompt. (pwd is an acronym for print working directory). Your output should be similar to what is seen below:
@@ -50,7 +103,7 @@ This will output a list of the contents of the current directory.
 $ ls
 IOM-animals  data  some-maths.txt  wildcards
 ```
-In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information. 
+In most terminals this will be highlighted to suggest the kind of file system entry that each item is but if this is not accessible we can use a slightly changed command to view this information. 
 ``` default
 $ ls -F
 IOM-animals/  data/  some-maths.txt  wildcards/
@@ -60,7 +113,11 @@ This command will append a trailing character to different types of directory en
 The `-F` part of this command is known as an option.
 
 ## Options  
-Options are used to modify the behaviour of a command being run and can do many different things. Rerunning the ls command again with the option `-a` will additionally reveal all the 'hidden' items in the directory (all the items with names starting with a `.`). There are two special items that will be revealed when using this option those are `.` and `..`: `.` is used as a reference to the current directory and `..` is used as a reference to the parent directory.
+Options are used to modify the behaviour of a command being run and can do many different things. They are characterised by starting with a `-`.
+
+Rerunning the ls command again with the option `-a` will additionally reveal all the 'hidden' items in the directory (all the items with names starting with a `.`). 
+
+There are two special items that will be revealed when using this option those are `.` and `..`: `.` is used as a reference to the current directory and `..` is used as a reference to the parent directory.
 
 Using the `-l` command will output a table with lots of additional information about the directory entries including size and last edit time. You should try this out.
 
@@ -68,15 +125,21 @@ Using the `-l` command will output a table with lots of additional information a
 You can combine multiple different options together to apply all their effects
 :::
 
+## Arguments
+We can also use `ls` to list subdirectories, to do this we must pass the command the value of the subdirectory that we want to list.
+``` default
+$ ls IOM-animals
+TODO: example output
+```
+The value passed to the command at the command line here is called an argument. Different commands will expect different types and different numbers of commands.
+
 ## Navigation
-Most terminals will open to the home directory of the account or machine that is being run, though this is often not the directory whe one would want to run commands. Therefore, there must be a way to navigate through the file system, in most machines that is using the `cd` command. This command takes a path as an value after the command (called an argument in this case). These can either be an absolute path or a relative path.
+The directory that the terminal opens to is often not where the user would like to run commands, therefore, there must be a way to navigate through the file system. In most machines this is done using the `cd` command. 
 
-cd is a particularly important case for the use of the parent directory `..` as you often want to navigate back through parent directories.
+This command takes a path as a value after the command. This can either be an absolute path or a relative path. In general the values passed to a command are called arguments, different commands will expect to receive different arguments.
 
-:::{.callout-important}
-**Absolute** path start with a `/` and reference the same file or location regardless of the current working directory.  
-**Relative** paths do **not** start with a `/` and reference file or location from the current working directory.
-:::
+`cd` is a particularly important case for the use of the parent directory `..` as you often want to navigate back through parent directories.
+
 ``` default
 $ pwd
 /workspaces/repository-name
@@ -89,26 +152,31 @@ $ cd ..
 $ pwd
 /workspaces/repository-name
 ```
-The command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is often denoted by a `~`.
+The command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is denoted by a `~` character.
 
-## New directories and files
-The `mkdir` command can be used to create new directories with an argument as the directory name. We can use `ls` to see the new directory.
+## Creating new directories
+The `mkdir` command can be used to create new directories with the new directory name as an argument. . We can use `ls` to see the new directory.
 ``` default
 $ mkdir test-dir
 $ ls -F
-```
-We can then use the `touch` command to create a new file at the location specified by the argument. This example also shows the use of ls with an argument for directory.
-``` default
-$ touch test-dir/temp.txt
-$ ls test-dir
-temp.txt
 ```
 ::: {.callout-tip}
 If your terminal is feeling cluttered you can use the `clear` command to empty it.
 :::
 
-## Putting information in the files
-Given that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.
+# Files
+Given that codespaces is a modern IDE file management can be done very easily through the graphical interface. However it is a useful skill to know. 
+
+## Creating files
+We can then use the `touch` command to create a new file, the path of the new file will be specified by the argument.
+``` default
+$ touch test-dir/temp.txt
+$ ls test-dir
+temp.txt
+```
+
+## Writing to files
+This can be done firstly with output redirection. Try running this command.
 ``` bash
 echo "This text is in a file" > test-dir/temp.txt
 ``` 
@@ -117,7 +185,7 @@ Lets break down what this is doing.
 * `echo` is a command to output its argument. In this case that argument is the string "This text is in a file"
 * `>` is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt. Alternatively the redirection `>>` can ve used to append to a file rather than rewriting it.
 
-This can be tested either using the editor user interface or by using the command `cat` with the file in question as the argument. This command will output the contents of the file to the  command line.
+The changes to the file can be viewed by using the command `cat` with the file in question as the argument. This command will output the contents of the file to the command line.
 
 ::: {.callout-tip}
 For longer files where an unstructured output would be difficult to read in the command line you can also use the command `less`
@@ -136,7 +204,7 @@ The `mv` and `cp` commands are for moving files and copying files respectively a
 mv current-file-path new-file-path
 cp current-file new-file
 ```
-A useful extra application of mv is to rename files.
+A useful extra application of `mv` is to rename files.
 
 ## Deleting files and directories 
 The `rm` command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The `-r` option can be used to delete a directory along with its files and all subdirectories.
@@ -144,8 +212,11 @@ The `rm` command can be used for this, but be very careful as items deleted with
 ::: {.callout-important}
 `rm` is permanent, there is no recycling bin!
 :::
-## Do I need to remember all of this?
+
+# Do I need to remember all of this?
 No, the command `man` can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for `ls` you will be able to find details on the arguments and options discussed earlier.
 
-You can also google it.
+You can also google it. There are many good online resources particularly sites like [tutorialspoint](https://www.tutorialspoint.com) and [geeksforgeeks](https://www.geeksforgeeks.org). 
+
+Be careful when using user forum sites like Stackoverflow as, although they often have working code or information, the solutions are often not explained or explained poorly. Using resources like this will limit your understanding.
 

@@ -1,16 +1,22 @@
 ---
-title: "2: Bash scripting"
+title: "2: Shell scripting"
 ---
-Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes
+Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes.
 
-# Bash scripts
-Bash scripts, also known as shell scripts,  are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
+# Shell scripts
+Shell scripts, often called bash scripts due to the prevalence of the bash script, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
 
-First make a a new directory called `scripts` and navigate to it. And make a file called `time.sh`. In the file put these lines:
+First make a a new file in the `scripts` directory called `time.sh`. In the file put these lines:
+
 ``` bash
 #!/bin/bash
 echo $(date)
 ```
+::: {.callout-tip}
+To do this use the `mkdir`, `cd`, `nano` and `touch` commands
+:::
+
+#### Code breakdown 
 * `#!/bin/bash` tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.
 * `echo` is a command for outputting to the command line.
 * `$(date)` is a value maintained by the system and accessible from the command line.
@@ -62,7 +68,7 @@ head -n1 output.txt
 tail -n1 output.txt
 rm output.txt
 ```
-Run this script from the root of the git repo using `./scripts/dataAnalysis1.sh`
+Run this script from the root of the git repo using `./scripts/dataAnalysis1.sh` Then run each of the commands that the script will run individually and inspect the contents of `output.txt` to see what the command has done.
 
 Lets break down what this is doing:
 
@@ -79,7 +85,7 @@ From the root of the git repo run the command
 
 This condenses the whole of the previous script into a single line using pipes `|`. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse. 
 
-Save this new script as `scripts/dataAnalysis2.sh`
+This script can be found in `scripts/dataAnalysis2.sh`
 
 This does have a significant performance benefit though that can be seen by using the `time` command to measure the performance of each script. Try this yourself.
 
