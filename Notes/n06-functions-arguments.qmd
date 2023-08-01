@@ -42,7 +42,10 @@ A valid function call would be: `sum(1,2)` Though this would likely be only part
 ## Example
 
 
-# Program arguments - maybe rearrange so that this is explained after arrays (and maybe pointers)
+# Program arguments - 
+
+maybe rearrange so that this is explained after arrays (and maybe pointers)
+
 In all the examples that we have used so far the main function , which acts as the entry point for execution has had no parameters. Does this mean that there is no way to pass values to our programs from the command line?
 
 No this isn't the case we use to special parameters for the main function defined as such:
