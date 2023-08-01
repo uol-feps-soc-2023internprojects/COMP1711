@@ -1,5 +1,5 @@
 ---
-title: "4: C intro"
+title: "4: Introduction to C"
 ---
 Any files mentioned in these notes are available in the template repository that the bash notes showed you how to access. TODO: this needs rewording
 

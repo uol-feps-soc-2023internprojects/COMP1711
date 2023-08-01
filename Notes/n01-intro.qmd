@@ -1,11 +1,16 @@
 ---
-title: "1: Intro to the terminal and codespaces."
+title: "1: Intro to Codespaces and the terminal."
 ---
+# Aims
+- Create a coding environment in Codespaces
+- Understand common terminal vocabulary 
+- Be familiar executing commands in the terminal
+- Understand a set of common and important commands
 
 # What is github Codespaces?
 Github codespaces is a development environment for your code that is hosted in the cloud by github. It provides an interface very similar to the popular IDE vscode and is running in a linux environment.
 
-It will be a key tool in this module
+The Codespace that you are about to create will be the key environment used to introduce you to the terminal, git, scripting and C programming.
 
 # Opening a Codespace
 Follow these steps to create a new repository from a template and open it in codespaces. A repository is an online storage point for your project.
@@ -149,24 +154,29 @@ $ pwd
 ```
 The command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is denoted by a `~` character.
 
-## New directories and files
+## Creating new directories
 The `mkdir` command can be used to create new directories with the new directory name as an argument. . We can use `ls` to see the new directory.
 ``` default
 $ mkdir test-dir
 $ ls -F
 ```
+::: {.callout-tip}
+If your terminal is feeling cluttered you can use the `clear` command to empty it.
+:::
+
+# Files
+Given that codespaces is a modern IDE file management can be done very easily through the graphical interface. However it is a useful skill to know. 
+
+## Creating files
 We can then use the `touch` command to create a new file, the path of the new file will be specified by the argument.
 ``` default
 $ touch test-dir/temp.txt
 $ ls test-dir
 temp.txt
 ```
-::: {.callout-tip}
-If your terminal is feeling cluttered you can use the `clear` command to empty it.
-:::
 
-## Putting information in the files
-Given that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.
+## Writing to files
+This can be done firstly with output redirection. Try running this command.
 ``` bash
 echo "This text is in a file" > test-dir/temp.txt
 ``` 
@@ -175,7 +185,7 @@ Lets break down what this is doing.
 * `echo` is a command to output its argument. In this case that argument is the string "This text is in a file"
 * `>` is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt. Alternatively the redirection `>>` can ve used to append to a file rather than rewriting it.
 
-This can be tested either using the editor user interface or by using the command `cat` with the file in question as the argument. This command will output the contents of the file to the  command line.
+The changes to the file can be viewed by using the command `cat` with the file in question as the argument. This command will output the contents of the file to the command line.
 
 ::: {.callout-tip}
 For longer files where an unstructured output would be difficult to read in the command line you can also use the command `less`
@@ -194,7 +204,7 @@ The `mv` and `cp` commands are for moving files and copying files respectively a
 mv current-file-path new-file-path
 cp current-file new-file
 ```
-A useful extra application of mv is to rename files.
+A useful extra application of `mv` is to rename files.
 
 ## Deleting files and directories 
 The `rm` command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The `-r` option can be used to delete a directory along with its files and all subdirectories.
@@ -202,8 +212,11 @@ The `rm` command can be used for this, but be very careful as items deleted with
 ::: {.callout-important}
 `rm` is permanent, there is no recycling bin!
 :::
-## Do I need to remember all of this?
+
+# Do I need to remember all of this?
 No, the command `man` can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for `ls` you will be able to find details on the arguments and options discussed earlier.
 
-You can also google it.
+You can also google it. There are many good online resources particularly sites like [tutorialspoint](https://www.tutorialspoint.com) and [geeksforgeeks](https://www.geeksforgeeks.org). 
+
+Be careful when using user forum sites like Stackoverflow as, although they often have working code or information, the solutions are often not explained or explained poorly. Using resources like this will limit your understanding.
 
