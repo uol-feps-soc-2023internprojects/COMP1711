@@ -9,84 +9,84 @@
   {
     "objectID": "Notes/n04-c-inro.html",
     "href": "Notes/n04-c-inro.html",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "",
     "text": "Any files mentioned in these notes are available in the template repository that the bash notes showed you how to access. TODO: this needs rewording"
   },
   {
     "objectID": "Notes/n04-c-inro.html#the-c-compiler",
     "href": "Notes/n04-c-inro.html#the-c-compiler",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "The C compiler",
     "text": "The C compiler\nThe most common c compiler across unix machines is gcc. At its most simple for our use it can simply be run as:\ngcc hello-world.c\nThis will produce a output executable call a.out that can be run as:\n$ ./a.out\nHello, world!\nThis output file can be renamed using the -o option to specify an output file for the compiler e.g. to create an executable with the same name: gcc hello-world.c -o hello-world"
   },
   {
     "objectID": "Notes/n04-c-inro.html#key-parts",
     "href": "Notes/n04-c-inro.html#key-parts",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Key parts",
     "text": "Key parts\nA variable made up of 3 things\n\nAn identifier used in the code to refer to a stored value\nThe location in memory where this data is being stored\nThe data type which is used to specify the way this data should be stored and accessed."
   },
   {
     "objectID": "Notes/n04-c-inro.html#data-types",
     "href": "Notes/n04-c-inro.html#data-types",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Data types",
     "text": "Data types\nIn c there are quite a few data types, all but one of them are different ways to store numbers, these fall broadly fall into two categories decimal and integers most commonly represented by the data types float and int respectively. The other one is char use to store an individual character."
   },
   {
     "objectID": "Notes/n04-c-inro.html#using-variables-in-c",
     "href": "Notes/n04-c-inro.html#using-variables-in-c",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Using variables in c",
     "text": "Using variables in c\nThere are three key actions that can be taken with variables\n\nInitialization - in c this defines the variables identifier and data type and will trigger the system to assign a portion of memory to it. e.g.\n\nint counter;\n\nAssignment - This alters the value of the variable stored in memory. e.g.\n\ncounter = 2;\nThe value that is being assigned can be simply typed in code or the result of an arithmetic calculation\nThese first two steps can be combined into a single line: int counter = 2;\n\nAccess - Use of the variable using the identifier in code, this can be in any statement where a value of that data type is required e.g. creating a new variable: int newCounter = counter + 2;"
   },
   {
     "objectID": "Notes/n04-c-inro.html#sequential",
     "href": "Notes/n04-c-inro.html#sequential",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Sequential",
     "text": "Sequential\nThis is the most simple way and the default, you simply proceed to the next line after each line, as such there are no special structures associated with it."
   },
   {
     "objectID": "Notes/n04-c-inro.html#logical-expressions",
     "href": "Notes/n04-c-inro.html#logical-expressions",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Logical expressions",
     "text": "Logical expressions\nMore complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination. N.B. these can also implement arithmetic operators in combination with this.\n\nExamples\ncounter &lt;= 12\nvalue &gt; threshold || override == 1\nEventually you will need to use more complex statements\nsource-&gt;metaData[WIDTH] + colStartIndex  &gt; destination-&gt;metaData[WIDTH] || source-&gt;metaData[HEIGHT] + rowStartIndex &gt; destination-&gt;metaData[HEIGHT]"
   },
   {
     "objectID": "Notes/n04-c-inro.html#branching",
     "href": "Notes/n04-c-inro.html#branching",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Branching",
     "text": "Branching\nIn branching control flow a selection is made between different segments of code based on a variable or logical expression. The most commonly used branching pattern is the if-else statement:\nif(/*Logical Expression*/)\n{\n    // code run if logical expression is true\n}\nelse\n{\n    // run code \n}\n\nAdditionally else if statements can be added to have additional arguments to control when a block of code is run.\n\nCode within an else if block will only run if the conditions for the parent if statement and any previous else if statements are all not met.\n\nCode within an else block are only run if none of the conditions are met\nAn if statement does not require any subsequent else statements.\n\n\nExample\nTest this out for yourself!\nnumbers.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int num = 0;\n    printf(\"Please enter a number: \");\n    scanf(\"%d\", &num);\n    if (num &gt; 10)\n    {\n        printf(\"Your number is greater than ten.\\n\");\n    }\n    else if (num &lt; 0)\n    {\n        printf (\"Your number is less than 0\\n\");\n    }\n    else\n    {\n        printf (\"Your number is between 0 and 10 (inclusive)\\n\");\n    }\n    return 0;\n}\n\nNote that the %d format specifier is used to read an integer\nThe & symbol is required in front of not array variables when using scanf()."
   },
   {
     "objectID": "Notes/n04-c-inro.html#looping",
     "href": "Notes/n04-c-inro.html#looping",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Looping",
     "text": "Looping\nIn looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a determined number of loops (for loop).\n\nWhile loop\nwhile(/*logical expression*/)\n{\n    // code to be run\n}\nThe logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.\n\nExample\naverage.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int counter = 0;\n    float input = 0, total = 0; \n    printf(\"This is a program to calculate the average of positive values.\\n\"\n            \"Once you have entered all your values enter a negative number to calculate the average.\\n\");\n    while (input != -1)\n    {\n        printf(\"Enter value:\");\n        scanf(\"%f\", &input);\n        if (input &lt; 0)\n        {\n            continue;\n        }\n        counter += 1;\n        total += input;\n    }\n    printf(\"Average is %f\\n\", total/(float)counter);\n}\n\nMultiple variables of the same kind can be initialised in a single line when separated with commas.\n%f format specifier for floats\nThe continue keyword causes the current iteration of the loop to end and the next one to start.\nAny control structure can be nested within another control structure.\n\n\n\n\nFor loop\nfor-test.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for (int i = 0; i &lt; 5; i++) // Example loop to run 5 times.\n    {\n        // Code to be run\n        printf(\"(%d)\\n\", i);\n    }\n}\n\nBreakdown\nThe for loop control code has 3 key parts:\n\nVariable initialisation and assignment.\n\nIn this example:int i = 0;\nIt is typical in C (and may other programming languages) to start counting from 0, therefore it is often useful to start a loop control variable from 0.\nThe identifier i is used as a de-facto standard but can be renamed to improve code readability.\n\nCondition.\n\nIn this example: i &lt; 5\nThe code within the loop will run while this condition is true.\nAs such be careful if a mistake is made in the condition it may prohibit the code within the loop from running.\n\nUpdating the variable\n\nIn this example: `i++\n++ is called the increment operator and simply increases the value of a variable by one. It is simply a shortening of the code x = x+1.\n-- (the decrement operator) is often used in place of ++ for decreasing loops.\nCan also use i += &lt;val&gt; or i -= &lt;val&gt; to change variable by more than one without referencing it twice.\n\n\nYou should run for-test.c to check that this is all true. You can then change the parameters to see the values of i for which the loop will be run. Change the parameters so that it runs for different values:\n\nValues from 7 to 14\nOnly even numbers to 12\nDecreasing values from 4 to 0\n\n\n\nExample\nWhat do you think this block of code will do? Run it to find out! pattern.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\nNested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.\nIn this case the inner loop is dependent on the outer loop as the condition for the inner loop is based on the control value of the outer loop"
   },
   {
     "objectID": "Notes/n04-c-inro.html#arithmetic",
     "href": "Notes/n04-c-inro.html#arithmetic",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Arithmetic",
     "text": "Arithmetic\n\n\n\nOperator\nName\n\n\n\n\n+\nAddition\n\n\n-\nSubtraction\n\n\n*\nMultiplication\n\n\n/\nDivision\n\n\n%\nModulo (remainder after division)"
   },
   {
     "objectID": "Notes/n04-c-inro.html#comparison",
     "href": "Notes/n04-c-inro.html#comparison",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Comparison",
     "text": "Comparison\n\n\n\nOperator\nName\n\n\n\n\n==\nEqual to\n\n\n!=\nNote equal to\n\n\n&gt;\nGreater than\n\n\n&lt;\nLess than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to"
   },
   {
     "objectID": "Notes/n04-c-inro.html#logical",
     "href": "Notes/n04-c-inro.html#logical",
-    "title": "4: C intro",
+    "title": "4: Introduction to C",
     "section": "Logical",
     "text": "Logical\n\n\n\nOperator\nName\n\n\n\n\n&&\nAND\n\n\n||\nOR\n\n\n!\nNOT"
   },
@@ -98,123 +98,39 @@
     "text": "Missiong parts\n\nup arrow for terminal\nctrl+c to end\ncopy and paste command line\nMicrobit examples and exercises\n#define explanation - combo with advice to avoid ‘magic numbers in code’\n\n\n\nC exersizes\n\nalter the patterns.c\n\n\n\nC notes 2\n\nfunctions\n\ncontextualise using control flow\n\nparameter passing\n\n\n\nC notes 3\n\narrays\n\nDimensions\nlooping over\nmention pointers\n\nstrings\n\nspecial case of character array\n\\0\n\n\n\n\nC notes 4\n\npointers\nmemory allocation\n\nmalloc\nfree\ncalloc??\n\n\n\n\nC notes 5\n\nStrucutres\nfile IO\n\n\n\nC notes 6\n\nlinked lists\n\n\n\nC notes 7\n\nstacks and queues\n\n\n\nC notes 8\n\ntrees\n\n\n\nC notes 9\n\nsearch & sort\n\n\n\nReview"
   },
   {
-    "objectID": "Notes/n01-intro.html",
-    "href": "Notes/n01-intro.html",
-    "title": "1: Intro to the terminal and codespaces.",
+    "objectID": "Notes/n07-arrays-strings.html",
+    "href": "Notes/n07-arrays-strings.html",
+    "title": "7: Arrays and Strings",
     "section": "",
-    "text": "The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish."
+    "text": "Arrays are a series of values of a specific data type stored under a specific identifier. This section of the notes will cover arrays of fixed length, often called static arrays. These arrays can be initialised in 2 ways.\ntype arrayId[arraySize];\ntype arrayId[] = {value1, value2,..., valueN};\nTo access the different values stored in the array indexes must be used within []. Array indexes start from 0\ni.e. first element will be at index 0 and the final element will be at sizeOfArray -1.\narrayId[index]\nThe length of an array can be found using the sizeof() function."
   },
   {
-    "objectID": "Notes/n01-intro.html#the-prompt",
-    "href": "Notes/n01-intro.html#the-prompt",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "The prompt",
-    "text": "The prompt\nAs a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form @{user} -&gt; workspace/{repository} $ whereas on a standard linux machine the prompt often takes the form {user}@{hostname} $. Because of these differences most sources of information will simply show the prompt as the single $ that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command."
+    "objectID": "Notes/n07-arrays-strings.html#examples",
+    "href": "Notes/n07-arrays-strings.html#examples",
+    "title": "7: Arrays and Strings",
+    "section": "Examples",
+    "text": "Examples"
   },
   {
-    "objectID": "Notes/n01-intro.html#your-first-command",
-    "href": "Notes/n01-intro.html#your-first-command",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Your first command",
-    "text": "Your first command\nSelect your terminal and type the command pwd after the prompt. (pwd is an acronym for print working directory). Your output should be similar to what is seen below:\n$ pwd\n/workspaces/repository-name\nThis command will print the absolute path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed. The slash at the start of the path represents the root of the filesystem and the subsequent terms represent a series of hierarchical directories."
+    "objectID": "Notes/n07-arrays-strings.html#example---resrever-gnirts",
+    "href": "Notes/n07-arrays-strings.html#example---resrever-gnirts",
+    "title": "7: Arrays and Strings",
+    "section": "Example - resreveR gnirtS",
+    "text": "Example - resreveR gnirtS"
   },
   {
-    "objectID": "Notes/n01-intro.html#seeing-your-files",
-    "href": "Notes/n01-intro.html#seeing-your-files",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Seeing your files",
-    "text": "Seeing your files\nNow try the ls command. (ls is a shortening of the word list) This will output a list of the contents of the current directory.\n$ ls\nIOM-animals  data  some-maths.txt  wildcards\nIn most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information.\n$ ls -F\nIOM-animals/  data/  some-maths.txt  wildcards/\nThis command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. In the above example we can see 3 directories and a file.\nThe -F part of this command is known as an option."
+    "objectID": "Notes/n07-arrays-strings.html#arrays-of-different-dimensions",
+    "href": "Notes/n07-arrays-strings.html#arrays-of-different-dimensions",
+    "title": "7: Arrays and Strings",
+    "section": "Arrays of different Dimensions",
+    "text": "Arrays of different Dimensions\n\n1 Dimension\n\nList of results for marks on different assessments within a module\nThis is equivalent to a single row in a spreadsheet.\n\n2 Dimension\n\nList of results for marks on different assessments across all modules for a student. (assume all modules have the same number of assessments)\nThis is equivalent to a single sheet of a spreadsheet.\n\n3 Dimensions\n\nList of results for marks on different assessments across all modules for all student. (assume all students do the same number of modules)\nThis is equivalent to a spreadsheet with multiple pages.\n\n\nAn n dimensional array will require n indexes to specify a single element in the array.\nMulti dimensional arrays are initialised in a slightly different way:"
   },
   {
-    "objectID": "Notes/n01-intro.html#options",
-    "href": "Notes/n01-intro.html#options",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Options",
-    "text": "Options\nOptions are used to modify the behaviour of a command being run and can do many different things. Rerunning the ls command again with the option -a will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a .). There are two special items that will be revealed when using this option those are . and ..: . is used as a reference to the current directory and .. is used as a reference to the parent directory.\nUsing the -l command will output a table with lots of additional information about the directory entries including size and last edit time. You should try this out.\n\n\n\n\n\n\nTip\n\n\n\nYou can combine multiple different options together to apply all their effects"
-  },
-  {
-    "objectID": "Notes/n01-intro.html#navigation",
-    "href": "Notes/n01-intro.html#navigation",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Navigation",
-    "text": "Navigation\nMost terminals will open to the home directory of the account or machine that is being run, though this is often not the directory whe one would want to run commands. Therefore, there must be a way to navigate through the file system, in most machines that is using the cd command. This command takes a path as an value after the command (called an argument in this case). These can either be an absolute path or a relative path.\ncd is a particularly important case for the use of the parent directory .. as you often want to navigate back through parent directories.\n\n\n\n\n\n\nImportant\n\n\n\nAbsolute path start with a / and reference the same file or location regardless of the current working directory.\nRelative paths do not start with a / and reference file or location from the current working directory.\n\n\n$ pwd\n/workspaces/repository-name\n$ cd IOM-animals\n$ pwd\n/workspaces/repository-name/IOM-animals\n$ ls -F\namphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt\n$ cd .. \n$ pwd\n/workspaces/repository-name\nThe command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is often denoted by a ~."
-  },
-  {
-    "objectID": "Notes/n01-intro.html#new-directories-and-files",
-    "href": "Notes/n01-intro.html#new-directories-and-files",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "New directories and files",
-    "text": "New directories and files\nThe mkdir command can be used to create new directories with an argument as the directory name. We can use ls to see the new directory.\n$ mkdir test-dir\n$ ls -F\nWe can then use the touch command to create a new file at the location specified by the argument. This example also shows the use of ls with an argument for directory.\n$ touch test-dir/temp.txt\n$ ls test-dir\ntemp.txt\n\n\n\n\n\n\nTip\n\n\n\nIf your terminal is feeling cluttered you can use the clear command to empty it."
-  },
-  {
-    "objectID": "Notes/n01-intro.html#putting-information-in-the-files",
-    "href": "Notes/n01-intro.html#putting-information-in-the-files",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Putting information in the files",
-    "text": "Putting information in the files\nGiven that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.\necho \"This text is in a file\" &gt; test-dir/temp.txt\nLets break down what this is doing.\n\necho is a command to output its argument. In this case that argument is the string “This text is in a file”\n&gt; is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt. Alternatively the redirection &gt;&gt; can ve used to append to a file rather than rewriting it.\n\nThis can be tested either using the editor user interface or by using the command cat with the file in question as the argument. This command will output the contents of the file to the command line.\n\n\n\n\n\n\nTip\n\n\n\nFor longer files where an unstructured output would be difficult to read in the command line you can also use the command less"
-  },
-  {
-    "objectID": "Notes/n01-intro.html#command-line-text-editors",
-    "href": "Notes/n01-intro.html#command-line-text-editors",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Command line text editors",
-    "text": "Command line text editors\nWhile most of the time you will be able to use an IDE like codespaces or vscode, it is still a useful to know how to edit files at the command line. vi is very famous but the simplest to use is probably nano.\n\nto open a file with nano run the command with the file to edit as the argument\nYou can use the arrow keys to navigate the file and type to edit. Add something to your file.\nFinally use ctrl+X to exit, type ‘Y’ to agree to save and enter to confirm the file name. Use cat or less to view your updated files."
-  },
-  {
-    "objectID": "Notes/n01-intro.html#moving-and-editing-files",
-    "href": "Notes/n01-intro.html#moving-and-editing-files",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Moving and editing files",
-    "text": "Moving and editing files\nThe mv and cp commands are for moving files and copying files respectively and have similar usage as seen below.\nmv current-file-path new-file-path\ncp current-file new-file\nA useful extra application of mv is to rename files."
-  },
-  {
-    "objectID": "Notes/n01-intro.html#deleting-files-and-directories",
-    "href": "Notes/n01-intro.html#deleting-files-and-directories",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Deleting files and directories",
-    "text": "Deleting files and directories\nThe rm command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The -r option can be used to delete a directory along with its files and all subdirectories.\n\n\n\n\n\n\nImportant\n\n\n\nrm is permanent, there is no recycling bin!"
-  },
-  {
-    "objectID": "Notes/n01-intro.html#do-i-need-to-remember-all-of-this",
-    "href": "Notes/n01-intro.html#do-i-need-to-remember-all-of-this",
-    "title": "1: Intro to the terminal and codespaces.",
-    "section": "Do I need to remember all of this?",
-    "text": "Do I need to remember all of this?\nNo, the command man can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for ls you will be able to find details on the arguments and options discussed earlier.\nYou can also google it."
-  },
-  {
-    "objectID": "Notes/n06-functions-arguments.html",
-    "href": "Notes/n06-functions-arguments.html",
-    "title": "6: Functions and arguments in C",
+    "objectID": "Notes/n02-scripting-git.html",
+    "href": "Notes/n02-scripting-git.html",
+    "title": "2: Shell scripting",
     "section": "",
-    "text": "In the same why that a variable is a piece of data that can be referenced with an identifier, a function is a section of code that can be referenced with an identifier.\nThis block of code can receive data from the code calling it in the form of parameters but is otherwise isolated from the rest of the call.\nIt is expected by the compiler that there will be a return statement within this codeblock that will have a value of equal type to the specified type of the function. To write a function without a return value the void type is used.\n\n\nreturnType identifier(parameterType parameterId, ...)\n{\n    //code to be run\n    return value;\n}\n\n\n\nWhen calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.\ne.g. for this simple function:\nint sum( int a, int b )\n{\n    int c = a + b;\n    return c;\n}\nA valid function call would be: sum(1,2) Though this would likely be only part of a line of code: int total = sum(1, 2);\n\n\n\n\nscanf\nprintf\nmain"
-  },
-  {
-    "objectID": "Notes/n06-functions-arguments.html#calling-a-function",
-    "href": "Notes/n06-functions-arguments.html#calling-a-function",
-    "title": "6: Functions and arguments in C",
-    "section": "",
-    "text": "When calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.\ne.g. for this simple function:\nint sum( int a, int b )\n{\n    int c = a + b;\n    return c;\n}\nA valid function call would be: sum(1,2) Though this would likely be only part of a line of code: int total = sum(1, 2);"
-  },
-  {
-    "objectID": "Notes/n06-functions-arguments.html#functions-that-you-have-already-used",
-    "href": "Notes/n06-functions-arguments.html#functions-that-you-have-already-used",
-    "title": "6: Functions and arguments in C",
-    "section": "",
-    "text": "scanf\nprintf\nmain"
-  },
-  {
-    "objectID": "Exercises/e02-c-basic.html",
-    "href": "Exercises/e02-c-basic.html",
-    "title": "2: Basic C exercises",
-    "section": "",
-    "text": "Exercise 1 - Odd or Not\nWrite a program that takes a integer input from the user and determines whether the value is odd or even. Hint: use the modulo operator.\n\nExtension\nRewrite the program so it takes two integers as inputs and determines whether one is a multiple of the other.\n\n\n\nExercise 2 - Patterns!\nTake this program, pattern.c from the notes.\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\nWith this code the program will output:\n*\n**\n***\n****\n*****\n******\n*******\nAlter the program so that it outputs these different patterns:\n\n1\n*****\n****\n***\n**\n*\n\nAnswer\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 6; i &gt; 1; i--)\n    {\n        for(int j = 1; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\n\n\n2\n   *\n  ***\n *****\n\nAnswer\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 6; i+=2)\n    {\n        for(int j = 0; j &lt; 7-i; j+=2)\n        {\n            printf(\" \");\n        }\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\n\n\n3\nMake this set of patterns that could create an animation:\n*****\n*   *\n*   *\n*   *\n*****\n-----\n * * \n*****\n * * \n*****\n * * \n-----\n  *  \n  *  \n*****\n  *  \n  *  \n-----\n * * \n*****\n * * \n*****\n * * \n-----\n*****\n*   *\n*   *\n*   *\n*****\n-----\n\nAnswer\n#include &lt;stdio.h&gt;\n#define GRID_SIZE 5\n#define MAX_INDEX GRID_SIZE-1\n\nint main()\n{\n    for(int k = 0; k &lt; GRID_SIZE; k++)\n    {\n        for(int i = 0; i &lt; GRID_SIZE; i++)\n        {\n            for(int j = 0; j &lt; GRID_SIZE; j++)\n            {\n                if(i == 0 + k || i == MAX_INDEX-k || j == 0 + k | j  == MAX_INDEX - k)\n                {\n                    printf(\"*\");\n                }\n                else\n                {\n                    printf(\" \");\n                }\n            }\n            printf(\"\\n\");\n        }\n        printf(\"-----\\n\");\n    }\n    return 0;\n}"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Procedural Programming",
-    "section": "",
-    "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
+    "text": "Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes.\n\nShell scripts\nShell scripts, often called bash scripts due to the prevalence of the bash script, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.\nFirst make a a new file in the scripts directory called time.sh. In the file put these lines:\n#!/bin/bash\necho $(date)\n\n\n\n\n\n\nTip\n\n\n\nTo do this use the mkdir, cd, nano and touch commands\n\n\n\nCode breakdown\n\n#!/bin/bash tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.\necho is a command for outputting to the command line.\n$(date) is a value maintained by the system and accessible from the command line.\n\nWhen we wish to execute a program in our current directory we call it as a command by appending ./ to the name. This tells the operating system to look in the current directory for the program to run.\nTherefore In order to run the is script we run the command ./time.sh however at the moment that will give us this output:\n$ ./time.sh\nbash: ./time.sh: Permission denied\n\n\n\nWhy doesn’t the script run?\nThis is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the -l option for ls.\n$ ls -l\n-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh\nThe part of this output that is relevant to this case is the string -rw-rw-rw-\n\nThe first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as time.sh is simply a file this is left empty.\nThe rest of the string represents the permissions for the file. This is split into 3 different categories for 3 different groups.\n\nThe three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a -\nThis is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users\n\n\nSo in this case the file can be read and written by all users, but not executed, how can we change this?\n\n\nAltering file permissions.\nThe chmod command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command\nchmod +x time.sh\nOnce this is done, you can rerun the script and see the output.\n\n\nReminder of key steps to make a shell script\n\nMake file with .sh extension\nPut #!/bin/bash at the start of the file. (this is sometimes called a shebang)\nChange the permissions so the file is executable.\n\n\n\nA more complex example:\nscripts/dataAnalysis1.sh\ncat data/values* &gt; output.txt\nsed -i 's/\\s/\\n/g' output.txt \nsed -i '/^$/d' output.txt \nsort -no output.txt output.txt\nhead -n1 output.txt\ntail -n1 output.txt\nrm output.txt\nRun this script from the root of the git repo using ./scripts/dataAnalysis1.sh Then run each of the commands that the script will run individually and inspect the contents of output.txt to see what the command has done.\nLets break down what this is doing:\n\nFirst line uses cat to output all files in directories starting data/values. It does this using the wildcard operator * to select all of these files. The output is then redirected to the file output.txt using &gt;.\noutput.txt now contains all the values, but not in the format we want. Therefore we use the stream editor sed to first split the values onto different lines using the pattern 's/\\s/\\n/g'. Then we remove any blank lines using the pattern /^$/d.\nNext we sort the file. The options -n specifies to sort numerically and -o allows for the specifying of an output file.\nhead -n1 and tail -n1 will output the first and last values respectively\nFinally rm removes out temporary file.\n\n\n\nAnother way\nFrom the root of the git repo run the command\ncat data/values* | sed 's/\\s/\\n/g' | sed '/^$/d' | sort -n | (head -n1 && tail -n1)\nThis condenses the whole of the previous script into a single line using pipes |. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.\nThis script can be found in scripts/dataAnalysis2.sh\nThis does have a significant performance benefit though that can be seen by using the time command to measure the performance of each script. Try this yourself.\n\n\n\n\n\n\nImportant\n\n\n\nRemember to save your changes to your Codespace."
   },
   {
     "objectID": "Exercises/e01-linux-cli.html",
@@ -252,11 +168,151 @@
     "text": "Answer\nsed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'"
   },
   {
-    "objectID": "Notes/n02-scripting-git.html",
-    "href": "Notes/n02-scripting-git.html",
-    "title": "2: Bash scripting",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Procedural Programming",
     "section": "",
-    "text": "Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes\n\nBash scripts\nBash scripts, also known as shell scripts, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.\nFirst make a a new directory called scripts and navigate to it. And make a file called time.sh. In the file put these lines:\n#!/bin/bash\necho $(date)\n\n#!/bin/bash tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.\necho is a command for outputting to the command line.\n$(date) is a value maintained by the system and accessible from the command line.\n\nWhen we wish to execute a program in our current directory we call it as a command by appending ./ to the name. This tells the operating system to look in the current directory for the program to run.\nTherefore In order to run the is script we run the command ./time.sh however at the moment that will give us this output:\n$ ./time.sh\nbash: ./time.sh: Permission denied\n\n\nWhy doesn’t the script run?\nThis is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the -l option for ls.\n$ ls -l\n-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh\nThe part of this output that is relevant to this case is the string -rw-rw-rw-\n\nThe first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as time.sh is simply a file this is left empty.\nThe rest of the string represents the permissions for the file. This is split into 3 different categories for 3 different groups.\n\nThe three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a -\nThis is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users\n\n\nSo in this case the file can be read and written by all users, but not executed, how can we change this?\n\n\nAltering file permissions.\nThe chmod command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command\nchmod +x time.sh\nOnce this is done, you can rerun the script and see the output.\n\n\nReminder of key steps to make a shell script\n\nMake file with .sh extension\nPut #!/bin/bash at the start of the file. (this is sometimes called a shebang)\nChange the permissions so the file is executable.\n\n\n\nA more complex example:\nscripts/dataAnalysis1.sh\ncat data/values* &gt; output.txt\nsed -i 's/\\s/\\n/g' output.txt \nsed -i '/^$/d' output.txt \nsort -no output.txt output.txt\nhead -n1 output.txt\ntail -n1 output.txt\nrm output.txt\nRun this script from the root of the git repo using ./scripts/dataAnalysis1.sh\nLets break down what this is doing:\n\nFirst line uses cat to output all files in directories starting data/values. It does this using the wildcard operator * to select all of these files. The output is then redirected to the file output.txt using &gt;.\noutput.txt now contains all the values, but not in the format we want. Therefore we use the stream editor sed to first split the values onto different lines using the pattern 's/\\s/\\n/g'. Then we remove any blank lines using the pattern /^$/d.\nNext we sort the file. The options -n specifies to sort numerically and -o allows for the specifying of an output file.\nhead -n1 and tail -n1 will output the first and last values respectively\nFinally rm removes out temporary file.\n\n\n\nAnother way\nFrom the root of the git repo run the command\ncat data/values* | sed 's/\\s/\\n/g' | sed '/^$/d' | sort -n | (head -n1 && tail -n1)\nThis condenses the whole of the previous script into a single line using pipes |. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.\nSave this new script as scripts/dataAnalysis2.sh\nThis does have a significant performance benefit though that can be seen by using the time command to measure the performance of each script. Try this yourself.\n\n\n\n\n\n\nImportant\n\n\n\nRemember to save your changes to your Codespace."
+    "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
+  },
+  {
+    "objectID": "Exercises/e02-c-basic.html",
+    "href": "Exercises/e02-c-basic.html",
+    "title": "2: Basic C exercises",
+    "section": "",
+    "text": "Exercise 1 - Odd or Not\nWrite a program that takes a integer input from the user and determines whether the value is odd or even. Hint: use the modulo operator.\n\nExtension\nRewrite the program so it takes two integers as inputs and determines whether one is a multiple of the other.\n\n\n\nExercise 2 - Patterns!\nTake this program, pattern.c from the notes.\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\nWith this code the program will output:\n*\n**\n***\n****\n*****\n******\n*******\nAlter the program so that it outputs these different patterns:\n\n1\n*****\n****\n***\n**\n*\n\nAnswer\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 6; i &gt; 1; i--)\n    {\n        for(int j = 1; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\n\n\n2\n   *\n  ***\n *****\n\nAnswer\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 6; i+=2)\n    {\n        for(int j = 0; j &lt; 7-i; j+=2)\n        {\n            printf(\" \");\n        }\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\n\n\n3\nMake this set of patterns that could create an animation:\n*****\n*   *\n*   *\n*   *\n*****\n-----\n * * \n*****\n * * \n*****\n * * \n-----\n  *  \n  *  \n*****\n  *  \n  *  \n-----\n * * \n*****\n * * \n*****\n * * \n-----\n*****\n*   *\n*   *\n*   *\n*****\n-----\n\nAnswer\n#include &lt;stdio.h&gt;\n#define GRID_SIZE 5\n#define MAX_INDEX GRID_SIZE-1\n\nint main()\n{\n    for(int k = 0; k &lt; GRID_SIZE; k++)\n    {\n        for(int i = 0; i &lt; GRID_SIZE; i++)\n        {\n            for(int j = 0; j &lt; GRID_SIZE; j++)\n            {\n                if(i == 0 + k || i == MAX_INDEX-k || j == 0 + k | j  == MAX_INDEX - k)\n                {\n                    printf(\"*\");\n                }\n                else\n                {\n                    printf(\" \");\n                }\n            }\n            printf(\"\\n\");\n        }\n        printf(\"-----\\n\");\n    }\n    return 0;\n}"
+  },
+  {
+    "objectID": "Notes/n06-functions-arguments.html",
+    "href": "Notes/n06-functions-arguments.html",
+    "title": "6: Functions and arguments in C",
+    "section": "",
+    "text": "In the same why that a variable is a piece of data that can be referenced with an identifier, a function is a section of code that can be referenced with an identifier.\nThis block of code can receive data from the code calling it in the form of parameters but is otherwise isolated from the rest of the call.\nIt is expected by the compiler that there will be a return statement within this codeblock that will have a value of equal type to the specified type of the function. To write a function without a return value the void type is used.\n\n\nreturnType identifier(parameterType parameterId, ...)\n{\n    //code to be run\n    return value;\n}\n\n\n\nWhen calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.\ne.g. for this simple function:\nint sum( int a, int b )\n{\n    int c = a + b;\n    return c;\n}\nA valid function call would be: sum(1,2) Though this would likely be only part of a line of code: int total = sum(1, 2);\n\n\n\n\nscanf\nprintf\nmain"
+  },
+  {
+    "objectID": "Notes/n06-functions-arguments.html#calling-a-function",
+    "href": "Notes/n06-functions-arguments.html#calling-a-function",
+    "title": "6: Functions and arguments in C",
+    "section": "",
+    "text": "When calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.\ne.g. for this simple function:\nint sum( int a, int b )\n{\n    int c = a + b;\n    return c;\n}\nA valid function call would be: sum(1,2) Though this would likely be only part of a line of code: int total = sum(1, 2);"
+  },
+  {
+    "objectID": "Notes/n06-functions-arguments.html#functions-that-you-have-already-used",
+    "href": "Notes/n06-functions-arguments.html#functions-that-you-have-already-used",
+    "title": "6: Functions and arguments in C",
+    "section": "",
+    "text": "scanf\nprintf\nmain"
+  },
+  {
+    "objectID": "Notes/n06-functions-arguments.html#example-1",
+    "href": "Notes/n06-functions-arguments.html#example-1",
+    "title": "6: Functions and arguments in C",
+    "section": "Example",
+    "text": "Example"
+  },
+  {
+    "objectID": "Notes/n01-intro.html",
+    "href": "Notes/n01-intro.html",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "",
+    "text": "Create a coding environment in Codespaces\nUnderstand common terminal vocabulary\nBe familiar executing commands in the terminal\nUnderstand a set of common and important commands"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#the-prompt",
+    "href": "Notes/n01-intro.html#the-prompt",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "The prompt",
+    "text": "The prompt\nAs a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form @{user} -&gt; workspace/{repository} $ whereas on a standard linux machine the prompt often takes the form {user}@{hostname} $.\nBecause of these differences most sources of information will simply show the prompt as the single $ that normally ends a prompt, it is important to remember that this symbol is not part of the command."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#example-of-a-file-system",
+    "href": "Notes/n01-intro.html#example-of-a-file-system",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Example of a file system:",
+    "text": "Example of a file system:\n\n\n\nSource\n\n\nIn this case assume that the absolute path of the directory Tom is /home/Tom and that the current working directory is Tools. We can see a few different relative and absolute paths from here:\n\nTools\n\nRelative path: .\nAbsolute path: /home/Tom/Tools\n\nStats\n\nRelative path: Stats\nAbsolute path: /home/Tom/Tools/Stats\n\nNotes.txt\n\nRelative path: ../Notes.txt\nAbsolute path: /home/Notes.txt\n\n\nWhat would the absolute and relative paths for One.txt?"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#terminal-in-codespaces",
+    "href": "Notes/n01-intro.html#terminal-in-codespaces",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Terminal in codespaces",
+    "text": "Terminal in codespaces\nMost terminals will open to the home directory of the account that is being run,Codespaces is a special case where this is not true instead opening to the directory of your repository."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#your-first-command",
+    "href": "Notes/n01-intro.html#your-first-command",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Your first command",
+    "text": "Your first command\nSelect your terminal and type the command pwd after the prompt. (pwd is an acronym for print working directory). Your output should be similar to what is seen below:\n$ pwd\n/workspaces/repository-name\nThis command will print the absolute path of the current working directory, that is the location in the file system that the commands being run in the shell are being executed. The slash at the start of the path represents the root of the filesystem and the subsequent terms represent a series of hierarchical directories."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#seeing-your-files",
+    "href": "Notes/n01-intro.html#seeing-your-files",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Seeing your files",
+    "text": "Seeing your files\nNow try the ls command. (ls is a shortening of the word list) This will output a list of the contents of the current directory.\n$ ls\nIOM-animals  data  some-maths.txt  wildcards\nIn most terminals this will be highlighted to suggest the kind of file system entry that each item is but if this is not accessible we can use a slightly changed command to view this information.\n$ ls -F\nIOM-animals/  data/  some-maths.txt  wildcards/\nThis command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. In the above example we can see 3 directories and a file.\nThe -F part of this command is known as an option."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#options",
+    "href": "Notes/n01-intro.html#options",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Options",
+    "text": "Options\nOptions are used to modify the behaviour of a command being run and can do many different things. They are characterised by starting with a -.\nRerunning the ls command again with the option -a will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a .).\nThere are two special items that will be revealed when using this option those are . and ..: . is used as a reference to the current directory and .. is used as a reference to the parent directory.\nUsing the -l command will output a table with lots of additional information about the directory entries including size and last edit time. You should try this out.\n\n\n\n\n\n\nTip\n\n\n\nYou can combine multiple different options together to apply all their effects"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#arguments",
+    "href": "Notes/n01-intro.html#arguments",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Arguments",
+    "text": "Arguments\nWe can also use ls to list subdirectories, to do this we must pass the command the value of the subdirectory that we want to list.\n$ ls IOM-animals\nTODO: example output\nThe value passed to the command at the command line here is called an argument. Different commands will expect different types and different numbers of commands."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#navigation",
+    "href": "Notes/n01-intro.html#navigation",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Navigation",
+    "text": "Navigation\nThe directory that the terminal opens to is often not where the user would like to run commands, therefore, there must be a way to navigate through the file system. In most machines this is done using the cd command.\nThis command takes a path as a value after the command. This can either be an absolute path or a relative path. In general the values passed to a command are called arguments, different commands will expect to receive different arguments.\ncd is a particularly important case for the use of the parent directory .. as you often want to navigate back through parent directories.\n$ pwd\n/workspaces/repository-name\n$ cd IOM-animals\n$ pwd\n/workspaces/repository-name/IOM-animals\n$ ls -F\namphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt\n$ cd .. \n$ pwd\n/workspaces/repository-name\nThe command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is denoted by a ~ character."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#creating-new-directories",
+    "href": "Notes/n01-intro.html#creating-new-directories",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Creating new directories",
+    "text": "Creating new directories\nThe mkdir command can be used to create new directories with the new directory name as an argument. . We can use ls to see the new directory.\n$ mkdir test-dir\n$ ls -F\n\n\n\n\n\n\nTip\n\n\n\nIf your terminal is feeling cluttered you can use the clear command to empty it."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#creating-files",
+    "href": "Notes/n01-intro.html#creating-files",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Creating files",
+    "text": "Creating files\nWe can then use the touch command to create a new file, the path of the new file will be specified by the argument.\n$ touch test-dir/temp.txt\n$ ls test-dir\ntemp.txt"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#writing-to-files",
+    "href": "Notes/n01-intro.html#writing-to-files",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Writing to files",
+    "text": "Writing to files\nThis can be done firstly with output redirection. Try running this command.\necho \"This text is in a file\" &gt; test-dir/temp.txt\nLets break down what this is doing.\n\necho is a command to output its argument. In this case that argument is the string “This text is in a file”\n&gt; is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt. Alternatively the redirection &gt;&gt; can ve used to append to a file rather than rewriting it.\n\nThe changes to the file can be viewed by using the command cat with the file in question as the argument. This command will output the contents of the file to the command line.\n\n\n\n\n\n\nTip\n\n\n\nFor longer files where an unstructured output would be difficult to read in the command line you can also use the command less"
+  },
+  {
+    "objectID": "Notes/n01-intro.html#command-line-text-editors",
+    "href": "Notes/n01-intro.html#command-line-text-editors",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Command line text editors",
+    "text": "Command line text editors\nWhile most of the time you will be able to use an IDE like codespaces or vscode, it is still a useful to know how to edit files at the command line. vi is very famous but the simplest to use is probably nano.\n\nto open a file with nano run the command with the file to edit as the argument\nYou can use the arrow keys to navigate the file and type to edit. Add something to your file.\nFinally use ctrl+X to exit, type ‘Y’ to agree to save and enter to confirm the file name. Use cat or less to view your updated files."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#moving-and-editing-files",
+    "href": "Notes/n01-intro.html#moving-and-editing-files",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Moving and editing files",
+    "text": "Moving and editing files\nThe mv and cp commands are for moving files and copying files respectively and have similar usage as seen below.\nmv current-file-path new-file-path\ncp current-file new-file\nA useful extra application of mv is to rename files."
+  },
+  {
+    "objectID": "Notes/n01-intro.html#deleting-files-and-directories",
+    "href": "Notes/n01-intro.html#deleting-files-and-directories",
+    "title": "1: Intro to Codespaces and the terminal.",
+    "section": "Deleting files and directories",
+    "text": "Deleting files and directories\nThe rm command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The -r option can be used to delete a directory along with its files and all subdirectories.\n\n\n\n\n\n\nImportant\n\n\n\nrm is permanent, there is no recycling bin!"
   },
   {
     "objectID": "Notes/microbit-undocumented.html",
@@ -333,7 +389,7 @@
     "href": "Notes/n03-git-hub.html#staged-changes",
     "title": "3: Using git and Github",
     "section": "2. Staged changes",
-    "text": "2. Staged changes\ngit add takes a file or directory as an argument to ‘add’ to the current list of files staged for a commit. If you are at the root of the repository, git add . will stage all untracked changes. once this is run we can rerun git status to see the changes:\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nChanges to be committed:\n  (use \"git restore --staged &lt;file&gt;...\" to unstage)\n        new file:   scripts/dataAnalysis1.sh\n        new file:   scripts/dataAnalysis2.sh\n        new file:   scripts/time.sh\nThis will always give a full listing of the changes that will be made when committing."
+    "text": "2. Staged changes\ngit add takes a file or directory as an argument to ‘add’ to the current list of files staged for a commit. If you are at the root of the repository, git add . will stage all untracked changes. Though more generally git add takes a list of file paths to add as arguments.\nOnce this is run we can rerun git status to see the changes:\nOn branch main\nYour branch is up to date with 'origin/main'.\n\nChanges to be committed:\n  (use \"git restore --staged &lt;file&gt;...\" to unstage)\n        new file:   scripts/dataAnalysis1.sh\n        new file:   scripts/dataAnalysis2.sh\n        new file:   scripts/time.sh\nThis will always give a full listing of the changes that will be made when committing."
   },
   {
     "objectID": "Notes/n03-git-hub.html#tracked-changes",

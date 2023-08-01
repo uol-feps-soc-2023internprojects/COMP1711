@@ -150,13 +150,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1: Intro to the terminal and codespaces.</span></a>
+ <span class="menu-text">1: Intro to Codespaces and the terminal.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2: Bash scripting</span></a>
+ <span class="menu-text">2: Shell scripting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n04-c-inro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: C intro</span></a>
+ <span class="menu-text">4: Introduction to C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -181,6 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../Notes/n06-functions-arguments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6: Functions and arguments in C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n07-arrays-strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7: Arrays and Strings</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -231,6 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#what-is-git" id="toc-what-is-git" class="nav-link active" data-scroll-target="#what-is-git">What is git?</a></li>
+  <li><a href="#why-do-you-need-to-know-git" id="toc-why-do-you-need-to-know-git" class="nav-link" data-scroll-target="#why-do-you-need-to-know-git">Why do you need to know git?</a></li>
   <li><a href="#repository" id="toc-repository" class="nav-link" data-scroll-target="#repository">Repository</a>
   <ul class="collapse">
   <li><a href="#untracked-changes" id="toc-untracked-changes" class="nav-link" data-scroll-target="#untracked-changes">1. Untracked changes</a></li>
@@ -291,6 +298,10 @@ Note
 </div>
 </div>
 </section>
+<section id="why-do-you-need-to-know-git" class="level1">
+<h1>Why do you need to know git?</h1>
+<p>Git is an essential tool for any workplace where you will be programming and an industry standard tool. Past this it is extremely useful and, when used intelligently, can save you from a stupid mistake and expedite the process of developing software as a team.</p>
+</section>
 <section id="repository" class="level1">
 <h1>Repository</h1>
 <p>All these commits and files are stored together in a repository; this is just a directory with all the extra information other than your files is stored in the hidden <code>.git/</code> subdirectory.</p>
@@ -312,7 +323,8 @@ Note
 </section>
 <section id="staged-changes" class="level2">
 <h2 class="anchored" data-anchor-id="staged-changes">2. Staged changes</h2>
-<p><code>git add</code> takes a file or directory as an argument to ‘add’ to the current list of files staged for a commit. If you are at the root of the repository, <code>git add .</code> will stage all untracked changes. once this is run we can rerun <code>git status</code> to see the changes:</p>
+<p><code>git add</code> takes a file or directory as an argument to ‘add’ to the current list of files staged for a commit. If you are at the root of the repository, <code>git add .</code> will stage all untracked changes. Though more generally <code>git add</code> takes a list of file paths to add as arguments.</p>
+<p>Once this is run we can rerun <code>git status</code> to see the changes:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>On branch main</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Your branch is up to date with 'origin/main'.</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -337,8 +349,8 @@ Note
 </section>
 <section id="what-are-branches" class="level1">
 <h1>What are branches?</h1>
-<p>You may have noticed branches mentioned when using <code>git status</code> that you are on the main branch.</p>
-<p>A git branch is a pointer to a specific commit, when you are on a branch as you continue to commit and add to this branch this pointer will be updated to point to the most recent branch.</p>
+<p>You may have noticed branches mentioned when <code>git status</code> outputs that that you are on the main branch.</p>
+<p>A git branch is a pointer to a specific commit, when you are on a branch as you continue to commit to this branch this pointer will be updated to point to the most recent commit.</p>
 <p>The default branch is called ‘main’</p>
 <p>You can see all the current branches in you repo using the command <code>git branch</code>, add a new branch using <code>git branch &lt;new-branch-name&gt;</code> and swap branches using <code>git checkout &lt;branch-name</code>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -358,7 +370,7 @@ Note
 </section>
 <section id="what-is-origin" class="level1">
 <h1>What is origin?</h1>
-<p>Origin is shorthand for the remote storage location of the repository. In our case this is on Github. if we run <code>git status</code> we should see that “Your branch is ahead of ‘origin/main’ by 1 commit.”</p>
+<p>Origin is shorthand for the remote storage location of the repository. In our case this is on Github.</p>
 <p>We can see the address of the remote of our repo using the command <code>git remote show origin</code></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>* remote origin</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  Fetch URL: https://github.com/user/repo-name</span>
@@ -370,9 +382,10 @@ Note
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    main merges with remote main</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  Local ref configured for 'git push':</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    main pushes to main (fast-forwardable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Following the URL will open your github project page, this is setup by Codespaces automatically in this scenario. In this case Github is simply a remote location to store a copy of the repository.</p>
-<p>To update this remote we use the command <code>git push</code>. (This branch is setup to to be linked to the remote main, if that were not the case we would have to specify where to push to)</p>
-<p>Once this is done, the <code>git status</code> to read “Your branch is up to date with ‘origin/main’.”</p>
+<p>Following the URL will open your github project page, this is setup by Codespaces automatically in this scenario. In this case Github is simply a remote location to store a copy of the repository. You will see that the version of the code accessible online is not currently the version that you have been working on in your codespace.</p>
+<p>You can confirm this by going back to the Codespace and running <code>git status</code>, this will show that you are “Your branch is ahead of ‘origin/main’ by 1 commit.”</p>
+<p>To sync this remote to our version we use the command <code>git push</code>. (This branch is setup to to be linked to the remote main, if that were not the case we would have to specify where to push to)</p>
+<p>Once this is done, the <code>git status</code> to read “Your branch is up to date with ‘origin/main’.” Additionally the online copy of the code should now match that in your Codespace.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

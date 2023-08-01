@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Resources</title>
+<title>7: Arrays and Strings</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -61,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -73,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./resources.html">Resources</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n07-arrays-strings.html">7: Arrays and Strings</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -88,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">COMP1711 - Procedural Programming</a> 
+      <a href="../">COMP1711 - Procedural Programming</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -109,55 +143,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/microbit-undocumented.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/microbit-undocumented.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Microbit functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/n01-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n01-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Intro to Codespaces and the terminal.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2: Shell scripting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/n03-git-hub.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n03-git-hub.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3: Using git and Github</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/n04-c-inro.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n04-c-inro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4: Introduction to C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5: C for the Microbit</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/n06-functions-arguments.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n06-functions-arguments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6: Functions and arguments in C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/n07-arrays-strings.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n07-arrays-strings.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">7: Arrays and Strings</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Notes/roughNotes.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/roughNotes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TODO</span></a>
   </div>
 </li>
@@ -174,13 +208,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Exercises/e01-linux-cli.html" class="sidebar-item-text sidebar-link">
+  <a href="../Exercises/e01-linux-cli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Linux Command line skills</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Exercises/e02-c-basic.html" class="sidebar-item-text sidebar-link">
+  <a href="../Exercises/e02-c-basic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2: Basic C exercises</span></a>
   </div>
 </li>
@@ -188,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./resources.html" class="sidebar-item-text sidebar-link active">
+  <a href="../resources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
@@ -202,9 +236,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bash" id="toc-bash" class="nav-link active" data-scroll-target="#bash">Bash</a></li>
-  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">C</a></li>
-  <li><a href="#git" id="toc-git" class="nav-link" data-scroll-target="#git">Git</a></li>
+  <li><a href="#arrays" id="toc-arrays" class="nav-link active" data-scroll-target="#arrays">Arrays</a></li>
+  <li><a href="#looping-over-arrays" id="toc-looping-over-arrays" class="nav-link" data-scroll-target="#looping-over-arrays">Looping over arrays</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  </ul></li>
+  <li><a href="#strings" id="toc-strings" class="nav-link" data-scroll-target="#strings">Strings</a>
+  <ul class="collapse">
+  <li><a href="#example---resrever-gnirts" id="toc-example---resrever-gnirts" class="nav-link" data-scroll-target="#example---resrever-gnirts">Example - resreveR gnirtS</a></li>
+  </ul></li>
+  <li><a href="#multi-dimension" id="toc-multi-dimension" class="nav-link" data-scroll-target="#multi-dimension">Multi-Dimension</a>
+  <ul class="collapse">
+  <li><a href="#arrays-of-different-dimensions" id="toc-arrays-of-different-dimensions" class="nav-link" data-scroll-target="#arrays-of-different-dimensions">Arrays of different Dimensions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -213,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Resources</h1>
+<h1 class="title">7: Arrays and Strings</h1>
 </div>
 
 
@@ -228,17 +272,68 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="bash" class="level1">
-<h1>Bash</h1>
+<section id="arrays" class="level1">
+<h1>Arrays</h1>
+<p>Arrays are a series of values of a specific data type stored under a specific identifier. This section of the notes will cover arrays of fixed length, often called static arrays. These arrays can be initialised in 2 ways.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>type arrayId<span class="op">[</span>arraySize<span class="op">];</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>type arrayId<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span>value1<span class="op">,</span> value2<span class="op">,...,</span> valueN<span class="op">};</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>To access the different values stored in the array indexes must be used within <code>[]</code>. Array indexes start from 0</p>
+<p>i.e.&nbsp;first element will be at index 0 and the final element will be at sizeOfArray -1.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>arrayId<span class="op">[</span>index<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The length of an array can be found using the <code>sizeof()</code> function.</p>
 </section>
-<section id="c" class="level1">
-<h1>C</h1>
+<section id="looping-over-arrays" class="level1">
+<h1>Looping over arrays</h1>
+<p>For loops in particular lend themselves to iterating over static arrays</p>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
 </section>
-<section id="git" class="level1">
-<h1>Git</h1>
-<p><a href="file:///home/wrk/Downloads/SWTM-2088_Atlassian-Git-Cheatsheet-1.pdf">Git Cheat Sheet</a></p>
+</section>
+<section id="strings" class="level1">
+<h1>Strings</h1>
+<p>Strings are a special case of a character array with a delimiting character (<code>\0</code>) marking the end of the string. This can be seen in the two equivalent lines of code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> string1<span class="op">[]</span> <span class="op">=</span> <span class="op">{</span><span class="ch">'H'</span><span class="op">,</span> <span class="ch">'e'</span><span class="op">,</span> <span class="ch">'l'</span><span class="op">,</span> <span class="ch">'l'</span><span class="op">,</span> <span class="ch">'o'</span><span class="op">,</span> <span class="ch">'</span><span class="sc">\0</span><span class="ch">'</span><span class="op">};</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">char</span> string1<span class="op">[]</span> <span class="op">=</span> <span class="st">"Hello"</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Benefits of using strings:</p>
+<ul>
+<li>Unique format specifier for input and output.</li>
+<li>Functions provided in the <code>string.h</code> library, notably:
+<ul>
+<li><code>strlen</code> to get the length of a string</li>
+<li><code>strcat</code> to join strings together</li>
+<li><code>strcpy</code> to copy string to another character array</li>
+</ul></li>
+</ul>
+<section id="example---resrever-gnirts" class="level2">
+<h2 class="anchored" data-anchor-id="example---resrever-gnirts">Example - resreveR gnirtS</h2>
+</section>
+</section>
+<section id="multi-dimension" class="level1">
+<h1>Multi-Dimension</h1>
+<section id="arrays-of-different-dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="arrays-of-different-dimensions">Arrays of different Dimensions</h2>
+<ul>
+<li>1 Dimension
+<ul>
+<li>List of results for marks on different assessments within a module</li>
+<li>This is equivalent to a single row in a spreadsheet.</li>
+</ul></li>
+<li>2 Dimension
+<ul>
+<li>List of results for marks on different assessments across all modules for a student. (assume all modules have the same number of assessments)</li>
+<li>This is equivalent to a single sheet of a spreadsheet.</li>
+</ul></li>
+<li>3 Dimensions
+<ul>
+<li>List of results for marks on different assessments across all modules for all student. (assume all students do the same number of modules)</li>
+<li>This is equivalent to a spreadsheet with multiple pages.</li>
+</ul></li>
+</ul>
+<p>An n dimensional array will require n indexes to specify a single element in the array.</p>
+<p>Multi dimensional arrays are initialised in a slightly different way:</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

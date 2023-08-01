@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2: Bash scripting</title>
+<title>2: Shell scripting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n02-scripting-git.html">2: Bash scripting</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n02-scripting-git.html">2: Shell scripting</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -150,13 +150,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1: Intro to the terminal and codespaces.</span></a>
+ <span class="menu-text">1: Intro to Codespaces and the terminal.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2: Bash scripting</span></a>
+ <span class="menu-text">2: Shell scripting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n04-c-inro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: C intro</span></a>
+ <span class="menu-text">4: Introduction to C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -181,6 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../Notes/n06-functions-arguments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6: Functions and arguments in C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n07-arrays-strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7: Arrays and Strings</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -230,7 +236,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#bash-scripts" id="toc-bash-scripts" class="nav-link active" data-scroll-target="#bash-scripts">Bash scripts</a></li>
+  <li><a href="#shell-scripts" id="toc-shell-scripts" class="nav-link active" data-scroll-target="#shell-scripts">Shell scripts</a></li>
   <li><a href="#why-doesnt-the-script-run" id="toc-why-doesnt-the-script-run" class="nav-link" data-scroll-target="#why-doesnt-the-script-run">Why doesn’t the script run?</a></li>
   <li><a href="#altering-file-permissions." id="toc-altering-file-permissions." class="nav-link" data-scroll-target="#altering-file-permissions.">Altering file permissions.</a></li>
   <li><a href="#reminder-of-key-steps-to-make-a-shell-script" id="toc-reminder-of-key-steps-to-make-a-shell-script" class="nav-link" data-scroll-target="#reminder-of-key-steps-to-make-a-shell-script">Reminder of key steps to make a shell script</a></li>
@@ -244,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2: Bash scripting</h1>
+<h1 class="title">2: Shell scripting</h1>
 </div>
 
 
@@ -259,13 +265,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes</p>
-<section id="bash-scripts" class="level1">
-<h1>Bash scripts</h1>
-<p>Bash scripts, also known as shell scripts, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.</p>
-<p>First make a a new directory called <code>scripts</code> and navigate to it. And make a file called <code>time.sh</code>. In the file put these lines:</p>
+<p>Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes.</p>
+<section id="shell-scripts" class="level1">
+<h1>Shell scripts</h1>
+<p>Shell scripts, often called bash scripts due to the prevalence of the bash script, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.</p>
+<p>First make a a new file in the <code>scripts</code> directory called <code>time.sh</code>. In the file put these lines:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To do this use the <code>mkdir</code>, <code>cd</code>, <code>nano</code> and <code>touch</code> commands</p>
+</div>
+</div>
+<section id="code-breakdown" class="level4">
+<h4 class="anchored" data-anchor-id="code-breakdown">Code breakdown</h4>
 <ul>
 <li><code>#!/bin/bash</code> tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.</li>
 <li><code>echo</code> is a command for outputting to the command line.</li>
@@ -275,6 +296,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Therefore In order to run the is script we run the command <code>./time.sh</code> however at the moment that will give us this output:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$ ./time.sh</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>bash: ./time.sh: Permission denied</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="why-doesnt-the-script-run" class="level1">
 <h1>Why doesn’t the script run?</h1>
@@ -316,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n1</span> output.txt</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n1</span> output.txt</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> output.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Run this script from the root of the git repo using <code>./scripts/dataAnalysis1.sh</code></p>
+<p>Run this script from the root of the git repo using <code>./scripts/dataAnalysis1.sh</code> Then run each of the commands that the script will run individually and inspect the contents of <code>output.txt</code> to see what the command has done.</p>
 <p>Lets break down what this is doing:</p>
 <ul>
 <li>First line uses <code>cat</code> to output all files in directories starting data/values. It does this using the wildcard operator <code>*</code> to select all of these files. The output is then redirected to the file <code>output.txt</code> using <code>&gt;</code>.</li>
@@ -331,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>From the root of the git repo run the command</p>
 <p><code>cat data/values* | sed 's/\s/\n/g' | sed '/^$/d' | sort -n | (head -n1 &amp;&amp; tail -n1)</code></p>
 <p>This condenses the whole of the previous script into a single line using pipes <code>|</code>. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.</p>
-<p>Save this new script as <code>scripts/dataAnalysis2.sh</code></p>
+<p>This script can be found in <code>scripts/dataAnalysis2.sh</code></p>
 <p>This does have a significant performance benefit though that can be seen by using the <code>time</code> command to measure the performance of each script. Try this yourself.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">

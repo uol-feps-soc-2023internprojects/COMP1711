@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1: Intro to the terminal and codespaces.</title>
+<title>1: Intro to Codespaces and the terminal.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">1: Intro to the terminal and codespaces.</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n01-intro.html">1: Intro to Codespaces and the terminal.</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -150,13 +150,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n01-intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">1: Intro to the terminal and codespaces.</span></a>
+ <span class="menu-text">1: Intro to Codespaces and the terminal.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2: Bash scripting</span></a>
+ <span class="menu-text">2: Shell scripting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n04-c-inro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: C intro</span></a>
+ <span class="menu-text">4: Introduction to C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -181,6 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../Notes/n06-functions-arguments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">6: Functions and arguments in C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n07-arrays-strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7: Arrays and Strings</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -230,23 +236,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-terminal" id="toc-the-terminal" class="nav-link active" data-scroll-target="#the-terminal">The terminal</a></li>
-  <li><a href="#opening-a-codespace" id="toc-opening-a-codespace" class="nav-link" data-scroll-target="#opening-a-codespace">Opening a Codespace</a></li>
+  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims">Aims</a></li>
   <li><a href="#what-is-github-codespaces" id="toc-what-is-github-codespaces" class="nav-link" data-scroll-target="#what-is-github-codespaces">What is github Codespaces?</a></li>
-  <li><a href="#using-the-terminal" id="toc-using-the-terminal" class="nav-link" data-scroll-target="#using-the-terminal">Using the Terminal</a>
+  <li><a href="#opening-a-codespace" id="toc-opening-a-codespace" class="nav-link" data-scroll-target="#opening-a-codespace">Opening a Codespace</a></li>
+  <li><a href="#the-terminal" id="toc-the-terminal" class="nav-link" data-scroll-target="#the-terminal">The terminal</a>
   <ul class="collapse">
   <li><a href="#the-prompt" id="toc-the-prompt" class="nav-link" data-scroll-target="#the-prompt">The prompt</a></li>
+  </ul></li>
+  <li><a href="#a-note-on-file-systems" id="toc-a-note-on-file-systems" class="nav-link" data-scroll-target="#a-note-on-file-systems">A Note on file systems</a>
+  <ul class="collapse">
+  <li><a href="#example-of-a-file-system" id="toc-example-of-a-file-system" class="nav-link" data-scroll-target="#example-of-a-file-system">Example of a file system:</a></li>
+  </ul></li>
+  <li><a href="#terminal-commands" id="toc-terminal-commands" class="nav-link" data-scroll-target="#terminal-commands">Terminal commands</a>
+  <ul class="collapse">
+  <li><a href="#terminal-in-codespaces" id="toc-terminal-in-codespaces" class="nav-link" data-scroll-target="#terminal-in-codespaces">Terminal in codespaces</a></li>
   <li><a href="#your-first-command" id="toc-your-first-command" class="nav-link" data-scroll-target="#your-first-command">Your first command</a></li>
   <li><a href="#seeing-your-files" id="toc-seeing-your-files" class="nav-link" data-scroll-target="#seeing-your-files">Seeing your files</a></li>
   <li><a href="#options" id="toc-options" class="nav-link" data-scroll-target="#options">Options</a></li>
+  <li><a href="#arguments" id="toc-arguments" class="nav-link" data-scroll-target="#arguments">Arguments</a></li>
   <li><a href="#navigation" id="toc-navigation" class="nav-link" data-scroll-target="#navigation">Navigation</a></li>
-  <li><a href="#new-directories-and-files" id="toc-new-directories-and-files" class="nav-link" data-scroll-target="#new-directories-and-files">New directories and files</a></li>
-  <li><a href="#putting-information-in-the-files" id="toc-putting-information-in-the-files" class="nav-link" data-scroll-target="#putting-information-in-the-files">Putting information in the files</a></li>
+  <li><a href="#creating-new-directories" id="toc-creating-new-directories" class="nav-link" data-scroll-target="#creating-new-directories">Creating new directories</a></li>
+  </ul></li>
+  <li><a href="#files" id="toc-files" class="nav-link" data-scroll-target="#files">Files</a>
+  <ul class="collapse">
+  <li><a href="#creating-files" id="toc-creating-files" class="nav-link" data-scroll-target="#creating-files">Creating files</a></li>
+  <li><a href="#writing-to-files" id="toc-writing-to-files" class="nav-link" data-scroll-target="#writing-to-files">Writing to files</a></li>
   <li><a href="#command-line-text-editors" id="toc-command-line-text-editors" class="nav-link" data-scroll-target="#command-line-text-editors">Command line text editors</a></li>
   <li><a href="#moving-and-editing-files" id="toc-moving-and-editing-files" class="nav-link" data-scroll-target="#moving-and-editing-files">Moving and editing files</a></li>
   <li><a href="#deleting-files-and-directories" id="toc-deleting-files-and-directories" class="nav-link" data-scroll-target="#deleting-files-and-directories">Deleting files and directories</a></li>
-  <li><a href="#do-i-need-to-remember-all-of-this" id="toc-do-i-need-to-remember-all-of-this" class="nav-link" data-scroll-target="#do-i-need-to-remember-all-of-this">Do I need to remember all of this?</a></li>
   </ul></li>
+  <li><a href="#do-i-need-to-remember-all-of-this" id="toc-do-i-need-to-remember-all-of-this" class="nav-link" data-scroll-target="#do-i-need-to-remember-all-of-this">Do I need to remember all of this?</a></li>
   </ul>
 </nav>
     </div>
@@ -255,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">1: Intro to the terminal and codespaces.</h1>
+<h1 class="title">1: Intro to Codespaces and the terminal.</h1>
 </div>
 
 
@@ -270,20 +289,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="the-terminal" class="level1">
-<h1>The terminal</h1>
-<p>The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.</p>
+<section id="aims" class="level1">
+<h1>Aims</h1>
+<ul>
+<li>Create a coding environment in Codespaces</li>
+<li>Understand common terminal vocabulary</li>
+<li>Be familiar executing commands in the terminal</li>
+<li>Understand a set of common and important commands</li>
+</ul>
+</section>
+<section id="what-is-github-codespaces" class="level1">
+<h1>What is github Codespaces?</h1>
+<p>Github codespaces is a development environment for your code that is hosted in the cloud by github. It provides an interface very similar to the popular IDE vscode and is running in a linux environment.</p>
+<p>The Codespace that you are about to create will be the key environment used to introduce you to the terminal, git, scripting and C programming.</p>
 </section>
 <section id="opening-a-codespace" class="level1">
 <h1>Opening a Codespace</h1>
-<p>Follow these steps to create a new repository from a template and open it in codespaces.</p>
+<p>Follow these steps to create a new repository from a template and open it in codespaces. A repository is an online storage point for your project.</p>
 <ol type="1">
 <li><p>Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/1711-Introduction</p></li>
 <li><p>From the use this template dropdown select the option to create a new repository.</p></li>
 </ol>
 <p><img src="../img/repo-from-template.png" class="img-fluid"></p>
 <ol start="3" type="1">
-<li><p>On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as shell-training). You may add a description if you like. Once configured, confirm with the “create repository from template” button at the bottom of the page. This will redirect you to the repo homepage.</p></li>
+<li><p>On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as 1711-intro). You may add a description if you like. Once configured, confirm with the “create repository from template” button at the bottom of the page. This will redirect you to the repo homepage.</p></li>
 <li><p>On the repo homepage click on green button marked as code and select the tab in the popup reading Codespaces. Within this tab click on “Create codespace on main” this will open a new tab with your codespace.</p></li>
 </ol>
 <p><img src="../img/github_code.png" class="img-fluid"></p>
@@ -291,10 +320,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>This environment will look very familiar to those who have used vs code before and is comprised of 3 main elements. The editor window, the file explorer and the terminal window: labelled in the image below.</li>
 </ol>
 <p><img src="../img/codespace.png" class="img-fluid"></p>
-</section>
-<section id="what-is-github-codespaces" class="level1">
-<h1>What is github Codespaces?</h1>
-<p>Github codespaces is a development environment for your repositories that is hosted in the cloud by github. It provides an interface very similar to the popular IDE vscode and is running in a linux environment.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -309,11 +334,78 @@ Note
 </div>
 </div>
 </section>
-<section id="using-the-terminal" class="level1">
-<h1>Using the Terminal</h1>
+<section id="the-terminal" class="level1">
+<h1>The terminal</h1>
+<p>The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.</p>
 <section id="the-prompt" class="level2">
 <h2 class="anchored" data-anchor-id="the-prompt">The prompt</h2>
-<p>As a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form <code>@{user} -&gt; workspace/{repository} $</code> whereas on a standard linux machine the prompt often takes the form <code>{user}@{hostname} $</code>. Because of these differences most sources of information will simply show the prompt as the single <code>$</code> that normally ends a prompt when they describe commands, it is important to remember that this symbol is not part of the command.</p>
+<p>As a user when you open a terminal you will be greeted by a prompt. On codespaces this prompt will often take the form <code>@{user} -&gt; workspace/{repository} $</code> whereas on a standard linux machine the prompt often takes the form <code>{user}@{hostname} $</code>.</p>
+<p>Because of these differences most sources of information will simply show the prompt as the single <code>$</code> that normally ends a prompt, it is important to remember that this symbol is not part of the command.</p>
+</section>
+</section>
+<section id="a-note-on-file-systems" class="level1">
+<h1>A Note on file systems</h1>
+<p>All the information on a computer is stored in a file system, organised into files and directories. All of you are familiar with this concept, however since this knowledge is fundamental to command line programming it is worth redefining the finer details.</p>
+<p>This information is also specific to linux file systems that many of you may be less familiar with.</p>
+<ul>
+<li><strong>Files</strong> are collections of related information, usually data or programs.
+<ul>
+<li>In linux, files can be given extensions at the end of the name e.g.&nbsp;<code>.txt</code> though this acts a a signal to other users and programs rather than to the OS.</li>
+</ul></li>
+<li><strong>Directories</strong>, called folders in windows, are used to organise files.
+<ul>
+<li>Directories branch out from the root directory in a hierarchical structure.</li>
+<li>The root directory is denoted with a <code>/</code></li>
+</ul></li>
+<li>The <strong>working directory</strong> is the current point in the file system that the user is at.
+<ul>
+<li>Commands that the user runs will be executed at the working directory</li>
+</ul></li>
+<li><strong>Paths</strong> are used to refer to files within a system. There are two key types of path.
+<ul>
+<li>Absolute paths describe the series of subdirectories moved through from the root to reach the file.</li>
+<li>Relative paths describe the way the directories are navigated to reach the file that is being referenced from the working directory.
+<ul>
+<li>The relative path to the current directory is <code>.</code> and the relative path to the parent directory is <code>..</code></li>
+</ul></li>
+<li><code>/</code> mean 2 different things within paths, at the start of the path it refers to the root directory and implies that the path is absolute. Otherwise it is just a separator between identifiers.</li>
+</ul></li>
+</ul>
+<section id="example-of-a-file-system" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-a-file-system">Example of a file system:</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/file-tree.jpg" class="img-fluid figure-img" alt="Visual representation of a file hierarchy"></p>
+<figcaption class="figure-caption"><a href="https://www.techtarget.com/searchstorage/definition/file-system">Source</a></figcaption>
+</figure>
+</div>
+<p>In this case assume that the absolute path of the directory <code>Tom</code> is <code>/home/Tom</code> and that the current working directory is <code>Tools</code>. We can see a few different relative and absolute paths from here:</p>
+<ul>
+<li><code>Tools</code>
+<ul>
+<li>Relative path: <code>.</code></li>
+<li>Absolute path: <code>/home/Tom/Tools</code></li>
+</ul></li>
+<li><code>Stats</code>
+<ul>
+<li>Relative path: <code>Stats</code></li>
+<li>Absolute path: <code>/home/Tom/Tools/Stats</code></li>
+</ul></li>
+<li><code>Notes.txt</code>
+<ul>
+<li>Relative path: <code>../Notes.txt</code></li>
+<li>Absolute path: <code>/home/Notes.txt</code></li>
+</ul></li>
+</ul>
+<p>What would the absolute and relative paths for <code>One.txt</code>?</p>
+</section>
+</section>
+<section id="terminal-commands" class="level1">
+<h1>Terminal commands</h1>
+<p>Terminal commands are special command line programs that can be accessed from anywhere in the file system. The base set of commands provide the key functionality that the system needs.</p>
+<section id="terminal-in-codespaces" class="level2">
+<h2 class="anchored" data-anchor-id="terminal-in-codespaces">Terminal in codespaces</h2>
+<p>Most terminals will open to the home directory of the account that is being run,Codespaces is a special case where this is not true instead opening to the directory of your repository.</p>
 </section>
 <section id="your-first-command" class="level2">
 <h2 class="anchored" data-anchor-id="your-first-command">Your first command</h2>
@@ -327,7 +419,7 @@ Note
 <p>Now try the <code>ls</code> command. (ls is a shortening of the word list) This will output a list of the contents of the current directory.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$ ls</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>IOM-animals  data  some-maths.txt  wildcards</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>In most terminals this will be highlighted to suggest the kind of file system entry that each item is but otherwise we can use a slightly changed command to view this information.</p>
+<p>In most terminals this will be highlighted to suggest the kind of file system entry that each item is but if this is not accessible we can use a slightly changed command to view this information.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>$ ls -F</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>IOM-animals/  data/  some-maths.txt  wildcards/</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This command will append a trailing character to different types of directory entry: / for nested directories, * for executables, and @ for links. In the above example we can see 3 directories and a file.</p>
@@ -335,7 +427,9 @@ Note
 </section>
 <section id="options" class="level2">
 <h2 class="anchored" data-anchor-id="options">Options</h2>
-<p>Options are used to modify the behaviour of a command being run and can do many different things. Rerunning the ls command again with the option <code>-a</code> will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a <code>.</code>). There are two special items that will be revealed when using this option those are <code>.</code> and <code>..</code>: <code>.</code> is used as a reference to the current directory and <code>..</code> is used as a reference to the parent directory.</p>
+<p>Options are used to modify the behaviour of a command being run and can do many different things. They are characterised by starting with a <code>-</code>.</p>
+<p>Rerunning the ls command again with the option <code>-a</code> will additionally reveal all the ‘hidden’ items in the directory (all the items with names starting with a <code>.</code>).</p>
+<p>There are two special items that will be revealed when using this option those are <code>.</code> and <code>..</code>: <code>.</code> is used as a reference to the current directory and <code>..</code> is used as a reference to the parent directory.</p>
 <p>Using the <code>-l</code> command will output a table with lots of additional information about the directory entries including size and last edit time. You should try this out.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -351,45 +445,35 @@ Tip
 </div>
 </div>
 </section>
+<section id="arguments" class="level2">
+<h2 class="anchored" data-anchor-id="arguments">Arguments</h2>
+<p>We can also use <code>ls</code> to list subdirectories, to do this we must pass the command the value of the subdirectory that we want to list.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>$ ls IOM-animals</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>TODO: example output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The value passed to the command at the command line here is called an argument. Different commands will expect different types and different numbers of commands.</p>
+</section>
 <section id="navigation" class="level2">
 <h2 class="anchored" data-anchor-id="navigation">Navigation</h2>
-<p>Most terminals will open to the home directory of the account or machine that is being run, though this is often not the directory whe one would want to run commands. Therefore, there must be a way to navigate through the file system, in most machines that is using the <code>cd</code> command. This command takes a path as an value after the command (called an argument in this case). These can either be an absolute path or a relative path.</p>
-<p>cd is a particularly important case for the use of the parent directory <code>..</code> as you often want to navigate back through parent directories.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Absolute</strong> path start with a <code>/</code> and reference the same file or location regardless of the current working directory.<br>
-<strong>Relative</strong> paths do <strong>not</strong> start with a <code>/</code> and reference file or location from the current working directory.</p>
-</div>
-</div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>$ pwd</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>/workspaces/repository-name</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>$ cd IOM-animals</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>$ pwd</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>/workspaces/repository-name/IOM-animals</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>$ ls -F</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>amphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>$ cd .. </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>$ pwd</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>/workspaces/repository-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is often denoted by a <code>~</code>.</p>
+<p>The directory that the terminal opens to is often not where the user would like to run commands, therefore, there must be a way to navigate through the file system. In most machines this is done using the <code>cd</code> command.</p>
+<p>This command takes a path as a value after the command. This can either be an absolute path or a relative path. In general the values passed to a command are called arguments, different commands will expect to receive different arguments.</p>
+<p><code>cd</code> is a particularly important case for the use of the parent directory <code>..</code> as you often want to navigate back through parent directories.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>$ pwd</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>/workspaces/repository-name</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>$ cd IOM-animals</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>$ pwd</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>/workspaces/repository-name/IOM-animals</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>$ ls -F</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>amphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>$ cd .. </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>$ pwd</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>/workspaces/repository-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is denoted by a <code>~</code> character.</p>
 </section>
-<section id="new-directories-and-files" class="level2">
-<h2 class="anchored" data-anchor-id="new-directories-and-files">New directories and files</h2>
-<p>The <code>mkdir</code> command can be used to create new directories with an argument as the directory name. We can use <code>ls</code> to see the new directory.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>$ mkdir test-dir</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>$ ls -F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>We can then use the <code>touch</code> command to create a new file at the location specified by the argument. This example also shows the use of ls with an argument for directory.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>$ touch test-dir/temp.txt</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>$ ls test-dir</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>temp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="creating-new-directories" class="level2">
+<h2 class="anchored" data-anchor-id="creating-new-directories">Creating new directories</h2>
+<p>The <code>mkdir</code> command can be used to create new directories with the new directory name as an argument. . We can use <code>ls</code> to see the new directory.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>$ mkdir test-dir</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>$ ls -F</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -404,16 +488,27 @@ Tip
 </div>
 </div>
 </section>
-<section id="putting-information-in-the-files" class="level2">
-<h2 class="anchored" data-anchor-id="putting-information-in-the-files">Putting information in the files</h2>
-<p>Given that codespaces is a modern IDE this can be done very easily through the editor, as can the last step we covered. However it is a useful skill to know. This can be done firstly with output redirection. Try running this command.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This text is in a file"</span> <span class="op">&gt;</span> test-dir/temp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="files" class="level1">
+<h1>Files</h1>
+<p>Given that codespaces is a modern IDE file management can be done very easily through the graphical interface. However it is a useful skill to know.</p>
+<section id="creating-files" class="level2">
+<h2 class="anchored" data-anchor-id="creating-files">Creating files</h2>
+<p>We can then use the <code>touch</code> command to create a new file, the path of the new file will be specified by the argument.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>$ touch test-dir/temp.txt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>$ ls test-dir</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>temp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="writing-to-files" class="level2">
+<h2 class="anchored" data-anchor-id="writing-to-files">Writing to files</h2>
+<p>This can be done firstly with output redirection. Try running this command.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"This text is in a file"</span> <span class="op">&gt;</span> test-dir/temp.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Lets break down what this is doing.</p>
 <ul>
 <li><code>echo</code> is a command to output its argument. In this case that argument is the string “This text is in a file”</li>
 <li><code>&gt;</code> is known as a redirection. This takes the output from the command to the left of it and outputs it to a file, in this case test-dir/temp.txt. Alternatively the redirection <code>&gt;&gt;</code> can ve used to append to a file rather than rewriting it.</li>
 </ul>
-<p>This can be tested either using the editor user interface or by using the command <code>cat</code> with the file in question as the argument. This command will output the contents of the file to the command line.</p>
+<p>The changes to the file can be viewed by using the command <code>cat</code> with the file in question as the argument. This command will output the contents of the file to the command line.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -440,9 +535,9 @@ Tip
 <section id="moving-and-editing-files" class="level2">
 <h2 class="anchored" data-anchor-id="moving-and-editing-files">Moving and editing files</h2>
 <p>The <code>mv</code> and <code>cp</code> commands are for moving files and copying files respectively and have similar usage as seen below.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> current-file-path new-file-path</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> current-file new-file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>A useful extra application of mv is to rename files.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> current-file-path new-file-path</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> current-file new-file</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A useful extra application of <code>mv</code> is to rename files.</p>
 </section>
 <section id="deleting-files-and-directories" class="level2">
 <h2 class="anchored" data-anchor-id="deleting-files-and-directories">Deleting files and directories</h2>
@@ -461,13 +556,14 @@ Important
 </div>
 </div>
 </section>
-<section id="do-i-need-to-remember-all-of-this" class="level2">
-<h2 class="anchored" data-anchor-id="do-i-need-to-remember-all-of-this">Do I need to remember all of this?</h2>
-<p>No, the command <code>man</code> can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for <code>ls</code> you will be able to find details on the arguments and options discussed earlier.</p>
-<p>You can also google it.</p>
-
-
 </section>
+<section id="do-i-need-to-remember-all-of-this" class="level1">
+<h1>Do I need to remember all of this?</h1>
+<p>No, the command <code>man</code> can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for <code>ls</code> you will be able to find details on the arguments and options discussed earlier.</p>
+<p>You can also google it. There are many good online resources particularly sites like <a href="https://www.tutorialspoint.com">tutorialspoint</a> and <a href="https://www.geeksforgeeks.org">geeksforgeeks</a>.</p>
+<p>Be careful when using user forum sites like Stackoverflow as, although they often have working code or information, the solutions are often not explained or explained poorly. Using resources like this will limit your understanding.</p>
+
+
 </section>
 
 </main> <!-- /main -->

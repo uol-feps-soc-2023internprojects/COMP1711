@@ -2,50 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/resources.html</loc>
-    <lastmod>2023-07-20T08:30:47.742Z</lastmod>
+    <lastmod>2023-08-01T14:39:11.207Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n04-c-inro.html</loc>
-    <lastmod>2023-07-20T08:30:46.798Z</lastmod>
+    <lastmod>2023-08-01T14:39:10.255Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/roughNotes.html</loc>
-    <lastmod>2023-07-20T08:30:45.314Z</lastmod>
+    <lastmod>2023-08-01T14:39:08.651Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n01-intro.html</loc>
-    <lastmod>2023-07-20T08:30:44.550Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n06-functions-arguments.html</loc>
-    <lastmod>2023-07-20T08:30:43.262Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Exercises/e02-c-basic.html</loc>
-    <lastmod>2023-07-20T08:30:42.438Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/index.html</loc>
-    <lastmod>2023-07-20T08:30:41.638Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Exercises/e01-linux-cli.html</loc>
-    <lastmod>2023-07-20T08:30:42.866Z</lastmod>
+    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n07-arrays-strings.html</loc>
+    <lastmod>2023-08-01T14:39:07.855Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n02-scripting-git.html</loc>
-    <lastmod>2023-07-20T08:30:43.822Z</lastmod>
+    <lastmod>2023-08-01T14:39:06.427Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Exercises/e01-linux-cli.html</loc>
+    <lastmod>2023-08-01T14:39:05.346Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/index.html</loc>
+    <lastmod>2023-08-01T14:39:04.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Exercises/e02-c-basic.html</loc>
+    <lastmod>2023-08-01T14:39:04.902Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n06-functions-arguments.html</loc>
+    <lastmod>2023-08-01T14:39:05.835Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n01-intro.html</loc>
+    <lastmod>2023-08-01T14:39:07.391Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/microbit-undocumented.html</loc>
-    <lastmod>2023-07-20T08:30:44.906Z</lastmod>
+    <lastmod>2023-08-01T14:39:08.231Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n05-c-microbit.html</loc>
-    <lastmod>2023-07-20T08:30:45.814Z</lastmod>
+    <lastmod>2023-08-01T14:39:09.223Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/uol-feps-soc-2023internprojects/COMP1711/Notes/n03-git-hub.html</loc>
-    <lastmod>2023-07-20T08:30:47.378Z</lastmod>
+    <lastmod>2023-08-01T14:39:10.871Z</lastmod>
   </url>
 </urlset>

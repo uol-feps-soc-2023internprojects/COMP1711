@@ -150,13 +150,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1: Intro to the terminal and codespaces.</span></a>
+ <span class="menu-text">1: Intro to Codespaces and the terminal.</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n02-scripting-git.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2: Bash scripting</span></a>
+ <span class="menu-text">2: Shell scripting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/n04-c-inro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: C intro</span></a>
+ <span class="menu-text">4: Introduction to C</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -181,6 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../Notes/n06-functions-arguments.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">6: Functions and arguments in C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n07-arrays-strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7: Arrays and Strings</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -237,7 +243,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#functions-that-you-have-already-used" id="toc-functions-that-you-have-already-used" class="nav-link" data-scroll-target="#functions-that-you-have-already-used">Functions that you have already used</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
-  <li><a href="#program-arguments" id="toc-program-arguments" class="nav-link" data-scroll-target="#program-arguments">Program arguments</a></li>
+  <li><a href="#program-arguments--" id="toc-program-arguments--" class="nav-link" data-scroll-target="#program-arguments--">Program arguments -</a>
+  <ul class="collapse">
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  </ul></li>
   <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries">Libraries</a></li>
   <li><a href="#recursion" id="toc-recursion" class="nav-link" data-scroll-target="#recursion">Recursion</a></li>
   </ul>
@@ -300,8 +309,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="example">Example</h2>
 </section>
 </section>
-<section id="program-arguments" class="level1">
-<h1>Program arguments</h1>
+<section id="program-arguments--" class="level1">
+<h1>Program arguments -</h1>
+<p>maybe rearrange so that this is explained after arrays (and maybe pointers)</p>
 <p>In all the examples that we have used so far the main function , which acts as the entry point for execution has had no parameters. Does this mean that there is no way to pass values to our programs from the command line?</p>
 <p>No this isn’t the case we use to special parameters for the main function defined as such:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span> argv<span class="op">[])</span></span>
@@ -309,10 +319,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Code</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will allow you to access the arguments used to run the executable from within the program. There are 2 key values involved in this: - argc - This is an integer counter for the number of arguments. - Arguments are counted as strings that are separated by spaces - The name of the program is counted as the first argument so argc &gt;=1</p>
+<p>This will allow you to access the arguments used to run the executable from within the program. There are 2 key values involved in this:</p>
+<ul>
+<li>argc
+<ul>
+<li>This is an integer counter for the number of arguments.</li>
+<li>Arguments are counted as strings that are separated by spaces</li>
+<li>The name of the program is counted as the first argument so argc &gt;=1</li>
+</ul></li>
+<li>* argv[]
+<ul>
+<li>array of strings</li>
+<li>first string is the name of the executable</li>
+<li>subsequent strings are the values of the command line arguments</li>
+</ul></li>
+</ul>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+</section>
 </section>
 <section id="libraries" class="level1">
 <h1>Libraries</h1>
+<p>In previous examples you have been using functions that have been written in the same file as they are called in.</p>
+<p>This is with the exception of <code>scanf</code> and <code>printf</code>. These are accessable due to the <code>#include</code> statement at the top of most or all of the C files you have seen.</p>
+<p>These statements reference files with the <code>.h</code> file extension that are referred to as ‘header’ files. These files are looked at in the early stages of compilation and provide a ‘prototype’ of the functions (or other) that will be defined in the corresponding <code>.c</code> file.</p>
+<p>In the case of <code>stdio.h</code> these functions and definitions are stored in shared libraries in the source code. But it is simple to include files of your own creation.</p>
 </section>
 <section id="recursion" class="level1">
 <h1>Recursion</h1>
