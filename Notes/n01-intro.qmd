@@ -217,6 +217,14 @@ The `rm` command can be used for this, but be very careful as items deleted with
 `rm` is permanent, there is no recycling bin!
 :::
 
+# Extra terminal tips!
+
+1. You can use the up arrow on the keyboard to cycle through the history of run commands so that, when running lots of similar commands, they don't have to be written in full every time.
+
+2. The `ctrl+c` shortcut can be used to stop whatever command is running at the command line.
+
+3. To copy and paste at the command line add the shift key to the shortcut i.e. `ctrl+shift+c` to copy and `ctrl+shift+p` to paste.
+
 # Do I need to remember all of this?
 No, the command `man` can be used to find details on different commands, listing different options to use and arguments you can give it. If you run this for `ls` you will be able to find details on the arguments and options discussed earlier.
 

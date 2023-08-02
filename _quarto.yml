@@ -12,6 +12,7 @@ website:
       - section: Exercises
         contents: Exercises/*
       - resources.qmd
+      - glossary.qmd
   # body-header: |
   #  {{< video https://www.youtube.com/watch?v=fXCUaRE-5Rc >}}
 

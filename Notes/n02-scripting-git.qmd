@@ -42,7 +42,7 @@ The part of this output that is relevant to this case is the string `-rw-rw-rw-`
 
 * The first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as `time.sh` is simply a file this is left empty.
 * The rest of the string represents the permissions for the file. This is split into 3 different categories for 3 different groups.
-    * The three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a `-`
+    * The three possible permissions are **read**(r), **write**(w) and **execute**(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a `-`
     * This is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users
 
 So in this case the file can be read and written by all users, but not executed, how can we change this?
@@ -57,12 +57,14 @@ Once this is done, you can rerun the script and see the output.
 # Reminder of key steps to make a shell script
 
 1. Make file with .sh extension
-2. Put `#!/bin/bash` at the start of the file. (this is sometimes called a shebang)
+2. Put `#!/bin/bash` at the start of the file. 
 3. Change the permissions so the file is executable.
 
 # A more complex example:
 `scripts/dataAnalysis1.sh`
 ``` bash
+#!/bin/bash
+
 cat data/values* > output.txt
 sed -i 's/\s/\n/g' output.txt 
 sed -i '/^$/d' output.txt 
@@ -72,6 +74,11 @@ tail -n1 output.txt
 rm output.txt
 ```
 Run this script from the root of the git repo using `./scripts/dataAnalysis1.sh` Then run each of the commands that the script will run individually and inspect the contents of `output.txt` to see what the command has done.
+
+::: {.callout-important}
+Given this script is using relative paths it will only work when it is being run from the the root of the repository.   
+This is as the working directory for the script is the same as the working directory where it is run.
+:::
 
 Lets break down what this is doing:
 

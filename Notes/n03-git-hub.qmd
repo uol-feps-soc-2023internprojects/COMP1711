@@ -45,6 +45,10 @@ Taking advice from the terminal, we can now use the `git add` command.
 ## 2. Staged changes
 `git add ` takes a file or directory as an argument to 'add' to the current list of files staged for a commit. If you are at the root of the repository, `git add .` will stage all untracked changes. Though more generally `git add` takes a list of file paths to add as arguments.
 
+::: {.callout-note}
+The `-A` option can be used to stage all untracked changes from anywhere in the repository.
+:::
+
 Once this is run we can rerun `git status` to see the changes:
 ``` default
 On branch main
@@ -79,6 +83,8 @@ A git branch is a pointer to a specific commit, when you are on a branch as you 
 The default branch is called 'main' 
 
 You can see all the current branches in you repo using the command `git branch`, add a new branch using `git branch <new-branch-name>` and swap branches using `git checkout <branch-name`.
+
+TODO:: add diagram
 
 :::{.callout-note}
 How branches are used changes significantly between between developer/teams. The main types are feature branching, task branching and release branching. Each has their benefits and drawbacks.
