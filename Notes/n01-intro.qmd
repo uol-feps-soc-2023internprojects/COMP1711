@@ -15,13 +15,13 @@ The Codespace that you are about to create will be the key environment used to i
 # Opening a Codespace
 Follow these steps to create a new repository from a template and open it in codespaces. A repository is an online storage point for your project.
 
-1. Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/1711-Introduction
+1. Visit this link, logged into your github account: <https://github.com/uol-feps-soc-2023internprojects/1711-Introduction>
 
 2. From the use this template dropdown select the option to create a new repository.
 
 ![](/img/repo-from-template.png)
 
-3. On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as 1711-intro). You may add a description if you like. Once configured, confirm with the "create repository from template" button at the bottom of the page. This will redirect you to the repo homepage.
+3. On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as 1711-intro). You may add a description if you like. Once configured, confirm with the "create repository from template" button at the bottom of the page. This will redirect you to the repo homepage. TODO: add extra image
 
 4. On the repo homepage click on green button marked as code and select the tab in the popup reading Codespaces. Within this tab click on "Create codespace on main" this will open a new tab with your codespace.
 
@@ -65,9 +65,9 @@ This information is also specific to linux file systems that many of you may be 
     - `/` mean 2 different things within paths, at the start of the path it refers to the root directory and implies that the path is absolute. Otherwise it is just a separator between identifiers.
 
 ## Example of a file system:
-![[Source](https://www.techtarget.com/searchstorage/definition/file-system)](/img/file-tree.jpg){fig-alt="Visual representation of a file hierarchy"}
+![[Image Source](https://www.techtarget.com/searchstorage/definition/file-system)](/img/file-tree.jpg){fig-alt="Visual representation of a file hierarchy"}
 
-In this case assume that the absolute path of the directory `Tom` is `/home/Tom` and that the current working directory is `Tools`. We can see a few different relative and absolute paths from here:
+Using the image above, assume that the absolute path of the directory `Tom` is `/home/Tom` and that the current working directory is `Tools`. We can see a few different relative and absolute paths from here:
 
 - `Tools`
     - Relative path: `.`
@@ -152,7 +152,11 @@ $ cd ..
 $ pwd
 /workspaces/repository-name
 ```
-The command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is denoted by a `~` character.
+The command can also be run without any arguments, this will navigate back to the home directory of the account. 
+
+::: {.callout-note}
+In unix systems this home directory is denoted by a `~` character.
+:::
 
 ## Creating new directories
 The `mkdir` command can be used to create new directories with the new directory name as an argument. . We can use `ls` to see the new directory.

@@ -18,6 +18,6 @@ website:
 
 format:
   html:
-    theme: flatly
+    theme: sandstone
     css: styles.css
     toc: true

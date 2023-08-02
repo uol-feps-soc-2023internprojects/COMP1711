@@ -1,7 +1,10 @@
 ---
 title: "2: Shell scripting"
 ---
+
+:::{.callout-important}
 Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes.
+:::
 
 # Shell scripts
 Shell scripts, often called bash scripts due to the prevalence of the bash script, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
@@ -13,7 +16,7 @@ First make a a new file in the `scripts` directory called `time.sh`. In the file
 echo $(date)
 ```
 ::: {.callout-tip}
-To do this use the `mkdir`, `cd`, `nano` and `touch` commands
+To do this use the `mkdir`, `cd`, `touch` and `nano` commands
 :::
 
 #### Code breakdown 
