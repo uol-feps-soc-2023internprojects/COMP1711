@@ -2,6 +2,15 @@
 title: "3: Using git and Github"
 ---
 
+:::{.callout-important}
+Instructions in this file are to be run in the same codespace based on 1711-introduction. Make sure to save your changes.
+:::
+
+# Aims 
+- Understand what git is and what it is used for
+- Understand what different git related terminology refers to
+- Try using git for basic tasks
+
 # What is git?
 If you google git you will find out that git is a 'Distributed Version Control System', but what does this actually mean?
 

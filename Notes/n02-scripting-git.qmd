@@ -3,8 +3,12 @@ title: "2: Shell scripting"
 ---
 
 :::{.callout-important}
-Instructions in this file are to be run in the same codespace as from the into to the terminal. Make sure to save your changes.
+Instructions in this file are to be run in the same codespace based on 1711-introduction. Make sure to save your changes.
 :::
+
+# Aims
+- Understand what a shell script is
+- Be familiar making and executing shell scripts
 
 # Shell scripts
 Shell scripts, often called bash scripts due to the prevalence of the bash script, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
