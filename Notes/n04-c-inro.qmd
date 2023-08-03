@@ -93,11 +93,11 @@ There are also further data types used to store numbers, these are adapted to in
 
 All data types are keywords in the C language. 
 
-## Using variables in c
+## Using variables in C
 
 There are three key actions that can be taken with variables
 
-* Initialization - in c this defines the variables identifier and data type and will trigger the system to assign a portion of memory to it. e.g.
+* Initialization - in C this defines the variables identifier and data type and will trigger the system to assign a portion of memory to it. e.g.
     * `int counter;`
 * Assignment - This alters the value of the variable stored in memory. e.g.
     * `counter = 2;`
@@ -152,6 +152,9 @@ int main()
     printf("Your value modulo 3 = %d\n", value % 3);
 }
 ```
+## Operator precedence (TODO) 
+
+
 ## Notes
 - This program uses the keyword `const` to modify the data type of the variable `value`. This stops the variable from being changed later in the program.
     - Using a static value like this is good for the program as it means that in the code there is only a single place where the value needs to be changed. This makes the code more maintainable.
@@ -240,8 +243,8 @@ int main()
 {
     int counter = 0;
     float input = 0, total = 0; 
-    printf("This is a program to calculate the average of positive values.\n"
-            "Once you have entered all your values enter a negative number to calculate the average.\n");
+    printf("This is a program to calculate the average of positive values.\n")
+    printf("Once you have entered all your values enter a negative number to calculate the average.\n");
     while (input != -1)
     {
         printf("Enter value:");
@@ -321,6 +324,8 @@ int main()
 ##### Notes
 - Nested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.
 - In this case the inner loop is dependent on the outer loop as the condition for the inner loop is  based on the control value of the outer loop
+
+### TODO: Break and continue 
 
 # Scope (What is {})
 Scope is the area of a code file where a variable can be referenced; variables can be accessed in any child scope of the scope in which they are defined. In C `{}` always defines a scope for whatever keyword it is related to. You can also define a scope without a keyword.

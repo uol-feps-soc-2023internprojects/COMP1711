@@ -2,9 +2,23 @@
 title: "5: C for the Microbit"
 ---
 
-# Setting up a repository to write C for the Microbit v2
+# Aims
 
-## Environment setup
+# What is the Microbit?
+![[Image Source](https://makecode.microbit.org/device)](/img/microbit.png){fig-alt="Diagram labeling the Microbit's different sensors and output options"}
+
+The BBC Microbit is a single board computer 
+
+<!-- ## Why should we use the microbit -->
+
+C is good for this as these are resource constrained devices
+
+lots of work in programming embedded systems
+
+
+# Microbit Coding environment setup
+
+## Repository setup
 - In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.  
 ![](/img/github_code.png)  
 
@@ -31,15 +45,15 @@ The first command here is used to bootstrap the project, and the second is used 
 python build.py codal-microbit-v2
 python build.py
 ```
-Once compiled the repository will have many more files. Most importantly the **MICROBIT.hex** which is the program which can be loaded to the Microbit.
+Once compiled the repository will have many more files, almost all of these do not need to be edited when coding for the microbit in this way. One important file is **MICROBIT.hex** which  which can be loaded to the Microbit.
 
 ## Flashing the Microbit
-Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device.
+Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device. Sometimes this process can be temperamental and give a '504' error, if this happens simply try again.
 
-the default project should create a program that scrolls the text "Hello, Bootstrap!" over the leds.
+The default project should create a program that scrolls the text "Hello, Bootstrap!" over the leds.
 
 # How to edit the code
-The code that is compiled to the hex files is all within the `/source` subdirectory. You will see that the file in there by default is `main.cpp`. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C. 
+The code that is compiled to the hex files is all within the `/source` subdirectory. You will see that the file in there by default is only `main.cpp`. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C. 
 
 The build script will treat all cpp source files in this directory as part of the source code.
 
@@ -64,9 +78,8 @@ int main() {
 }
 ```
 - This program uses the `while( true )` pattern to loop infinitely 
-
-
-ask martin for advice on how to explain away OOP
+- The line `MicroBit uBit;` is very important to the code as it initialises the interface to the hardware.
+- The dot notation that is used for the functions is similar to that used in python, it uses OOP principals but it is not necessary to understand this to use this in code.
 
 # Output options
 The first of the output options is used in the example above. This option will move whatever input data it receives from right to left on the screen.
@@ -95,3 +108,5 @@ The codal abstraction layer allows for programs to sense if a the buttons on the
 `uBit.buttonA.isPressed()`
 `uBit.buttonB.isPressed()`
 `uBit.buttonAB.isPressed()`
+
+<!-- Add examples -->
