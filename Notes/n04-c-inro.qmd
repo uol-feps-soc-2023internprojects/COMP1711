@@ -1,7 +1,13 @@
 ---
 title: "4: Introduction to C"
 ---
-Any files mentioned in these notes are available in the template repository that the bash notes showed you how to access. TODO: this needs rewording
+
+:::{.callout-important}
+Instructions in this file are to be run in the same codespace based on 1711-introduction. Make sure to save your changes.
+:::
+
+# Aims
+- Understand basic C ?? - needs more details!! 
 
 # History
 
@@ -9,37 +15,37 @@ Originating as an improvement to the B programming language by Dennis Ritchie st
 
 The first standard of the language that is close to modern C wasn't formalised until the late 1980s. This version was first recognised by American National Standards Institute (ANSI) in 1989 and later International Organization for Standardization (ISO) in 1990. This version is often referred to by acronyms of the organisations that recognised it or the year in which it was recognised (C89/C90)
 
-There have been revisions to the language since but changes in these updates are minor. This is where the main challenge in C comes from; it's simple without the programming shortcuts and quality of life improvements, leaving the programmer doing lots of the heavy lifting.
+There have been revisions to the language since but changes in these updates are minor. This is where the main challenge in C comes from; it's simple without the programming shortcuts and quality of life improvements found in modern high-level languages. This leaving the programmer doing lots of the heavy lifting.
 
 # Why C?
 
 Get Martin to write this
 
-# Jargon
-
-* Syntax - Like the punctuation of a programming language, describes the required structure for the code to be acceptable,
-    - Most important piece of syntax in C is every line ends with a `;`
-* Keywords - terms that relate to a  specific instruction in the programming language
-
 # "Hello, world!"
-Some may already be familiar  with programs similar to this as this hello world program is a de-facto standard for the first program you will see in any language.
+This program is a de-facto standard for the first program you will see in any language. It stands as an effective tool to cover the basics of a language.
+
+We will break it down to show you some basics of C
 
 `hello-world.c`
 ``` c
 #include <stdio.h>
 int main()
 {
+   // This is a comment. 
+   // The next line of this program is for output
    printf("Hello, World!");
    return 0;
 }
-```
+```    
+
+## Breakdown 
 * `#include` is a preprocessor command that allows a c program to use functionality that is implemented in separate c files. More detail will be given on this later in the course
 
 * `int main()` is the entrypoint of a c program, every c program you write will include this i.e. the first line of code run is the first line within the `{}` of main.
 
-* the `//` marks the start of a comment, this part of the code is for notes from/to developers and does not affect the functionality of the program.
+* The `//` marks the start of a single line comment, this part of the code is for notes from/to developers and does not affect the functionality of the program.
 
-* As the comment mentions, `printf()` is used to output stings to the command line.
+* As the comment mentions, `printf()` is used to output to the command line.
 
 * The `return` statement sends a status value back to the command line, a 0 status suggest a successful execution.
 
@@ -47,16 +53,26 @@ int main()
 Programs in c must be compiled and executed separately. These steps are almost always taking place when running code but are sometimes abstracted to a single run button in an IDE.
 
 ## The C compiler
-The most common c compiler across unix machines is gcc. At its most simple for our use it can simply be run as:
+The most common c compiler across unix machines is gcc. At its most simple for our use it can simply be run like this:
 ``` bash
 gcc hello-world.c
 ```
-This will produce a output executable call a.out that can be run as:
+This will produce a output executable called `a.out` that can be run like this:
 ```default
 $ ./a.out
 Hello, world!
 ```
-This output file can be renamed using the `-o` option to specify an output file for the compiler e.g. to create an executable with the same name: `gcc hello-world.c -o hello-world`
+Here you can see that the `./` syntax for running the executable is the same as for an executable shell script when the executable is in your directory.
+
+This output file can be renamed using the `-o` option to specify an output file for the compiler e.g. to create an executable with the same name (but no extension): `gcc hello-world.c -o hello-world`
+
+# Syntax and Keywords
+* Syntax 
+    - Like the punctuation of a programming language, describes the required structure for the code to be acceptable.
+    - Most important piece of syntax in C is every line ends with a `;`
+* Keywords 
+    - Terms that relate to a  specific instruction in the programming language
+    - Key examples in this program: `int` and `return`
 
 # Variables
 ## Key parts
@@ -67,7 +83,15 @@ A variable made up of 3 things
 3. The data type which is used to specify the way this data should be stored and accessed.
 
 ## Data types
-In c there are quite a few data types, all but one of them are different ways to store numbers, these fall broadly fall into two categories decimal and integers most commonly represented by the data types `float` and `int` respectively. The other one is `char` use to store an individual character.
+There are 2 key basic data types in C:
+
+- `int` used to store integer numbers 
+- `float` used to store floating point (decimal) numbers
+- `char` used to store characters
+
+There are also further data types used to store numbers, these are adapted to increase the range of values possible to store or the precision with which they can be stored.
+
+All data types are keywords in the C language. 
 
 ## Using variables in c
 
@@ -80,7 +104,6 @@ There are three key actions that can be taken with variables
     * The value that is being assigned can be simply typed in code or the result of an arithmetic calculation
     * These first two steps can be combined into a single line: `int counter = 2;`
 * Access - Use of the variable using the identifier in code, this can be in any statement where a value of that data type is required e.g. creating a new variable: `int newCounter = counter + 2;`
-
 
 # Reading Input
 Lets customize the hello world program to say hello to you. We can use a variable and `scanf()` to do this.
@@ -97,8 +120,8 @@ int main()
     return 0;
 }
 ```
-### Breakdown
-* The first new line in main initializes an array with id `name`
+### Breakdown 
+* The first new line in main initializes an array with identifier `name` and size 20
     - this is a special case of a variable with a single identifier allowing for access to multiple values on a single data type stored continuously. More info will be in later notes.
 - The next line outputs similarly to out original hello world program.
 - `scanf()` is used to read input from the command line. Within the brackets there are 2 input arguments.
@@ -107,7 +130,31 @@ int main()
 - The usage of `printf()` in the line after is altered compared to the first program:
     - First the `%s` is again used to specify the string, but this time for output. These patterns starting with a `%`, using different letters for different data types, are known as format specifiers and are used across input and output.
     - `\n` is the character representing a newline, improving the output format.
-    - `name` specifies which variable to output the data from, if there are multiple format specifiers then there must be an equal and matching number of variables.
+    - `name` specifies which variable to output the data from
+    - For each format specifier in a `printf` string the language expects a variable of the appropriate type to pull data from to output
+
+# Arithmetic
+The values that are stored in your variables are not always the values that you want to use in your code. In C we can manipulate numeric values with arithmetic operators. 
+
+Here is a simple program to show the different arithmetic operators. You should run this yourself to see the results.
+
+`arithmetic.c`
+``` c
+#include <stdio.h>
+
+int main()
+{
+    const int value = 12;
+    printf("Your value + 3 = %d\n", value + 3);
+    printf("Your value - 3 = %d\n", value - 3);
+    printf("Your value * 3 = %d\n", value * 3);
+    printf("Your value / 3 = %d\n", value / 3);
+    printf("Your value modulo 3 = %d\n", value % 3);
+}
+```
+## Notes
+- This program uses the keyword `const` to modify the data type of the variable `value`. This stops the variable from being changed later in the program.
+    - Using a static value like this is good for the program as it means that in the code there is only a single place where the value needs to be changed. This makes the code more maintainable.
 
 # Control flow
 Control flow is the process by which the program selects what line should be run next there are different ways to do this:
@@ -118,7 +165,7 @@ This is the most simple way and the default, you simply proceed to the next line
 ## Logical expressions
 More complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination. N.B. these can also implement arithmetic operators in combination with this.
 
-### Examples
+### Examples of logical expressions
 `counter <= 12`  
 `value > threshold || override == 1`  
 Eventually you will need to use more complex statements
@@ -139,7 +186,7 @@ else
 }
 ```
 - Additionally `else if` statements can be added to have additional arguments to control when a block of code is run. 
-    - Code within an `else if` block will only run if the conditions for the parent if statement and any previous else if statements are all not met.
+    - Code within an `else if` block will only run if the conditions for the parent if statement and any previous if conditions are all not met.
 - Code within an `else` block are only run if none of the conditions are met
 - An `if` statement does not require any subsequent `else` statements.
 
@@ -169,11 +216,12 @@ int main()
     return 0;
 }
 ```
+#### Notes
 - Note that the `%d` format specifier is used to read an integer
 - The `&` symbol is required in front of not array variables when using `scanf()`.
 
 ## Looping
-In looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a determined number of loops (for loop).
+In looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a specific number of loops (for loop).
 
 ### While loop
 ``` c
@@ -208,6 +256,7 @@ int main()
     printf("Average is %f\n", total/(float)counter);
 }
 ```
+##### Breakdown
 - Multiple variables of the same kind can be initialised in a single line when separated with commas.
 - `%f` format specifier for floats
 - The `continue` keyword causes the current iteration of the loop to end and the next one to start.
@@ -268,11 +317,25 @@ int main()
     }
 }
 ```
+
+##### Notes
 - Nested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.
 - In this case the inner loop is dependent on the outer loop as the condition for the inner loop is  based on the control value of the outer loop
 
 # Scope (What is {})
-Scope is the area of a code file where a variable can be referenced; variables can be accessed in any child scope of the scope in which they are defined. In C `{}` always defines a scope whatever keyword it is related to. You can also define a scope without a keyword.
+Scope is the area of a code file where a variable can be referenced; variables can be accessed in any child scope of the scope in which they are defined. In C `{}` always defines a scope for whatever keyword it is related to. You can also define a scope without a keyword.
+
+# Best practice in C
+
+## Whitespace
+All of the examples featured so far follow traditional beat practice for the use of whitespace. 
+
+- New line after each semi-colon
+- Code within a Scope is indented. Code within a subscope is indented for each parent scope
+    - The size of indents is cause for debate, the approach that we have chosen is 4 space sized indents. Though tabs are traditionally 8 characters wide.
+
+## Comments
+All of the code in these examples has been simple and short, however, as code becomes longer it becomes exponentially more difficult to comprehend. Comments should be used to make your code more understandable describing high level aims of the code or why a specific approach has been used rather than simply explaining the syntax of the code that is there.
 
 # Notes
 * outline what happens in a basic hello world file & compiler
