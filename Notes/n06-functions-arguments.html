@@ -226,6 +226,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -299,10 +305,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="functions-that-you-have-already-used" class="level2">
 <h2 class="anchored" data-anchor-id="functions-that-you-have-already-used">Functions that you have already used</h2>
 <ul>
-<li><code>scanf</code></li>
-<li><code>printf</code></li>
-<li><code>main</code></li>
-<li></li>
+<li><code>scanf</code> to read input from the command line</li>
+<li><code>printf</code> to output to the command line</li>
+<li><code>main</code> as the entrypoint to your program</li>
 </ul>
 </section>
 <section id="example" class="level2">
@@ -341,8 +346,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="libraries" class="level1">
 <h1>Libraries</h1>
 <p>In previous examples you have been using functions that have been written in the same file as they are called in.</p>
-<p>This is with the exception of <code>scanf</code> and <code>printf</code>. These are accessable due to the <code>#include</code> statement at the top of most or all of the C files you have seen.</p>
-<p>These statements reference files with the <code>.h</code> file extension that are referred to as ‘header’ files. These files are looked at in the early stages of compilation and provide a ‘prototype’ of the functions (or other) that will be defined in the corresponding <code>.c</code> file.</p>
+<p>This is with the exception of <code>scanf</code> and <code>printf</code>. These are accessible due to the <code>#include &lt;stdio.h&gt;</code> statement at the top of most or all of the C files you have seen.</p>
+<p><code>#include</code> statements reference files with the <code>.h</code> extension that are called ‘header’ files. These files are looked at in the early stages of compilation and provide a ‘prototype’ of the functions (or other) that will be defined in the corresponding <code>.c</code> file.</p>
 <p>In the case of <code>stdio.h</code> these functions and definitions are stored in shared libraries in the source code. But it is simple to include files of your own creation.</p>
 </section>
 <section id="recursion" class="level1">

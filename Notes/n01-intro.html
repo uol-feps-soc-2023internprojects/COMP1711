@@ -226,6 +226,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -265,6 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#moving-and-editing-files" id="toc-moving-and-editing-files" class="nav-link" data-scroll-target="#moving-and-editing-files">Moving and editing files</a></li>
   <li><a href="#deleting-files-and-directories" id="toc-deleting-files-and-directories" class="nav-link" data-scroll-target="#deleting-files-and-directories">Deleting files and directories</a></li>
   </ul></li>
+  <li><a href="#extra-terminal-tips" id="toc-extra-terminal-tips" class="nav-link" data-scroll-target="#extra-terminal-tips">Extra terminal tips!</a></li>
   <li><a href="#do-i-need-to-remember-all-of-this" id="toc-do-i-need-to-remember-all-of-this" class="nav-link" data-scroll-target="#do-i-need-to-remember-all-of-this">Do I need to remember all of this?</a></li>
   </ul>
 </nav>
@@ -307,19 +314,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Opening a Codespace</h1>
 <p>Follow these steps to create a new repository from a template and open it in codespaces. A repository is an online storage point for your project.</p>
 <ol type="1">
-<li><p>Visit this link, logged into your github account: https://github.com/uol-feps-soc-2023internprojects/1711-Introduction</p></li>
+<li><p>Visit this link, logged into your github account: <a href="https://github.com/uol-feps-soc-2023internprojects/1711-Introduction" class="uri">https://github.com/uol-feps-soc-2023internprojects/1711-Introduction</a></p></li>
 <li><p>From the use this template dropdown select the option to create a new repository.</p></li>
 </ol>
-<p><img src="../img/repo-from-template.png" class="img-fluid"></p>
+<p><img src="../img/repo-from-template.png" class="img-fluid" alt="Image showing the position of the options referenced by the instruction"></p>
 <ol start="3" type="1">
-<li><p>On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as 1711-intro). You may add a description if you like. Once configured, confirm with the “create repository from template” button at the bottom of the page. This will redirect you to the repo homepage.</p></li>
-<li><p>On the repo homepage click on green button marked as code and select the tab in the popup reading Codespaces. Within this tab click on “Create codespace on main” this will open a new tab with your codespace.</p></li>
+<li>On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as 1711-intro). You may add a description if you like. Once configured, confirm with the “create repository from template” button at the bottom of the page. This will redirect you to the repo homepage.</li>
 </ol>
-<p><img src="../img/github_code.png" class="img-fluid"></p>
+<p><img src="../img/repo-creation.png" class="img-fluid" alt="Image showing the position of the options referenced by the instruction"></p>
+<ol start="4" type="1">
+<li>On the repo homepage click on green button marked as code and select the tab in the popup reading Codespaces. Within this tab click on “Create codespace on main” this will open a new tab with your codespace.</li>
+</ol>
+<p><img src="../img/github_code.png" class="img-fluid" alt="Image showing the position of the options referenced by the instruction"></p>
 <ol start="5" type="1">
 <li>This environment will look very familiar to those who have used vs code before and is comprised of 3 main elements. The editor window, the file explorer and the terminal window: labelled in the image below.</li>
 </ol>
-<p><img src="../img/codespace.png" class="img-fluid"></p>
+<p><img src="../img/codespace.png" class="img-fluid" alt="Image showing the position of the options referenced by the instruction"></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -376,10 +386,10 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../img/file-tree.jpg" class="img-fluid figure-img" alt="Visual representation of a file hierarchy"></p>
-<figcaption class="figure-caption"><a href="https://www.techtarget.com/searchstorage/definition/file-system">Source</a></figcaption>
+<figcaption class="figure-caption"><a href="https://www.techtarget.com/searchstorage/definition/file-system">Image Source</a></figcaption>
 </figure>
 </div>
-<p>In this case assume that the absolute path of the directory <code>Tom</code> is <code>/home/Tom</code> and that the current working directory is <code>Tools</code>. We can see a few different relative and absolute paths from here:</p>
+<p>Using the image above, assume that the absolute path of the directory <code>Tom</code> is <code>/home/Tom</code> and that the current working directory is <code>Tools</code>. We can see a few different relative and absolute paths from here:</p>
 <ul>
 <li><code>Tools</code>
 <ul>
@@ -449,7 +459,7 @@ Tip
 <h2 class="anchored" data-anchor-id="arguments">Arguments</h2>
 <p>We can also use <code>ls</code> to list subdirectories, to do this we must pass the command the value of the subdirectory that we want to list.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>$ ls IOM-animals</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>TODO: example output</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>amphibians.txt  birds.txt  insects.txt  mammals.txt  reptiles.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The value passed to the command at the command line here is called an argument. Different commands will expect different types and different numbers of commands.</p>
 </section>
 <section id="navigation" class="level2">
@@ -467,7 +477,20 @@ Tip
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>$ cd .. </span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>$ pwd</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>/workspaces/repository-name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The command can also be run without any arguments, this will navigate back to the home directory of the account. In unix systems this home directory is denoted by a <code>~</code> character.</p>
+<p>The command can also be run without any arguments, this will navigate back to the home directory of the account.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In unix systems this home directory is denoted by a <code>~</code> character.</p>
+</div>
+</div>
 </section>
 <section id="creating-new-directories" class="level2">
 <h2 class="anchored" data-anchor-id="creating-new-directories">Creating new directories</h2>
@@ -556,6 +579,14 @@ Important
 </div>
 </div>
 </section>
+</section>
+<section id="extra-terminal-tips" class="level1">
+<h1>Extra terminal tips!</h1>
+<ol type="1">
+<li><p>You can use the up arrow on the keyboard to cycle through the history of run commands so that, when running lots of similar commands, they don’t have to be written in full every time.</p></li>
+<li><p>The <code>ctrl+c</code> shortcut can be used to stop whatever command is running at the command line.</p></li>
+<li><p>To copy and paste at the command line add the shift key to the shortcut i.e.&nbsp;<code>ctrl+shift+c</code> to copy and <code>ctrl+shift+p</code> to paste.</p></li>
+</ol>
 </section>
 <section id="do-i-need-to-remember-all-of-this" class="level1">
 <h1>Do I need to remember all of this?</h1>

@@ -226,6 +226,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Resources</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -236,7 +242,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-git" id="toc-what-is-git" class="nav-link active" data-scroll-target="#what-is-git">What is git?</a></li>
+  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims">Aims</a></li>
+  <li><a href="#what-is-git" id="toc-what-is-git" class="nav-link" data-scroll-target="#what-is-git">What is git?</a></li>
   <li><a href="#why-do-you-need-to-know-git" id="toc-why-do-you-need-to-know-git" class="nav-link" data-scroll-target="#why-do-you-need-to-know-git">Why do you need to know git?</a></li>
   <li><a href="#repository" id="toc-repository" class="nav-link" data-scroll-target="#repository">Repository</a>
   <ul class="collapse">
@@ -271,6 +278,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Instructions in this file are to be run in the same codespace based on 1711-introduction. Make sure to save your changes.</p>
+</div>
+</div>
+<section id="aims" class="level1">
+<h1>Aims</h1>
+<ul>
+<li>Understand what git is and what it is used for</li>
+<li>Understand what different git related terminology refers to</li>
+<li>Try using git for basic tasks</li>
+</ul>
+</section>
 <section id="what-is-git" class="level1">
 <h1>What is git?</h1>
 <p>If you google git you will find out that git is a ‘Distributed Version Control System’, but what does this actually mean?</p>
@@ -324,6 +352,19 @@ Note
 <section id="staged-changes" class="level2">
 <h2 class="anchored" data-anchor-id="staged-changes">2. Staged changes</h2>
 <p><code>git add</code> takes a file or directory as an argument to ‘add’ to the current list of files staged for a commit. If you are at the root of the repository, <code>git add .</code> will stage all untracked changes. Though more generally <code>git add</code> takes a list of file paths to add as arguments.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>-A</code> option can be used to stage all untracked changes from anywhere in the repository.</p>
+</div>
+</div>
 <p>Once this is run we can rerun <code>git status</code> to see the changes:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>On branch main</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Your branch is up to date with 'origin/main'.</span>
@@ -353,6 +394,12 @@ Note
 <p>A git branch is a pointer to a specific commit, when you are on a branch as you continue to commit to this branch this pointer will be updated to point to the most recent commit.</p>
 <p>The default branch is called ‘main’</p>
 <p>You can see all the current branches in you repo using the command <code>git branch</code>, add a new branch using <code>git branch &lt;new-branch-name&gt;</code> and swap branches using <code>git checkout &lt;branch-name</code>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../img/git-branches.svg" class="img-fluid figure-img" alt="Diagram representing a branching git tree"></p>
+<figcaption class="figure-caption"><a href="https://www.atlassian.com/git/tutorials/using-branches">Image Source</a></figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -366,7 +413,7 @@ Note
 <p>How branches are used changes significantly between between developer/teams. The main types are feature branching, task branching and release branching. Each has their benefits and drawbacks.</p>
 </div>
 </div>
-<p>Due to their nature, as branches each get more commits their content tends to diverge, eventually this has to be resolved using merges. This can become messy and won’t be covered here.</p>
+<p>As commits are added to different branches the content of the branches diverges, eventually this has to be resolved using merges. This can become messy and won’t be covered here.</p>
 </section>
 <section id="what-is-origin" class="level1">
 <h1>What is origin?</h1>
