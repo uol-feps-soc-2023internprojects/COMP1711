@@ -23,15 +23,15 @@ Follow these steps to create a new repository from a template and open it in cod
 
 3. On the repository creation page, select your account as the owner and give the repo an appropriate and memorable name (We will refer to it as 1711-intro). You may add a description if you like. Once configured, confirm with the "create repository from template" button at the bottom of the page. This will redirect you to the repo homepage. 
 
-![](/img/repo-creation.png)
+![](/img/repo-creation.png){fig-alt="Image showing the position of the options referenced by the instruction"}
 
 4. On the repo homepage click on green button marked as code and select the tab in the popup reading Codespaces. Within this tab click on "Create codespace on main" this will open a new tab with your codespace.
 
-![](/img/github_code.png)
+![](/img/github_code.png){fig-alt="Image showing the position of the options referenced by the instruction"}
 
 5. This environment will look very familiar to those who have used vs code before and is comprised of 3 main elements. The editor window, the file explorer and the terminal window: labelled in the image below.
 
-![](/img/codespace.png)
+![](/img/codespace.png){fig-alt="Image showing the position of the options referenced by the instruction"}
 
 
 :::{.callout-note}
