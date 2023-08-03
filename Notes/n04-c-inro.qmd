@@ -142,19 +142,18 @@ Here is a simple program to show the different arithmetic operators. You should 
 ``` c
 #include <stdio.h>
 
-#define VAL 12
-
 int main()
 {
-    printf("Your value + 3 = %d\n", VAL + 3);
-    printf("Your value - 3 = %d\n", VAL - 3);
-    printf("Your value * 3 = %d\n", VAL * 3);
-    printf("Your value / 3 = %d\n", VAL / 3);
-    printf("Your value modulo 3 = %d\n", VAL % 3);
+    const int value = 12;
+    printf("Your value + 3 = %d\n", value + 3);
+    printf("Your value - 3 = %d\n", value - 3);
+    printf("Your value * 3 = %d\n", value * 3);
+    printf("Your value / 3 = %d\n", value / 3);
+    printf("Your value modulo 3 = %d\n", value % 3);
 }
 ```
 ## Notes
-- This program uses const or define TODO:: decide later
+- This program uses the keyword `const` to modify the data type of the variable `value`. This stops the variable from being changed later in the program.
     - Using a static value like this is good for the program as it means that in the code there is only a single place where the value needs to be changed. This makes the code more maintainable.
 
 # Control flow

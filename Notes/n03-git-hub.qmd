@@ -93,13 +93,13 @@ The default branch is called 'main'
 
 You can see all the current branches in you repo using the command `git branch`, add a new branch using `git branch <new-branch-name>` and swap branches using `git checkout <branch-name`.
 
-TODO:: add diagram
+![[Image Source](https://www.atlassian.com/git/tutorials/using-branches)](/img/git-branches.svg){fig-alt="Diagram representing a branching git tree"}
 
 :::{.callout-note}
 How branches are used changes significantly between between developer/teams. The main types are feature branching, task branching and release branching. Each has their benefits and drawbacks.
 :::
 
-Due to their nature, as branches each get more commits their content tends to diverge, eventually this has to be resolved using merges. This can become messy and won't be covered here.
+As commits are added to different branches the content of the branches diverges, eventually this has to be resolved using merges. This can become messy and won't be covered here.
 
 #  What is origin?
 Origin is shorthand for the remote storage location of the repository. In our case this is on Github. 
