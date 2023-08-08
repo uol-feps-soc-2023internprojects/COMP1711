@@ -1,0 +1,117 @@
+---
+title: "8: Programming skills"
+---
+
+# Planning
+Planning is an important part of programming, having a clear idea for your approach to a problem before starting can save time and provide a structure to your coding process.
+
+Most planning revolves around simplifying a problem/solution by removing unnecessary information and breaking it down into smaller more manageable chunks. 
+
+The method by which you do this doesn't matter but there are some common approaches:
+
+## Pseudocode
+Outlines the processes that the program will take in structured natural language, it does not contain the syntax of any specific programming language. The aim is to create a clear and easily understandable description of the approach to the problem.
+
+Is often used to describe high level algorithms.
+
+### Examples
+
+## Flowcharts
+Fulfils a similar roll to pseudocode but uses a graphical notation to show the different steps and transitions between steps.
+
+Some sources will describe a strict notations for the meanings of different shapes but it really doesn't matter so long as it is clear and understandable
+
+### Examples
+
+## Trace tables
+These are another key skill, often used to discover what a piece of code is doing or to confirm that your plan will work as expected.
+
+They work by tracking the value of variables throughout the flow of the program, this is particularly useful for programs that include loops
+
+### Examples
+
+# Debugging
+Debugging is the process of isolating and removing bugs from your programs. (bugs are mistakes). Most of the time it will become obvious when there is a bug in your program as it will not behave the way you expect. 
+
+Particularly for larger programs though it can be harder to identify whether or not there are bugs in your program. While it is impossible to be certain that there are no bugs in you program an extensive testing plan will help you identify many.
+
+Once you have identified a bug the next step it is important to isolate the part of your code that is not running in the way that you expected it to, there are a few methods to do this.
+
+## gdb (visual vs CMD)
+`gdb` (gnu debugger) is the default option for C debugging programs and allows you to execute your program one line at a time and inspect all the data of the program at each of these lines.
+
+In order to run `gdb` you run the command `gdb <executable-name>`. However, the executable must be compiled using the `-g` option for gcc.
+
+Key commands in `gdb`  
+
+- `break`
+    - Adds a point at which the execution of the program will halt so the the programmer can inspect values or control the execution manually
+    - This cis most commonly a line number or a function.
+- `run`
+    - starts the execution of the program
+- `set args <arguments>`
+    - Used to change the arguments that will be passed to the program that you are debugging when the `run` command is used
+- `step`
+    - progresses the execution of the program by a single line
+- `continue`
+    - restarts the execution of the program
+- `print <expression>`
+    - outputs the current value of the expression passed to the command 
+- `display <expression>`
+    - outputs the current value of the expression passed to the command for every line stepped through, that is in the current scope.
+
+<!-- I feel like surely this should be explained in a lecture and this should just be a reference, maybe there should be an exercise to follow that requires this too? -->
+
+<!-- TUI? user interface for gdb -->
+
+## Assert
+Assert is used to C to check values at runtime to check for programmer error. It is a shortcut to fail out of the program if a value is not what it should be, when the program fails in this way it tells you exactly what condition failed and on which line.
+
+### Example
+`failedAssertion.c`
+``` c
+#include <assert.h>
+
+int main()
+{
+    const int value = 5;
+    assert(value ==7);
+    return 0;
+}
+```
+When executed this program will give the output (second line may vary depending on the machine the code is run on):
+``` default
+a.out: failedAssertion.c:6: main: Assertion `value ==7' failed.
+Aborted (core dumped)
+```
+#### Output breakdown
+- `a.out` is the name of the executable
+- `failedAssertion.c` is the file that the assertion failed in
+- `:6` shows the line on which the execution failed
+- `main` is the function the assertion was in
+
+::: {.callout-note}
+While we treat `assert` as a function, it's implementation in c is as a macro. This is not relevant to its use.
+:::
+
+### Common uses
+
+#### Preconditions to a function
+In this case assertions are used to ensure that the values passed to a function are valid. e.g.
+
+- Checking that an index is within an expected range
+- Checking that a pointer is not NULL (This will be fully explained later)
+
+It is good practice to make the preconditions for a function clear when it is being defined, this is often in a header file.
+
+#### Postconditions for a function
+This case uses assertions to make sure that the value a function is returning is valid 
+- not really for user input
+
+
+## Print debugging
+This is very simply outputting information to the command line from your program at different points to check what different values are. While this can sometimes be a good option for simple tasks, this technique is limited as the output it will create is often cluttered and it takes a significant amount of time to setup and remove temporary code once you have found the bug. Its biggest weakness though is the lack of ability to provide an overview of execution flow.
+
+# Input Validation
+
+# Code style

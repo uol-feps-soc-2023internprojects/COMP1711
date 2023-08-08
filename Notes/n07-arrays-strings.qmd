@@ -19,8 +19,8 @@ arrayId[index]
 
 The length of an array can be found using the `sizeof()` function. 
 
-# Looping over arrays
-For loops in particular lend themselves to iterating over static arrays 
+<!-- # Looping over arrays
+For loops in particular lend themselves to iterating over static arrays -->
 
 ## Examples
 

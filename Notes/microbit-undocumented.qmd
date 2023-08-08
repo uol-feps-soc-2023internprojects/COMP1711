@@ -1,6 +1,11 @@
 ---
-title: "Microbit functions"
+title: "Microbit Notes"
 ---
+
+# Written examples
+- Moving line
+- Binary, hex and quinary counters
+- Compass
 
 # Overview
 ## Input
@@ -27,3 +32,4 @@ title: "Microbit functions"
 # Speaker
 
 void MicroBitAudio::setSpeakerEnabled(bool on)
+
