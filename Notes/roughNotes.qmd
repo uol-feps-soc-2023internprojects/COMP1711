@@ -2,12 +2,15 @@
 title: TODO
 ---
 
+# Reminders
+- Accessibility
+- Aims at the start of each section
+- Update examples as template changes
+
 # Missiong parts
-- up arrow for terminal
-- ctrl+c to end
-- copy and paste command line
 - Microbit examples and exercises
-- `#define`  explanation - combo with advice to avoid 'magic numbers in code'
+- ASCII
+- Casting 
 
 
 # C exersizes

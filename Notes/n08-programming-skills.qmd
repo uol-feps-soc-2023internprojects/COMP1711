@@ -113,5 +113,31 @@ This case uses assertions to make sure that the value a function is returning is
 This is very simply outputting information to the command line from your program at different points to check what different values are. While this can sometimes be a good option for simple tasks, this technique is limited as the output it will create is often cluttered and it takes a significant amount of time to setup and remove temporary code once you have found the bug. Its biggest weakness though is the lack of ability to provide an overview of execution flow.
 
 # Input Validation
+Input validation in C is relativity simple due to a feature of `scanf()` that we have not yet mentioned. `scanf()` will return the number of values that is successfully managed to read from the command line, therefore this can be easily compared to the expected number of values to see if it was successful.
+
+This can be seen if you test using this simple program:
+
+`scanfValidation.c`
+``` c
+#include <stdio.h>
+
+int main()
+{
+    int input1, readValues;
+    char input2;
+    char * input3;
+    printf("Input an int, a char and a string.")
+    readValues = scanf("%d %c %s", &input1, &input2, input3);
+    printf("%d\n", readValues);
+    return 0;
+}
+```
+
+## Example of validation loop
+While loops are often used for validation as they will run until a valid input is given.
+
+``
+``` c
+```
 
 # Code style

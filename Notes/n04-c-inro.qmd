@@ -87,7 +87,7 @@ There are 2 key basic data types in C:
 
 - `int` used to store integer numbers 
 - `float` used to store floating point (decimal) numbers
-- `char` used to store characters
+- `char` used to store characters TODO: explain ASCII
 
 There are also further data types used to store numbers, these are adapted to increase the range of values possible to store or the precision with which they can be stored.
 
@@ -104,6 +104,8 @@ There are three key actions that can be taken with variables
     * The value that is being assigned can be simply typed in code or the result of an arithmetic calculation
     * These first two steps can be combined into a single line: `int counter = 2;`
 * Access - Use of the variable using the identifier in code, this can be in any statement where a value of that data type is required e.g. creating a new variable: `int newCounter = counter + 2;`
+
+## Casting (TODO)
 
 # Reading Input
 Lets customize the hello world program to say hello to you. We can use a variable and `scanf()` to do this.

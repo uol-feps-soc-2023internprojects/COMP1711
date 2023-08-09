@@ -36,7 +36,7 @@ If you now navigate back to the codespace menu from the last step you can "creat
 ## Project bootstrap
 In the terminal within codespaces run   
 ``` bash
-curl https://raw.githubusercontent.com/lancaster-university/codal-bootstrap/main/build.py > build.py
+curl https://raw.githubusercontent.com/uol-feps-soc-2023internprojects/codal-bootstrap/main/build.py > build.py
 ```
 This will download the python script that is used to bootstrap and/or build the project.
 
