@@ -1,0 +1,34 @@
+---
+title: "8: Pointers and dynamic memory"
+---
+
+# What is a pointer
+Reference to a specific location within the memory allotted to the program by the OS.
+
+These values can be stored in C. If you want to declare a pointer rather than a variable simply add an `*` to the variable declaration. (the data type is still required)
+
+TODO: Maybe write about void pointer
+
+declaration of different pointers
+``` c
+int * intPointer;
+char * charPointer;
+```
+
+## Double pointers
+It is clear  though that these pointers are also being stored in memory and as such must have pointers of their own. In the same way as before we simply add a `*` to the declaration.  
+e.g.
+``` c
+int ** intDoublePointer
+char ** charDoublePointer
+```
+
+# What is &/*
+
+# Pointer arithmetic and arrays
+
+# Dynamic memory 
+
+## Malloc
+
+## Free
