@@ -24,11 +24,41 @@ char ** charDoublePointer
 ```
 
 # What is &/*
+`&` is used to get the address from a variable e.g. usage in `scanf`
+`*` is used to indicate that a value is a variable, in declaration the usage is obvious. However the `*` can also be used to 'dereference' a pointer to a variable, allowing the program to access the variable stored at this pointer.
 
 # Pointer arithmetic and arrays
 
 # Dynamic memory 
+All the variables that you have created so far in C have a size in memory that is defined by the code itself and cannot be changed at runtime. These are called statically allocated variables. It is also possible to create dynamically allocated variables in C, a common example where this is required is an array that has a size that is defined at runtime. In order to implement this we must request extra memory for the program from the OS. 
+
+The functions to do this are defined in the `stdlib.h` header file, the key functions are `malloc(<size>)` request the memory and `free(<pointer>)` to indicate that the program no longer needs the memory.
 
 ## Malloc
+Malloc will return a void pointer that can be cast to whichever memory type you intend to fill the space with.
 
 ## Free
+Free will deallocate the memory that was previously allocated to a pointer
+
+## Example
+
+# Common errors
+Most common errors when using dynamically allocated memory stem from accessing memory not within the allocated block. This will not necessarily cause the program to exit but can lead to undefined/unexpected behaviour. If the program attempts to access memory that is allocated to a different program then itself then this will cause a 'segmentation fault' to avoid this we try to make sure that out program only accesses the memory allocated to it. TODO: reread - this may be an oversimplifications
+
+How do we end up trying to access memory that is not allocated to our variable.
+
+- Index out of range
+    - The program could simply try to access a value past what was intended when the memory was allocated to the pointer.
+    - This may conversely happen due to memory being under allocated.
+        - incorrect array length e.g. `int * array = (int*) malloc(sizeof(int) * 12)` when array of size 13 is needed
+        - incorrect memory size allocation e.g. `long * array = (long*) malloc(sizeof(int) * 12)`
+
+## Use pointer after free
+
+## NULL pointer
+
+## Double free
+
+## Freeing without allocation
+
+## Memory leaks
