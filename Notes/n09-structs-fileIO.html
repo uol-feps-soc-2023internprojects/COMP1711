@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5: C for the Microbit</title>
+<title>Structures and file IO</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -107,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n05-c-microbit.html">5: C for the Microbit</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n09-structs-fileIO.html">Structures and file IO</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -173,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5: C for the Microbit</span></a>
   </div>
 </li>
@@ -197,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/n09-structs-fileIO.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/n09-structs-fileIO.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Structures and file IO</span></a>
   </div>
 </li>
@@ -266,20 +232,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims">Aims</a></li>
-  <li><a href="#what-is-the-microbit" id="toc-what-is-the-microbit" class="nav-link" data-scroll-target="#what-is-the-microbit">What is the Microbit?</a></li>
-  <li><a href="#microbit-coding-environment-setup" id="toc-microbit-coding-environment-setup" class="nav-link" data-scroll-target="#microbit-coding-environment-setup">Microbit Coding environment setup</a>
+  <li><a href="#what-is-a-structure" id="toc-what-is-a-structure" class="nav-link active" data-scroll-target="#what-is-a-structure">What is a structure</a>
   <ul class="collapse">
-  <li><a href="#repository-setup" id="toc-repository-setup" class="nav-link" data-scroll-target="#repository-setup">Repository setup</a></li>
-  <li><a href="#opening-the-codespace" id="toc-opening-the-codespace" class="nav-link" data-scroll-target="#opening-the-codespace">Opening the codespace</a></li>
-  <li><a href="#project-bootstrap" id="toc-project-bootstrap" class="nav-link" data-scroll-target="#project-bootstrap">Project bootstrap</a></li>
-  <li><a href="#flashing-the-microbit" id="toc-flashing-the-microbit" class="nav-link" data-scroll-target="#flashing-the-microbit">Flashing the Microbit</a></li>
+  <li><a href="#how-can-it-be-used" id="toc-how-can-it-be-used" class="nav-link" data-scroll-target="#how-can-it-be-used">How can it be used</a></li>
+  <li><a href="#syntax-in-c" id="toc-syntax-in-c" class="nav-link" data-scroll-target="#syntax-in-c">Syntax in C</a></li>
+  <li><a href="#typedef" id="toc-typedef" class="nav-link" data-scroll-target="#typedef">typedef</a></li>
   </ul></li>
-  <li><a href="#how-to-edit-the-code" id="toc-how-to-edit-the-code" class="nav-link" data-scroll-target="#how-to-edit-the-code">How to edit the code</a></li>
-  <li><a href="#output-options" id="toc-output-options" class="nav-link" data-scroll-target="#output-options">Output options</a></li>
-  <li><a href="#microbit-images" id="toc-microbit-images" class="nav-link" data-scroll-target="#microbit-images">Microbit images</a></li>
-  <li><a href="#sleep" id="toc-sleep" class="nav-link" data-scroll-target="#sleep">Sleep</a></li>
-  <li><a href="#buttons" id="toc-buttons" class="nav-link" data-scroll-target="#buttons">Buttons</a></li>
+  <li><a href="#file-io" id="toc-file-io" class="nav-link" data-scroll-target="#file-io">File IO</a>
+  <ul class="collapse">
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">functions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -288,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">5: C for the Microbit</h1>
+<h1 class="title">Structures and file IO</h1>
 </div>
 
 
@@ -303,105 +265,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="aims" class="level1">
-<h1>Aims</h1>
+<section id="what-is-a-structure" class="level1">
+<h1>What is a structure</h1>
+<section id="how-can-it-be-used" class="level2">
+<h2 class="anchored" data-anchor-id="how-can-it-be-used">How can it be used</h2>
 </section>
-<section id="what-is-the-microbit" class="level1">
-<h1>What is the Microbit?</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../img/microbit.png" class="img-fluid figure-img" alt="Diagram labeling the Microbit's different sensors and output options"></p>
-<figcaption class="figure-caption"><a href="https://makecode.microbit.org/device">Image Source</a></figcaption>
-</figure>
-</div>
-<p>The BBC Microbit is a single board computer</p>
-<!-- ## Why should we use the microbit -->
-<p>C is good for this as these are resource constrained devices</p>
-<p>lots of work in programming embedded systems</p>
+<section id="syntax-in-c" class="level2">
+<h2 class="anchored" data-anchor-id="syntax-in-c">Syntax in C</h2>
 </section>
-<section id="microbit-coding-environment-setup" class="level1">
-<h1>Microbit Coding environment setup</h1>
-<section id="repository-setup" class="level2">
-<h2 class="anchored" data-anchor-id="repository-setup">Repository setup</h2>
-<ul>
-<li><p>In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.<br>
-<img src="../img/github_code.png" class="img-fluid"></p></li>
-<li><p>From this dropdown select the option that reads configure dev container<br>
-<img src="../img/config-dec-cont.png" class="img-fluid"></p></li>
-<li><p>This will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to <code>ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7</code> once this is done the file should look as such: <img src="../img/devcontainer-json-example.png" class="img-fluid"></p></li>
-<li><p>Finally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository.</p></li>
-</ul>
-</section>
-<section id="opening-the-codespace" class="level2">
-<h2 class="anchored" data-anchor-id="opening-the-codespace">Opening the codespace</h2>
-<p>If you now navigate back to the codespace menu from the last step you can “create codespace on main” this will launch a new browser tab. It may take a little bit of time to build.</p>
-</section>
-<section id="project-bootstrap" class="level2">
-<h2 class="anchored" data-anchor-id="project-bootstrap">Project bootstrap</h2>
-<p>In the terminal within codespaces run</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://raw.githubusercontent.com/uol-feps-soc-2023internprojects/codal-bootstrap/main/build.py <span class="op">&gt;</span> build.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will download the python script that is used to bootstrap and/or build the project.</p>
-<p>The first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python build.py codal-microbit-v2</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>python build.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once compiled the repository will have many more files, almost all of these do not need to be edited when coding for the microbit in this way. One important file is <strong>MICROBIT.hex</strong> which which can be loaded to the Microbit.</p>
-</section>
-<section id="flashing-the-microbit" class="level2">
-<h2 class="anchored" data-anchor-id="flashing-the-microbit">Flashing the Microbit</h2>
-<p>Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device. Sometimes this process can be temperamental and give a ‘504’ error, if this happens simply try again.</p>
-<p>The default project should create a program that scrolls the text “Hello, Bootstrap!” over the leds.</p>
+<section id="typedef" class="level2">
+<h2 class="anchored" data-anchor-id="typedef">typedef</h2>
 </section>
 </section>
-<section id="how-to-edit-the-code" class="level1">
-<h1>How to edit the code</h1>
-<p>The code that is compiled to the hex files is all within the <code>/source</code> subdirectory. You will see that the file in there by default is only <code>main.cpp</code>. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C.</p>
-<p>The build script will treat all cpp source files in this directory as part of the source code.</p>
-<p><code>main.cpp</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"MicroBit.h"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// The Micro:bit control object</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>MicroBit uBit<span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Out main function, run at startup</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Loop forever</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span> <span class="kw">true</span> <span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Scroll some text on the display</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        uBit<span class="op">.</span>display<span class="op">.</span>scroll<span class="op">(</span> <span class="st">"Hello, Bootstrap!"</span> <span class="op">);</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Will never return, but here so the compiler is happy :)</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>This program uses the <code>while( true )</code> pattern to loop infinitely</li>
-<li>The line <code>MicroBit uBit;</code> is very important to the code as it initialises the interface to the hardware.</li>
-<li>The dot notation that is used for the functions is similar to that used in python, it uses OOP principals but it is not necessary to understand this to use this in code.</li>
-</ul>
-</section>
-<section id="output-options" class="level1">
-<h1>Output options</h1>
-<p>The first of the output options is used in the example above. This option will move whatever input data it receives from right to left on the screen. <code>uBit.display.scroll(&lt;text, character or image&gt;)</code></p>
-<p>This option will simply display the character or the image passed to it on the screen. <code>uBit.display.print(&lt;character or image&gt;)</code></p>
-<p>Use this to change the value of specific pixels. <code>uBit.display.image.setPixelValue(&lt;x axis position&gt;, &lt;y axis position&gt;, &lt;int brightness (0-255)&gt;);</code></p>
-</section>
-<section id="microbit-images" class="level1">
-<h1>Microbit images</h1>
-<p>These are defined in a different way to the normal variables you have previously met in C. In this case the identifier of the variable is ‘cross’ and the data in the brackets defines the data that will be stored. <code>MicroBitImage cross("0,255,0\n255,255,255\n0,255,0\n");</code></p>
-<p>The format of the input data is a string containing integers (0-255), representing the light level for a pixel, separated by commas. The <code>\n</code> characters represent new lines in the image.</p>
-<p>In practice these images will often be 5x5 as this is the size of the Microbit screen.</p>
-</section>
-<section id="sleep" class="level1">
-<h1>Sleep</h1>
-<p>The Microbit can also be given the command to not execute commands for a specified amount of time. This command is called <code>sleep</code> and can be called as: <code>uBit.sleep(&lt;time in ms&gt;)</code></p>
-</section>
-<section id="buttons" class="level1">
-<h1>Buttons</h1>
-<p>The codal abstraction layer allows for programs to sense if a the buttons on the device are being pressed. These code snippets can simply be used in control statements to branch or loop based on environment of the Microbit. <code>uBit.buttonA.isPressed()</code> <code>uBit.buttonB.isPressed()</code> <code>uBit.buttonAB.isPressed()</code></p>
-<!-- Add examples -->
+<section id="file-io" class="level1">
+<h1>File IO</h1>
+<section id="functions" class="level2">
+<h2 class="anchored" data-anchor-id="functions">functions</h2>
+<p>fopen fscanf fgets fprintf fwrite</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

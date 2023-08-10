@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5: C for the Microbit</title>
+<title>Programming skills</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/n05-c-microbit.html">5: C for the Microbit</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Notes/microbit-undocumented.html">Notes</a></li><li class="breadcrumb-item"><a href="../Notes/programming-skills.html">Programming skills</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -173,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link active">
+  <a href="../Notes/n05-c-microbit.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5: C for the Microbit</span></a>
   </div>
 </li>
@@ -209,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Notes/programming-skills.html" class="sidebar-item-text sidebar-link">
+  <a href="../Notes/programming-skills.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Programming skills</span></a>
   </div>
 </li>
@@ -266,20 +266,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims">Aims</a></li>
-  <li><a href="#what-is-the-microbit" id="toc-what-is-the-microbit" class="nav-link" data-scroll-target="#what-is-the-microbit">What is the Microbit?</a></li>
-  <li><a href="#microbit-coding-environment-setup" id="toc-microbit-coding-environment-setup" class="nav-link" data-scroll-target="#microbit-coding-environment-setup">Microbit Coding environment setup</a>
+  <li><a href="#planning" id="toc-planning" class="nav-link active" data-scroll-target="#planning">Planning</a>
   <ul class="collapse">
-  <li><a href="#repository-setup" id="toc-repository-setup" class="nav-link" data-scroll-target="#repository-setup">Repository setup</a></li>
-  <li><a href="#opening-the-codespace" id="toc-opening-the-codespace" class="nav-link" data-scroll-target="#opening-the-codespace">Opening the codespace</a></li>
-  <li><a href="#project-bootstrap" id="toc-project-bootstrap" class="nav-link" data-scroll-target="#project-bootstrap">Project bootstrap</a></li>
-  <li><a href="#flashing-the-microbit" id="toc-flashing-the-microbit" class="nav-link" data-scroll-target="#flashing-the-microbit">Flashing the Microbit</a></li>
+  <li><a href="#pseudocode" id="toc-pseudocode" class="nav-link" data-scroll-target="#pseudocode">Pseudocode</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
-  <li><a href="#how-to-edit-the-code" id="toc-how-to-edit-the-code" class="nav-link" data-scroll-target="#how-to-edit-the-code">How to edit the code</a></li>
-  <li><a href="#output-options" id="toc-output-options" class="nav-link" data-scroll-target="#output-options">Output options</a></li>
-  <li><a href="#microbit-images" id="toc-microbit-images" class="nav-link" data-scroll-target="#microbit-images">Microbit images</a></li>
-  <li><a href="#sleep" id="toc-sleep" class="nav-link" data-scroll-target="#sleep">Sleep</a></li>
-  <li><a href="#buttons" id="toc-buttons" class="nav-link" data-scroll-target="#buttons">Buttons</a></li>
+  <li><a href="#flowcharts" id="toc-flowcharts" class="nav-link" data-scroll-target="#flowcharts">Flowcharts</a>
+  <ul class="collapse">
+  <li><a href="#examples-1" id="toc-examples-1" class="nav-link" data-scroll-target="#examples-1">Examples</a></li>
+  </ul></li>
+  <li><a href="#trace-tables" id="toc-trace-tables" class="nav-link" data-scroll-target="#trace-tables">Trace tables</a>
+  <ul class="collapse">
+  <li><a href="#examples-2" id="toc-examples-2" class="nav-link" data-scroll-target="#examples-2">Examples</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging">Debugging</a>
+  <ul class="collapse">
+  <li><a href="#gdb-visual-vs-cmd" id="toc-gdb-visual-vs-cmd" class="nav-link" data-scroll-target="#gdb-visual-vs-cmd">gdb (visual vs CMD)</a></li>
+  <li><a href="#assert" id="toc-assert" class="nav-link" data-scroll-target="#assert">Assert</a>
+  <ul class="collapse">
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#common-uses" id="toc-common-uses" class="nav-link" data-scroll-target="#common-uses">Common uses</a></li>
+  </ul></li>
+  <li><a href="#print-debugging" id="toc-print-debugging" class="nav-link" data-scroll-target="#print-debugging">Print debugging</a></li>
+  </ul></li>
+  <li><a href="#input-validation" id="toc-input-validation" class="nav-link" data-scroll-target="#input-validation">Input Validation</a>
+  <ul class="collapse">
+  <li><a href="#example-of-validation-loop" id="toc-example-of-validation-loop" class="nav-link" data-scroll-target="#example-of-validation-loop">Example of validation loop</a></li>
+  </ul></li>
+  <li><a href="#code-style" id="toc-code-style" class="nav-link" data-scroll-target="#code-style">Code style</a></li>
   </ul>
 </nav>
     </div>
@@ -288,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">5: C for the Microbit</h1>
+<h1 class="title">Programming skills</h1>
 </div>
 
 
@@ -303,103 +319,168 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="aims" class="level1">
-<h1>Aims</h1>
+<section id="planning" class="level1">
+<h1>Planning</h1>
+<p>Planning is an important part of programming, having a clear idea for your approach to a problem before starting can save time and provide a structure to your coding process.</p>
+<p>Most planning revolves around simplifying a problem/solution by removing unnecessary information and breaking it down into smaller more manageable chunks.</p>
+<p>The method by which you do this doesn’t matter but there are some common approaches:</p>
+<section id="pseudocode" class="level2">
+<h2 class="anchored" data-anchor-id="pseudocode">Pseudocode</h2>
+<p>Outlines the processes that the program will take in structured natural language, it does not contain the syntax of any specific programming language. The aim is to create a clear and easily understandable description of the approach to the problem.</p>
+<p>Is often used to describe high level algorithms.</p>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
 </section>
-<section id="what-is-the-microbit" class="level1">
-<h1>What is the Microbit?</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../img/microbit.png" class="img-fluid figure-img" alt="Diagram labeling the Microbit's different sensors and output options"></p>
-<figcaption class="figure-caption"><a href="https://makecode.microbit.org/device">Image Source</a></figcaption>
-</figure>
+</section>
+<section id="flowcharts" class="level2">
+<h2 class="anchored" data-anchor-id="flowcharts">Flowcharts</h2>
+<p>Fulfils a similar roll to pseudocode but uses a graphical notation to show the different steps and transitions between steps.</p>
+<p>Some sources will describe a strict notations for the meanings of different shapes but it really doesn’t matter so long as it is clear and understandable</p>
+<section id="examples-1" class="level3">
+<h3 class="anchored" data-anchor-id="examples-1">Examples</h3>
+</section>
+</section>
+<section id="trace-tables" class="level2">
+<h2 class="anchored" data-anchor-id="trace-tables">Trace tables</h2>
+<p>These are another key skill, often used to discover what a piece of code is doing or to confirm that your plan will work as expected.</p>
+<p>They work by tracking the value of variables throughout the flow of the program, this is particularly useful for programs that include loops</p>
+<section id="examples-2" class="level3">
+<h3 class="anchored" data-anchor-id="examples-2">Examples</h3>
+</section>
+</section>
+</section>
+<section id="debugging" class="level1">
+<h1>Debugging</h1>
+<p>Debugging is the process of isolating and removing bugs from your programs. (bugs are mistakes). Most of the time it will become obvious when there is a bug in your program as it will not behave the way you expect.</p>
+<p>Particularly for larger programs though it can be harder to identify whether or not there are bugs in your program. While it is impossible to be certain that there are no bugs in you program an extensive testing plan will help you identify many.</p>
+<p>Once you have identified a bug the next step it is important to isolate the part of your code that is not running in the way that you expected it to, there are a few methods to do this.</p>
+<section id="gdb-visual-vs-cmd" class="level2">
+<h2 class="anchored" data-anchor-id="gdb-visual-vs-cmd">gdb (visual vs CMD)</h2>
+<p><code>gdb</code> (gnu debugger) is the default option for C debugging programs and allows you to execute your program one line at a time and inspect all the data of the program at each of these lines.</p>
+<p>In order to run <code>gdb</code> you run the command <code>gdb &lt;executable-name&gt;</code>. However, the executable must be compiled using the <code>-g</code> option for gcc.</p>
+<p>Key commands in <code>gdb</code></p>
+<ul>
+<li><code>break</code>
+<ul>
+<li>Adds a point at which the execution of the program will halt so the the programmer can inspect values or control the execution manually</li>
+<li>This cis most commonly a line number or a function.</li>
+</ul></li>
+<li><code>run</code>
+<ul>
+<li>starts the execution of the program</li>
+</ul></li>
+<li><code>set args &lt;arguments&gt;</code>
+<ul>
+<li>Used to change the arguments that will be passed to the program that you are debugging when the <code>run</code> command is used</li>
+</ul></li>
+<li><code>step</code>
+<ul>
+<li>progresses the execution of the program by a single line</li>
+</ul></li>
+<li><code>continue</code>
+<ul>
+<li>restarts the execution of the program</li>
+</ul></li>
+<li><code>print &lt;expression&gt;</code>
+<ul>
+<li>outputs the current value of the expression passed to the command</li>
+</ul></li>
+<li><code>display &lt;expression&gt;</code>
+<ul>
+<li>outputs the current value of the expression passed to the command for every line stepped through, that is in the current scope.</li>
+</ul></li>
+</ul>
+<!-- I feel like surely this should be explained in a lecture and this should just be a reference, maybe there should be an exercise to follow that requires this too? -->
+<!-- TUI? user interface for gdb -->
+</section>
+<section id="assert" class="level2">
+<h2 class="anchored" data-anchor-id="assert">Assert</h2>
+<p>Assert is used to C to check values at runtime to check for programmer error. It is a shortcut to fail out of the program if a value is not what it should be, when the program fails in this way it tells you exactly what condition failed and on which line.</p>
+<section id="example" class="level3">
+<h3 class="anchored" data-anchor-id="example">Example</h3>
+<p><code>failedAssertion.c</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;assert.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">const</span> <span class="dt">int</span> value <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    assert<span class="op">(</span>value <span class="op">==</span><span class="dv">7</span><span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When executed this program will give the output (second line may vary depending on the machine the code is run on):</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>a.out: failedAssertion.c:6: main: Assertion `value ==7' failed.</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Aborted (core dumped)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="output-breakdown" class="level4">
+<h4 class="anchored" data-anchor-id="output-breakdown">Output breakdown</h4>
+<ul>
+<li><code>a.out</code> is the name of the executable</li>
+<li><code>failedAssertion.c</code> is the file that the assertion failed in</li>
+<li><code>:6</code> shows the line on which the execution failed</li>
+<li><code>main</code> is the function the assertion was in</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>The BBC Microbit is a single board computer</p>
-<!-- ## Why should we use the microbit -->
-<p>C is good for this as these are resource constrained devices</p>
-<p>lots of work in programming embedded systems</p>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While we treat <code>assert</code> as a function, it’s implementation in c is as a macro. This is not relevant to its use.</p>
+</div>
+</div>
 </section>
-<section id="microbit-coding-environment-setup" class="level1">
-<h1>Microbit Coding environment setup</h1>
-<section id="repository-setup" class="level2">
-<h2 class="anchored" data-anchor-id="repository-setup">Repository setup</h2>
+</section>
+<section id="common-uses" class="level3">
+<h3 class="anchored" data-anchor-id="common-uses">Common uses</h3>
+<section id="preconditions-to-a-function" class="level4">
+<h4 class="anchored" data-anchor-id="preconditions-to-a-function">Preconditions to a function</h4>
+<p>In this case assertions are used to ensure that the values passed to a function are valid. e.g.</p>
 <ul>
-<li><p>In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.<br>
-<img src="../img/github_code.png" class="img-fluid"></p></li>
-<li><p>From this dropdown select the option that reads configure dev container<br>
-<img src="../img/config-dec-cont.png" class="img-fluid"></p></li>
-<li><p>This will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to <code>ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7</code> once this is done the file should look as such: <img src="../img/devcontainer-json-example.png" class="img-fluid"></p></li>
-<li><p>Finally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository.</p></li>
+<li>Checking that an index is within an expected range</li>
+<li>Checking that a pointer is not NULL (This will be fully explained later)</li>
 </ul>
+<p>It is good practice to make the preconditions for a function clear when it is being defined, this is often in a header file.</p>
 </section>
-<section id="opening-the-codespace" class="level2">
-<h2 class="anchored" data-anchor-id="opening-the-codespace">Opening the codespace</h2>
-<p>If you now navigate back to the codespace menu from the last step you can “create codespace on main” this will launch a new browser tab. It may take a little bit of time to build.</p>
-</section>
-<section id="project-bootstrap" class="level2">
-<h2 class="anchored" data-anchor-id="project-bootstrap">Project bootstrap</h2>
-<p>In the terminal within codespaces run</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://raw.githubusercontent.com/uol-feps-soc-2023internprojects/codal-bootstrap/main/build.py <span class="op">&gt;</span> build.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This will download the python script that is used to bootstrap and/or build the project.</p>
-<p>The first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python build.py codal-microbit-v2</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>python build.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Once compiled the repository will have many more files, almost all of these do not need to be edited when coding for the microbit in this way. One important file is <strong>MICROBIT.hex</strong> which which can be loaded to the Microbit.</p>
-</section>
-<section id="flashing-the-microbit" class="level2">
-<h2 class="anchored" data-anchor-id="flashing-the-microbit">Flashing the Microbit</h2>
-<p>Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device. Sometimes this process can be temperamental and give a ‘504’ error, if this happens simply try again.</p>
-<p>The default project should create a program that scrolls the text “Hello, Bootstrap!” over the leds.</p>
+<section id="postconditions-for-a-function" class="level4">
+<h4 class="anchored" data-anchor-id="postconditions-for-a-function">Postconditions for a function</h4>
+<p>This case uses assertions to make sure that the value a function is returning is valid - not really for user input</p>
 </section>
 </section>
-<section id="how-to-edit-the-code" class="level1">
-<h1>How to edit the code</h1>
-<p>The code that is compiled to the hex files is all within the <code>/source</code> subdirectory. You will see that the file in there by default is only <code>main.cpp</code>. While this is technically a C++ file, we will continue to essentially just write C. This is possible as C++ is a superset of C.</p>
-<p>The build script will treat all cpp source files in this directory as part of the source code.</p>
-<p><code>main.cpp</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp code-with-copy"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"MicroBit.h"</span></span>
+</section>
+<section id="print-debugging" class="level2">
+<h2 class="anchored" data-anchor-id="print-debugging">Print debugging</h2>
+<p>This is very simply outputting information to the command line from your program at different points to check what different values are. While this can sometimes be a good option for simple tasks, this technique is limited as the output it will create is often cluttered and it takes a significant amount of time to setup and remove temporary code once you have found the bug. Its biggest weakness though is the lack of ability to provide an overview of execution flow.</p>
+</section>
+</section>
+<section id="input-validation" class="level1">
+<h1>Input Validation</h1>
+<p>Input validation in C is relativity simple due to a feature of <code>scanf()</code> that we have not yet mentioned. <code>scanf()</code> will return the number of values that is successfully managed to read from the command line, therefore this can be easily compared to the expected number of values to see if it was successful.</p>
+<p>This can be seen if you test using this simple program:</p>
+<p><code>scanfValidation.c</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// The Micro:bit control object</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>MicroBit uBit<span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Out main function, run at startup</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Loop forever</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span><span class="op">(</span> <span class="kw">true</span> <span class="op">)</span> <span class="op">{</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Scroll some text on the display</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        uBit<span class="op">.</span>display<span class="op">.</span>scroll<span class="op">(</span> <span class="st">"Hello, Bootstrap!"</span> <span class="op">);</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Will never return, but here so the compiler is happy :)</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>This program uses the <code>while( true )</code> pattern to loop infinitely</li>
-<li>The line <code>MicroBit uBit;</code> is very important to the code as it initialises the interface to the hardware.</li>
-<li>The dot notation that is used for the functions is similar to that used in python, it uses OOP principals but it is not necessary to understand this to use this in code.</li>
-</ul>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> input1<span class="op">,</span> readValues<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> input2<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">char</span> <span class="op">*</span> input3<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Input an int, a char and a string."</span><span class="op">)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    readValues <span class="op">=</span> scanf<span class="op">(</span><span class="st">"</span><span class="sc">%d</span><span class="st"> </span><span class="sc">%c</span><span class="st"> </span><span class="sc">%s</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>input1<span class="op">,</span> <span class="op">&amp;</span>input2<span class="op">,</span> input3<span class="op">);</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%d\n</span><span class="st">"</span><span class="op">,</span> readValues<span class="op">);</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="example-of-validation-loop" class="level2">
+<h2 class="anchored" data-anchor-id="example-of-validation-loop">Example of validation loop</h2>
+<p>While loops are often used for validation as they will run until a valid input is given.</p>
+<p>``</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="output-options" class="level1">
-<h1>Output options</h1>
-<p>The first of the output options is used in the example above. This option will move whatever input data it receives from right to left on the screen. <code>uBit.display.scroll(&lt;text, character or image&gt;)</code></p>
-<p>This option will simply display the character or the image passed to it on the screen. <code>uBit.display.print(&lt;character or image&gt;)</code></p>
-<p>Use this to change the value of specific pixels. <code>uBit.display.image.setPixelValue(&lt;x axis position&gt;, &lt;y axis position&gt;, &lt;int brightness (0-255)&gt;);</code></p>
 </section>
-<section id="microbit-images" class="level1">
-<h1>Microbit images</h1>
-<p>These are defined in a different way to the normal variables you have previously met in C. In this case the identifier of the variable is ‘cross’ and the data in the brackets defines the data that will be stored. <code>MicroBitImage cross("0,255,0\n255,255,255\n0,255,0\n");</code></p>
-<p>The format of the input data is a string containing integers (0-255), representing the light level for a pixel, separated by commas. The <code>\n</code> characters represent new lines in the image.</p>
-<p>In practice these images will often be 5x5 as this is the size of the Microbit screen.</p>
-</section>
-<section id="sleep" class="level1">
-<h1>Sleep</h1>
-<p>The Microbit can also be given the command to not execute commands for a specified amount of time. This command is called <code>sleep</code> and can be called as: <code>uBit.sleep(&lt;time in ms&gt;)</code></p>
-</section>
-<section id="buttons" class="level1">
-<h1>Buttons</h1>
-<p>The codal abstraction layer allows for programs to sense if a the buttons on the device are being pressed. These code snippets can simply be used in control statements to branch or loop based on environment of the Microbit. <code>uBit.buttonA.isPressed()</code> <code>uBit.buttonB.isPressed()</code> <code>uBit.buttonAB.isPressed()</code></p>
-<!-- Add examples -->
+<section id="code-style" class="level1">
+<h1>Code style</h1>
 
 
 </section>

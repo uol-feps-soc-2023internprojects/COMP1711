@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.433">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -144,7 +144,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../Notes/microbit-undocumented.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Microbit functions</span></a>
+ <span class="menu-text">Microbit Notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -187,6 +187,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../Notes/n07-arrays-strings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">7: Arrays and Strings</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n08-pointers-dynamic-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8: Pointers and dynamic memory</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n09-structs-fileIO.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Structures and file IO</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/n10-data-structues.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10: data structures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Notes/programming-skills.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Programming skills</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -242,18 +266,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-a-function" id="toc-what-is-a-function" class="nav-link active" data-scroll-target="#what-is-a-function">What is a function?</a>
+  <li><a href="#aims" id="toc-aims" class="nav-link active" data-scroll-target="#aims">Aims</a></li>
+  <li><a href="#what-is-a-function" id="toc-what-is-a-function" class="nav-link" data-scroll-target="#what-is-a-function">What is a function?</a>
   <ul class="collapse">
   <li><a href="#template-of-a-c-function" id="toc-template-of-a-c-function" class="nav-link" data-scroll-target="#template-of-a-c-function">Template of a C function</a></li>
   <li><a href="#calling-a-function" id="toc-calling-a-function" class="nav-link" data-scroll-target="#calling-a-function">Calling a function</a></li>
   <li><a href="#functions-that-you-have-already-used" id="toc-functions-that-you-have-already-used" class="nav-link" data-scroll-target="#functions-that-you-have-already-used">Functions that you have already used</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   </ul></li>
-  <li><a href="#program-arguments--" id="toc-program-arguments--" class="nav-link" data-scroll-target="#program-arguments--">Program arguments -</a>
+  <li><a href="#program-arguments" id="toc-program-arguments" class="nav-link" data-scroll-target="#program-arguments">Program arguments</a>
   <ul class="collapse">
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a>
+  <ul class="collapse">
+  <li><a href="#breakdown" id="toc-breakdown" class="nav-link" data-scroll-target="#breakdown">Breakdown:</a></li>
   </ul></li>
-  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries">Libraries</a></li>
+  </ul></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries">Libraries</a>
+  <ul class="collapse">
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a>
+  <ul class="collapse">
+  <li><a href="#breakdown-1" id="toc-breakdown-1" class="nav-link" data-scroll-target="#breakdown-1">Breakdown</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#recursion" id="toc-recursion" class="nav-link" data-scroll-target="#recursion">Recursion</a></li>
   </ul>
 </nav>
@@ -278,6 +312,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="aims" class="level1">
+<h1>Aims</h1>
+<ul>
+<li>Understand what a</li>
+</ul>
+</section>
 <section id="what-is-a-function" class="level1">
 <h1>What is a function?</h1>
 <p>In the same why that a variable is a piece of data that can be referenced with an identifier, a function is a section of code that can be referenced with an identifier.</p>
@@ -301,6 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c<span class="op">;</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>A valid function call would be: <code>sum(1,2)</code> Though this would likely be only part of a line of code: <code>int total = sum(1, 2);</code></p>
+<p>TODO: add note about calling arguments after they are defined.</p>
 </section>
 <section id="functions-that-you-have-already-used" class="level2">
 <h2 class="anchored" data-anchor-id="functions-that-you-have-already-used">Functions that you have already used</h2>
@@ -312,18 +353,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="example" class="level2">
 <h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>This example shows a simple program making use of a function.</p>
+<p><code>temperature.c</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Function to convert a temperature in celsius to Fahrenheit.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> celsiusToF<span class="op">(</span><span class="dt">float</span> inputTemp<span class="op">)</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>inputTemp <span class="op">*</span> <span class="fl">1.8</span><span class="bu">f</span><span class="op">)</span> <span class="op">+</span><span class="dv">32</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> userTemp <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Please enter a temperature in celsius. "</span><span class="op">);</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>userTemp<span class="op">);</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"That is equivalent to </span><span class="sc">%f</span><span class="st"> fahrenheit.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> celsiusToF<span class="op">(</span>userTemp<span class="op">));</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="program-arguments--" class="level1">
-<h1>Program arguments -</h1>
+<section id="program-arguments" class="level1">
+<h1>Program arguments</h1>
 <p>maybe rearrange so that this is explained after arrays (and maybe pointers)</p>
 <p>In all the examples that we have used so far the main function , which acts as the entry point for execution has had no parameters. Does this mean that there is no way to pass values to our programs from the command line?</p>
 <p>No this isn’t the case we use to special parameters for the main function defined as such:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span> argv<span class="op">[])</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Code</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span> argv<span class="op">[])</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Code</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This will allow you to access the arguments used to run the executable from within the program. There are 2 key values involved in this:</p>
 <ul>
 <li>argc
@@ -341,6 +400,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="example-1" class="level2">
 <h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<p>Here we take the previous example and adapt it to take the input at the time the program is run.</p>
+<p><code>temperatureCLI.c</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdlib.h&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Function to convert a temperature in celsius to Fahrenheit.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> celsiusToF<span class="op">(</span><span class="dt">float</span> inputTemp<span class="op">)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>inputTemp <span class="op">*</span> <span class="fl">1.8</span><span class="bu">f</span><span class="op">)</span> <span class="op">+</span><span class="dv">32</span><span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">(</span><span class="dt">int</span> argc<span class="op">,</span> <span class="dt">char</span> <span class="op">*</span> argv<span class="op">[])</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> input <span class="op">=</span> atof<span class="op">(</span>argv<span class="op">[</span><span class="dv">1</span><span class="op">]);</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"</span><span class="sc">%f</span><span class="st"> celsius is equivalent to </span><span class="sc">%f</span><span class="st"> fahrenheit.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> input<span class="op">,</span> celsiusToF<span class="op">(</span>input<span class="op">));</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="breakdown" class="level3">
+<h3 class="anchored" data-anchor-id="breakdown">Breakdown:</h3>
+<ul>
+<li>Here the special function <code>atof()</code> is used.
+<ul>
+<li>The name of this function is a shortening of “ASCII” to float.</li>
+<li>The function takes a string as an input and returns the float value represented by the string.</li>
+</ul></li>
+<li>The program passes <code>argv[1]</code> to the function.
+<ul>
+<li>This assumes that the first value after the command name (which will be <code>argv[0]</code>) will be the temperature in celsius.</li>
+</ul></li>
+</ul>
+</section>
 </section>
 </section>
 <section id="libraries" class="level1">
@@ -349,6 +439,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This is with the exception of <code>scanf</code> and <code>printf</code>. These are accessible due to the <code>#include &lt;stdio.h&gt;</code> statement at the top of most or all of the C files you have seen.</p>
 <p><code>#include</code> statements reference files with the <code>.h</code> extension that are called ‘header’ files. These files are looked at in the early stages of compilation and provide a ‘prototype’ of the functions (or other) that will be defined in the corresponding <code>.c</code> file.</p>
 <p>In the case of <code>stdio.h</code> these functions and definitions are stored in shared libraries in the source code. But it is simple to include files of your own creation.</p>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example</h2>
+<p>We can now create a new version of our original temperature program using these ideas.</p>
+<p><code>tempConversion.h</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> celsiusToF<span class="op">(</span><span class="dt">float</span> inputTemp<span class="op">);</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>tempConversion.c</code></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Function to convert a temperature in celsius to Fahrenheit.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">float</span> celsiusToF<span class="op">(</span><span class="dt">float</span> inputTemp<span class="op">)</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>inputTemp <span class="op">*</span> <span class="fl">1.8</span><span class="bu">f</span><span class="op">)</span> <span class="op">+</span><span class="dv">32</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>temperatureV2.c</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;stdio.h&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">"tempConversion.h"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> main<span class="op">()</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">float</span> userTemp <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"Please enter a temperature in celsius. "</span><span class="op">);</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    scanf<span class="op">(</span><span class="st">"</span><span class="sc">%f</span><span class="st">"</span><span class="op">,</span> <span class="op">&amp;</span>userTemp<span class="op">);</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    printf<span class="op">(</span><span class="st">"That is equivalent to </span><span class="sc">%f</span><span class="st"> fahrenheit.</span><span class="sc">\n</span><span class="st">"</span><span class="op">,</span> celsiusToF<span class="op">(</span>userTemp<span class="op">));</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="breakdown-1" class="level3">
+<h3 class="anchored" data-anchor-id="breakdown-1">Breakdown</h3>
+<ul>
+<li>Here we can see that the function implementation that was previously in the <code>temperature.c</code> file has now been moved to a separate <code>tempConversion.c</code> file.
+<ul>
+<li>The header file <code>tempConversion.h</code> is used to declare which parts of <code>tempConversion.c</code> should be accessible to other files.</li>
+<li>This is done as a separate file as it is mainly relevant to c files that are importing the code rather than the code itself TODO; rewrite this?</li>
+</ul></li>
+<li>In order to compile this code we must include <code>tempConversion.c</code> in the compilation command. Therefore the compilation would look something like this:
+<ul>
+<li>(run from <code>/c-basics</code>) <code>gcc temperatureV2.c tempConversion.c</code></li>
+</ul></li>
+</ul>
+</section>
+</section>
 </section>
 <section id="recursion" class="level1">
 <h1>Recursion</h1>

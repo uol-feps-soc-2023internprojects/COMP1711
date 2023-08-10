@@ -1,129 +1,45 @@
 [
   {
-    "objectID": "resources.html",
-    "href": "resources.html",
-    "title": "Resources",
+    "objectID": "Notes/n06-functions-arguments.html",
+    "href": "Notes/n06-functions-arguments.html",
+    "title": "6: Functions and arguments in C",
     "section": "",
-    "text": "Bash\n\n\nC\n\n\nGit\nGit Cheat Sheet"
+    "text": "Understand what a"
   },
   {
-    "objectID": "Notes/n04-c-inro.html",
-    "href": "Notes/n04-c-inro.html",
-    "title": "4: Introduction to C",
-    "section": "",
-    "text": "Important\n\n\n\nInstructions in this file are to be run in the same codespace based on 1711-introduction. Make sure to save your changes."
+    "objectID": "Notes/n06-functions-arguments.html#calling-a-function",
+    "href": "Notes/n06-functions-arguments.html#calling-a-function",
+    "title": "6: Functions and arguments in C",
+    "section": "Calling a function",
+    "text": "Calling a function\nWhen calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.\ne.g. for this simple function:\nint sum( int a, int b )\n{\n    int c = a + b;\n    return c;\n}\nA valid function call would be: sum(1,2) Though this would likely be only part of a line of code: int total = sum(1, 2);\nTODO: add note about calling arguments after they are defined."
   },
   {
-    "objectID": "Notes/n04-c-inro.html#breakdown",
-    "href": "Notes/n04-c-inro.html#breakdown",
-    "title": "4: Introduction to C",
-    "section": "Breakdown",
-    "text": "Breakdown\n\n#include is a preprocessor command that allows a c program to use functionality that is implemented in separate c files. More detail will be given on this later in the course\nint main() is the entrypoint of a c program, every c program you write will include this i.e. the first line of code run is the first line within the {} of main.\nThe // marks the start of a single line comment, this part of the code is for notes from/to developers and does not affect the functionality of the program.\nAs the comment mentions, printf() is used to output to the command line.\nThe return statement sends a status value back to the command line, a 0 status suggest a successful execution."
+    "objectID": "Notes/n06-functions-arguments.html#functions-that-you-have-already-used",
+    "href": "Notes/n06-functions-arguments.html#functions-that-you-have-already-used",
+    "title": "6: Functions and arguments in C",
+    "section": "Functions that you have already used",
+    "text": "Functions that you have already used\n\nscanf to read input from the command line\nprintf to output to the command line\nmain as the entrypoint to your program"
   },
   {
-    "objectID": "Notes/n04-c-inro.html#the-c-compiler",
-    "href": "Notes/n04-c-inro.html#the-c-compiler",
-    "title": "4: Introduction to C",
-    "section": "The C compiler",
-    "text": "The C compiler\nThe most common c compiler across unix machines is gcc. At its most simple for our use it can simply be run like this:\ngcc hello-world.c\nThis will produce a output executable called a.out that can be run like this:\n$ ./a.out\nHello, world!\nHere you can see that the ./ syntax for running the executable is the same as for an executable shell script when the executable is in your directory.\nThis output file can be renamed using the -o option to specify an output file for the compiler e.g. to create an executable with the same name (but no extension): gcc hello-world.c -o hello-world"
+    "objectID": "Notes/n06-functions-arguments.html#example",
+    "href": "Notes/n06-functions-arguments.html#example",
+    "title": "6: Functions and arguments in C",
+    "section": "Example",
+    "text": "Example\nThis example shows a simple program making use of a function.\ntemperature.c\n#include &lt;stdio.h&gt;\n\n// Function to convert a temperature in celsius to Fahrenheit.\nfloat celsiusToF(float inputTemp)\n{\n    return (inputTemp * 1.8f) +32;\n}\n\nint main()\n{\n    float userTemp = 0;\n    printf(\"Please enter a temperature in celsius. \");\n    scanf(\"%f\", &userTemp);\n    printf(\"That is equivalent to %f fahrenheit.\\n\", celsiusToF(userTemp));\n    return 0;\n}"
   },
   {
-    "objectID": "Notes/n04-c-inro.html#key-parts",
-    "href": "Notes/n04-c-inro.html#key-parts",
-    "title": "4: Introduction to C",
-    "section": "Key parts",
-    "text": "Key parts\nA variable made up of 3 things\n\nAn identifier used in the code to refer to a stored value\nThe location in memory where this data is being stored\nThe data type which is used to specify the way this data should be stored and accessed."
+    "objectID": "Notes/n06-functions-arguments.html#example-1",
+    "href": "Notes/n06-functions-arguments.html#example-1",
+    "title": "6: Functions and arguments in C",
+    "section": "Example",
+    "text": "Example\nHere we take the previous example and adapt it to take the input at the time the program is run.\ntemperatureCLI.c\n#include &lt;stdio.h&gt;\n#include &lt;stdlib.h&gt;\n\n// Function to convert a temperature in celsius to Fahrenheit.\nfloat celsiusToF(float inputTemp)\n{\n    return (inputTemp * 1.8f) +32;\n}\n\nint main(int argc, char * argv[])\n{\n    float input = atof(argv[1]);\n    printf(\"%f celsius is equivalent to %f fahrenheit.\\n\", input, celsiusToF(input));\n    return 0;\n}\n\nBreakdown:\n\nHere the special function atof() is used.\n\nThe name of this function is a shortening of “ASCII” to float.\nThe function takes a string as an input and returns the float value represented by the string.\n\nThe program passes argv[1] to the function.\n\nThis assumes that the first value after the command name (which will be argv[0]) will be the temperature in celsius."
   },
   {
-    "objectID": "Notes/n04-c-inro.html#data-types",
-    "href": "Notes/n04-c-inro.html#data-types",
-    "title": "4: Introduction to C",
-    "section": "Data types",
-    "text": "Data types\nThere are 2 key basic data types in C:\n\nint used to store integer numbers\nfloat used to store floating point (decimal) numbers\nchar used to store characters\n\nThere are also further data types used to store numbers, these are adapted to increase the range of values possible to store or the precision with which they can be stored.\nAll data types are keywords in the C language."
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#using-variables-in-c",
-    "href": "Notes/n04-c-inro.html#using-variables-in-c",
-    "title": "4: Introduction to C",
-    "section": "Using variables in c",
-    "text": "Using variables in c\nThere are three key actions that can be taken with variables\n\nInitialization - in c this defines the variables identifier and data type and will trigger the system to assign a portion of memory to it. e.g.\n\nint counter;\n\nAssignment - This alters the value of the variable stored in memory. e.g.\n\ncounter = 2;\nThe value that is being assigned can be simply typed in code or the result of an arithmetic calculation\nThese first two steps can be combined into a single line: int counter = 2;\n\nAccess - Use of the variable using the identifier in code, this can be in any statement where a value of that data type is required e.g. creating a new variable: int newCounter = counter + 2;"
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#notes",
-    "href": "Notes/n04-c-inro.html#notes",
-    "title": "4: Introduction to C",
-    "section": "Notes",
-    "text": "Notes\n\nThis program uses the keyword const to modify the data type of the variable value. This stops the variable from being changed later in the program.\n\nUsing a static value like this is good for the program as it means that in the code there is only a single place where the value needs to be changed. This makes the code more maintainable."
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#sequential",
-    "href": "Notes/n04-c-inro.html#sequential",
-    "title": "4: Introduction to C",
-    "section": "Sequential",
-    "text": "Sequential\nThis is the most simple way and the default, you simply proceed to the next line after each line, as such there are no special structures associated with it."
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#logical-expressions",
-    "href": "Notes/n04-c-inro.html#logical-expressions",
-    "title": "4: Introduction to C",
-    "section": "Logical expressions",
-    "text": "Logical expressions\nMore complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination. N.B. these can also implement arithmetic operators in combination with this.\n\nExamples of logical expressions\ncounter &lt;= 12\nvalue &gt; threshold || override == 1\nEventually you will need to use more complex statements\nsource-&gt;metaData[WIDTH] + colStartIndex  &gt; destination-&gt;metaData[WIDTH] || source-&gt;metaData[HEIGHT] + rowStartIndex &gt; destination-&gt;metaData[HEIGHT]"
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#branching",
-    "href": "Notes/n04-c-inro.html#branching",
-    "title": "4: Introduction to C",
-    "section": "Branching",
-    "text": "Branching\nIn branching control flow a selection is made between different segments of code based on a variable or logical expression. The most commonly used branching pattern is the if-else statement:\nif(/*Logical Expression*/)\n{\n    // code run if logical expression is true\n}\nelse\n{\n    // run code \n}\n\nAdditionally else if statements can be added to have additional arguments to control when a block of code is run.\n\nCode within an else if block will only run if the conditions for the parent if statement and any previous if conditions are all not met.\n\nCode within an else block are only run if none of the conditions are met\nAn if statement does not require any subsequent else statements.\n\n\nExample\nTest this out for yourself!\nnumbers.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int num = 0;\n    printf(\"Please enter a number: \");\n    scanf(\"%d\", &num);\n    if (num &gt; 10)\n    {\n        printf(\"Your number is greater than ten.\\n\");\n    }\n    else if (num &lt; 0)\n    {\n        printf (\"Your number is less than 0\\n\");\n    }\n    else\n    {\n        printf (\"Your number is between 0 and 10 (inclusive)\\n\");\n    }\n    return 0;\n}\n\nNotes\n\nNote that the %d format specifier is used to read an integer\nThe & symbol is required in front of not array variables when using scanf()."
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#looping",
-    "href": "Notes/n04-c-inro.html#looping",
-    "title": "4: Introduction to C",
-    "section": "Looping",
-    "text": "Looping\nIn looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a specific number of loops (for loop).\n\nWhile loop\nwhile(/*logical expression*/)\n{\n    // code to be run\n}\nThe logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.\n\nExample\naverage.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int counter = 0;\n    float input = 0, total = 0; \n    printf(\"This is a program to calculate the average of positive values.\\n\"\n            \"Once you have entered all your values enter a negative number to calculate the average.\\n\");\n    while (input != -1)\n    {\n        printf(\"Enter value:\");\n        scanf(\"%f\", &input);\n        if (input &lt; 0)\n        {\n            continue;\n        }\n        counter += 1;\n        total += input;\n    }\n    printf(\"Average is %f\\n\", total/(float)counter);\n}\n\nBreakdown\n\nMultiple variables of the same kind can be initialised in a single line when separated with commas.\n%f format specifier for floats\nThe continue keyword causes the current iteration of the loop to end and the next one to start.\nAny control structure can be nested within another control structure.\n\n\n\n\n\nFor loop\nfor-test.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for (int i = 0; i &lt; 5; i++) // Example loop to run 5 times.\n    {\n        // Code to be run\n        printf(\"(%d)\\n\", i);\n    }\n}\n\nBreakdown\nThe for loop control code has 3 key parts:\n\nVariable initialisation and assignment.\n\nIn this example:int i = 0;\nIt is typical in C (and may other programming languages) to start counting from 0, therefore it is often useful to start a loop control variable from 0.\nThe identifier i is used as a de-facto standard but can be renamed to improve code readability.\n\nCondition.\n\nIn this example: i &lt; 5\nThe code within the loop will run while this condition is true.\nAs such be careful if a mistake is made in the condition it may prohibit the code within the loop from running.\n\nUpdating the variable\n\nIn this example: `i++\n++ is called the increment operator and simply increases the value of a variable by one. It is simply a shortening of the code x = x+1.\n-- (the decrement operator) is often used in place of ++ for decreasing loops.\nCan also use i += &lt;val&gt; or i -= &lt;val&gt; to change variable by more than one without referencing it twice.\n\n\nYou should run for-test.c to check that this is all true. You can then change the parameters to see the values of i for which the loop will be run. Change the parameters so that it runs for different values:\n\nValues from 7 to 14\nOnly even numbers to 12\nDecreasing values from 4 to 0\n\n\n\nExample\nWhat do you think this block of code will do? Run it to find out! pattern.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\nNotes\n\nNested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.\nIn this case the inner loop is dependent on the outer loop as the condition for the inner loop is based on the control value of the outer loop"
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#whitespace",
-    "href": "Notes/n04-c-inro.html#whitespace",
-    "title": "4: Introduction to C",
-    "section": "Whitespace",
-    "text": "Whitespace\nAll of the examples featured so far follow traditional beat practice for the use of whitespace.\n\nNew line after each semi-colon\nCode within a Scope is indented. Code within a subscope is indented for each parent scope\n\nThe size of indents is cause for debate, the approach that we have chosen is 4 space sized indents. Though tabs are traditionally 8 characters wide."
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#comments",
-    "href": "Notes/n04-c-inro.html#comments",
-    "title": "4: Introduction to C",
-    "section": "Comments",
-    "text": "Comments\nAll of the code in these examples has been simple and short, however, as code becomes longer it becomes exponentially more difficult to comprehend. Comments should be used to make your code more understandable describing high level aims of the code or why a specific approach has been used rather than simply explaining the syntax of the code that is there."
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#arithmetic-1",
-    "href": "Notes/n04-c-inro.html#arithmetic-1",
-    "title": "4: Introduction to C",
-    "section": "Arithmetic",
-    "text": "Arithmetic\n\n\n\nOperator\nName\n\n\n\n\n+\nAddition\n\n\n-\nSubtraction\n\n\n*\nMultiplication\n\n\n/\nDivision\n\n\n%\nModulo (remainder after division)"
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#comparison",
-    "href": "Notes/n04-c-inro.html#comparison",
-    "title": "4: Introduction to C",
-    "section": "Comparison",
-    "text": "Comparison\n\n\n\nOperator\nName\n\n\n\n\n==\nEqual to\n\n\n!=\nNote equal to\n\n\n&gt;\nGreater than\n\n\n&lt;\nLess than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to"
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#logical",
-    "href": "Notes/n04-c-inro.html#logical",
-    "title": "4: Introduction to C",
-    "section": "Logical",
-    "text": "Logical\n\n\n\nOperator\nName\n\n\n\n\n&&\nAND\n\n\n||\nOR\n\n\n!\nNOT"
-  },
-  {
-    "objectID": "Notes/roughNotes.html",
-    "href": "Notes/roughNotes.html",
-    "title": "TODO",
-    "section": "",
-    "text": "Missiong parts\n\nup arrow for terminal\nctrl+c to end\ncopy and paste command line\nMicrobit examples and exercises\n#define explanation - combo with advice to avoid ‘magic numbers in code’\n\n\n\nC exersizes\n\nalter the patterns.c\n\n\n\nC notes 2\n\nfunctions\n\ncontextualise using control flow\n\nparameter passing\n\n\n\nC notes 3\n\narrays\n\nDimensions\nlooping over\nmention pointers\n\nstrings\n\nspecial case of character array\n\\0\n\n\n\n\nC notes 4\n\npointers\nmemory allocation\n\nmalloc\nfree\ncalloc??\n\n\n\n\nC notes 5\n\nStrucutres\nfile IO\n\n\n\nC notes 6\n\nlinked lists\n\n\n\nC notes 7\n\nstacks and queues\n\n\n\nC notes 8\n\ntrees\n\n\n\nC notes 9\n\nsearch & sort\n\n\n\nReview"
+    "objectID": "Notes/n06-functions-arguments.html#example-2",
+    "href": "Notes/n06-functions-arguments.html#example-2",
+    "title": "6: Functions and arguments in C",
+    "section": "Example",
+    "text": "Example\nWe can now create a new version of our original temperature program using these ideas.\ntempConversion.h\nfloat celsiusToF(float inputTemp);\ntempConversion.c\n// Function to convert a temperature in celsius to Fahrenheit.\nfloat celsiusToF(float inputTemp)\n{\n    return (inputTemp * 1.8f) +32;\n}\ntemperatureV2.c\n#include &lt;stdio.h&gt;\n#include \"tempConversion.h\"\n\nint main()\n{\n    float userTemp = 0;\n    printf(\"Please enter a temperature in celsius. \");\n    scanf(\"%f\", &userTemp);\n    printf(\"That is equivalent to %f fahrenheit.\\n\", celsiusToF(userTemp));\n    return 0;\n}\n\nBreakdown\n\nHere we can see that the function implementation that was previously in the temperature.c file has now been moved to a separate tempConversion.c file.\n\nThe header file tempConversion.h is used to declare which parts of tempConversion.c should be accessible to other files.\nThis is done as a separate file as it is mainly relevant to c files that are importing the code rather than the code itself TODO; rewrite this?\n\nIn order to compile this code we must include tempConversion.c in the compilation command. Therefore the compilation would look something like this:\n\n(run from /c-basics) gcc temperatureV2.c tempConversion.c"
   },
   {
     "objectID": "Notes/n07-arrays-strings.html",
@@ -131,13 +47,6 @@
     "title": "7: Arrays and Strings",
     "section": "",
     "text": "Arrays are a series of values of a specific data type stored under a specific identifier. This section of the notes will cover arrays of fixed length, often called static arrays. These arrays can be initialised in 2 ways.\ntype arrayId[arraySize];\ntype arrayId[] = {value1, value2,..., valueN};\nTo access the different values stored in the array indexes must be used within []. Array indexes start from 0\ni.e. first element will be at index 0 and the final element will be at sizeOfArray -1.\narrayId[index]\nThe length of an array can be found using the sizeof() function."
-  },
-  {
-    "objectID": "Notes/n07-arrays-strings.html#examples",
-    "href": "Notes/n07-arrays-strings.html#examples",
-    "title": "7: Arrays and Strings",
-    "section": "Examples",
-    "text": "Examples"
   },
   {
     "objectID": "Notes/n07-arrays-strings.html#example---resrever-gnirts",
@@ -161,90 +70,6 @@
     "text": "Important\n\n\n\nInstructions in this file are to be run in the same codespace based on 1711-introduction. Make sure to save your changes.\n\n\n\nAims\n\nUnderstand what a shell script is\nBe familiar making and executing shell scripts\n\n\n\nShell scripts\nShell scripts, often called bash scripts due to the prevalence of the bash script, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.\nFirst make a a new file in the scripts directory called time.sh. In the file put these lines:\n#!/bin/bash\necho $(date)\n\n\n\n\n\n\nTip\n\n\n\nTo do this use the mkdir, cd, touch and nano commands\n\n\n\nCode breakdown\n\n#!/bin/bash tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.\necho is a command for outputting to the command line.\n$(date) is a value maintained by the system and accessible from the command line.\n\nWhen we wish to execute a program in our current directory we call it as a command by appending ./ to the name. This tells the operating system to look in the current directory for the program to run.\nTherefore In order to run the is script we run the command ./time.sh however at the moment that will give us this output:\n$ ./time.sh\nbash: ./time.sh: Permission denied\n\n\n\nWhy doesn’t the script run?\nThis is as, when creating a new file the default permissions for the file do not allow it to be executed. The current permissions of the file can be checked using the -l option for ls.\n$ ls -l\n-rw-rw-rw- 1 codespace codespace 13 Jul  7 09:28 time.sh\nThe part of this output that is relevant to this case is the string -rw-rw-rw-\n\nThe first character indicates any special permissions that the directory entry may have e.g. d for directory or l for symbolic link. In our case as time.sh is simply a file this is left empty.\nThe rest of the string represents the permissions for the file. This is split into 3 different categories for 3 different groups.\n\nThe three possible permissions are read(r), write(w) and execute(x). If the character is present in the string it means that the action is permitted for that group, otherwise the string will contain a -\nThis is repeated three times in the string, first for the owner of the file/directory, next the group assigned to the file/directory and finally all users\n\n\nSo in this case the file can be read and written by all users, but not executed, how can we change this?\n\n\nAltering file permissions.\nThe chmod command is used to alter the permissions of files. In this case we want to add executable permission to the file so we must run the command\nchmod +x time.sh\nOnce this is done, you can rerun the script and see the output.\n\n\nReminder of key steps to make a shell script\n\nMake file with .sh extension\nPut #!/bin/bash at the start of the file.\nChange the permissions so the file is executable.\n\n\n\nA more complex example:\nscripts/dataAnalysis1.sh\n#!/bin/bash\n\ncat data/values* &gt; output.txt\nsed -i 's/\\s/\\n/g' output.txt \nsed -i '/^$/d' output.txt \nsort -no output.txt output.txt\nhead -n1 output.txt\ntail -n1 output.txt\nrm output.txt\nRun this script from the root of the git repo using ./scripts/dataAnalysis1.sh Then run each of the commands that the script will run individually and inspect the contents of output.txt to see what the command has done.\n\n\n\n\n\n\nImportant\n\n\n\nGiven this script is using relative paths it will only work when it is being run from the the root of the repository.\nThis is as the working directory for the script is the same as the working directory where it is run.\n\n\nLets break down what this is doing:\n\nFirst line uses cat to output all files in directories starting data/values. It does this using the wildcard operator * to select all of these files. The output is then redirected to the file output.txt using &gt;.\noutput.txt now contains all the values, but not in the format we want. Therefore we use the stream editor sed to first split the values onto different lines using the pattern 's/\\s/\\n/g'. Then we remove any blank lines using the pattern /^$/d.\nNext we sort the file. The options -n specifies to sort numerically and -o allows for the specifying of an output file.\nhead -n1 and tail -n1 will output the first and last values respectively\nFinally rm removes out temporary file.\n\n\n\nAnother way\nFrom the root of the git repo run the command\ncat data/values* | sed 's/\\s/\\n/g' | sed '/^$/d' | sort -n | (head -n1 && tail -n1)\nThis condenses the whole of the previous script into a single line using pipes |. Pipes redirect output from one command to the next. This is still not really worth typing repeatedly so would likely be put in a script for reuse.\nThis script can be found in scripts/dataAnalysis2.sh\nThis does have a significant performance benefit though that can be seen by using the time command to measure the performance of each script. Try this yourself.\n\n\n\n\n\n\nImportant\n\n\n\nRemember to save your changes to your Codespace."
   },
   {
-    "objectID": "Exercises/e01-linux-cli.html",
-    "href": "Exercises/e01-linux-cli.html",
-    "title": "1: Linux Command line skills",
-    "section": "",
-    "text": "Create the following directory tree in the shell training repo:\n\n\nwork\nwork/input_data/\nwork/results/\nwork/program/\n\n\nCreate the file input.txt with a text editor and put some text in it.\nMove the file to work/input_data and rename it in the same command to control01.txt\nCreate this directory tree in one line only: work/experiment/results/report\nDelete the work directory and all of its contents with one single command.\n\n\n\n\n\n\n\nTip\n\n\n\nUse the man command to check the options that you can use to do these last two tasks."
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#extension",
-    "href": "Exercises/e01-linux-cli.html#extension",
-    "title": "1: Linux Command line skills",
-    "section": "Extension",
-    "text": "Extension\n\nEdit the script to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)\nNow try and make it in a single line."
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#answers---out-of-date",
-    "href": "Exercises/e01-linux-cli.html#answers---out-of-date",
-    "title": "1: Linux Command line skills",
-    "section": "Answers - out of date",
-    "text": "Answers - out of date\ncat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt\ncat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt"
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#answer",
-    "href": "Exercises/e01-linux-cli.html#answer",
-    "title": "1: Linux Command line skills",
-    "section": "Answer",
-    "text": "Answer\nwc -w data/* | sort -n"
-  },
-  {
-    "objectID": "Exercises/e01-linux-cli.html#answer-1",
-    "href": "Exercises/e01-linux-cli.html#answer-1",
-    "title": "1: Linux Command line skills",
-    "section": "Answer",
-    "text": "Answer\nsed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Procedural Programming",
-    "section": "",
-    "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
-  },
-  {
-    "objectID": "glossary.html",
-    "href": "glossary.html",
-    "title": "Glossary",
-    "section": "",
-    "text": "A\n\n\nB\n\n\nC\n\n\nD\n\n\nE\n\n\nF\n\n\nG\n\n\nH\n\n\nI\n\n\nJ\n\n\nK\n\n\nL\n\n\nM\n\n\nN\n\n\nO\n\n\nP\n\n\nQ\n\n\nR\n\n\nS\n\n\nT\n\n\nU\n\n\nV\n\n\nW\n\n\nX\n\n\nY\n\n\nZ"
-  },
-  {
-    "objectID": "Exercises/e02-c-basic.html",
-    "href": "Exercises/e02-c-basic.html",
-    "title": "2: Basic C exercises",
-    "section": "",
-    "text": "Exercise 1 - Odd or Not\nWrite a program that takes a integer input from the user and determines whether the value is odd or even. Hint: use the modulo operator.\n\nExtension\nRewrite the program so it takes two integers as inputs and determines whether one is a multiple of the other.\n\n\n\nExercise 2 - Patterns!\nTake this program, pattern.c from the notes.\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\nWith this code the program will output:\n*\n**\n***\n****\n*****\n******\n*******\nAlter the program so that it outputs these different patterns:\n\n1\n*****\n****\n***\n**\n*\n\nAnswer\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 6; i &gt; 1; i--)\n    {\n        for(int j = 1; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\n\n\n2\n   *\n  ***\n *****\n\nAnswer\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 6; i+=2)\n    {\n        for(int j = 0; j &lt; 7-i; j+=2)\n        {\n            printf(\" \");\n        }\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\n\n\n3\nMake this set of patterns that could create an animation:\n*****\n*   *\n*   *\n*   *\n*****\n-----\n * * \n*****\n * * \n*****\n * * \n-----\n  *  \n  *  \n*****\n  *  \n  *  \n-----\n * * \n*****\n * * \n*****\n * * \n-----\n*****\n*   *\n*   *\n*   *\n*****\n-----\n\nAnswer\n#include &lt;stdio.h&gt;\n#define GRID_SIZE 5\n#define MAX_INDEX GRID_SIZE-1\n\nint main()\n{\n    for(int k = 0; k &lt; GRID_SIZE; k++)\n    {\n        for(int i = 0; i &lt; GRID_SIZE; i++)\n        {\n            for(int j = 0; j &lt; GRID_SIZE; j++)\n            {\n                if(i == 0 + k || i == MAX_INDEX-k || j == 0 + k | j  == MAX_INDEX - k)\n                {\n                    printf(\"*\");\n                }\n                else\n                {\n                    printf(\" \");\n                }\n            }\n            printf(\"\\n\");\n        }\n        printf(\"-----\\n\");\n    }\n    return 0;\n}"
-  },
-  {
-    "objectID": "Notes/n06-functions-arguments.html",
-    "href": "Notes/n06-functions-arguments.html",
-    "title": "6: Functions and arguments in C",
-    "section": "",
-    "text": "In the same why that a variable is a piece of data that can be referenced with an identifier, a function is a section of code that can be referenced with an identifier.\nThis block of code can receive data from the code calling it in the form of parameters but is otherwise isolated from the rest of the call.\nIt is expected by the compiler that there will be a return statement within this codeblock that will have a value of equal type to the specified type of the function. To write a function without a return value the void type is used.\n\n\nreturnType identifier(parameterType parameterId, ...)\n{\n    //code to be run\n    return value;\n}\n\n\n\nWhen calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.\ne.g. for this simple function:\nint sum( int a, int b )\n{\n    int c = a + b;\n    return c;\n}\nA valid function call would be: sum(1,2) Though this would likely be only part of a line of code: int total = sum(1, 2);\n\n\n\n\nscanf to read input from the command line\nprintf to output to the command line\nmain as the entrypoint to your program"
-  },
-  {
-    "objectID": "Notes/n06-functions-arguments.html#calling-a-function",
-    "href": "Notes/n06-functions-arguments.html#calling-a-function",
-    "title": "6: Functions and arguments in C",
-    "section": "",
-    "text": "When calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.\ne.g. for this simple function:\nint sum( int a, int b )\n{\n    int c = a + b;\n    return c;\n}\nA valid function call would be: sum(1,2) Though this would likely be only part of a line of code: int total = sum(1, 2);"
-  },
-  {
-    "objectID": "Notes/n06-functions-arguments.html#functions-that-you-have-already-used",
-    "href": "Notes/n06-functions-arguments.html#functions-that-you-have-already-used",
-    "title": "6: Functions and arguments in C",
-    "section": "",
-    "text": "scanf to read input from the command line\nprintf to output to the command line\nmain as the entrypoint to your program"
-  },
-  {
-    "objectID": "Notes/n06-functions-arguments.html#example-1",
-    "href": "Notes/n06-functions-arguments.html#example-1",
-    "title": "6: Functions and arguments in C",
-    "section": "Example",
-    "text": "Example"
-  },
-  {
     "objectID": "Notes/n01-intro.html",
     "href": "Notes/n01-intro.html",
     "title": "1: Intro to Codespaces and the terminal.",
@@ -263,7 +88,7 @@
     "href": "Notes/n01-intro.html#example-of-a-file-system",
     "title": "1: Intro to Codespaces and the terminal.",
     "section": "Example of a file system:",
-    "text": "Example of a file system:\n\n\n\nImage Source\n\n\nUsing the image above, assume that the absolute path of the directory Tom is /home/Tom and that the current working directory is Tools. We can see a few different relative and absolute paths from here:\n\nTools\n\nRelative path: .\nAbsolute path: /home/Tom/Tools\n\nStats\n\nRelative path: Stats\nAbsolute path: /home/Tom/Tools/Stats\n\nNotes.txt\n\nRelative path: ../Notes.txt\nAbsolute path: /home/Notes.txt\n\n\nWhat would the absolute and relative paths for One.txt?"
+    "text": "Example of a file system:\n\n\n\nImage Source\n\n\nUsing the image above, assume that the absolute path of the directory Tom is /home/Tom and that the current working directory is Tools. We can see a few different relative and absolute paths from here:\n\nTools\n\nRelative path: .\nAbsolute path: /home/Tom/Tools\n\nStats\n\nRelative path: Stats\nAbsolute path: /home/Tom/Tools/Stats\n\nNotes.txt\n\nRelative path: ../Notes.txt\nAbsolute path: /home/Tom/Notes.txt\n\n\nWhat would the absolute and relative paths for One.txt?"
   },
   {
     "objectID": "Notes/n01-intro.html#terminal-in-codespaces",
@@ -350,60 +175,389 @@
     "text": "Deleting files and directories\nThe rm command can be used for this, but be very careful as items deleted with this command are gone permanently when the command is run. The -r option can be used to delete a directory along with its files and all subdirectories.\n\n\n\n\n\n\nImportant\n\n\n\nrm is permanent, there is no recycling bin!"
   },
   {
+    "objectID": "Notes/programming-skills.html",
+    "href": "Notes/programming-skills.html",
+    "title": "Programming skills",
+    "section": "",
+    "text": "Planning is an important part of programming, having a clear idea for your approach to a problem before starting can save time and provide a structure to your coding process.\nMost planning revolves around simplifying a problem/solution by removing unnecessary information and breaking it down into smaller more manageable chunks.\nThe method by which you do this doesn’t matter but there are some common approaches:\n\n\nOutlines the processes that the program will take in structured natural language, it does not contain the syntax of any specific programming language. The aim is to create a clear and easily understandable description of the approach to the problem.\nIs often used to describe high level algorithms.\n\n\n\n\n\n\nFulfils a similar roll to pseudocode but uses a graphical notation to show the different steps and transitions between steps.\nSome sources will describe a strict notations for the meanings of different shapes but it really doesn’t matter so long as it is clear and understandable\n\n\n\n\n\n\nThese are another key skill, often used to discover what a piece of code is doing or to confirm that your plan will work as expected.\nThey work by tracking the value of variables throughout the flow of the program, this is particularly useful for programs that include loops"
+  },
+  {
+    "objectID": "Notes/programming-skills.html#pseudocode",
+    "href": "Notes/programming-skills.html#pseudocode",
+    "title": "Programming skills",
+    "section": "",
+    "text": "Outlines the processes that the program will take in structured natural language, it does not contain the syntax of any specific programming language. The aim is to create a clear and easily understandable description of the approach to the problem.\nIs often used to describe high level algorithms."
+  },
+  {
+    "objectID": "Notes/programming-skills.html#flowcharts",
+    "href": "Notes/programming-skills.html#flowcharts",
+    "title": "Programming skills",
+    "section": "",
+    "text": "Fulfils a similar roll to pseudocode but uses a graphical notation to show the different steps and transitions between steps.\nSome sources will describe a strict notations for the meanings of different shapes but it really doesn’t matter so long as it is clear and understandable"
+  },
+  {
+    "objectID": "Notes/programming-skills.html#trace-tables",
+    "href": "Notes/programming-skills.html#trace-tables",
+    "title": "Programming skills",
+    "section": "",
+    "text": "These are another key skill, often used to discover what a piece of code is doing or to confirm that your plan will work as expected.\nThey work by tracking the value of variables throughout the flow of the program, this is particularly useful for programs that include loops"
+  },
+  {
+    "objectID": "Notes/programming-skills.html#gdb-visual-vs-cmd",
+    "href": "Notes/programming-skills.html#gdb-visual-vs-cmd",
+    "title": "Programming skills",
+    "section": "gdb (visual vs CMD)",
+    "text": "gdb (visual vs CMD)\ngdb (gnu debugger) is the default option for C debugging programs and allows you to execute your program one line at a time and inspect all the data of the program at each of these lines.\nIn order to run gdb you run the command gdb &lt;executable-name&gt;. However, the executable must be compiled using the -g option for gcc.\nKey commands in gdb\n\nbreak\n\nAdds a point at which the execution of the program will halt so the the programmer can inspect values or control the execution manually\nThis cis most commonly a line number or a function.\n\nrun\n\nstarts the execution of the program\n\nset args &lt;arguments&gt;\n\nUsed to change the arguments that will be passed to the program that you are debugging when the run command is used\n\nstep\n\nprogresses the execution of the program by a single line\n\ncontinue\n\nrestarts the execution of the program\n\nprint &lt;expression&gt;\n\noutputs the current value of the expression passed to the command\n\ndisplay &lt;expression&gt;\n\noutputs the current value of the expression passed to the command for every line stepped through, that is in the current scope."
+  },
+  {
+    "objectID": "Notes/programming-skills.html#assert",
+    "href": "Notes/programming-skills.html#assert",
+    "title": "Programming skills",
+    "section": "Assert",
+    "text": "Assert\nAssert is used to C to check values at runtime to check for programmer error. It is a shortcut to fail out of the program if a value is not what it should be, when the program fails in this way it tells you exactly what condition failed and on which line.\n\nExample\nfailedAssertion.c\n#include &lt;assert.h&gt;\n\nint main()\n{\n    const int value = 5;\n    assert(value ==7);\n    return 0;\n}\nWhen executed this program will give the output (second line may vary depending on the machine the code is run on):\na.out: failedAssertion.c:6: main: Assertion `value ==7' failed.\nAborted (core dumped)\n\nOutput breakdown\n\na.out is the name of the executable\nfailedAssertion.c is the file that the assertion failed in\n:6 shows the line on which the execution failed\nmain is the function the assertion was in\n\n\n\n\n\n\n\nNote\n\n\n\nWhile we treat assert as a function, it’s implementation in c is as a macro. This is not relevant to its use.\n\n\n\n\n\nCommon uses\n\nPreconditions to a function\nIn this case assertions are used to ensure that the values passed to a function are valid. e.g.\n\nChecking that an index is within an expected range\nChecking that a pointer is not NULL (This will be fully explained later)\n\nIt is good practice to make the preconditions for a function clear when it is being defined, this is often in a header file.\n\n\nPostconditions for a function\nThis case uses assertions to make sure that the value a function is returning is valid - not really for user input"
+  },
+  {
+    "objectID": "Notes/programming-skills.html#print-debugging",
+    "href": "Notes/programming-skills.html#print-debugging",
+    "title": "Programming skills",
+    "section": "Print debugging",
+    "text": "Print debugging\nThis is very simply outputting information to the command line from your program at different points to check what different values are. While this can sometimes be a good option for simple tasks, this technique is limited as the output it will create is often cluttered and it takes a significant amount of time to setup and remove temporary code once you have found the bug. Its biggest weakness though is the lack of ability to provide an overview of execution flow."
+  },
+  {
+    "objectID": "Notes/programming-skills.html#example-of-validation-loop",
+    "href": "Notes/programming-skills.html#example-of-validation-loop",
+    "title": "Programming skills",
+    "section": "Example of validation loop",
+    "text": "Example of validation loop\nWhile loops are often used for validation as they will run until a valid input is given.\n``"
+  },
+  {
     "objectID": "Notes/microbit-undocumented.html",
     "href": "Notes/microbit-undocumented.html",
-    "title": "Microbit functions",
+    "title": "Microbit Notes",
     "section": "",
-    "text": "Buttons\n\nA\nB\nAB\ntouch? needs investigation\n\nSensors\n\nMicrophone\nAccelerometer\nCompass\nPins\nAntenna\nLeds (reverse current to sense light)\n\n\n\n\n\n\nLeds\nSpeaker\nBluetooth?\npins"
+    "text": "Moving line\nBinary, hex and quinary counters\nCompass"
   },
   {
     "objectID": "Notes/microbit-undocumented.html#input",
     "href": "Notes/microbit-undocumented.html#input",
-    "title": "Microbit functions",
-    "section": "",
-    "text": "Buttons\n\nA\nB\nAB\ntouch? needs investigation\n\nSensors\n\nMicrophone\nAccelerometer\nCompass\nPins\nAntenna\nLeds (reverse current to sense light)"
+    "title": "Microbit Notes",
+    "section": "Input",
+    "text": "Input\n\nButtons\n\nA\nB\nAB\ntouch? needs investigation\n\nSensors\n\nMicrophone\nAccelerometer\nCompass\nPins\nAntenna\nLeds (reverse current to sense light)"
   },
   {
     "objectID": "Notes/microbit-undocumented.html#output",
     "href": "Notes/microbit-undocumented.html#output",
-    "title": "Microbit functions",
-    "section": "",
-    "text": "Leds\nSpeaker\nBluetooth?\npins"
+    "title": "Microbit Notes",
+    "section": "Output",
+    "text": "Output\n\nLeds\nSpeaker\nBluetooth?\npins"
   },
   {
-    "objectID": "Notes/n05-c-microbit.html",
-    "href": "Notes/n05-c-microbit.html",
-    "title": "5: C for the Microbit",
+    "objectID": "Notes/roughNotes.html",
+    "href": "Notes/roughNotes.html",
+    "title": "TODO",
     "section": "",
-    "text": "In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.\n\nFrom this dropdown select the option that reads configure dev container\n\nThis will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7 once this is done the file should look as such: \nFinally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository.\n\n\n\n\nIf you now navigate back to the codespace menu from the last step you can “create codespace on main” this will launch a new browser tab. It may take a little bit of time to build.\n\n\n\nIn the terminal within codespaces run\ncurl https://raw.githubusercontent.com/lancaster-university/codal-bootstrap/main/build.py &gt; build.py\nThis will download the python script that is used to bootstrap and/or build the project.\nThe first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.\npython build.py codal-microbit-v2\npython build.py\nOnce compiled the repository will have many more files. Most importantly the MICROBIT.hex which is the program which can be loaded to the Microbit.\n\n\n\nOnce the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device.\nthe default project should create a program that scrolls the text “Hello, Bootstrap!” over the leds."
+    "text": "Reminders\n\nAccessibility\nAims at the start of each section\nUpdate examples as template changes\n\n\n\nMissiong parts\n\nMicrobit examples and exercises\nASCII\nCasting\n\n\n\nC exersizes\n\nalter the patterns.c\n\n\n\nC notes 2\n\nfunctions\n\ncontextualise using control flow\n\nparameter passing\n\n\n\nC notes 3\n\narrays\n\nDimensions\nlooping over\nmention pointers\n\nstrings\n\nspecial case of character array\n\\0\n\n\n\n\nC notes 4\n\npointers\nmemory allocation\n\nmalloc\nfree\ncalloc??\n\n\n\n\nC notes 5\n\nStrucutres\nfile IO\n\n\n\nC notes 6\n\nlinked lists\n\n\n\nC notes 7\n\nstacks and queues\n\n\n\nC notes 8\n\ntrees\n\n\n\nC notes 9\n\nsearch & sort\n\n\n\nReview"
   },
   {
-    "objectID": "Notes/n05-c-microbit.html#environment-setup",
-    "href": "Notes/n05-c-microbit.html#environment-setup",
-    "title": "5: C for the Microbit",
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossary",
     "section": "",
-    "text": "In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.\n\nFrom this dropdown select the option that reads configure dev container\n\nThis will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7 once this is done the file should look as such: \nFinally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository."
+    "text": "A\n\n\nB\n\n\nC\n\n\nD\n\n\nE\n\n\nF\n\n\nG\n\n\nH\n\n\nI\n\n\nJ\n\n\nK\n\n\nL\n\n\nM\n\n\nN\n\n\nO\n\n\nP\n\n\nQ\n\n\nR\n\n\nS\n\n\nT\n\n\nU\n\n\nV\n\n\nW\n\n\nX\n\n\nY\n\n\nZ"
+  },
+  {
+    "objectID": "Exercises/e02-c-basic.html",
+    "href": "Exercises/e02-c-basic.html",
+    "title": "2: Basic C exercises",
+    "section": "",
+    "text": "Exercise 1 - Odd or Not\nWrite a program that takes a integer input from the user and determines whether the value is odd or even. Hint: use the modulo operator.\n\nExtension\nRewrite the program so it takes two integers as inputs and determines whether one is a multiple of the other.\n\n\n\nExercise 2 - Patterns!\nTake this program, pattern.c from the notes.\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\nWith this code the program will output:\n*\n**\n***\n****\n*****\n******\n*******\nAlter the program so that it outputs these different patterns:\n\n1\n*****\n****\n***\n**\n*\n\nAnswer\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 6; i &gt; 1; i--)\n    {\n        for(int j = 1; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\n\n\n2\n   *\n  ***\n *****\n\nAnswer\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 6; i+=2)\n    {\n        for(int j = 0; j &lt; 7-i; j+=2)\n        {\n            printf(\" \");\n        }\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\n\n\n3\nMake this set of patterns that could create an animation:\n*****\n*   *\n*   *\n*   *\n*****\n-----\n * * \n*****\n * * \n*****\n * * \n-----\n  *  \n  *  \n*****\n  *  \n  *  \n-----\n * * \n*****\n * * \n*****\n * * \n-----\n*****\n*   *\n*   *\n*   *\n*****\n-----\n\nAnswer\n#include &lt;stdio.h&gt;\n#define GRID_SIZE 5\n#define MAX_INDEX GRID_SIZE-1\n\nint main()\n{\n    for(int k = 0; k &lt; GRID_SIZE; k++)\n    {\n        for(int i = 0; i &lt; GRID_SIZE; i++)\n        {\n            for(int j = 0; j &lt; GRID_SIZE; j++)\n            {\n                if(i == 0 + k || i == MAX_INDEX-k || j == 0 + k | j  == MAX_INDEX - k)\n                {\n                    printf(\"*\");\n                }\n                else\n                {\n                    printf(\" \");\n                }\n            }\n            printf(\"\\n\");\n        }\n        printf(\"-----\\n\");\n    }\n    return 0;\n}"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html",
+    "href": "Exercises/e01-linux-cli.html",
+    "title": "1: Linux Command line skills",
+    "section": "",
+    "text": "Create the following directory tree in the shell training repo:\n\n\nwork\nwork/input_data/\nwork/results/\nwork/program/\n\n\nCreate the file input.txt with a text editor and put some text in it.\nMove the file to work/input_data and rename it in the same command to control01.txt\nCreate this directory tree in one line only: work/experiment/results/report\nDelete the work directory and all of its contents with one single command.\n\n\n\n\n\n\n\nTip\n\n\n\nUse the man command to check the options that you can use to do these last two tasks."
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#extension",
+    "href": "Exercises/e01-linux-cli.html#extension",
+    "title": "1: Linux Command line skills",
+    "section": "Extension",
+    "text": "Extension\n\nEdit the script to combine the latin names from all of the animal files in alphabetical order. (may find issues with spaces in the front of the names - try to google how to fix this)\nNow try and make it in a single line."
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answers---out-of-date",
+    "href": "Exercises/e01-linux-cli.html#answers---out-of-date",
+    "title": "1: Linux Command line skills",
+    "section": "Answers - out of date",
+    "text": "Answers - out of date\ncat IOM-animals/birds.txt  | cut -d ',' -f 2 | sort &gt; orderedBirds.txt\ncat IOM-animals/*.txt  | cut -d ',' -f 2 | awk '{$1=$1;print}' |sort &gt; orderedAnimals.txt"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answer",
+    "href": "Exercises/e01-linux-cli.html#answer",
+    "title": "1: Linux Command line skills",
+    "section": "Answer",
+    "text": "Answer\nwc -w data/* | sort -n"
+  },
+  {
+    "objectID": "Exercises/e01-linux-cli.html#answer-1",
+    "href": "Exercises/e01-linux-cli.html#answer-1",
+    "title": "1: Linux Command line skills",
+    "section": "Answer",
+    "text": "Answer\nsed 's/^.//' IOM-animals/birds.txt | sed 's/.$//'"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Procedural Programming",
+    "section": "",
+    "text": "This site is a center of information for the module: COMP 1711 Procedural Programming"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Bash\n\n\nC\n\n\nGit\nGit Cheat Sheet"
+  },
+  {
+    "objectID": "Notes/n05-c-microbit.html#repository-setup",
+    "href": "Notes/n05-c-microbit.html#repository-setup",
+    "title": "5: C for the Microbit",
+    "section": "Repository setup",
+    "text": "Repository setup\n\nIn a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.\n\nFrom this dropdown select the option that reads configure dev container\n\nThis will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7 once this is done the file should look as such: \nFinally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository."
   },
   {
     "objectID": "Notes/n05-c-microbit.html#opening-the-codespace",
     "href": "Notes/n05-c-microbit.html#opening-the-codespace",
     "title": "5: C for the Microbit",
-    "section": "",
-    "text": "If you now navigate back to the codespace menu from the last step you can “create codespace on main” this will launch a new browser tab. It may take a little bit of time to build."
+    "section": "Opening the codespace",
+    "text": "Opening the codespace\nIf you now navigate back to the codespace menu from the last step you can “create codespace on main” this will launch a new browser tab. It may take a little bit of time to build."
   },
   {
     "objectID": "Notes/n05-c-microbit.html#project-bootstrap",
     "href": "Notes/n05-c-microbit.html#project-bootstrap",
     "title": "5: C for the Microbit",
-    "section": "",
-    "text": "In the terminal within codespaces run\ncurl https://raw.githubusercontent.com/lancaster-university/codal-bootstrap/main/build.py &gt; build.py\nThis will download the python script that is used to bootstrap and/or build the project.\nThe first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.\npython build.py codal-microbit-v2\npython build.py\nOnce compiled the repository will have many more files. Most importantly the MICROBIT.hex which is the program which can be loaded to the Microbit."
+    "section": "Project bootstrap",
+    "text": "Project bootstrap\nIn the terminal within codespaces run\ncurl https://raw.githubusercontent.com/uol-feps-soc-2023internprojects/codal-bootstrap/main/build.py &gt; build.py\nThis will download the python script that is used to bootstrap and/or build the project.\nThe first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.\npython build.py codal-microbit-v2\npython build.py\nOnce compiled the repository will have many more files, almost all of these do not need to be edited when coding for the microbit in this way. One important file is MICROBIT.hex which which can be loaded to the Microbit."
   },
   {
     "objectID": "Notes/n05-c-microbit.html#flashing-the-microbit",
     "href": "Notes/n05-c-microbit.html#flashing-the-microbit",
     "title": "5: C for the Microbit",
+    "section": "Flashing the Microbit",
+    "text": "Flashing the Microbit\nOnce the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device. Sometimes this process can be temperamental and give a ‘504’ error, if this happens simply try again.\nThe default project should create a program that scrolls the text “Hello, Bootstrap!” over the leds."
+  },
+  {
+    "objectID": "Notes/n10-data-structues.html",
+    "href": "Notes/n10-data-structues.html",
+    "title": "10: data structures",
     "section": "",
-    "text": "Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device.\nthe default project should create a program that scrolls the text “Hello, Bootstrap!” over the leds."
+    "text": "What are data structures\n\n\nLinked list\n\n\nStack\n\n\nQueue"
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#functions",
+    "href": "Notes/n09-structs-fileIO.html#functions",
+    "title": "Structures and file IO",
+    "section": "functions",
+    "text": "functions\nfopen fscanf fgets fprintf fwrite"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html",
+    "href": "Notes/n04-c-inro.html",
+    "title": "4: Introduction to C",
+    "section": "",
+    "text": "Important\n\n\n\nInstructions in this file are to be run in the same codespace based on 1711-introduction. Make sure to save your changes."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#breakdown",
+    "href": "Notes/n04-c-inro.html#breakdown",
+    "title": "4: Introduction to C",
+    "section": "Breakdown",
+    "text": "Breakdown\n\n#include is a preprocessor command that allows a c program to use functionality that is implemented in separate c files. More detail will be given on this later in the course\nint main() is the entrypoint of a c program, every c program you write will include this i.e. the first line of code run is the first line within the {} of main.\nThe // marks the start of a single line comment, this part of the code is for notes from/to developers and does not affect the functionality of the program.\nAs the comment mentions, printf() is used to output to the command line.\nThe return statement sends a status value back to the command line, a 0 status suggest a successful execution."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#the-c-compiler",
+    "href": "Notes/n04-c-inro.html#the-c-compiler",
+    "title": "4: Introduction to C",
+    "section": "The C compiler",
+    "text": "The C compiler\nThe most common c compiler across unix machines is gcc. At its most simple for our use it can simply be run like this:\ngcc hello-world.c\nThis will produce a output executable called a.out that can be run like this:\n$ ./a.out\nHello, world!\nHere you can see that the ./ syntax for running the executable is the same as for an executable shell script when the executable is in your directory.\nThis output file can be renamed using the -o option to specify an output file for the compiler e.g. to create an executable with the same name (but no extension): gcc hello-world.c -o hello-world"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#key-parts",
+    "href": "Notes/n04-c-inro.html#key-parts",
+    "title": "4: Introduction to C",
+    "section": "Key parts",
+    "text": "Key parts\nA variable made up of 3 things\n\nAn identifier used in the code to refer to a stored value\nThe location in memory where this data is being stored\nThe data type which is used to specify the way this data should be stored and accessed."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#data-types",
+    "href": "Notes/n04-c-inro.html#data-types",
+    "title": "4: Introduction to C",
+    "section": "Data types",
+    "text": "Data types\nThere are 2 key basic data types in C:\n\nint used to store integer numbers\nfloat used to store floating point (decimal) numbers\nchar used to store characters TODO: explain ASCII\n\nThere are also further data types used to store numbers, these are adapted to increase the range of values possible to store or the precision with which they can be stored.\nAll data types are keywords in the C language."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#using-variables-in-c",
+    "href": "Notes/n04-c-inro.html#using-variables-in-c",
+    "title": "4: Introduction to C",
+    "section": "Using variables in C",
+    "text": "Using variables in C\nThere are three key actions that can be taken with variables\n\nInitialization - in C this defines the variables identifier and data type and will trigger the system to assign a portion of memory to it. e.g.\n\nint counter;\n\nAssignment - This alters the value of the variable stored in memory. e.g.\n\ncounter = 2;\nThe value that is being assigned can be simply typed in code or the result of an arithmetic calculation\nThese first two steps can be combined into a single line: int counter = 2;\n\nAccess - Use of the variable using the identifier in code, this can be in any statement where a value of that data type is required e.g. creating a new variable: int newCounter = counter + 2;"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#casting-todo",
+    "href": "Notes/n04-c-inro.html#casting-todo",
+    "title": "4: Introduction to C",
+    "section": "Casting (TODO)",
+    "text": "Casting (TODO)"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#operator-precedence-todo",
+    "href": "Notes/n04-c-inro.html#operator-precedence-todo",
+    "title": "4: Introduction to C",
+    "section": "Operator precedence (TODO)",
+    "text": "Operator precedence (TODO)"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#notes",
+    "href": "Notes/n04-c-inro.html#notes",
+    "title": "4: Introduction to C",
+    "section": "Notes",
+    "text": "Notes\n\nThis program uses the keyword const to modify the data type of the variable value. This stops the variable from being changed later in the program.\n\nUsing a static value like this is good for the program as it means that in the code there is only a single place where the value needs to be changed. This makes the code more maintainable."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#sequential",
+    "href": "Notes/n04-c-inro.html#sequential",
+    "title": "4: Introduction to C",
+    "section": "Sequential",
+    "text": "Sequential\nThis is the most simple way and the default, you simply proceed to the next line after each line, as such there are no special structures associated with it."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#logical-expressions",
+    "href": "Notes/n04-c-inro.html#logical-expressions",
+    "title": "4: Introduction to C",
+    "section": "Logical expressions",
+    "text": "Logical expressions\nMore complex control flow will always require evaluating conditions to make a decision. This is achieved in C using logical expressions. Logical expressions are built from comparisons and logical operators; these either act on static values of variables or a combination. N.B. these can also implement arithmetic operators in combination with this.\n\nExamples of logical expressions\ncounter &lt;= 12\nvalue &gt; threshold || override == 1\nEventually you will need to use more complex statements\nsource-&gt;metaData[WIDTH] + colStartIndex  &gt; destination-&gt;metaData[WIDTH] || source-&gt;metaData[HEIGHT] + rowStartIndex &gt; destination-&gt;metaData[HEIGHT]"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#branching",
+    "href": "Notes/n04-c-inro.html#branching",
+    "title": "4: Introduction to C",
+    "section": "Branching",
+    "text": "Branching\nIn branching control flow a selection is made between different segments of code based on a variable or logical expression. The most commonly used branching pattern is the if-else statement:\nif(/*Logical Expression*/)\n{\n    // code run if logical expression is true\n}\nelse\n{\n    // run code \n}\n\nAdditionally else if statements can be added to have additional arguments to control when a block of code is run.\n\nCode within an else if block will only run if the conditions for the parent if statement and any previous if conditions are all not met.\n\nCode within an else block are only run if none of the conditions are met\nAn if statement does not require any subsequent else statements.\n\n\nExample\nTest this out for yourself!\nnumbers.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int num = 0;\n    printf(\"Please enter a number: \");\n    scanf(\"%d\", &num);\n    if (num &gt; 10)\n    {\n        printf(\"Your number is greater than ten.\\n\");\n    }\n    else if (num &lt; 0)\n    {\n        printf (\"Your number is less than 0\\n\");\n    }\n    else\n    {\n        printf (\"Your number is between 0 and 10 (inclusive)\\n\");\n    }\n    return 0;\n}\n\nNotes\n\nNote that the %d format specifier is used to read an integer\nThe & symbol is required in front of not array variables when using scanf()."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#looping",
+    "href": "Notes/n04-c-inro.html#looping",
+    "title": "4: Introduction to C",
+    "section": "Looping",
+    "text": "Looping\nIn looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a specific number of loops (for loop).\n\nWhile loop\nwhile(/*logical expression*/)\n{\n    // code to be run\n}\nThe logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.\n\nExample\naverage.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int counter = 0;\n    float input = 0, total = 0; \n    printf(\"This is a program to calculate the average of positive values.\\n\")\n    printf(\"Once you have entered all your values enter a negative number to calculate the average.\\n\");\n    while (input != -1)\n    {\n        printf(\"Enter value:\");\n        scanf(\"%f\", &input);\n        if (input &lt; 0)\n        {\n            continue;\n        }\n        counter += 1;\n        total += input;\n    }\n    printf(\"Average is %f\\n\", total/(float)counter);\n}\n\nBreakdown\n\nMultiple variables of the same kind can be initialised in a single line when separated with commas.\n%f format specifier for floats\nThe continue keyword causes the current iteration of the loop to end and the next one to start.\nAny control structure can be nested within another control structure.\n\n\n\n\n\nFor loop\nfor-test.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for (int i = 0; i &lt; 5; i++) // Example loop to run 5 times.\n    {\n        // Code to be run\n        printf(\"(%d)\\n\", i);\n    }\n}\n\nBreakdown\nThe for loop control code has 3 key parts:\n\nVariable initialisation and assignment.\n\nIn this example:int i = 0;\nIt is typical in C (and may other programming languages) to start counting from 0, therefore it is often useful to start a loop control variable from 0.\nThe identifier i is used as a de-facto standard but can be renamed to improve code readability.\n\nCondition.\n\nIn this example: i &lt; 5\nThe code within the loop will run while this condition is true.\nAs such be careful if a mistake is made in the condition it may prohibit the code within the loop from running.\n\nUpdating the variable\n\nIn this example: `i++\n++ is called the increment operator and simply increases the value of a variable by one. It is simply a shortening of the code x = x+1.\n-- (the decrement operator) is often used in place of ++ for decreasing loops.\nCan also use i += &lt;val&gt; or i -= &lt;val&gt; to change variable by more than one without referencing it twice.\n\n\nYou should run for-test.c to check that this is all true. You can then change the parameters to see the values of i for which the loop will be run. Change the parameters so that it runs for different values:\n\nValues from 7 to 14\nOnly even numbers to 12\nDecreasing values from 4 to 0\n\n\n\nExample\nWhat do you think this block of code will do? Run it to find out! pattern.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\nNotes\n\nNested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.\nIn this case the inner loop is dependent on the outer loop as the condition for the inner loop is based on the control value of the outer loop\n\n\n\n\n\nTODO: Break and continue"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#whitespace",
+    "href": "Notes/n04-c-inro.html#whitespace",
+    "title": "4: Introduction to C",
+    "section": "Whitespace",
+    "text": "Whitespace\nAll of the examples featured so far follow traditional beat practice for the use of whitespace.\n\nNew line after each semi-colon\nCode within a Scope is indented. Code within a subscope is indented for each parent scope\n\nThe size of indents is cause for debate, the approach that we have chosen is 4 space sized indents. Though tabs are traditionally 8 characters wide."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#comments",
+    "href": "Notes/n04-c-inro.html#comments",
+    "title": "4: Introduction to C",
+    "section": "Comments",
+    "text": "Comments\nAll of the code in these examples has been simple and short, however, as code becomes longer it becomes exponentially more difficult to comprehend. Comments should be used to make your code more understandable describing high level aims of the code or why a specific approach has been used rather than simply explaining the syntax of the code that is there."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#arithmetic-1",
+    "href": "Notes/n04-c-inro.html#arithmetic-1",
+    "title": "4: Introduction to C",
+    "section": "Arithmetic",
+    "text": "Arithmetic\n\n\n\nOperator\nName\n\n\n\n\n+\nAddition\n\n\n-\nSubtraction\n\n\n*\nMultiplication\n\n\n/\nDivision\n\n\n%\nModulo (remainder after division)"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#comparison",
+    "href": "Notes/n04-c-inro.html#comparison",
+    "title": "4: Introduction to C",
+    "section": "Comparison",
+    "text": "Comparison\n\n\n\nOperator\nName\n\n\n\n\n==\nEqual to\n\n\n!=\nNote equal to\n\n\n&gt;\nGreater than\n\n\n&lt;\nLess than\n\n\n&lt;=\nLess than or equal to\n\n\n&gt;=\nGreater than or equal to"
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#logical",
+    "href": "Notes/n04-c-inro.html#logical",
+    "title": "4: Introduction to C",
+    "section": "Logical",
+    "text": "Logical\n\n\n\nOperator\nName\n\n\n\n\n&&\nAND\n\n\n||\nOR\n\n\n!\nNOT"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html",
+    "href": "Notes/n08-pointers-dynamic-memory.html",
+    "title": "8: Pointers and dynamic memory",
+    "section": "",
+    "text": "Reference to a specific location within the memory allotted to the program by the OS.\nThese values can be stored in C. If you want to declare a pointer rather than a variable simply add an * to the variable declaration. (the data type is still required)\nTODO: Maybe write about void pointer\ndeclaration of different pointers\nint * intPointer;\nchar * charPointer;\n\n\nIt is clear though that these pointers are also being stored in memory and as such must have pointers of their own. In the same way as before we simply add a * to the declaration.\ne.g.\nint ** intDoublePointer\nchar ** charDoublePointer"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#double-pointers",
+    "href": "Notes/n08-pointers-dynamic-memory.html#double-pointers",
+    "title": "8: Pointers and dynamic memory",
+    "section": "",
+    "text": "It is clear though that these pointers are also being stored in memory and as such must have pointers of their own. In the same way as before we simply add a * to the declaration.\ne.g.\nint ** intDoublePointer\nchar ** charDoublePointer"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#malloc",
+    "href": "Notes/n08-pointers-dynamic-memory.html#malloc",
+    "title": "8: Pointers and dynamic memory",
+    "section": "Malloc",
+    "text": "Malloc\nMalloc will return a void pointer that can be cast to whichever memory type you intend to fill the space with."
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#free",
+    "href": "Notes/n08-pointers-dynamic-memory.html#free",
+    "title": "8: Pointers and dynamic memory",
+    "section": "Free",
+    "text": "Free\nFree will deallocate the memory that was previously allocated to a pointer"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#example",
+    "href": "Notes/n08-pointers-dynamic-memory.html#example",
+    "title": "8: Pointers and dynamic memory",
+    "section": "Example",
+    "text": "Example"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#use-pointer-after-free",
+    "href": "Notes/n08-pointers-dynamic-memory.html#use-pointer-after-free",
+    "title": "8: Pointers and dynamic memory",
+    "section": "Use pointer after free",
+    "text": "Use pointer after free"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#null-pointer",
+    "href": "Notes/n08-pointers-dynamic-memory.html#null-pointer",
+    "title": "8: Pointers and dynamic memory",
+    "section": "NULL pointer",
+    "text": "NULL pointer"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#double-free",
+    "href": "Notes/n08-pointers-dynamic-memory.html#double-free",
+    "title": "8: Pointers and dynamic memory",
+    "section": "Double free",
+    "text": "Double free"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#freeing-without-allocation",
+    "href": "Notes/n08-pointers-dynamic-memory.html#freeing-without-allocation",
+    "title": "8: Pointers and dynamic memory",
+    "section": "Freeing without allocation",
+    "text": "Freeing without allocation"
+  },
+  {
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#memory-leaks",
+    "href": "Notes/n08-pointers-dynamic-memory.html#memory-leaks",
+    "title": "8: Pointers and dynamic memory",
+    "section": "Memory leaks",
+    "text": "Memory leaks"
   },
   {
     "objectID": "Notes/n03-git-hub.html",
