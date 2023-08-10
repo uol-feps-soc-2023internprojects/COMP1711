@@ -1,0 +1,20 @@
+---
+title: "Structures and file IO"
+---
+
+# What is a structure
+
+## How can it be used
+
+## Syntax in C
+
+## typedef
+
+# File IO
+
+## functions
+fopen
+fscanf
+fgets
+fprintf
+fwrite

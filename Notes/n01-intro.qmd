@@ -79,7 +79,7 @@ Using the image above, assume that the absolute path of the directory `Tom` is `
     - Absolute path: `/home/Tom/Tools/Stats`
 - `Notes.txt`
     - Relative path: `../Notes.txt`
-    - Absolute path: `/home/Notes.txt`
+    - Absolute path: `/home/Tom/Notes.txt`
 
 What would the absolute and relative paths for `One.txt`?
 

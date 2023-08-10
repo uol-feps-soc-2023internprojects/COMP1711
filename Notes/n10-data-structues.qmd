@@ -1,0 +1,11 @@
+---
+title: "10: data structures"
+---
+
+# What are data structures
+
+# Linked list
+
+# Stack
+
+# Queue
