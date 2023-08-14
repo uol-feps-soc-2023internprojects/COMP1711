@@ -141,3 +141,13 @@ While loops are often used for validation as they will run until a valid input i
 ```
 
 # Code style
+
+## Indentation
+
+## Curly brackets
+
+## Variable naming
+Variables names should be meaningfully aiming to give a user who is unfamiliar with the code a good idea of what the purpose that specific variable is. The variable names across the code for your program should follow a consistent style.
+
+### Multi word variables
+Often 
