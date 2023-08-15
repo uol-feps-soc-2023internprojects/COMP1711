@@ -76,14 +76,10 @@ Function to open a file in write mode
 `fopen("filepath", "w")`
 Opening the file in this way will create a file if it doesn't exist and overwrite any existing file completely.
 
+Then use the `fprintf()` function to write output to the file in the same way as you would write output to the standard output. The function requires the file pointer as an extra input argument.
+
 
 ### Append mode
-To add to a file without reopening, use this function
-`fopen("filepath", "a")`
-
-## functions
-fopen
-fscanf
-fgets
-fprintf
-fwrite
+To add to a file without reopening, use this function  
+`fopen("filepath", "a")`  
+You can simply write to it the same way as writing a file from scratch.

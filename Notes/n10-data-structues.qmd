@@ -2,10 +2,88 @@
 title: "10: data structures"
 ---
 
-# What are data structures
+So far in this module we have focused on arrays for storing groups of the same data together, while this structure is the simplest way to store a group of data sometimes we need extra features.
+
+Most commonly we associate these features with the **list** abstract data structure. This defines the logical way in which the data is stored and what operations can be made on it. The key operations that a list implements that are insert and delete, allowing the list to grow and shrink in size. 
+
+This is implemented as a class in many modern programming languages and is one of the core elements of python.
+
+There are two key different implementations of a list, we will look here at implementing a linked list data structure.
+
+:::{.callout-note}
+data structures are implementations of abstract data types
+:::
 
 # Linked list
 
+In this implementation each value in the list is a separate, individually allocated node that points to the next value in the list. The start of the list will be pointed to by a head pointer and the final value will be indicated by the next pointer reading NULL.
+
+![[Source](https://www.geeksforgeeks.org/data-structures/linked-list/singly-linked-list/)](/img/linkedList.png){fig-alt="Diagram illustrating the paragraph above"}
+
+## Operations
+
+- **Insert**
+    - To insert an image to a linked list, you must have have access to the value you want to insert it after. 
+    - Once you have initialised the node to insert, take the next value from the node currently in the list and copy it to the next value of the new node
+    - Finally make the next value of the original node equal to the address of the new node 
+
+![](/img/linkedListInsert.png){fig-alt="Diagram showing an element being inserted into a linked list using the steps above"}
+
+- **Delete**
+    - To delete an element from a linked list we must have access to the node before the one we want to delete and know the address of the one after it
+    - The next value of the node before the node to be deleted should be changed to the pointer for the node after node to be deleted
+    - Should be cautious that if any memory is allocated to nodes it is unallocated correctly.
+
+![](/img/linkedListDelete.png){fig-alt=""}
+
+- **Access**
+    - While the traditional index notation using `[]` will not work with a linked list it is still possible to access values at a specific index by traversing the list a specific number of times.
+    - When doing this you need to be careful of reaching the end of the list.
+    - This can be used to read or write to a location.
+
+- Almost any function can be added to a list depending on what is needed for specific use cases.
+
+
+## Example implementation in C
+The most common implementation of a linked list in c uses a structure to represent each node:
+
+``` c
+// A linked list node
+struct Node 
+{
+    int data;
+    struct Node* next;
+};
+```
+The program or library will also provide a set of functions to manipulate the list.
+
+<!--Maybe add some functions to this example later-->
+
+## Doubly linked list
+A simple and common variation of a linked list is a 'doubly linked list' (what we have seen so far is often called a singly linked list). In a doubly linked list each node holds a pointer to both the next value and the previous value. 
+
+This is especially useful in scenarios where the list will need to be traversed in both directions as this is a difficult task with a singularly linked list.
+
 # Stack
+Stacks are a data type with a much stricter definition than a list. Known as Last First Out (LIFO), stacks have a top and a bottom and only two operations.
+
+The push operation adds a item to the top of the stack and the pop operation removes a value from the top of the stack.
+
+Common uses
+- reversing data
+- imitating recursion 
+- parsing e.g. checking that all brackets are closed
+
+Stacks can also be implemented either with linked nodes or with an array.
+
+## Stack implementation
+For a linked implementation it is possible to use a node the same as for a linked list.
+
 
 # Queue
+Queues are limited in there access in a similar way to stacks, but queues will implement a (FIFO) first in first out structure generally with a specified 'front' and 'back'.
+
+The two key operations of a queue are 'enqueue' - adding a value to the back of the queue - and 'dequeue' - retrieving a value from the front of the queue.
+
+## Queue Implementation
+Again we can implement it using linked nodes. Our system will have to keep track of both the current front and back nodes. Due to the nature of a queue it is optimal to implement using doubly linked nodes.
