@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -232,15 +266,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#what-is-a-structure" id="toc-what-is-a-structure" class="nav-link active" data-scroll-target="#what-is-a-structure">What is a structure</a>
+  <li><a href="#what-is-a-structure" id="toc-what-is-a-structure" class="nav-link active" data-scroll-target="#what-is-a-structure">What is a structure</a></li>
+  <li><a href="#defining-a-structure-in-c" id="toc-defining-a-structure-in-c" class="nav-link" data-scroll-target="#defining-a-structure-in-c">Defining a structure in C</a>
   <ul class="collapse">
-  <li><a href="#how-can-it-be-used" id="toc-how-can-it-be-used" class="nav-link" data-scroll-target="#how-can-it-be-used">How can it be used</a></li>
-  <li><a href="#syntax-in-c" id="toc-syntax-in-c" class="nav-link" data-scroll-target="#syntax-in-c">Syntax in C</a></li>
   <li><a href="#typedef" id="toc-typedef" class="nav-link" data-scroll-target="#typedef">typedef</a></li>
   </ul></li>
+  <li><a href="#structure-example" id="toc-structure-example" class="nav-link" data-scroll-target="#structure-example">Structure example</a></li>
   <li><a href="#file-io" id="toc-file-io" class="nav-link" data-scroll-target="#file-io">File IO</a>
   <ul class="collapse">
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">functions</a></li>
+  <li><a href="#opening-a-file." id="toc-opening-a-file." class="nav-link" data-scroll-target="#opening-a-file.">Opening a file.</a></li>
+  <li><a href="#reading-a-file" id="toc-reading-a-file" class="nav-link" data-scroll-target="#reading-a-file">Reading a file</a></li>
+  <li><a href="#reading-by-character" id="toc-reading-by-character" class="nav-link" data-scroll-target="#reading-by-character">Reading by character</a></li>
+  <li><a href="#reading-by-string" id="toc-reading-by-string" class="nav-link" data-scroll-target="#reading-by-string">Reading by string</a></li>
+  <li><a href="#moving-through-a-file-without-reading" id="toc-moving-through-a-file-without-reading" class="nav-link" data-scroll-target="#moving-through-a-file-without-reading">Moving through a file without reading</a></li>
+  <li><a href="#other-read-functions" id="toc-other-read-functions" class="nav-link" data-scroll-target="#other-read-functions">Other read functions</a></li>
+  <li><a href="#writing-to-a-file" id="toc-writing-to-a-file" class="nav-link" data-scroll-target="#writing-to-a-file">Writing to a file</a>
+  <ul class="collapse">
+  <li><a href="#append-mode" id="toc-append-mode" class="nav-link" data-scroll-target="#append-mode">Append mode</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -267,23 +310,85 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="what-is-a-structure" class="level1">
 <h1>What is a structure</h1>
-<section id="how-can-it-be-used" class="level2">
-<h2 class="anchored" data-anchor-id="how-can-it-be-used">How can it be used</h2>
+<p>In programming a structure is a programming device that can be used to store multiple pieces of related data (potentially of different data types) together.</p>
+<p>Structures are particularly useful when implementing a programs that need to represent things with multiple attributes.</p>
 </section>
-<section id="syntax-in-c" class="level2">
-<h2 class="anchored" data-anchor-id="syntax-in-c">Syntax in C</h2>
-</section>
+<section id="defining-a-structure-in-c" class="level1">
+<h1>Defining a structure in C</h1>
+<p>Template for defining a structure in C:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> StructureName</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    type memberIdentifier<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    type memberIdentifier2<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// etc ...</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Template for usage of a structure in C:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> StructureName structureIdentifier<span class="op">;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>structureIdentifier<span class="op">.</span>memberIdentifier <span class="op">=</span> value<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="typedef" class="level2">
 <h2 class="anchored" data-anchor-id="typedef">typedef</h2>
+<!-- This one seems to be controversial with some sources in support and others against it-->
 </section>
+</section>
+<section id="structure-example" class="level1">
+<h1>Structure example</h1>
 </section>
 <section id="file-io" class="level1">
 <h1>File IO</h1>
-<section id="functions" class="level2">
-<h2 class="anchored" data-anchor-id="functions">functions</h2>
-<p>fopen fscanf fgets fprintf fwrite</p>
+<p>Reading from and writing to files is an important part of many programs. Most programming languages will provide an interface similar to that which is out for command line interaction that can be used for files.</p>
+<p>The functions and structures for file IO in are also defined in the <code>stdio</code> header.</p>
+<p>In C this system is built around a special structure which is called <code>FILE</code> we never interact with the structure directly and only use it as a pointer.</p>
+<p>This can be declared as such:</p>
+<pre><code>FILE * filePointer;</code></pre>
+<p>The <code>struct</code> keyword can be omitted in this case due to the way that <code>FILE</code> is declared.</p>
+<section id="opening-a-file." class="level2">
+<h2 class="anchored" data-anchor-id="opening-a-file.">Opening a file.</h2>
+<p>Files can be opened with the <code>fopen("filepath", mode character)</code> function. There are 3 main opening modes</p>
+</section>
+<section id="reading-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="reading-a-file">Reading a file</h2>
+<p>Function to open a file in read mode. <code>fopen("filepath", "r")</code> When open in this mode only read operations will work with the file pointer.</p>
+<p>If you pass a file path that doesn’t exist or a file that cannot be read then the function will return a NULL pointer. If the filepath is hardcoded by the programmer it should be certain that this will not happen, this can be confirmed using an assert statement.</p>
+<p>If the filepath is determined by user input a NULL pointer should be a sign that the given input is invalid.</p>
+<p>The key reading files functions are:</p>
+</section>
+<section id="reading-by-character" class="level2">
+<h2 class="anchored" data-anchor-id="reading-by-character">Reading by character</h2>
+<ul>
+<li><code>fgetc()</code></li>
+</ul>
+</section>
+<section id="reading-by-string" class="level2">
+<h2 class="anchored" data-anchor-id="reading-by-string">Reading by string</h2>
+<ul>
+<li><code>fgets()</code></li>
+</ul>
+</section>
+<section id="moving-through-a-file-without-reading" class="level2">
+<h2 class="anchored" data-anchor-id="moving-through-a-file-without-reading">Moving through a file without reading</h2>
+<ul>
+<li><code>fseek()</code></li>
+</ul>
+</section>
+<section id="other-read-functions" class="level2">
+<h2 class="anchored" data-anchor-id="other-read-functions">Other read functions</h2>
+<ul>
+<li><code>fscanf()</code></li>
+<li><code>fread()</code></li>
+</ul>
+</section>
+<section id="writing-to-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="writing-to-a-file">Writing to a file</h2>
+<p>Function to open a file in write mode <code>fopen("filepath", "w")</code> Opening the file in this way will create a file if it doesn’t exist and overwrite any existing file completely.</p>
+<p>Then use the <code>fprintf()</code> function to write output to the file in the same way as you would write output to the standard output. The function requires the file pointer as an extra input argument.</p>
+<section id="append-mode" class="level3">
+<h3 class="anchored" data-anchor-id="append-mode">Append mode</h3>
+<p>To add to a file without reopening, use this function<br>
+<code>fopen("filepath", "a")</code><br>
+You can simply write to it the same way as writing a file from scratch.</p>
 
 
+</section>
 </section>
 </section>
 

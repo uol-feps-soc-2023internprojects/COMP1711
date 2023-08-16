@@ -231,6 +231,27 @@
     "text": "Example of validation loop\nWhile loops are often used for validation as they will run until a valid input is given.\n``"
   },
   {
+    "objectID": "Notes/programming-skills.html#indentation",
+    "href": "Notes/programming-skills.html#indentation",
+    "title": "Programming skills",
+    "section": "Indentation",
+    "text": "Indentation"
+  },
+  {
+    "objectID": "Notes/programming-skills.html#curly-brackets",
+    "href": "Notes/programming-skills.html#curly-brackets",
+    "title": "Programming skills",
+    "section": "Curly brackets",
+    "text": "Curly brackets"
+  },
+  {
+    "objectID": "Notes/programming-skills.html#variable-naming",
+    "href": "Notes/programming-skills.html#variable-naming",
+    "title": "Programming skills",
+    "section": "Variable naming",
+    "text": "Variable naming\nVariables names should be meaningfully aiming to give a user who is unfamiliar with the code a good idea of what the purpose that specific variable is. The variable names across the code for your program should follow a consistent style.\n\nMulti word variables\nOften"
+  },
+  {
     "objectID": "Notes/microbit-undocumented.html",
     "href": "Notes/microbit-undocumented.html",
     "title": "Microbit Notes",
@@ -354,14 +375,105 @@
     "href": "Notes/n10-data-structues.html",
     "title": "10: data structures",
     "section": "",
-    "text": "What are data structures\n\n\nLinked list\n\n\nStack\n\n\nQueue"
+    "text": "So far in this module we have focused on arrays for storing groups of the same data together, while this structure is the simplest way to store a group of data sometimes we need extra features.\nMost commonly we associate these features with the list abstract data structure. This defines the logical way in which the data is stored and what operations can be made on it. The key operations that a list implements that are insert and delete, allowing the list to grow and shrink in size.\nThis is implemented as a class in many modern programming languages and is one of the core elements of python.\nThere are two key different implementations of a list, we will look here at implementing a linked list data structure."
   },
   {
-    "objectID": "Notes/n09-structs-fileIO.html#functions",
-    "href": "Notes/n09-structs-fileIO.html#functions",
+    "objectID": "Notes/n10-data-structues.html#operations",
+    "href": "Notes/n10-data-structues.html#operations",
+    "title": "10: data structures",
+    "section": "Operations",
+    "text": "Operations\n\nInsert\n\nTo insert an image to a linked list, you must have have access to the value you want to insert it after.\nOnce you have initialised the node to insert, take the next value from the node currently in the list and copy it to the next value of the new node\nFinally make the next value of the original node equal to the address of the new node\n\n\n\n\nDelete\n\nTo delete an element from a linked list we must have access to the node before the one we want to delete and know the address of the one after it\nThe next value of the node before the node to be deleted should be changed to the pointer for the node after node to be deleted\nShould be cautious that if any memory is allocated to nodes it is unallocated correctly.\n\n\n\n\nAccess\n\nWhile the traditional index notation using [] will not work with a linked list it is still possible to access values at a specific index by traversing the list a specific number of times.\nWhen doing this you need to be careful of reaching the end of the list.\nThis can be used to read or write to a location.\n\nAlmost any function can be added to a list depending on what is needed for specific use cases."
+  },
+  {
+    "objectID": "Notes/n10-data-structues.html#example-implementation-in-c",
+    "href": "Notes/n10-data-structues.html#example-implementation-in-c",
+    "title": "10: data structures",
+    "section": "Example implementation in C",
+    "text": "Example implementation in C\nThe most common implementation of a linked list in c uses a structure to represent each node:\n// A linked list node\nstruct Node \n{\n    int data;\n    struct Node* next;\n};\nThe program or library will also provide a set of functions to manipulate the list."
+  },
+  {
+    "objectID": "Notes/n10-data-structues.html#doubly-linked-list",
+    "href": "Notes/n10-data-structues.html#doubly-linked-list",
+    "title": "10: data structures",
+    "section": "Doubly linked list",
+    "text": "Doubly linked list\nA simple and common variation of a linked list is a ‘doubly linked list’ (what we have seen so far is often called a singly linked list). In a doubly linked list each node holds a pointer to both the next value and the previous value.\nThis is especially useful in scenarios where the list will need to be traversed in both directions as this is a difficult task with a singularly linked list."
+  },
+  {
+    "objectID": "Notes/n10-data-structues.html#stack-implementation",
+    "href": "Notes/n10-data-structues.html#stack-implementation",
+    "title": "10: data structures",
+    "section": "Stack implementation",
+    "text": "Stack implementation\nFor a linked implementation it is possible to use a node the same as for a linked list."
+  },
+  {
+    "objectID": "Notes/n10-data-structues.html#queue-implementation",
+    "href": "Notes/n10-data-structues.html#queue-implementation",
+    "title": "10: data structures",
+    "section": "Queue Implementation",
+    "text": "Queue Implementation\nAgain we can implement it using linked nodes. Our system will have to keep track of both the current front and back nodes. Due to the nature of a queue it is optimal to implement using doubly linked nodes."
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html",
+    "href": "Notes/n09-structs-fileIO.html",
     "title": "Structures and file IO",
-    "section": "functions",
-    "text": "functions\nfopen fscanf fgets fprintf fwrite"
+    "section": "",
+    "text": "In programming a structure is a programming device that can be used to store multiple pieces of related data (potentially of different data types) together.\nStructures are particularly useful when implementing a programs that need to represent things with multiple attributes."
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#typedef",
+    "href": "Notes/n09-structs-fileIO.html#typedef",
+    "title": "Structures and file IO",
+    "section": "typedef",
+    "text": "typedef"
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#opening-a-file.",
+    "href": "Notes/n09-structs-fileIO.html#opening-a-file.",
+    "title": "Structures and file IO",
+    "section": "Opening a file.",
+    "text": "Opening a file.\nFiles can be opened with the fopen(\"filepath\", mode character) function. There are 3 main opening modes"
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#reading-a-file",
+    "href": "Notes/n09-structs-fileIO.html#reading-a-file",
+    "title": "Structures and file IO",
+    "section": "Reading a file",
+    "text": "Reading a file\nFunction to open a file in read mode. fopen(\"filepath\", \"r\") When open in this mode only read operations will work with the file pointer.\nIf you pass a file path that doesn’t exist or a file that cannot be read then the function will return a NULL pointer. If the filepath is hardcoded by the programmer it should be certain that this will not happen, this can be confirmed using an assert statement.\nIf the filepath is determined by user input a NULL pointer should be a sign that the given input is invalid.\nThe key reading files functions are:"
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#reading-by-character",
+    "href": "Notes/n09-structs-fileIO.html#reading-by-character",
+    "title": "Structures and file IO",
+    "section": "Reading by character",
+    "text": "Reading by character\n\nfgetc()"
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#reading-by-string",
+    "href": "Notes/n09-structs-fileIO.html#reading-by-string",
+    "title": "Structures and file IO",
+    "section": "Reading by string",
+    "text": "Reading by string\n\nfgets()"
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#moving-through-a-file-without-reading",
+    "href": "Notes/n09-structs-fileIO.html#moving-through-a-file-without-reading",
+    "title": "Structures and file IO",
+    "section": "Moving through a file without reading",
+    "text": "Moving through a file without reading\n\nfseek()"
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#other-read-functions",
+    "href": "Notes/n09-structs-fileIO.html#other-read-functions",
+    "title": "Structures and file IO",
+    "section": "Other read functions",
+    "text": "Other read functions\n\nfscanf()\nfread()"
+  },
+  {
+    "objectID": "Notes/n09-structs-fileIO.html#writing-to-a-file",
+    "href": "Notes/n09-structs-fileIO.html#writing-to-a-file",
+    "title": "Structures and file IO",
+    "section": "Writing to a file",
+    "text": "Writing to a file\nFunction to open a file in write mode fopen(\"filepath\", \"w\") Opening the file in this way will create a file if it doesn’t exist and overwrite any existing file completely.\nThen use the fprintf() function to write output to the file in the same way as you would write output to the standard output. The function requires the file pointer as an extra input argument.\n\nAppend mode\nTo add to a file without reopening, use this function\nfopen(\"filepath\", \"a\")\nYou can simply write to it the same way as writing a file from scratch."
   },
   {
     "objectID": "Notes/n04-c-inro.html",
@@ -396,7 +508,7 @@
     "href": "Notes/n04-c-inro.html#data-types",
     "title": "4: Introduction to C",
     "section": "Data types",
-    "text": "Data types\nThere are 2 key basic data types in C:\n\nint used to store integer numbers\nfloat used to store floating point (decimal) numbers\nchar used to store characters TODO: explain ASCII\n\nThere are also further data types used to store numbers, these are adapted to increase the range of values possible to store or the precision with which they can be stored.\nAll data types are keywords in the C language."
+    "text": "Data types\nThere are 2 key basic data types in C:\n\nint used to store integer numbers\nfloat used to store floating point (decimal) numbers\nchar used to store characters\n\nIn C characters are stored as ‘ASCII’ values and each one can be converted to their integer value see this table\n\n\nThere are also further data types used to store numbers, these are adapted to increase the range of values possible to store or the precision with which they can be stored.\nAll data types are keywords in the C language."
   },
   {
     "objectID": "Notes/n04-c-inro.html#using-variables-in-c",
@@ -404,13 +516,6 @@
     "title": "4: Introduction to C",
     "section": "Using variables in C",
     "text": "Using variables in C\nThere are three key actions that can be taken with variables\n\nInitialization - in C this defines the variables identifier and data type and will trigger the system to assign a portion of memory to it. e.g.\n\nint counter;\n\nAssignment - This alters the value of the variable stored in memory. e.g.\n\ncounter = 2;\nThe value that is being assigned can be simply typed in code or the result of an arithmetic calculation\nThese first two steps can be combined into a single line: int counter = 2;\n\nAccess - Use of the variable using the identifier in code, this can be in any statement where a value of that data type is required e.g. creating a new variable: int newCounter = counter + 2;"
-  },
-  {
-    "objectID": "Notes/n04-c-inro.html#casting-todo",
-    "href": "Notes/n04-c-inro.html#casting-todo",
-    "title": "4: Introduction to C",
-    "section": "Casting (TODO)",
-    "text": "Casting (TODO)"
   },
   {
     "objectID": "Notes/n04-c-inro.html#operator-precedence-todo",
@@ -425,6 +530,13 @@
     "title": "4: Introduction to C",
     "section": "Notes",
     "text": "Notes\n\nThis program uses the keyword const to modify the data type of the variable value. This stops the variable from being changed later in the program.\n\nUsing a static value like this is good for the program as it means that in the code there is only a single place where the value needs to be changed. This makes the code more maintainable."
+  },
+  {
+    "objectID": "Notes/n04-c-inro.html#casting",
+    "href": "Notes/n04-c-inro.html#casting",
+    "title": "4: Introduction to C",
+    "section": "Casting",
+    "text": "Casting\nCasting is the process of taking a variable of one data type and changing it to a value with a different data type, sometimes this happens implicitly and other times you have to be very specific.\n#include &lt;stdio.h&gt;\n\nint main()\n{\n    int number1 = 123, number2 = 12;\n\n    // seccond format specifier will cast from int to character\n    printf(\"Succesful cast of integer (%d) to character: %c\\n\", number1, number1);\n\n    // This will read a float from the resut of the division of two integers\n    // The value will be a float but also a whole nubmer\n    float output =  number1/number2;\n    printf(\"Failed cast from float to integer: %f\\n\", output);\n\n    // In this cast the value is cast before the operation and therefore the \n    // program mputation calculates using floating point arithmetic\n    output = number1/(float)number2;\n    printf(\"Successful cast from float to integer: %f\\n\", output);\n}\nIn general you can cast from: - character to int - int to float - float to double Without having to worry about losing information."
   },
   {
     "objectID": "Notes/n04-c-inro.html#sequential",
@@ -452,7 +564,7 @@
     "href": "Notes/n04-c-inro.html#looping",
     "title": "4: Introduction to C",
     "section": "Looping",
-    "text": "Looping\nIn looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a specific number of loops (for loop).\n\nWhile loop\nwhile(/*logical expression*/)\n{\n    // code to be run\n}\nThe logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.\n\nExample\naverage.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int counter = 0;\n    float input = 0, total = 0; \n    printf(\"This is a program to calculate the average of positive values.\\n\")\n    printf(\"Once you have entered all your values enter a negative number to calculate the average.\\n\");\n    while (input != -1)\n    {\n        printf(\"Enter value:\");\n        scanf(\"%f\", &input);\n        if (input &lt; 0)\n        {\n            continue;\n        }\n        counter += 1;\n        total += input;\n    }\n    printf(\"Average is %f\\n\", total/(float)counter);\n}\n\nBreakdown\n\nMultiple variables of the same kind can be initialised in a single line when separated with commas.\n%f format specifier for floats\nThe continue keyword causes the current iteration of the loop to end and the next one to start.\nAny control structure can be nested within another control structure.\n\n\n\n\n\nFor loop\nfor-test.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for (int i = 0; i &lt; 5; i++) // Example loop to run 5 times.\n    {\n        // Code to be run\n        printf(\"(%d)\\n\", i);\n    }\n}\n\nBreakdown\nThe for loop control code has 3 key parts:\n\nVariable initialisation and assignment.\n\nIn this example:int i = 0;\nIt is typical in C (and may other programming languages) to start counting from 0, therefore it is often useful to start a loop control variable from 0.\nThe identifier i is used as a de-facto standard but can be renamed to improve code readability.\n\nCondition.\n\nIn this example: i &lt; 5\nThe code within the loop will run while this condition is true.\nAs such be careful if a mistake is made in the condition it may prohibit the code within the loop from running.\n\nUpdating the variable\n\nIn this example: `i++\n++ is called the increment operator and simply increases the value of a variable by one. It is simply a shortening of the code x = x+1.\n-- (the decrement operator) is often used in place of ++ for decreasing loops.\nCan also use i += &lt;val&gt; or i -= &lt;val&gt; to change variable by more than one without referencing it twice.\n\n\nYou should run for-test.c to check that this is all true. You can then change the parameters to see the values of i for which the loop will be run. Change the parameters so that it runs for different values:\n\nValues from 7 to 14\nOnly even numbers to 12\nDecreasing values from 4 to 0\n\n\n\nExample\nWhat do you think this block of code will do? Run it to find out! pattern.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\nNotes\n\nNested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.\nIn this case the inner loop is dependent on the outer loop as the condition for the inner loop is based on the control value of the outer loop\n\n\n\n\n\nTODO: Break and continue"
+    "text": "Looping\nIn looping control flow segments of code are executed repeatedly either based on a logical expression (while loop) or for a specific number of loops (for loop).\n\nWhile loop\nwhile(/*logical expression*/)\n{\n    // code to be run\n}\nThe logical expression is evaluated before each time the codeblock is run, making it possible to run the code 0 times.\n\nExample\naverage.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    int counter = 0;\n    float input = 0, total = 0; \n    printf(\"This is a program to calculate the average of positive values.\\n\")\n    printf(\"Once you have entered all your values enter a negative number to calculate the average.\\n\");\n    while (input != -1)\n    {\n        printf(\"Enter value:\");\n        scanf(\"%f\", &input);\n        if (input &lt; 0)\n        {\n            continue;\n        }\n        counter += 1;\n        total += input;\n    }\n    printf(\"Average is %f\\n\", total/(float)counter);\n}\n\nBreakdown\n\nMultiple variables of the same kind can be initialised in a single line when separated with commas.\n%f format specifier for floats\nThe continue keyword causes the current iteration of the loop to end and the next one to start.\nAny control structure can be nested within another control structure.\n\n\n\n\n\nFor loop\nfor-test.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for (int i = 0; i &lt; 5; i++) // Example loop to run 5 times.\n    {\n        // Code to be run\n        printf(\"(%d)\\n\", i);\n    }\n}\n\nBreakdown\nThe for loop control code has 3 key parts:\n\nVariable initialisation and assignment.\n\nIn this example:int i = 0;\nIt is typical in C (and may other programming languages) to start counting from 0, therefore it is often useful to start a loop control variable from 0.\nThe identifier i is used as a de-facto standard but can be renamed to improve code readability.\n\nCondition.\n\nIn this example: i &lt; 5\nThe code within the loop will run while this condition is true.\nAs such be careful if a mistake is made in the condition it may prohibit the code within the loop from running.\n\nUpdating the variable\n\nIn this example: `i++\n++ is called the increment operator and simply increases the value of a variable by one. It is simply a shortening of the code x = x+1.\n-- (the decrement operator) is often used in place of ++ for decreasing loops.\nCan also use i += &lt;val&gt; or i -= &lt;val&gt; to change variable by more than one without referencing it twice.\n\n\nYou should run for-test.c to check that this is all true. You can then change the parameters to see the values of i for which the loop will be run. Change the parameters so that it runs for different values:\n\nValues from 7 to 14\nOnly even numbers to 12\nDecreasing values from 4 to 0\n\n\n\nExample\nWhat do you think this block of code will do? Run it to find out! pattern.c\n#include &lt;stdio.h&gt;\nint main()\n{\n    for(int i = 1; i &lt; 8; i++)\n    {\n        for(int j = 0; j &lt; i; j++)\n        {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n}\n\nNotes\n\nNested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.\nIn this case the inner loop is dependent on the outer loop as the condition for the inner loop is based on the control value of the outer loop\n\n\n\n\n\nBreak and continue\nbreak and continue are two keywords in C that can be used to control the program flow when using loops.\ncontinue will cause the current running loop to skip to the end and start the next loop. That is the next piece of code to be evaluated is the loop control.\nbreak will cause the current loop section to exit. That is the next line of code that will run is the first line after the loop the code is currently in."
   },
   {
     "objectID": "Notes/n04-c-inro.html#whitespace",
@@ -525,39 +637,25 @@
     "text": "Example"
   },
   {
-    "objectID": "Notes/n08-pointers-dynamic-memory.html#use-pointer-after-free",
-    "href": "Notes/n08-pointers-dynamic-memory.html#use-pointer-after-free",
+    "objectID": "Notes/n08-pointers-dynamic-memory.html#invalid-read",
+    "href": "Notes/n08-pointers-dynamic-memory.html#invalid-read",
     "title": "8: Pointers and dynamic memory",
-    "section": "Use pointer after free",
-    "text": "Use pointer after free"
-  },
-  {
-    "objectID": "Notes/n08-pointers-dynamic-memory.html#null-pointer",
-    "href": "Notes/n08-pointers-dynamic-memory.html#null-pointer",
-    "title": "8: Pointers and dynamic memory",
-    "section": "NULL pointer",
-    "text": "NULL pointer"
+    "section": "Invalid read",
+    "text": "Invalid read\nHow do we end up making an ‘invalid read’.\n\nIndex out of range\n\nThe program could simply try to access a value past what was intended when the memory was allocated to the pointer.\n\ne.g. accessing index 7 of an array that was allocated 7 blocks of memory\n\nThis may conversely happen due to memory being under allocated.\n\nincorrect array length e.g. int * array = (int*) malloc(sizeof(int) * 12) when array of size 13 is needed\nincorrect memory size allocation e.g. long * array = (long*) malloc(sizeof(int) * 12)\n\n\nUse pointer after free\n\nWhen a pointer is freed the memory associated with it is unallocated but the value of the pointer is not changed.\nIf a pointer value is accessed after it has been freed then that read will always be invalid\n\nNULL pointer\n\nIf a pointer that should hold a value is in fact NULL then when the value at this pointer is accessed it will almost always cause a segmentation fault.\nThis is a case where assert debugging is very useful and can easily catch programmer error.\n\n\n\nHow to find an invalid read\nThe easiest way to check if you have an invalid read is using the valgrind command. This program takes the full run command for a program as a set of arguments then runs the program within a special environment to assess its memory usage. This will flag all ‘invalid reads’ in your program, this report will include line numbers if you have compiled with the debug flag (-g)\n\nInvalid read output:\n==3007== Invalid read of size 4\n==3007==    at 0x109297: main (mallocTest.c:22)\nThis tool will help identify where in the code an invalid read is happening but you must use other debugging tools to understand exactly why you are having this error."
   },
   {
     "objectID": "Notes/n08-pointers-dynamic-memory.html#double-free",
     "href": "Notes/n08-pointers-dynamic-memory.html#double-free",
     "title": "8: Pointers and dynamic memory",
     "section": "Double free",
-    "text": "Double free"
-  },
-  {
-    "objectID": "Notes/n08-pointers-dynamic-memory.html#freeing-without-allocation",
-    "href": "Notes/n08-pointers-dynamic-memory.html#freeing-without-allocation",
-    "title": "8: Pointers and dynamic memory",
-    "section": "Freeing without allocation",
-    "text": "Freeing without allocation"
+    "text": "Double free\nAnother common error arises from the over use of the free() function. In general these are called ‘invalid free()’ errors.\nThe more common kind happens when free() is called twice on a single pointer, This will often trigger an output signalling a ‘double free’\nOnce again valgrind can be used to help identify which line is causing the error.\n==5932== Invalid free() / delete / delete[] / realloc()\n==5932==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)\n==5932==    by 0x1092C3: main (mallocTest.c:25)\n==5932==  Address 0x4a498c0 is 0 bytes inside a block of size 36 free'd\n==5932==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)\n==5932==    by 0x1092B7: main (mallocTest.c:24)\n==5932==  Block was alloc'd at\n==5932==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)\n==5932==    by 0x10921D: main (mallocTest.c:12)\nAn error similar to this can occur if you call free() on a pointer that does’t have a memory allocation. This will only raise a segmentation fault and not tell you why."
   },
   {
     "objectID": "Notes/n08-pointers-dynamic-memory.html#memory-leaks",
     "href": "Notes/n08-pointers-dynamic-memory.html#memory-leaks",
     "title": "8: Pointers and dynamic memory",
     "section": "Memory leaks",
-    "text": "Memory leaks"
+    "text": "Memory leaks\nYou may have noticed that if you do not include a free() statement to release the memory this will not cause the program to fail, however, this is certainly not best practice. Memory that is allocated to the program but not released when the program terminates is called a memory leak, in old operating systems"
   },
   {
     "objectID": "Notes/n03-git-hub.html",

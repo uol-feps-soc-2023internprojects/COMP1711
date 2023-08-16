@@ -280,10 +280,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#common-errors" id="toc-common-errors" class="nav-link" data-scroll-target="#common-errors">Common errors</a>
   <ul class="collapse">
-  <li><a href="#use-pointer-after-free" id="toc-use-pointer-after-free" class="nav-link" data-scroll-target="#use-pointer-after-free">Use pointer after free</a></li>
-  <li><a href="#null-pointer" id="toc-null-pointer" class="nav-link" data-scroll-target="#null-pointer">NULL pointer</a></li>
+  <li><a href="#invalid-read" id="toc-invalid-read" class="nav-link" data-scroll-target="#invalid-read">Invalid read</a>
+  <ul class="collapse">
+  <li><a href="#how-to-find-an-invalid-read" id="toc-how-to-find-an-invalid-read" class="nav-link" data-scroll-target="#how-to-find-an-invalid-read">How to find an invalid read</a></li>
+  </ul></li>
   <li><a href="#double-free" id="toc-double-free" class="nav-link" data-scroll-target="#double-free">Double free</a></li>
-  <li><a href="#freeing-without-allocation" id="toc-freeing-without-allocation" class="nav-link" data-scroll-target="#freeing-without-allocation">Freeing without allocation</a></li>
   <li><a href="#memory-leaks" id="toc-memory-leaks" class="nav-link" data-scroll-target="#memory-leaks">Memory leaks</a></li>
   </ul></li>
   </ul>
@@ -350,33 +351,65 @@ e.g.</p>
 </section>
 <section id="common-errors" class="level1">
 <h1>Common errors</h1>
-<p>Most common errors when using dynamically allocated memory stem from accessing memory not within the allocated block. This will not necessarily cause the program to exit but can lead to undefined/unexpected behaviour. If the program attempts to access memory that is allocated to a different program then itself then this will cause a ‘segmentation fault’ to avoid this we try to make sure that out program only accesses the memory allocated to it. TODO: reread - this may be an oversimplifications</p>
-<p>How do we end up trying to access memory that is not allocated to our variable.</p>
+<p>Most common errors when using dynamically allocated memory stem from accessing memory not within the allocated block, These errors are called an ‘invalid read’. This will not necessarily cause the program to exit but can lead to undefined/unexpected behaviour.</p>
+<p>If an invalid read is made to some specific areas of memory this will cause a ‘segmentation fault’ to avoid this we try to make sure that out program only accesses the memory allocated to it.</p>
+<section id="invalid-read" class="level2">
+<h2 class="anchored" data-anchor-id="invalid-read">Invalid read</h2>
+<p>How do we end up making an ‘invalid read’.</p>
 <ul>
-<li>Index out of range
+<li><strong>Index out of range</strong>
 <ul>
-<li>The program could simply try to access a value past what was intended when the memory was allocated to the pointer.</li>
+<li>The program could simply try to access a value past what was intended when the memory was allocated to the pointer.
+<ul>
+<li>e.g.&nbsp;accessing index 7 of an array that was allocated 7 blocks of memory</li>
+</ul></li>
 <li>This may conversely happen due to memory being under allocated.
 <ul>
 <li>incorrect array length e.g.&nbsp;<code>int * array = (int*) malloc(sizeof(int) * 12)</code> when array of size 13 is needed</li>
 <li>incorrect memory size allocation e.g.&nbsp;<code>long * array = (long*) malloc(sizeof(int) * 12)</code></li>
 </ul></li>
 </ul></li>
+<li><strong>Use pointer after free</strong>
+<ul>
+<li>When a pointer is freed the memory associated with it is unallocated but the value of the pointer is not changed.</li>
+<li>If a pointer value is accessed after it has been freed then that read will always be invalid</li>
+</ul></li>
+<li><strong>NULL pointer</strong>
+<ul>
+<li>If a pointer that should hold a value is in fact <code>NULL</code> then when the value at this pointer is accessed it will almost always cause a segmentation fault.</li>
+<li>This is a case where assert debugging is very useful and can easily catch programmer error.</li>
+</ul></li>
 </ul>
-<section id="use-pointer-after-free" class="level2">
-<h2 class="anchored" data-anchor-id="use-pointer-after-free">Use pointer after free</h2>
+<section id="how-to-find-an-invalid-read" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-find-an-invalid-read">How to find an invalid read</h3>
+<p>The easiest way to check if you have an invalid read is using the <code>valgrind</code> command. This program takes the full run command for a program as a set of arguments then runs the program within a special environment to assess its memory usage. This will flag all ‘invalid reads’ in your program, this report will include line numbers if you have compiled with the debug flag (<code>-g</code>)</p>
+<section id="invalid-read-output" class="level4">
+<h4 class="anchored" data-anchor-id="invalid-read-output">Invalid read output:</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>==3007== Invalid read of size 4</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>==3007==    at 0x109297: main (mallocTest.c:22)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This tool will help identify where in the code an invalid read is happening but you must use other debugging tools to understand exactly why you are having this error.</p>
 </section>
-<section id="null-pointer" class="level2">
-<h2 class="anchored" data-anchor-id="null-pointer">NULL pointer</h2>
+</section>
 </section>
 <section id="double-free" class="level2">
 <h2 class="anchored" data-anchor-id="double-free">Double free</h2>
-</section>
-<section id="freeing-without-allocation" class="level2">
-<h2 class="anchored" data-anchor-id="freeing-without-allocation">Freeing without allocation</h2>
+<p>Another common error arises from the over use of the <code>free()</code> function. In general these are called ‘invalid free()’ errors.<br>
+The more common kind happens when <code>free()</code> is called twice on a single pointer, This will often trigger an output signalling a ‘double free’</p>
+<p>Once again <code>valgrind</code> can be used to help identify which line is causing the error.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>==5932== Invalid free() / delete / delete[] / realloc()</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>==5932==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>==5932==    by 0x1092C3: main (mallocTest.c:25)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>==5932==  Address 0x4a498c0 is 0 bytes inside a block of size 36 free'd</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>==5932==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>==5932==    by 0x1092B7: main (mallocTest.c:24)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>==5932==  Block was alloc'd at</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>==5932==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>==5932==    by 0x10921D: main (mallocTest.c:12)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>An error similar to this can occur if you call <code>free()</code> on a pointer that does’t have a memory allocation. This will only raise a segmentation fault and not tell you why.</p>
 </section>
 <section id="memory-leaks" class="level2">
 <h2 class="anchored" data-anchor-id="memory-leaks">Memory leaks</h2>
+<p>You may have noticed that if you do not include a <code>free()</code> statement to release the memory this will not cause the program to fail, however, this is certainly not best practice. Memory that is allocated to the program but not released when the program terminates is called a memory leak, in old operating systems</p>
 
 
 </section>
