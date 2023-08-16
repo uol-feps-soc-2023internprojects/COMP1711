@@ -15,20 +15,22 @@ C is good for this as these are resource constrained devices
 
 lots of work in programming embedded systems
 
+TODO: Add to this section
+
 
 # Microbit Coding environment setup
 
 ## Repository setup
-- In a new repository created with a README.md press on the green button marked as code and select the tab in the popup reading Codespaces. In this menu select the ellipsis to get a new dropdown.  
+- In a new repository created on github with a README.md, press on the green button marked as code and select the Codespaces tab within the popup. In this menu select the ellipsis to get a new dropdown.  
 ![](/img/github_code.png)  
 
 - From this dropdown select the option that reads configure dev container  
 ![](/img/config-dec-cont.png)
 
-- This will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to `ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7` once this is done the file should look as such:
+- This will open a new page with a json file open as the main part of the window. In this file change the value of the image attribute to `ghcr.io/uol-feps-soc-2023internprojects/microbit-devcontainer:v0.7` once this is done the file should look as such:  
 ![](/img/devcontainer-json-example.png)
 
-- Finally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the repository.
+- Finally select the green commit changes button at the top of the page and confirm that you wish to commit the changes to main in the popup. Once this is done navigate back to the homepage of the new repository.
 
 ## Opening the codespace
 If you now navigate back to the codespace menu from the last step you can "create codespace on main" this will launch a new browser tab. It may take a little bit of time to build.
@@ -40,12 +42,9 @@ curl https://raw.githubusercontent.com/uol-feps-soc-2023internprojects/codal-boo
 ```
 This will download the python script that is used to bootstrap and/or build the project.
 
-The first command here is used to bootstrap the project, and the second is used to build the project. Projects only need to be bootstrapped once.
-``` default
-python build.py codal-microbit-v2
-python build.py
-```
-Once compiled the repository will have many more files, almost all of these do not need to be edited when coding for the microbit in this way. One important file is **MICROBIT.hex** which  which can be loaded to the Microbit.
+To bootstrap the project, run the command: `python build.py codal-microbit-v2`. This will download all the files that you need to write code for the microbit and will make a template project. 
+
+To build this project, run the command: `python build.py`. This will build the template project and output the files created, most importantly `MICROBIT.hex` which is the file that can be loaded to the microbit.
 
 ## Flashing the Microbit
 Once the project has been bootstrapped and built, the MICROBIT.hex file can be downloaded from codespaces. Then, with the Microbit connected over usb, this file can be copied over to the device. Sometimes this process can be temperamental and give a '504' error, if this happens simply try again.
@@ -78,6 +77,7 @@ int main() {
 }
 ```
 - This program uses the `while( true )` pattern to loop infinitely 
+    - While in most application C code this would be considered poor code, this is good idea for this use case as the program is intended to run forever.
 - The line `MicroBit uBit;` is very important to the code as it initialises the interface to the hardware.
 - The dot notation that is used for the functions is similar to that used in python, it uses OOP principals but it is not necessary to understand this to use this in code.
 
@@ -104,7 +104,7 @@ The Microbit can also be given the command to not execute commands for a specifi
 `uBit.sleep(<time in ms>)`
 
 # Buttons
-The codal abstraction layer allows for programs to sense if a the buttons on the device are being pressed. These code snippets can simply be used in control statements to branch or loop based on environment of the Microbit.
+The library in use allows for programs to sense if a the buttons on the device are being pressed. These code snippets can simply be used in control statements to branch or loop based on environment of the Microbit.
 `uBit.buttonA.isPressed()`
 `uBit.buttonB.isPressed()`
 `uBit.buttonAB.isPressed()`

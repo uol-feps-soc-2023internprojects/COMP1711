@@ -6,13 +6,40 @@ title: "6: Functions and arguments in C"
 - Understand what a 
 
 # What is a function?
-In the same why that a variable is a piece of data that can be referenced with an identifier, a function is a section of code that can be referenced with an identifier.
+In general a function is defined as a set of program instructions that perform a specific task and are packaged together. Functions are often described as black boxes as they receive input and create some output but it is not necessary to understand their inner workings to use them effectively.
 
-This block of code can receive data from the code calling it in the form of parameters but is otherwise isolated from the rest of the call. 
+This interface is implemented in code most commonly using parameters and return values.
+- Parameters are passed to functions using brackets in the function call.
+- These calls are evaluated to the return value of function.
 
-It is expected by the compiler that there will be a `return` statement within this codeblock that will have a value of equal type to the specified type of the function. To write a function without a return value the `void` type is used.
+## Function Definitions 
+Functions have to be defined in code before they can be used in function calls. These definitions contain some key parts:
 
-### Template of a C function
+- Definition of type
+    - functions have type definitions in the same way as variables to indicate the kind of value that they will return
+    - 
+- Definition of identifier
+    - functions, like variables, have names that must be defined
+- Definition of parameters
+    - The function defines the type and identifier to be used in the function body for each of the parameters
+
+## Function calls
+The notation for calls is fairly standard and has the function identifier followed by the list of parameters within brackets e.g. 
+``` default
+functionId(value1, value2)
+```
+
+## Function body
+In the same why that a variable is a piece of data that can be referenced with an identifier, a function is a section of code that can be referenced with an identifier. This section of code is defined in the 'function body'
+
+It is expected by the compiler that there will be a `return` statement within this codeblock that will have a value of equal type to the specified type of the function.
+
+To write a function without a return value the `void` type is used. This is often used for outputting data in a particular format.
+
+# Functions in c
+This section of the notes will outline the way in which functions can be used and defined in C.
+## C function Definition
+This is a basic template for a function definition in c.
 ``` C
 returnType identifier(parameterType parameterId, ...)
 {
@@ -21,7 +48,6 @@ returnType identifier(parameterType parameterId, ...)
 }
 
 ```
-
 ## Calling a function
 When calling a function the compiler, generally, expects to receive a value for each parameter in a pattern equal to that in which they are defined.
 
@@ -35,7 +61,7 @@ int sum( int a, int b )
 ```
 A valid function call would be: `sum(1,2)` Though this would likely be only part of a line of code: `int total = sum(1, 2);`
 
-TODO: add note about calling arguments after they are defined.
+TODO: add note about calling arguments after they are defined??
 
 ## Functions that you have already used
 - `scanf` to read input from the command line
