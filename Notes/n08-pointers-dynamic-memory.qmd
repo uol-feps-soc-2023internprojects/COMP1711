@@ -43,22 +43,57 @@ Free will deallocate the memory that was previously allocated to a pointer
 ## Example
 
 # Common errors
-Most common errors when using dynamically allocated memory stem from accessing memory not within the allocated block. This will not necessarily cause the program to exit but can lead to undefined/unexpected behaviour. If the program attempts to access memory that is allocated to a different program then itself then this will cause a 'segmentation fault' to avoid this we try to make sure that out program only accesses the memory allocated to it. TODO: reread - this may be an oversimplifications
+Most common errors when using dynamically allocated memory stem from accessing memory not within the allocated block, These errors are called an 'invalid read'. This will not necessarily cause the program to exit but can lead to undefined/unexpected behaviour. 
 
-How do we end up trying to access memory that is not allocated to our variable.
+If an invalid read is made to some specific areas of memory this will cause a 'segmentation fault' to avoid this we try to make sure that out program only accesses the memory allocated to it. 
 
-- Index out of range
+## Invalid read
+How do we end up making an 'invalid read'.
+
+- **Index out of range**
     - The program could simply try to access a value past what was intended when the memory was allocated to the pointer.
+        - e.g. accessing index 7 of an array that was allocated 7 blocks of memory
     - This may conversely happen due to memory being under allocated.
         - incorrect array length e.g. `int * array = (int*) malloc(sizeof(int) * 12)` when array of size 13 is needed
         - incorrect memory size allocation e.g. `long * array = (long*) malloc(sizeof(int) * 12)`
 
-## Use pointer after free
+- **Use pointer after free**
+    - When a pointer is freed the memory associated with it is unallocated but the value of the pointer is not changed.
+    - If a pointer value is accessed after it has been freed then that read will always be invalid
 
-## NULL pointer
+- **NULL pointer**
+    - If a pointer that should hold a value is in fact `NULL` then when the value at this pointer is accessed it will almost always cause a segmentation fault.
+    - This is a case where assert debugging is very useful and can easily catch programmer error.
+
+### How to find an invalid read
+The easiest way to check if you have an invalid read is using the `valgrind` command. This program takes the full run command for a program as a set of arguments then runs the program within a special environment to assess its memory usage. This will flag  all 'invalid reads' in your program, this report will include line numbers if you have compiled with the debug flag (`-g`) 
+
+#### Invalid read output:
+``` default
+==3007== Invalid read of size 4
+==3007==    at 0x109297: main (mallocTest.c:22)
+```
+
+This tool will help identify where in the code an invalid read is happening but you must use other debugging tools to understand exactly why you are having this error.
 
 ## Double free
+Another common error arises from the over use of the `free()` function. In general these are called 'invalid free()' errors.  
+The more common kind happens when `free()` is called twice on a single pointer, This will often trigger an output signalling a 'double free'
 
-## Freeing without allocation
+Once again `valgrind` can be used to help identify which line is causing the error.
+```  default
+==5932== Invalid free() / delete / delete[] / realloc()
+==5932==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5932==    by 0x1092C3: main (mallocTest.c:25)
+==5932==  Address 0x4a498c0 is 0 bytes inside a block of size 36 free'd
+==5932==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5932==    by 0x1092B7: main (mallocTest.c:24)
+==5932==  Block was alloc'd at
+==5932==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5932==    by 0x10921D: main (mallocTest.c:12)
+```
+
+An error similar to this can occur if you call `free()` on a pointer that does't have a memory allocation. This will only raise a segmentation fault and not tell you why.
 
 ## Memory leaks
+You may have noticed that if you do not include a `free()` statement to release the memory this will not cause the program to fail, however, this is certainly not best practice. Memory that is allocated to the program but not released when the program terminates is called a memory leak, in old operating systems 

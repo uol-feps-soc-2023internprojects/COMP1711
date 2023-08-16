@@ -3,18 +3,83 @@ title: "Structures and file IO"
 ---
 
 # What is a structure
+In programming a structure is a programming device that can be used to store multiple pieces of related data (potentially of different data types) together.
 
-## How can it be used
+Structures are particularly useful when implementing a programs that need to represent things with multiple attributes.
 
-## Syntax in C
+# Defining a structure in C
+Template for defining a structure in C:
+``` c
+struct StructureName
+{
+    type memberIdentifier;
+    type memberIdentifier2;
+    // etc ...
+}
+```
+
+Template for usage of a structure in C:
+``` c
+struct StructureName structureIdentifier;
+structureIdentifier.memberIdentifier = value;
+```
 
 ## typedef
+<!-- This one seems to be controversial with some sources in support and others against it-->
+
+# Structure example
 
 # File IO
+Reading from and writing to files is an important part of many programs. Most programming languages will provide an interface similar to that which is out for command line interaction that can be used for files.
 
-## functions
-fopen
-fscanf
-fgets
-fprintf
-fwrite
+The functions and structures for file IO in are also defined in the `stdio` header.
+
+In C this system is built around a special structure which is called `FILE` we never interact with the structure directly and only use it as a pointer. 
+
+This can be declared as such:
+```
+FILE * filePointer;
+```
+The `struct` keyword can be omitted in this case due to the way that `FILE` is declared. 
+
+## Opening a file.
+
+Files can be opened with the `fopen("filepath", mode character)` function. There are 3 main opening modes
+
+## Reading a file
+
+Function to open a file in read mode.
+`fopen("filepath", "r")`
+When open in this mode only read operations will work with the file pointer. 
+
+If you pass a file path that doesn't exist or a file that cannot be read then the function will return a NULL pointer. If the filepath is hardcoded by the programmer it should be certain that this will not happen, this can be confirmed using an assert statement.
+
+If the filepath is determined by user input a NULL pointer should be a sign that the given input is invalid.
+
+The key reading files functions are:
+
+## Reading by character
+- `fgetc()`
+
+## Reading by string
+- `fgets()`
+
+## Moving through a file without reading
+- `fseek()`
+
+## Other read functions
+- `fscanf()`
+- `fread()`
+
+## Writing to a file
+Function to open a file in write mode
+`fopen("filepath", "w")`
+Opening the file in this way will create a file if it doesn't exist and overwrite any existing file completely.
+
+Then use the `fprintf()` function to write output to the file in the same way as you would write output to the standard output. The function requires the file pointer as an extra input argument.
+
+
+### Append mode
+To add to a file without reopening, use this function  
+`fopen("filepath", "a")`  
+You can simply write to it the same way as writing a file from scratch.

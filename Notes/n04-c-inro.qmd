@@ -87,7 +87,8 @@ There are 2 key basic data types in C:
 
 - `int` used to store integer numbers 
 - `float` used to store floating point (decimal) numbers
-- `char` used to store characters TODO: explain ASCII
+- `char` used to store characters  
+    - In C characters are stored as 'ASCII' values and each one can be converted to their integer value [see this table](https://www.rapidtables.com/code/text/ascii-table.html)
 
 There are also further data types used to store numbers, these are adapted to increase the range of values possible to store or the precision with which they can be stored.
 
@@ -104,8 +105,6 @@ There are three key actions that can be taken with variables
     * The value that is being assigned can be simply typed in code or the result of an arithmetic calculation
     * These first two steps can be combined into a single line: `int counter = 2;`
 * Access - Use of the variable using the identifier in code, this can be in any statement where a value of that data type is required e.g. creating a new variable: `int newCounter = counter + 2;`
-
-## Casting (TODO)
 
 # Reading Input
 Lets customize the hello world program to say hello to you. We can use a variable and `scanf()` to do this.
@@ -160,6 +159,38 @@ int main()
 ## Notes
 - This program uses the keyword `const` to modify the data type of the variable `value`. This stops the variable from being changed later in the program.
     - Using a static value like this is good for the program as it means that in the code there is only a single place where the value needs to be changed. This makes the code more maintainable.
+
+## Casting 
+Casting is the process of taking a variable of one data type and changing it to a value with a different data type, sometimes this happens implicitly and other times you have to be very specific.
+
+``` c
+#include <stdio.h>
+
+int main()
+{
+    int number1 = 123, number2 = 12;
+
+    // seccond format specifier will cast from int to character
+    printf("Succesful cast of integer (%d) to character: %c\n", number1, number1);
+
+    // This will read a float from the resut of the division of two integers
+    // The value will be a float but also a whole nubmer
+    float output =  number1/number2;
+    printf("Failed cast from float to integer: %f\n", output);
+
+    // In this cast the value is cast before the operation and therefore the 
+    // program mputation calculates using floating point arithmetic
+    output = number1/(float)number2;
+    printf("Successful cast from float to integer: %f\n", output);
+}
+```
+
+In general you can cast from:
+- character to int
+- int to float
+- float to double
+Without having to worry about losing information.
+
 
 # Control flow
 Control flow is the process by which the program selects what line should be run next there are different ways to do this:
@@ -327,7 +358,14 @@ int main()
 - Nested for loops are a common pattern. You have to make sure to use different variables for the inner and outer loops.
 - In this case the inner loop is dependent on the outer loop as the condition for the inner loop is  based on the control value of the outer loop
 
-### TODO: Break and continue 
+### Break and continue 
+`break` and `continue` are two keywords in C that can be used to control the program flow when using loops.
+
+`continue` will cause the current running loop to skip to the end and start the next loop. That is the next piece of code to be evaluated is the loop control. 
+
+`break` will cause the current loop section to exit. That is the next line of code that will run is the first line after the loop the code is currently in.
+
+<!-- May be worth including information about how it is often better to change the loop conditions than to use these keywords -->
 
 # Scope (What is {})
 Scope is the area of a code file where a variable can be referenced; variables can be accessed in any child scope of the scope in which they are defined. In C `{}` always defines a scope for whatever keyword it is related to. You can also define a scope without a keyword.
