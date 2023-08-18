@@ -38,6 +38,8 @@ Follow these steps to create a new repository from a template and open it in cod
 More will be explained about git, github and version control in the future.
 :::
 
+TODO:: How to upload files to Codespaces
+
 # The terminal
 The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.
 

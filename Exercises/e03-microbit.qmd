@@ -1,0 +1,28 @@
+---
+title: "Microbit Exercises"
+--- 
+# Part 1 - Displaying images
+This is a basic program to display an image.
+
+``` c
+#include "MicroBit.h"
+
+// The Micro:bit control object
+MicroBit uBit;
+
+// Out main function, run at startup
+int main() 
+{
+    
+
+    
+    // Loop forever
+    while( true ) 
+    {
+        // loop is empty as we are not repeating anything
+    }
+
+    // Will never return, but here so the compiler is happy :)
+    return 0;
+}
+```

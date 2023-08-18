@@ -1,0 +1,40 @@
+---
+title: "Exercise ideas:"
+---
+
+# Ideas used in the notes
+## Basics
+- Hello world
+- Program that says if a number is within different ranges
+- Average taker
+- Pattern maker
+
+# Functions and arguments
+- Temperature conversion
+
+# Ideas for exercises
+## C 1.1 (very basic)
+- Parsons problem (jumbled code)
+- Odd or even
+- Interest calculator (might need to use maths library)?
+
+## C 1.2: (control structures)
+- Program to sum the digits of an integer.
+- Multiplication table/ trainer
+- patterns (written)
+
+## C 2 (microbit) (some of these should end up as coursework)
+- Count through the alphabet. (uses arrays) - will write 2 versions one using array one using integers. Done
+- Basic image manipulation (explain image.paste)
+- Basic button interaction (maybe each button displays a different image).
+    - This could be extended by making the image disappear after a certain amount of time
+- Simple game where you press buttons to react to prompt on screen
+
+- Done (code but not guided exercise)
+    - Moving line
+    - Binary, hex(uses arrays) and quinary counters
+    - Compass
+    - Sparkle screen (better as an example of what can be done than as an exercise to do)
+
+## C 3 (functions)
+
