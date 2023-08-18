@@ -61,8 +61,6 @@ int sum( int a, int b )
 ```
 A valid function call would be: `sum(1,2)` Though this would likely be only part of a line of code: `int total = sum(1, 2);`
 
-TODO: add note about calling arguments after they are defined??
-
 ## Functions that you have already used
 - `scanf` to read input from the command line
 - `printf` to output to the command line
@@ -188,10 +186,10 @@ int main()
 ### Breakdown
 - Here we can see that the function implementation that was previously in the `temperature.c` file has now been moved to a separate `tempConversion.c` file.
     - The header file `tempConversion.h` is used to declare which parts of `tempConversion.c` should be accessible to other files.
-    - This is done as a separate file as it is mainly relevant to c files that are importing the code rather than the code itself TODO; rewrite this?
+    - This information is in a separate file as it is important to the files using the library rather than the library itself.
 
 - In order to compile this code we must include `tempConversion.c` in the compilation command. Therefore the compilation would look something like this:
     - (run from `/c-basics`) `gcc temperatureV2.c tempConversion.c`
 
 
-# Recursion
+<!-- TODO: maybe add this section: # Recursion -->

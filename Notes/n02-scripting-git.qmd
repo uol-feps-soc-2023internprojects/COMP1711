@@ -11,13 +11,13 @@ Instructions in this file are to be run in the same codespace based on 1711-intr
 - Be familiar making and executing shell scripts
 
 # Shell scripts
-Shell scripts, often called bash scripts due to the prevalence of the bash script, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks.
+Shell scripts, often called bash scripts due to the prevalence of the bash script, are text file containing terminal commands that can be run to run all the commands. It is typical but not required in linux to give these files the .sh file extension. These are usually used to automate simple tasks,  though shell scripting is essentially a fully featured programming language.
 
 First make a a new file in the `scripts` directory called `time.sh`. In the file put these lines:
 
 ``` bash
 #!/bin/bash
-echo $(date)
+echo "The current date and time is: $(date)"
 ```
 ::: {.callout-tip}
 To do this use the `mkdir`, `cd`, `touch` and `nano` commands
@@ -25,8 +25,8 @@ To do this use the `mkdir`, `cd`, `touch` and `nano` commands
 
 #### Code breakdown 
 * `#!/bin/bash` tells the operating system where to find the shell to run the script. This must be the first string in the first line of the script to ensure portability and reliability.
-* `echo` is a command for outputting to the command line.
-* `$(date)` is a value maintained by the system and accessible from the command line.
+* The `echo` command simply outputs text to the command line.
+* `$(date)` passes the output of the `date` command to be part of the string passed to the echo command. This is one of many strange shortcuts in shell scripting.
 
 When we wish to execute a program in our current directory we call it as a command by appending `./` to the name. This tells the operating system to look in the current directory for the program to run.
 
@@ -107,4 +107,19 @@ This does have a significant performance benefit though that can be seen by usin
 Remember to save your changes to your Codespace.
 :::
 
-TODO:: Passing arguments to scripts
+# Arguments
+Most of the commands that we have interacted with so far expect some command line arguments when they are run. We too can make our shell scripts more versatile or reusable by making them accept arguments. 
+
+Within the script arguments can be accessed as numbered variables. i.e. `$0` will hold the value of the command itself and subsequent values (`$1``$2` etc...) will contain the arguments that have been passed. The number of arguments is stored in the `$#` variable
+
+``` bash
+#!/bin/bash
+
+echo "This program was passed $# arguments"
+echo "The program command was $0"
+echo "The first argument was $1"
+echo "The last argument was ${@:$#}"
+```
+:::{.callout-note}
+The last line uses a special notation to access the `$#`th element of `$@` which is the array of arguments. It is not necessary to understand this.
+:::

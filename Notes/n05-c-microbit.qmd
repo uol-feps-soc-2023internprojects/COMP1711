@@ -7,16 +7,13 @@ title: "5: C for the Microbit"
 # What is the Microbit?
 ![[Image Source](https://makecode.microbit.org/device)](/img/microbit.png){fig-alt="Diagram labeling the Microbit's different sensors and output options"}
 
-The BBC Microbit is a single board computer 
+The BBC Microbit is a single board computer designed to help teach children to code. In most cases it is programmed using a codeblock interface or using python, in this module we will write code for the microbit using C.
+
+The reduced function set in C allows us to focus on the fundamentals of procedural programming and gives a more realistic impression of real world coding for embedded systems
+
+You will write code for the Microbit in a Codespace with special configuration, this is required as the compilation of the code for the microbit requires specific libraries.
 
 <!-- ## Why should we use the microbit -->
-
-C is good for this as these are resource constrained devices
-
-lots of work in programming embedded systems
-
-TODO: Add to this section
-
 
 # Microbit Coding environment setup
 

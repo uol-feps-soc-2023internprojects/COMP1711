@@ -7,7 +7,7 @@ Reference to a specific location within the memory allotted to the program by th
 
 These values can be stored in C. If you want to declare a pointer rather than a variable simply add an `*` to the variable declaration. (the data type is still required)
 
-TODO: Maybe write about void pointer
+<!--TODO: Maybe write about void pointer -->
 
 declaration of different pointers
 ``` c

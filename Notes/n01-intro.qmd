@@ -38,8 +38,6 @@ Follow these steps to create a new repository from a template and open it in cod
 More will be explained about git, github and version control in the future.
 :::
 
-TODO:: How to upload files to Codespaces
-
 # The terminal
 The terminal is a window on a machine that allows for the input and output of text. The shell is the primary interface that is run within the terminal, creating a command line interface (CLI). Choice of shell will effect user experience but not functionality, common shells include: bash, zhs, and fish.
 
@@ -182,6 +180,11 @@ $ touch test-dir/temp.txt
 $ ls test-dir
 temp.txt
 ```
+
+### Uploading files to Codespaces
+Files can also be uploaded to codespaces, this is in the dropdown options when you right click the file explorer.
+
+![](/img/codespaceUpload.png){fig-alt="Image of the right click dropdown for the file explorer"}
 
 ## Writing to files
 This can be done firstly with output redirection. Try running this command.

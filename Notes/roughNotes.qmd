@@ -9,9 +9,6 @@ title: TODO
 
 # Missiong parts
 - Microbit examples and exercises
-- ASCII
-- Casting 
-
 
 # C exersizes
 
@@ -55,3 +52,5 @@ title: TODO
 - search & sort 
 
 # Review
+- A lot of the more complex ideas with the microbit essentially will require either creating an event handler or using the one built into the library,  I have yet to fully explore this so have not included it in the notes yet. I am also not sure if the extra complexity is worth it given I'm still unsure of the complexity of the microbit tasks the students will be assigned.
+

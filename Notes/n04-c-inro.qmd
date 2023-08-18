@@ -153,8 +153,6 @@ int main()
     printf("Your value modulo 3 = %d\n", value % 3);
 }
 ```
-## Operator precedence (TODO) 
-
 
 ## Notes
 - This program uses the keyword `const` to modify the data type of the variable `value`. This stops the variable from being changed later in the program.
